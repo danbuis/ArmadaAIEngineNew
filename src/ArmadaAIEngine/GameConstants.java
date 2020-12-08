@@ -7,7 +7,7 @@ public class GameConstants {
      */
 
     // Dimensions in millimeters
-    /*
+    /**
      * Ranges and distances were sourced from FFG user leerat at
      * https://community.fantasyflightgames.com/topic/173990-exact-measurements-on-range-ruler/
      * 13/2/2017
@@ -21,7 +21,8 @@ public class GameConstants {
     public static final float RANGE_CLOSE = 123;
     public static final float RANGE_MEDIUM = 187;
     public static final float RANGE_LONG = 305;
-    /*
+
+    /**
      * Ship sizes were sourced from
      * http://starwars-armada.wikia.com/wiki/Size_Class
      * 13/2/2017
@@ -32,6 +33,5 @@ public class GameConstants {
     public static final float SHIP_MEDIUM_LENGTH = 102;
     public static final float SHIP_LARGE_WIDTH = 76;
     public static final float SHIP_LARGE_LENGTH = 129;
-
     public static final float SHIP_BASE_RAILS = 2;
 }
