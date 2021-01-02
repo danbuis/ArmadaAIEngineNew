@@ -1,4 +1,4 @@
-package ArmadaAIEngine;
+package engine;
 
 public class GameConstants {
     /**
@@ -21,6 +21,8 @@ public class GameConstants {
     public static final float RANGE_CLOSE = 123;
     public static final float RANGE_MEDIUM = 187;
     public static final float RANGE_LONG = 305;
+    public static final float SHORT_BOARD_EDGE = 914.4f;
+    public static final float LONG_BOARD_EDGE = 1828.8f;
 
     /**
      * Ship sizes were sourced from
@@ -34,4 +36,9 @@ public class GameConstants {
     public static final float SHIP_LARGE_WIDTH = 76;
     public static final float SHIP_LARGE_LENGTH = 129;
     public static final float SHIP_BASE_RAILS = 2;
+
+    /**Layers, how far from the camera the associated items are drawn
+     *
+     */
+    public static final int MAP_BACKGROUND_LAYER = 100;
 }
