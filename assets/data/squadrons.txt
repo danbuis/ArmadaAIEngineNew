@@ -142,3 +142,136 @@ AntiSquadronDice|BBBK
 Keywords|Adept1 Counter2 Dodge1
 Points|17
 DefenseTokens|
+
+SquadName|Haor Chall Prototypes
+Unique|Y
+SquadType|Vulture-class Droid Fighter
+Faction|Separatist
+Hull|3
+Speed|4
+AntiShipDice|R
+AntiSquadronDice|BK
+Keywords|Swarm AI:Anti-Squadron1
+Points|16
+DefenseTokens|Br Sc
+
+SquadName|DFS-311
+Unique|Y
+SquadType|Vulture-class Droid Fighter
+Faction|Separatist
+Hull|3
+Speed|4
+AntiShipDice|R
+AntiSquadronDice|RK
+Keywords|Swarm AI:Anti-Squadron1 Intel
+Points|18
+DefenseTokens|Br Sc
+
+SquadName|Vulture-class Droid Fighter
+Unique|N
+SquadType|Vulture-class Droid Fighter
+Faction|Separatist
+Hull|3
+Speed|4
+AntiShipDice|R
+AntiSquadronDice|BK
+Keywords|Swarm AI:Anti-Squadron1
+Points|8
+DefenseTokens|
+
+SquadName|DBS-404
+Unique|Y
+SquadType|Hyena-class Droid Bomber
+Faction|Separatist
+Hull|4
+Speed|4
+AntiShipDice|R
+AntiSquadronDice|BB
+Keywords|Bomber Heavy AI:Battery1
+Points|17
+DefenseTokens|Br Sc
+
+SquadName|Baktoid Prototypes
+Unique|Y
+SquadType|Hyena-class Droid Bomber
+Faction|Separatist
+Hull|4
+Speed|4
+AntiShipDice|R
+AntiSquadronDice|BB
+Keywords|Bomber Heavy AI:Battery1
+Points|16
+DefenseTokens|Br Sc
+
+SquadName|Hyena-class Droid Bomber
+Unique|N
+SquadType|Hyena-class Droid Bomber
+Faction|Separatist
+Hull|4
+Speed|4
+AntiShipDice|R
+AntiSquadronDice|BB
+Keywords|Bomber Heavy AI:Battery1
+Points|11
+DefenseTokens|
+
+
+SquadName|General Grievous
+Unique|Y
+SquadType|Belbullab-22 Starfighter
+Faction|Separatist
+Hull|5
+Speed|4
+AntiShipDice|K
+AntiSquadronDice|KKBB
+Keywords|Relay2 Screen
+Points|22
+DefenseTokens|Br Br
+
+SquadName|Belbullab-22 Starfighter
+Unique|N
+SquadType|Belbullab-22 Starfighter
+Faction|Separatist
+Hull|5
+Speed|4
+AntiShipDice|B
+AntiSquadronDice|KKBB
+Keywords|Relay1 Screen
+Points|15
+DefenseTokens|
+
+SquadName|Phlac-Arphocc Prototypes
+Unique|Y
+SquadType|Droid Tri-Fighter
+Faction|Separatist
+Hull|3
+Speed|5
+AntiShipDice|K
+AntiSquadronDice|RBK
+Keywords|AI:Anti-Squadron1 Counter2 Swarm
+Points|19
+DefenseTokens|Br Sc
+
+SquadName|DIS-T81
+Unique|Y
+SquadType|Droid Tri-Fighter
+Faction|Separatist
+Hull|3
+Speed|5
+AntiShipDice|K
+AntiSquadronDice|RBK
+Keywords|AI:Anti-Squadron1 Counter2 Swarm Snipe3
+Points|17
+DefenseTokens|Br Sc
+
+SquadName|Droid Tri-Fighter
+Unique|N
+SquadType|Droid Tri-Fighter
+Faction|Separatist
+Hull|3
+Speed|5
+AntiShipDice|K
+AntiSquadronDice|RBB
+Keywords|AI:Anti-Squadron1 Counter2 Swarm
+Points|11
+DefenseTokens|
