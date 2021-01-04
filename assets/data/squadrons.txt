@@ -275,3 +275,111 @@ AntiSquadronDice|RBB
 Keywords|AI:Anti-Squadron1 Counter2 Swarm
 Points|11
 DefenseTokens|
+
+SquadName|Luke Skywalker
+Unique|Y
+SquadType|X-wing
+Faction|Rebel
+Hull|5
+Speed|3
+AntiShipDice|K
+AntiSquadronDice|BBBB
+Keywords|Escort Bomber
+Points|20
+DefenseTokens|Br Br
+
+SquadName|Wedge Antilles
+Unique|Y
+SquadType|X-wing
+Faction|Rebel
+Hull|5
+Speed|3
+AntiShipDice|K
+AntiSquadronDice|BBBB
+Keywords|Escort Bomber
+Points|19
+DefenseTokens|Br Br
+
+SquadName|X-wing
+Unique|N
+SquadType|X-wing
+Faction|Rebel
+Hull|5
+Speed|3
+AntiShipDice|R
+AntiSquadronDice|BBBB
+Keywords|Escort Bomber
+Points|13
+DefenseTokens|
+
+SquadName|"Dutch" Vander
+Unique|Y
+SquadType|Y-wing
+Faction|Rebel
+Hull|6
+Speed|3
+AntiShipDice|K
+AntiSquadronDice|BBB
+Keywords|Bomber Heavy
+Points|16
+DefenseTokens|Br Br
+
+SquadName|Y-wing
+Unique|N
+SquadType|Y-wing
+Faction|Rebel
+Hull|5
+Speed|3
+AntiShipDice|K
+AntiSquadronDice|BB
+Keywords|Bomber
+Points|10
+DefenseTokens|
+
+SquadName|Keyan Farlander
+Unique|Y
+SquadType|B-wing
+Faction|Rebel
+Hull|6
+Speed|3
+AntiShipDice|KK
+AntiSquadronDice|BBB
+Keywords|Bomber
+Points|20
+DefenseTokens|Br Br
+
+SquadName|B-wing
+Unique|N
+SquadType|B-wing
+Faction|Rebel
+Hull|5
+Speed|2
+AntiShipDice|KB
+AntiSquadronDice|BBB
+Keywords|Bomber
+Points|14
+DefenseTokens|
+
+SquadName|Tycho Celchu
+Unique|Y
+SquadType|A-wing
+Faction|Rebel
+Hull|4
+Speed|5
+AntiShipDice|K
+AntiSquadronDice|BBB
+Keywords|Counter2
+Points|16
+DefenseTokens|Br Sc
+
+SquadName|A-wing
+Unique|N
+SquadType|A-wing
+Faction|Rebel
+Hull|4
+Speed|5
+AntiShipDice|K
+AntiSquadronDice|BBB
+Keywords|Counter2
+Points|11
+DefenseTokens|
