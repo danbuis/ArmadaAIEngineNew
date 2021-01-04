@@ -383,3 +383,111 @@ AntiSquadronDice|BBB
 Keywords|Counter2
 Points|11
 DefenseTokens|
+
+SquadName|"Howlrunner"
+Unique|Y
+SquadType|TIE Fighter
+Faction|Imperial
+Hull|3
+Speed|4
+AntiShipDice|B
+AntiSquadronDice|BBB
+Keywords|Swarm
+Points|16
+DefenseTokens|Br Sc
+
+SquadName|"Mauler" Mithel
+Unique|Y
+SquadType|TIE Fighter
+Faction|Imperial
+Hull|3
+Speed|4
+AntiShipDice|B
+AntiSquadronDice|BBB
+Keywords|Swarm
+Points|15
+DefenseTokens|Br Sc
+
+SquadName|TIE Fighter
+Unique|N
+SquadType|Tie Fighter
+Faction|Imperial
+Hull|3
+Speed|4
+AntiShipDice|B
+AntiSquadronDice|BBB
+Keywords|Swarm
+Points|8
+DefenseTokens|
+
+SquadName|Major Rhymer
+Unique|Y
+SquadType|TIE Bomber
+Faction|Imperial
+Hull|5
+Speed|4
+AntiShipDice|K
+AntiSquadronDice|KB
+Keywords|Bomber Heavy
+Points|16
+DefenseTokens|Br Br
+
+SquadName|TIE Bomber
+Unique|N
+SquadType|TIE Bomber
+Faction|Imperial
+Hull|5
+Speed|4
+AntiShipDice|K
+AntiSquadronDice|K
+Keywords|Bomber
+Points|9
+DefenseTokens|
+
+SquadName|Darth Vader
+Unique|Y
+SquadType|TIE Advanced
+Faction|Imperial
+Hull|5
+Speed|4
+AntiShipDice|K
+AntiSquadronDice|BBBK
+Keywords|Escort
+Points|21
+DefenseTokens|Br Br
+
+SquadName|TIE Advanced
+Unique|N
+SquadType|TIE Advanced
+Faction|Imperial
+Hull|5
+Speed|4
+AntiShipDice|K
+AntiSquadronDice|BBB
+Keywords|Escort
+Points|12
+DefenseTokens|
+
+SquadName|Soontir Fel
+Unique|Y
+SquadType|TIE Interceptor
+Faction|Imperial
+Hull|3
+Speed|5
+AntiShipDice|B
+AntiSquadronDice|BBBB
+Keywords|Counter2 Swarm
+Points|18
+DefenseTokens|Br Sc
+
+SquadName|TIE Interceptor
+Unique|N
+SquadType|TIE Interceptor
+Faction|Imperial
+Hull|3
+Speed|5
+AntiShipDice|B
+AntiSquadronDice|BBB
+Keywords|Counter2 Swarm
+Points|11
+DefenseTokens|
