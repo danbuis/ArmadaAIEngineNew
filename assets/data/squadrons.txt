@@ -1,0 +1,144 @@
+SquadName|"Axe"
+Unique|Y
+SquadType|V-19 Torrent
+Faction|Republic
+Hull|5
+Speed|3
+AntiShipDice|K
+AntiSquadronDice|RBB
+Keywords|Escort Swarm
+Points|17
+DefenseTokens|Br Ev
+
+SquadName|"Kickback"
+Unique|Y
+SquadType|V-19 Torrent
+Faction|Republic
+Hull|5
+Speed|3
+AntiShipDice|K
+AntiSquadronDice|RBB
+Keywords|Escort Swarm
+Points|16
+DefenseTokens|Br Br
+
+SquadName|V-19 Torrent
+Unique|N
+SquadType|V-19 Torrent
+Faction|Republic
+Hull|5
+Speed|3
+AntiShipDice|K
+AntiSquadronDice|RBB
+Keywords|Swarm Escort
+Points|12
+DefenseTokens|
+
+SquadName|Anakin Skywalker
+Unique|Y
+SquadType|BTL-B Y-wing
+Faction|Republic
+Hull|6
+Speed|3
+AntiShipDice|RB
+AntiSquadronDice|BBB
+Keywords|Bomber Heavy Adept2
+Points|19
+DefenseTokens|Br Br
+
+SquadName|BTL-B Y-wing
+Unique|N
+SquadType|BTL-B Y-wing
+Faction|Republic
+Hull|6
+Speed|3
+AntiShipDice|K
+AntiSquadronDice|BK
+Keywords|Bomber Heavy
+Points|10
+DefenseTokens|
+
+
+SquadName|"Odd Ball"
+Unique|Y
+SquadType|ARC-170 Starfighter
+Faction|Republic
+Hull|7
+Speed|2
+AntiShipDice|BB
+AntiSquadronDice|RBB
+Keywords|Bomber Counter1
+Points|23
+DefenseTokens|Br Ev
+
+SquadName|ARC-170 Starfighter
+Unique|N
+SquadType|ARC-170 Starfighter
+Faction|Republic
+Hull|7
+Speed|2
+AntiShipDice|BB
+AntiSquadronDice|RBB
+Keywords|Bomber Counter1
+Points|15
+DefenseTokens|
+
+SquadName|Ahsoka Tano
+Unique|Y
+SquadType|Delta-7 Aethersprite
+Faction|Republic
+Hull|4
+Speed|4
+AntiShipDice|B
+AntiSquadronDice|BBBK
+Keywords|Adept1 Counter2 Grit
+Points|23
+DefenseTokens|Br Sc
+
+SquadName|Kit Fisto
+Unique|Y
+SquadType|Delta-7 Aethersprite
+Faction|Republic
+Hull|4
+Speed|4
+AntiShipDice|B
+AntiSquadronDice|BBBK
+Keywords|Adept2 Counter2 Intel
+Points|26
+DefenseTokens|Br Br
+
+SquadName|Luminara Unduli
+Unique|Y
+SquadType|Delta-7 Aethersprite
+Faction|Republic
+Hull|4
+Speed|4
+AntiShipDice|B
+AntiSquadronDice|BBBK
+Keywords|Adept1 Counter2
+Points|23
+DefenseTokens|Br Sc
+
+SquadName|Plo Koon
+Unique|Y
+SquadType|Delta-7 Aethersprite
+Faction|Republic
+Hull|4
+Speed|4
+AntiShipDice|B
+AntiSquadronDice|BBBK
+Keywords|Adept2 Counter2
+Points|24
+DefenseTokens|Br Sc
+
+SquadName|Delta-7 Aethersprite
+Unique|N
+SquadType|Delta-7 Aethersprite
+Faction|Republic
+Hull|4
+Speed|4
+AntiShipDice|B
+AntiSquadronDice|BBBK
+Keywords|Adept1 Counter2 Dodge1
+Points|17
+DefenseTokens|
