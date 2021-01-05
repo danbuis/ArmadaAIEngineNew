@@ -59,5 +59,14 @@ public class SquadronParserTests {
         assertEquals(expectedMessage, actualMessage);
     }
 
+    @Test
+    public void testBadFaction() throws FileNotFoundException, ParsingException {
+        Exception exception = assertThrows(ParsingException.class, () -> new Squadrons("assets/data/test/squadrons_bad_faction.txt"));
+        String expectedMessage = "Illegal faction : Weasel.";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
 
 }
