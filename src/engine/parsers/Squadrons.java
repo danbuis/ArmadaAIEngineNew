@@ -53,7 +53,15 @@ public class Squadrons {
                             throw new ParsingException("Illegal faction : "+value+".");
                         }
                         break;
-                    case "Hull": this.hull = Integer.parseInt(value);
+                    case "Hull": try{
+                            this.hull = Integer.parseInt(value);
+                            if(this.hull <= 0){
+                                throw new ParsingException("Illegal integer value found for Hull : "+value+".");
+                            }
+                        }
+                        catch(NumberFormatException e){
+                            throw new ParsingException("Non integer value found for Hull : "+value+".");
+                        }
                         break;
                     case "Speed": this.speed = Integer.parseInt(value);
                         break;

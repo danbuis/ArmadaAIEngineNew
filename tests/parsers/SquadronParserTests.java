@@ -68,5 +68,23 @@ public class SquadronParserTests {
         assertEquals(expectedMessage, actualMessage);
     }
 
+    @Test
+    public void testBadHull() throws FileNotFoundException, ParsingException {
+        Exception exception = assertThrows(ParsingException.class, () -> new Squadrons("assets/data/test/squadrons_bad_hull.txt"));
+        String expectedMessage = "Non integer value found for Hull : Guac.";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
+    @Test
+    public void testNegativeHull() throws FileNotFoundException, ParsingException {
+        Exception exception = assertThrows(ParsingException.class, () -> new Squadrons("assets/data/test/squadrons_bad_hull_negative.txt"));
+        String expectedMessage = "Illegal integer value found for Hull : -1.";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
 
 }

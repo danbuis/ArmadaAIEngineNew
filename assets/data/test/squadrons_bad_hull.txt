@@ -1,0 +1,11 @@
+SquadName|TIE Interceptor
+Unique|N
+SquadType|TIE Interceptor
+Faction|Imperial
+Hull|Guac
+Speed|5
+AntiShipDice|B
+AntiSquadronDice|BBB
+Keywords|Counter2 Swarm
+Points|11
+DefenseTokens|None
