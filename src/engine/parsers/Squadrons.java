@@ -21,8 +21,11 @@ public class Squadrons {
     private ArrayList<String> defenseTokens = null;
 
     public Squadrons() throws FileNotFoundException {
-        String squadronsTextPath = "assets/data/squadrons.txt";
-        Scanner fileScanner = new Scanner(new File(squadronsTextPath));
+        this("assets/data/squadrons.txt");
+    }
+
+    public Squadrons(String pathToFile) throws FileNotFoundException {
+        Scanner fileScanner = new Scanner(new File(pathToFile));
         String nextLine;
         while(fileScanner.hasNext()){
             nextLine = fileScanner.nextLine();
