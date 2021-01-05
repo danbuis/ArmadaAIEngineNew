@@ -14,7 +14,7 @@ public class ArmadaGame implements GameComponent {
     //An object to handle rendering to the screen
     private final Renderer renderer;
     //An object representing our POV in space looking at GameItems.  Essentially a container for some coordinates with a
-    //a few nicetiese built in
+    //a few niceties built in
     private final Camera camera;
     //An object representing the 3x3 mat a demo game is played on
     private DemoMap demoMap;
