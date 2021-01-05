@@ -1,5 +1,6 @@
 package parsers;
 
+import engine.parsers.ParsingException;
 import engine.parsers.Squadrons;
 import gameComponents.Squadron;
 import org.junit.jupiter.api.Test;
@@ -16,7 +17,7 @@ public class SquadronParserTests {
      * @throws FileNotFoundException
      */
     @Test
-    public void testParseBasicFunctionality() throws FileNotFoundException {
+    public void testParseBasicFunctionality() throws FileNotFoundException, ParsingException {
         Squadrons testParser = new Squadrons();
 
         Squadron arc = testParser.getSquadron("ARC-170 Starfighter");
@@ -37,7 +38,7 @@ public class SquadronParserTests {
     }
 
     @Test
-    public void testSquadsActuallyCopies() throws FileNotFoundException {
+    public void testSquadsActuallyCopies() throws FileNotFoundException, ParsingException {
         Squadrons testParser = new Squadrons();
         Squadron tie1 = testParser.getSquadron("TIE Fighter");
         Squadron tie2 = testParser.getSquadron("TIE Fighter");
@@ -47,6 +48,15 @@ public class SquadronParserTests {
 
         //checks the memory locations
         assertNotEquals(tie1, tie2);
+    }
+
+    @Test
+    public void testBadUnique() throws FileNotFoundException, ParsingException {
+        Exception exception = assertThrows(ParsingException.class, () -> new Squadrons("assets/data/test/squadrons_bad_unique.txt"));
+        String expectedMessage = "Illegal unique value : Maybe.  Legal values are Y and N";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
     }
 
 

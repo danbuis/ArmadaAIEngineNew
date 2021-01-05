@@ -20,11 +20,11 @@ public class Squadrons {
     private int points;
     private ArrayList<String> defenseTokens = null;
 
-    public Squadrons() throws FileNotFoundException {
+    public Squadrons() throws FileNotFoundException, ParsingException {
         this("assets/data/squadrons.txt");
     }
 
-    public Squadrons(String pathToFile) throws FileNotFoundException {
+    public Squadrons(String pathToFile) throws FileNotFoundException, ParsingException {
         Scanner fileScanner = new Scanner(new File(pathToFile));
         String nextLine;
         while(fileScanner.hasNext()){
@@ -36,7 +36,13 @@ public class Squadrons {
                 switch(key){
                     case "SquadName": this.name = value;
                         break;
-                    case "Unique": this.unique = value.equals("Y");
+                    case "Unique": if(value.equals("Y")){
+                            this.unique = Boolean.TRUE;
+                        }else if (value.equals("N")){
+                            this.unique = Boolean.FALSE;
+                        }else{
+                            throw new ParsingException("Illegal unique value : "+value+".  Legal values are Y and N");
+                        }
                         break;
                     case "SquadType": this.type = value;
                         break;
