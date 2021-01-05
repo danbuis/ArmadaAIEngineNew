@@ -31,10 +31,7 @@ public class Squadrons {
         while(fileScanner.hasNext()){
             nextLine = fileScanner.nextLine();
             if(!nextLine.equals("")){
-                String[] parts = nextLine.split("\\|");
-                if(parts.length != 2){
-                    throw new ParsingException("All rows must have 1 '|' character with content both before and after. : "+nextLine+".");
-                }
+                String[] parts = ParsingUtils.splitLine(nextLine);
                 String key = parts[0];
                 String value = parts[1];
                 switch(key){
