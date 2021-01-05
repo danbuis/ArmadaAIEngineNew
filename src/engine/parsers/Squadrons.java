@@ -27,7 +27,7 @@ public class Squadrons {
         while(fileScanner.hasNext()){
             nextLine = fileScanner.nextLine();
             if(!nextLine.equals("")){
-                String[] parts = nextLine.split("|");
+                String[] parts = nextLine.split("\\|");
                 String key = parts[0];
                 String value = parts[1];
                 switch(key){
@@ -48,12 +48,16 @@ public class Squadrons {
                     case "AntiSquadronDice": this.antiSquadronDice = value;
                         break;
                     case "Keywords":  String[] keywordArray = value.split(" ");
-                        this.keywords = (ArrayList<String>) Arrays.asList(keywordArray);
+                        this.keywords = new ArrayList<>(Arrays.asList(keywordArray));
                         break;
                     case "Points": this.points = Integer.parseInt(value);
                         break;
-                    case "DefenseTokens": String[] defenseTokenArray = value.split(" ");
-                        this.defenseTokens = (ArrayList<String>) Arrays.asList(defenseTokenArray);
+                    case "DefenseTokens": if(value.equals("None")){
+                            this.defenseTokens = new ArrayList<>();
+                        }else{
+                            String[] defenseTokenArray = value.split(" ");
+                            this.defenseTokens = new ArrayList<>(Arrays.asList(defenseTokenArray));
+                        }
                         break;
                 } // end switch block
                 if (checkBuildSquadron()){

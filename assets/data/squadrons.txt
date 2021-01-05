@@ -32,7 +32,7 @@ AntiShipDice|K
 AntiSquadronDice|RBB
 Keywords|Swarm Escort
 Points|12
-DefenseTokens|
+DefenseTokens|None
 
 SquadName|Anakin Skywalker
 Unique|Y
@@ -56,7 +56,7 @@ AntiShipDice|K
 AntiSquadronDice|BK
 Keywords|Bomber Heavy
 Points|10
-DefenseTokens|
+DefenseTokens|None
 
 
 SquadName|"Odd Ball"
@@ -81,7 +81,7 @@ AntiShipDice|BB
 AntiSquadronDice|RBB
 Keywords|Bomber Counter1
 Points|15
-DefenseTokens|
+DefenseTokens|None
 
 SquadName|Ahsoka Tano
 Unique|Y
@@ -141,7 +141,7 @@ AntiShipDice|B
 AntiSquadronDice|BBBK
 Keywords|Adept1 Counter2 Dodge1
 Points|17
-DefenseTokens|
+DefenseTokens|None
 
 SquadName|Haor Chall Prototypes
 Unique|Y
@@ -177,7 +177,7 @@ AntiShipDice|R
 AntiSquadronDice|BK
 Keywords|Swarm AI:Anti-Squadron1
 Points|8
-DefenseTokens|
+DefenseTokens|None
 
 SquadName|DBS-404
 Unique|Y
@@ -213,7 +213,7 @@ AntiShipDice|R
 AntiSquadronDice|BB
 Keywords|Bomber Heavy AI:Battery1
 Points|11
-DefenseTokens|
+DefenseTokens|None
 
 
 SquadName|General Grievous
@@ -238,7 +238,7 @@ AntiShipDice|B
 AntiSquadronDice|KKBB
 Keywords|Relay1 Screen
 Points|15
-DefenseTokens|
+DefenseTokens|None
 
 SquadName|Phlac-Arphocc Prototypes
 Unique|Y
@@ -274,7 +274,7 @@ AntiShipDice|K
 AntiSquadronDice|RBB
 Keywords|AI:Anti-Squadron1 Counter2 Swarm
 Points|11
-DefenseTokens|
+DefenseTokens|None
 
 SquadName|Luke Skywalker
 Unique|Y
@@ -310,7 +310,7 @@ AntiShipDice|R
 AntiSquadronDice|BBBB
 Keywords|Escort Bomber
 Points|13
-DefenseTokens|
+DefenseTokens|None
 
 SquadName|"Dutch" Vander
 Unique|Y
@@ -334,7 +334,7 @@ AntiShipDice|K
 AntiSquadronDice|BB
 Keywords|Bomber
 Points|10
-DefenseTokens|
+DefenseTokens|None
 
 SquadName|Keyan Farlander
 Unique|Y
@@ -358,7 +358,7 @@ AntiShipDice|KB
 AntiSquadronDice|BBB
 Keywords|Bomber
 Points|14
-DefenseTokens|
+DefenseTokens|None
 
 SquadName|Tycho Celchu
 Unique|Y
@@ -382,7 +382,7 @@ AntiShipDice|K
 AntiSquadronDice|BBB
 Keywords|Counter2
 Points|11
-DefenseTokens|
+DefenseTokens|None
 
 SquadName|"Howlrunner"
 Unique|Y
@@ -418,7 +418,7 @@ AntiShipDice|B
 AntiSquadronDice|BBB
 Keywords|Swarm
 Points|8
-DefenseTokens|
+DefenseTokens|None
 
 SquadName|Major Rhymer
 Unique|Y
@@ -442,7 +442,7 @@ AntiShipDice|K
 AntiSquadronDice|K
 Keywords|Bomber
 Points|9
-DefenseTokens|
+DefenseTokens|None
 
 SquadName|Darth Vader
 Unique|Y
@@ -466,7 +466,7 @@ AntiShipDice|K
 AntiSquadronDice|BBB
 Keywords|Escort
 Points|12
-DefenseTokens|
+DefenseTokens|None
 
 SquadName|Soontir Fel
 Unique|Y
@@ -490,4 +490,4 @@ AntiShipDice|B
 AntiSquadronDice|BBB
 Keywords|Counter2 Swarm
 Points|11
-DefenseTokens|
+DefenseTokens|None
