@@ -122,4 +122,31 @@ public class SquadronParserTests {
         assertEquals(expectedMessage, actualMessage);
     }
 
+    @Test
+    public void testNoPipe() throws FileNotFoundException, ParsingException {
+        Exception exception = assertThrows(ParsingException.class, () -> new Squadrons("assets/data/test/squadrons_bad_row_no_pipe.txt"));
+        String expectedMessage = "All rows must have 1 '|' character with content both before and after. : UniqueY.";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
+    @Test
+    public void testExtraPipe() throws FileNotFoundException, ParsingException {
+        Exception exception = assertThrows(ParsingException.class, () -> new Squadrons("assets/data/test/squadrons_bad_row_extra_pipe.txt"));
+        String expectedMessage = "All rows must have 1 '|' character with content both before and after. : SquadType||TIE Interceptor.";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
+    @Test
+    public void testEdgePipe() throws FileNotFoundException, ParsingException {
+        Exception exception = assertThrows(ParsingException.class, () -> new Squadrons("assets/data/test/squadrons_bad_row_edge_pipe.txt"));
+        String expectedMessage = "All rows must have 1 '|' character with content both before and after. : Unique|.";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
 }
