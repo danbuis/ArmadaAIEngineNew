@@ -17,6 +17,50 @@ public class Squadron {
     private final int pointsValue;
     private ArrayList<String> defenseTokens;
 
+    public String getType() {
+        return type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isUnique() {
+        return unique;
+    }
+
+    public int getCurrentHealth() {
+        return currentHealth;
+    }
+
+    public int getFullHealth() {
+        return fullHealth;
+    }
+
+    public int getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public String getAntiShipDice() {
+        return antiShipDice;
+    }
+
+    public String getAntiSquadronDice() {
+        return antiSquadronDice;
+    }
+
+    public ArrayList<String> getKeywords() {
+        return keywords;
+    }
+
+    public int getPointsValue() {
+        return pointsValue;
+    }
+
+    public ArrayList<String> getDefenseTokens() {
+        return defenseTokens;
+    }
+
     public Squadron(String type, String name, boolean unique, int fullHealth,
                     int maxSpeed, String antiShipDice, String antiSquadronDice,
                     ArrayList<String> keywords, int pointsValue, ArrayList<String> defenseTokens){
