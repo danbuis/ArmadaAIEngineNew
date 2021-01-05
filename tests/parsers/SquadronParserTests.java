@@ -19,7 +19,7 @@ public class SquadronParserTests {
     public void testParseBasicFunctionality() throws FileNotFoundException {
         Squadrons testParser = new Squadrons();
 
-        Squadron arc = testParser.squadronMap.get("ARC-170 Starfighter");
+        Squadron arc = testParser.getSquadron("ARC-170 Starfighter");
         assertNotNull(arc);
         assertFalse(arc.isUnique());
         assertEquals("ARC-170 Starfighter", arc.getName());
@@ -34,6 +34,19 @@ public class SquadronParserTests {
         assertFalse(arc.getKeywords().contains("Swarm"));
         assertEquals(15, arc.getPointsValue());
         assertEquals(0, arc.getDefenseTokens().size());
+    }
+
+    @Test
+    public void testSquadsActuallyCopies() throws FileNotFoundException {
+        Squadrons testParser = new Squadrons();
+        Squadron tie1 = testParser.getSquadron("TIE Fighter");
+        Squadron tie2 = testParser.getSquadron("TIE Fighter");
+
+        assertNotNull(tie1);
+        assertNotNull(tie2);
+
+        //checks the memory locations
+        assertNotEquals(tie1, tie2);
     }
 
 
