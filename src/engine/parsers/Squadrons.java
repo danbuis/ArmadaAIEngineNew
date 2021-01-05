@@ -4,14 +4,22 @@ import gameComponents.Squadron;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class Squadrons {
     public HashMap<String, Squadron> squadronMap = new HashMap<>();
     private String squadronsTextPath = "assets/data/squadrons.txt";
-    private String name, unique, type, faction, hull, speed, antiShipDice, antiSquadronDice,
-            keywords, points, defenseTokens = null;
+    private String name;
+    private Boolean unique;
+    private String type;
+    private String faction;
+    private int hull;
+    private int speed;
+    private String antiShipDice;
+    private String antiSquadronDice;
+    private ArrayList<String> keywords;
+    private int points;
+    private ArrayList<String> defenseTokens = null;
 
     public Squadrons() throws FileNotFoundException {
         Scanner fileScanner = new Scanner(new File(squadronsTextPath));
@@ -25,25 +33,27 @@ public class Squadrons {
                 switch(key){
                     case "SquadName": this.name = value;
                         break;
-                    case "Unique": this.unique = value;
+                    case "Unique": this.unique = value.equals("Y");
                         break;
                     case "SquadType": this.type = value;
                         break;
                     case "Faction": this.faction = value;
                         break;
-                    case "Hull": this.hull = value;
+                    case "Hull": this.hull = Integer.parseInt(value);
                         break;
-                    case "Speed": this.speed = value;
+                    case "Speed": this.speed = Integer.parseInt(value);
                         break;
                     case "AntiShipDice": this.antiShipDice = value;
                         break;
                     case "AntiSquadronDice": this.antiSquadronDice = value;
                         break;
-                    case "Keywords": this.keywords = value;
+                    case "Keywords":  String[] keywordArray = value.split(" ");
+                        this.keywords = (ArrayList<String>) Arrays.asList(keywordArray);
                         break;
-                    case "Points": this.points = value;
+                    case "Points": this.points = Integer.parseInt(value);
                         break;
-                    case "DefenseTokens": this.defenseTokens = value;
+                    case "DefenseTokens": String[] defenseTokenArray = value.split(" ");
+                        this.defenseTokens = (ArrayList<String>) Arrays.asList(defenseTokenArray);
                         break;
                 } // end switch block
                 if (checkBuildSquadron()){
@@ -66,18 +76,18 @@ public class Squadrons {
         this.unique=null;
         this.type=null;
         this.faction=null;
-        this.hull=null;
-        this.speed=null;
+        this.hull=0;
+        this.speed=0;
         this.antiShipDice=null;
         this.antiSquadronDice=null;
         this.keywords=null;
-        this.points=null;
+        this.points=0;
         this.defenseTokens = null;
     }
 
     private boolean checkBuildSquadron() {
-        return this.name!=null && this.unique!=null && this.type!=null && this.faction!=null && this.hull!=null &&
-                this.speed!=null && this.antiShipDice!=null && this.antiSquadronDice!=null && this.keywords!=null &&
-                this.points!=null && this.defenseTokens!=null;
+        return this.name!=null && this.unique!=null && this.type!=null && this.faction!=null && this.hull!=0 &&
+                this.speed!=0 && this.antiShipDice!=null && this.antiSquadronDice!=null && this.keywords!=null &&
+                this.points!=0 && this.defenseTokens!=null;
     }
 }
