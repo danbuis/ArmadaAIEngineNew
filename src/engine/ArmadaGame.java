@@ -4,7 +4,7 @@ import BBDGameLibrary.GameEngine.Camera;
 import BBDGameLibrary.GameEngine.GameComponent;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.OpenGL.*;
-import gameComponents.Background.DemoMap;
+import gameComponents.DemoMap;
 import org.joml.Vector3f;
 
 /**ArmadaGame holds the root logic for the game.  Any object present in the game is eventually attached to here.  It
