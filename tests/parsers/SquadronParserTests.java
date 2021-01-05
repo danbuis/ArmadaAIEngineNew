@@ -104,5 +104,22 @@ public class SquadronParserTests {
         assertEquals(expectedMessage, actualMessage);
     }
 
+    @Test
+    public void testBadPoints() throws FileNotFoundException, ParsingException {
+        Exception exception = assertThrows(ParsingException.class, () -> new Squadrons("assets/data/test/squadrons_bad_points.txt"));
+        String expectedMessage = "Non integer value found for Points : HarryPotter.";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
+    @Test
+    public void testNegativePoints() throws FileNotFoundException, ParsingException {
+        Exception exception = assertThrows(ParsingException.class, () -> new Squadrons("assets/data/test/squadrons_bad_points_negative.txt"));
+        String expectedMessage = "Illegal integer value found for Points : -11.";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
 
 }

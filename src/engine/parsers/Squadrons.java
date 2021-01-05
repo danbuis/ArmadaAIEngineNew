@@ -80,7 +80,15 @@ public class Squadrons {
                     case "Keywords":  String[] keywordArray = value.split(" ");
                         this.keywords = new ArrayList<>(Arrays.asList(keywordArray));
                         break;
-                    case "Points": this.points = Integer.parseInt(value);
+                    case "Points": try{
+                            this.points = Integer.parseInt(value);
+                            if(this.points <= 0){
+                                throw new ParsingException("Illegal integer value found for Points : "+value+".");
+                            }
+                        }
+                        catch(NumberFormatException e){
+                            throw new ParsingException("Non integer value found for Points : "+value+".");
+                        }
                         break;
                     case "DefenseTokens": if(value.equals("None")){
                             this.defenseTokens = new ArrayList<>();
