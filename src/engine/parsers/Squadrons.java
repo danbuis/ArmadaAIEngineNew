@@ -32,6 +32,9 @@ public class Squadrons {
             nextLine = fileScanner.nextLine();
             if(!nextLine.equals("")){
                 String[] parts = nextLine.split("\\|");
+                if(parts.length != 2){
+                    throw new ParsingException("All rows must have 1 '|' character with content both before and after. : "+nextLine+".");
+                }
                 String key = parts[0];
                 String value = parts[1];
                 switch(key){
@@ -53,25 +56,9 @@ public class Squadrons {
                             throw new ParsingException("Illegal faction : "+value+".");
                         }
                         break;
-                    case "Hull": try{
-                            this.hull = Integer.parseInt(value);
-                            if(this.hull <= 0){
-                                throw new ParsingException("Illegal integer value found for Hull : "+value+".");
-                            }
-                        }
-                        catch(NumberFormatException e){
-                            throw new ParsingException("Non integer value found for Hull : "+value+".");
-                        }
+                    case "Hull":this.hull= ParsingUtils.parseInteger("Hull", value);
                         break;
-                    case "Speed": try{
-                        this.speed = Integer.parseInt(value);
-                        if(this.speed <= 0){
-                            throw new ParsingException("Illegal integer value found for Speed : "+value+".");
-                        }
-                    }
-                    catch(NumberFormatException e){
-                        throw new ParsingException("Non integer value found for Speed : "+value+".");
-                    }
+                    case "Speed": this.speed = ParsingUtils.parseInteger("Speed", value);
                         break;
                     case "AntiShipDice": this.antiShipDice = value;
                         break;
@@ -80,15 +67,7 @@ public class Squadrons {
                     case "Keywords":  String[] keywordArray = value.split(" ");
                         this.keywords = new ArrayList<>(Arrays.asList(keywordArray));
                         break;
-                    case "Points": try{
-                            this.points = Integer.parseInt(value);
-                            if(this.points <= 0){
-                                throw new ParsingException("Illegal integer value found for Points : "+value+".");
-                            }
-                        }
-                        catch(NumberFormatException e){
-                            throw new ParsingException("Non integer value found for Points : "+value+".");
-                        }
+                    case "Points": this.points = ParsingUtils.parseInteger("Points", value);
                         break;
                     case "DefenseTokens": if(value.equals("None")){
                             this.defenseTokens = new ArrayList<>();
