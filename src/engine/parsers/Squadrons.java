@@ -63,7 +63,15 @@ public class Squadrons {
                             throw new ParsingException("Non integer value found for Hull : "+value+".");
                         }
                         break;
-                    case "Speed": this.speed = Integer.parseInt(value);
+                    case "Speed": try{
+                        this.speed = Integer.parseInt(value);
+                        if(this.speed <= 0){
+                            throw new ParsingException("Illegal integer value found for Speed : "+value+".");
+                        }
+                    }
+                    catch(NumberFormatException e){
+                        throw new ParsingException("Non integer value found for Speed : "+value+".");
+                    }
                         break;
                     case "AntiShipDice": this.antiShipDice = value;
                         break;
