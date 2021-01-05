@@ -8,7 +8,6 @@ import java.util.*;
 
 public class Squadrons {
     public HashMap<String, Squadron> squadronMap = new HashMap<>();
-    private String squadronsTextPath = "assets/data/squadrons.txt";
     private String name;
     private Boolean unique;
     private String type;
@@ -22,6 +21,7 @@ public class Squadrons {
     private ArrayList<String> defenseTokens = null;
 
     public Squadrons() throws FileNotFoundException {
+        String squadronsTextPath = "assets/data/squadrons.txt";
         Scanner fileScanner = new Scanner(new File(squadronsTextPath));
         String nextLine;
         while(fileScanner.hasNext()){
