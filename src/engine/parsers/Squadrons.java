@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Squadrons {
-    public HashMap<String, Squadron> squadronMap = new HashMap<>();
+    private HashMap<String, Squadron> squadronMap = new HashMap<>();
     private String name;
     private Boolean unique;
     private String type;
@@ -93,5 +93,10 @@ public class Squadrons {
         return this.name!=null && this.unique!=null && this.type!=null && this.faction!=null && this.hull!=0 &&
                 this.speed!=0 && this.antiShipDice!=null && this.antiSquadronDice!=null && this.keywords!=null &&
                 this.points!=0 && this.defenseTokens!=null;
+    }
+
+    public Squadron getSquadron(String name){
+        Squadron original = this.squadronMap.get(name);
+        return new Squadron(original);
     }
 }

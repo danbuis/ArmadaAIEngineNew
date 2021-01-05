@@ -76,4 +76,18 @@ public class Squadron {
         this.pointsValue = pointsValue;
         this.defenseTokens = defenseTokens;
     }
+
+    public Squadron(Squadron original){
+        this.type = original.type;
+        this.name = original.name;
+        this.unique = original.unique;
+        this.fullHealth = original.fullHealth;
+        this.currentHealth = original.fullHealth;
+        this.maxSpeed = original.maxSpeed;
+        this.antiShipDice = original.antiShipDice;
+        this.antiSquadronDice = original.antiSquadronDice;
+        this.keywords = original.keywords;
+        this.pointsValue = original.pointsValue;
+        this.defenseTokens = original.defenseTokens;
+    }
 }
