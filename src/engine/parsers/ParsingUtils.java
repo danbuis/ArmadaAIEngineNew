@@ -1,5 +1,7 @@
 package engine.parsers;
 
+import engine.GameConstants;
+
 public class ParsingUtils {
     /**
      * A util method to validate ints.  Assumes that all Strings that need to be made into ints need to be
@@ -34,5 +36,19 @@ public class ParsingUtils {
             throw new ParsingException("All rows must have 1 '|' character with content both before and after. : "+line+".");
         }
         return parts;
+    }
+
+    /**
+     * A util method to validate a faction name
+     * @param faction the faction name to check
+     * @return the same faction name if it is a valid faction
+     * @throws ParsingException Exception thrown if the input is bad
+     */
+    public static String validCoreFaction(String faction) throws ParsingException {
+        if(GameConstants.CURRENT_FACTIONS.contains(faction)){
+           return faction;
+        }else{
+            throw new ParsingException("Illegal faction : "+faction+".");
+        }
     }
 }

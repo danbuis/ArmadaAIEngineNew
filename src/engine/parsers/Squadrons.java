@@ -47,11 +47,7 @@ public class Squadrons {
                         break;
                     case "SquadType": this.type = value;
                         break;
-                    case "Faction": if(GameConstants.CURRENT_FACTIONS.contains(value)){
-                            this.faction = value;
-                        }else{
-                            throw new ParsingException("Illegal faction : "+value+".");
-                        }
+                    case "Faction": this.faction = ParsingUtils.validCoreFaction(value);
                         break;
                     case "Hull":this.hull= ParsingUtils.parseInteger("Hull", value);
                         break;
