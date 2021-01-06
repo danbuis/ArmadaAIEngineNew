@@ -75,8 +75,9 @@ public class Squadrons {
                 if (countNonNullFields() == NUMBER_OF_FIELDS){
                     buildSquadron();
                 }
-            }//end while loop
-        }
+            }//end if next line exists
+        }//end of while
+        ParsingUtils.checkNotPartialObject(countNonNullFields(), 0);
     }
 
     private void buildSquadron() {

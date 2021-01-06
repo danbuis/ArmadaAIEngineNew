@@ -51,4 +51,10 @@ public class ParsingUtils {
             throw new ParsingException("Illegal faction : "+faction+".");
         }
     }
+
+    public static void checkNotPartialObject(int nonNullCount, int targetNumber) throws ParsingException {
+        if (nonNullCount != targetNumber){
+            throw new ParsingException("Reached end of file with a partially built object.");
+        }
+    }
 }

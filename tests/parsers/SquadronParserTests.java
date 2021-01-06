@@ -149,4 +149,13 @@ public class SquadronParserTests {
         assertEquals(expectedMessage, actualMessage);
     }
 
+    @Test
+    public void testPartialSquadron() throws FileNotFoundException, ParsingException {
+        Exception exception = assertThrows(ParsingException.class, () -> new Squadrons("assets/data/test/squadrons_bad_partial.txt"));
+        String expectedMessage = "Reached end of file with a partially built object.";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
 }
