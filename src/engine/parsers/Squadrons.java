@@ -21,6 +21,8 @@ public class Squadrons {
     private int points;
     private ArrayList<String> defenseTokens = null;
 
+    private final int NUMBER_OF_FIELDS = 11;
+
     public Squadrons() throws FileNotFoundException, ParsingException {
         this("assets/data/squadrons.txt");
     }
@@ -70,7 +72,7 @@ public class Squadrons {
                         }
                         break;
                 } // end switch block
-                if (checkBuildSquadron()){
+                if (countNonNullFields() == NUMBER_OF_FIELDS){
                     buildSquadron();
                 }
             }//end while loop
@@ -99,11 +101,47 @@ public class Squadrons {
         this.defenseTokens = null;
     }
 
-    private boolean checkBuildSquadron() {
-        return this.name!=null && this.unique!=null && this.type!=null && this.faction!=null && this.hull!=0 &&
-                this.speed!=0 && this.antiShipDice!=null && this.antiSquadronDice!=null && this.keywords!=null &&
-                this.points!=0 && this.defenseTokens!=null;
+    private int countNonNullFields() {
+        int nonNullCount = 0;
+
+        if(this.name != null){
+            nonNullCount++;
+        }
+        if(this.unique != null){
+            nonNullCount++;
+        }
+        if(this.type != null){
+            nonNullCount++;
+        }
+        if(this.faction != null){
+            nonNullCount++;
+        }
+        if(this.antiShipDice != null){
+            nonNullCount++;
+        }
+        if(this.antiSquadronDice != null){
+            nonNullCount++;
+        }
+        if(this.keywords != null){
+            nonNullCount++;
+        }
+        if(this.defenseTokens != null){
+            nonNullCount++;
+        }
+        if(this.hull != 0){
+            nonNullCount++;
+        }
+        if(this.speed != 0){
+            nonNullCount++;
+        }
+        if(this.points != 0){
+            nonNullCount++;
+        }
+
+        return nonNullCount;
     }
+
+
 
     public Squadron getSquadron(String name){
         Squadron original = this.squadronMap.get(name);
