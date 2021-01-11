@@ -1,0 +1,780 @@
+Zoom 93% 
+
+Name|Gladiator I-class Star Destroyer
+Faction|Empire 
+Size|Small
+Points|56
+Hull|5
+Defense token|Br Rd Ev
+Command|2 
+Squad|2 
+Eng|3 
+Nav chart 
+Speed 1|2 
+Speed 2|1 1 
+Speed 3|0 1 1
+Front Arc 3 |RRKK 
+Side Arc 2 |KKKK
+Rear Arc 1 |RK
+Anti Squadron|B
+Upgrade|Title Officers Weapon Team Support Ordance
+FrontArcOffset|8.7
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|7.5
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|33
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|37
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+Name|Gladiator II-class Star Destroyer
+Faction|Empire 
+Size|Small
+Points|62
+Hull|5
+Defense token|Br Rd Ev
+Command|2 
+Squad|2 
+Eng|3 
+Nav chart 
+Speed 1|2 
+Speed 2|1 1 
+Speed 3|0 1 1
+Front Arc 3 |RRKK 
+Side Arc 2 |KKKR
+Rear Arc 1 |RK
+Anti Squadron|BB
+Upgrade|Title Officers Weapon Team Support Ordance
+FrontArcOffset|8.7
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|7.5
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|33
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|37
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+
+Name|Consular Charger C70
+Keyword|Clone
+Faction|GAR
+Size|Small
+Points|45
+Hull|4
+Defense token|Con Rd Ev
+Command|1 
+Squad|1
+Eng|2
+Nav chart 
+Speed 1|2
+Speed 2|2 1 
+Speed 3|1 1 1
+Speed 4|1 0 1 1 
+Front Arc 2 |RRB
+Side Arc 2 |RR
+Rear Arc 1 |RB
+Anti Squadron|K
+Upgrade|Title Officers Support TurboLaser Offensive   
+FrontArcOffset|15.1
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|5.2
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|41
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|29
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+
+
+Name|Consular-class Armed Cruiser
+Keyword|Senate Comms
+Faction|GAR
+Size|Small
+Points|37
+Hull|4
+Defense token|Con Rd Ev
+Command|1 
+Squad|1
+Eng|2
+Nav chart 
+Speed 1|2
+Speed 2|2 1 
+Speed 3|1 1 1
+Speed 4|1 0 1 1 
+Front Arc 2 |BBK
+Side Arc 2 |BK
+Rear Arc 1 |B
+Anti Squadron|bb
+Upgrade|Title Support Defense Ordnance Officer
+FrontArcOffset|15.1
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|5.2
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|41
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|29
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+Name|Acclamator II
+Keyword|Clone Bombard Transport
+Faction|GAR
+Size|Medium
+Points|71
+Hull|7
+Defense token|Sal Rd Br
+Command|3
+Squad|3
+Eng|4
+Nav chart 
+Speed 1|1
+Speed 2|1 0 
+Speed 3|0 1 0
+Front Arc 4 |RRRBKK
+Side Arc 2 |RRK
+Rear Arc 2 |RBK
+Anti Squadron|BK
+Upgrade|Title Officers Defense TurboLaser Weapon Team Ordance   
+FrontArcOffset|24.6
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|18.7
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|52
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|41
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+//This ship has a 9 mm section between the rear and front conjuctions.//
+
+Name|Acclamator I
+Keyword|Clone Transport
+Faction|GAR
+Size|Medium
+Points|66
+Hull|7
+Defense token| Sal Rd Br
+Command|3
+Squad|3
+Eng|4
+Nav chart 
+Speed 1|1
+Speed 2|1 0 
+Speed 3|0 1 0
+Front Arc 4 |RRRKKK
+Side Arc 2 |RRK
+Rear Arc 2 |RBK
+Anti Squadron|KK
+Upgrade|Title Officers TurboLaser Offensive Offensive  Weapon Team Ordance   
+FrontArcOffset|24.6
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|18.7
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|52
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|41
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+//This ship has a 9 mm section between the rear and front conjuctions.//
+51++
+Name|Victory I-class Star Destroyer
+Keyword|None
+Faction|Empire
+Size|Medium
+Points|73
+Hull|8
+Defense token| Rd Rd Br
+Command|3
+Squad|3
+Eng|4
+Nav chart 
+Speed 1|1
+Speed 2|0 1  
+Front Arc 3 |RRRKKK
+Side Arc 3 |RRK
+Rear Arc 1 |RR
+Anti Squadron|B
+Upgrade|Title Officers TurboLaser Offensive Weapon Team Ordance   
+FrontArcOffset|21
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|21
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|47
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|54
+//How far from the rear of the ship do the rear hull zone lines meet//
+//This ship has a 1 mm section between the rear and front conjuctions.//
+
+Name|Victory II-class Star Destroyer
+Keyword|None
+Faction|Empire
+Size|Medium
+Points|85
+Hull|8
+Defense token| Rd Rd Br
+Command|3
+Squad|3
+Eng|4
+Nav chart 
+Speed 1|1
+Speed 2|0 1  
+Front Arc 3 |RRRBBB
+Side Arc 3 |RRB
+Rear Arc 1 |RR
+Anti Squadron|B
+Upgrade|Title Officers TurboLaser Offensive Weapon Team Ion cannon    
+FrontArcOffset|21
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|21
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|47
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|54
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+//This ship has a 1mm section between the rear and front conjuctions.//
+
+Name|Munificent-class Comms Frigate
+Keyword| Droid Bombard Comms
+Faction|SA
+Size|Medium
+Points|70
+Hull|6
+Defense token| Sal Rd Br
+Command|2
+Squad|3
+Eng|4
+Nav chart 
+Speed 1|1
+Speed 2|1 2
+Front Arc 4 |RRBB
+Side Arc 3 |RRR
+Rear Arc 2 |RR
+Anti Squadron|R
+Upgrade|Title Officers TurboLaser Offensive Support Team Ion Cannon  
+FrontArcOffset| 7.9
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|3.2
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|53
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|49
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+
+Name|Munificent-class Star Frigate
+Keyword| Droid Bombard Transport
+Faction|SA
+Keyword|None
+Size|Medium
+Points|73
+Hull|6
+Defense token| Sal Rd Br
+Command|2
+Squad|3
+Eng|4
+Nav chart 
+Speed 1|1
+Speed 2|1 2
+Front Arc 4 |RRBB
+Side Arc 3 |RRR
+Rear Arc 2 |RR
+Anti Squadron|RR
+Upgrade|Title Officers TurboLaser Defensive Suport Team Ion Cannon  
+FrontArcOffset| 7.9
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|3.2
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|53
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|49
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+
+
+
+Name|Hardcell-class Transport
+Keyword|Droid Transport
+Faction| SA
+Size|Small
+Points|47
+Hull|5
+Defense token|Br Rd Ev
+Command|1 
+Squad|2
+Eng|3
+Nav chart 
+Speed 1|2
+Speed 2|1 1 
+Speed 3|1 1 0 
+Front Arc 3 |RRB
+Side Arc 1 |B
+Rear Arc 2 |0
+Anti Squadron|B
+Upgrade|Title Support Fleet Support Officer Officer
+FrontArcOffset| 13.1
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset| 13.1
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|32
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|31
+//How far from the rear of the ship do the rear hull zone lines meet//
+//This ship has a 7mm section between the rear and front conjuctions.//
+
+Name|Hardcell-class Battle Refit
+Keyword|Droid Transport
+Faction| SA
+Size|Small
+Points|52
+Hull|5
+Defense token|Br Rd Ev
+Command|1 
+Squad|2
+Eng|3
+Nav chart 
+Speed 1|2
+Speed 2|1 1 
+Speed 3|1 1 0 
+Front Arc 3 |RRR
+Side Arc 1 |R
+Rear Arc 2 |0
+Anti Squadron|BK
+Upgrade|Title Turbo Laser Offensive Defensive Officer 
+FrontArcOffset| 13.1
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset| 13.1
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|32
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|31
+//How far from the rear of the ship do the rear hull zone lines meet//
+//This ship has a 7 section between the rear and front conjuctions.//
+
+Name|CR90 Corvette A
+Keyword|None
+Faction| Rebel
+Size|Small
+Points|44
+Hull|4
+Defense token|Rd Rd Ev
+Command|1 
+Squad|1
+Eng|2
+Nav chart 
+Speed 1|2
+Speed 2|1 2 
+Speed 3|0 1 2 
+Speed 4|0 1 1 2 
+Front Arc 2 |RRB
+Side Arc 2 |RB
+Rear Arc 1 |R
+Anti Squadron|B
+Upgrade|Title Turbo Laser Offensive Support Team Defensive Officer 
+FrontArcOffset| 19.8
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset| 5.6
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|43
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|28
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+Name|CR90 Corvette B
+Keyword|None
+Faction| Rebel
+Size|Small
+Points|39
+Hull|4
+Defense token|Rd Rd Ev
+Command|1 
+Squad|1
+Eng|2
+Nav chart 
+Speed 1|2
+Speed 2|1 2 
+Speed 3|0 1 2 
+Speed 4|0 1 1 2 
+Front Arc 2 |BBB
+Side Arc 2 |BB
+Rear Arc 1 |B
+Anti Squadron|B
+Upgrade|Title Ion Cannon Offensive Support Team Defensive Officer 
+FrontArcOffset| 19.8
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset| 5.6
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|43
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|28
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+Name|Assault Frigate Mark II A
+Keyword|None
+Faction|Rebel
+Size|Medium
+Points|81
+Hull| 6
+Defense token| Rd Ev Br
+Command|3
+Squad|2
+Eng|4
+Nav chart 
+Speed 1|1
+Speed 2|1 1
+Speed 3|0 1 1  
+Front Arc 4 |RRB
+Side Arc 3 |RRRB
+Rear Arc 2 |RRB
+Anti Squadron|BB
+Upgrade|Title Officers TurboLaser Offensive Defensive Weapon Team Ordance   
+FrontArcOffset|2
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|14.3
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|47
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|53
+//How far from the rear of the ship do the rear hull zone lines meet//
+//This ship has a 2 section between the rear and front conjuctions.//
+
+Name|Assault Frigate Mark II B
+Keyword|None
+Faction|Rebel
+Size|Medium
+Points|72
+Hull| 6
+Defense token| Rd Ev Br
+Command|3
+Squad|2
+Eng|4
+Nav chart 
+Speed 1|1
+Speed 2|1 1
+Speed 3|0 1 1  
+Front Arc 4 |RR
+Side Arc 3 |RRRB
+Rear Arc 2 |RR
+Anti Squadron|B
+Upgrade|Title Officers TurboLaser Offensive Defensive Weapon Team Ordance   
+FrontArcOffset|2
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|14.3
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|47
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|53
+//How far from the rear of the ship do the rear hull zone lines meet//
+//This ship has a 2 section between the rear and front conjuctions.//
+
+
+Name|Quasar Fire I
+Keyword|None
+Faction|Empire 
+Size|Medium
+Points|54
+Hull|6
+Defense token| Rd Br
+Command|2
+Squad|4
+Eng|2
+Nav chart 
+Speed 1|2
+Speed 2|1 0 
+Speed 3|0 1 1
+Front Arc 2 |BBB
+Side Arc 2 |BB
+Rear Arc 1 |B
+Anti Squadron|B
+Upgrade|Title Officers Offensive Offensive Weapon Team 
+FrontArcOffset|35.3
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|9.9
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|56
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|45
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+Name|Quasar Fire II
+Keyword|None
+Faction|Empire 
+Size|Medium
+Points|61
+Hull|6
+Defense token| Rd Br
+Command|2
+Squad|4
+Eng|2
+Nav chart 
+Speed 1|2
+Speed 2|1 0 
+Speed 3|0 1 1
+Front Arc 2 |RRB
+Side Arc 2 |BR
+Rear Arc 1 |B
+Anti Squadron|R
+Upgrade|Title Officers Offensive Weapon Team Weapon Team 
+FrontArcOffset|35.3
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|9.9
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|56
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|46
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+
+Name|MC80 Assault Cruiser
+Keyword|None
+Faction|Rebel
+Size|Large
+Points|114
+Hull|8
+Defense token| Rd Br Rd Cn 
+Command|3
+Squad|3
+Eng|4
+Nav chart 
+Speed 1|1
+Speed 2|1 1
+Front Arc 4 |RRB
+Side Arc 4 |BBRRR
+Rear Arc 3 |BRR
+Anti Squadron|BB
+Upgrade|Title Officers Defensive Defensive Support Team Ion Cannon Turbo Lasers 
+FrontArcOffset|0
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|0
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|64
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|63
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+Name|MC80 Command Cruiser
+Keyword|None
+Faction|Rebel
+Size|Large
+Points|106
+Hull|8
+Defense token| Rd Br Rd Cn 
+Command|3
+Squad|4
+Eng|4
+Nav chart 
+Speed 1|1
+Speed 2|1 1
+Front Arc 4 |RBB
+Side Arc 4 |BBBRRR
+Rear Arc 3 |BBR
+Anti Squadron|BB
+Upgrade|Title Officers Defensive Offensive Support Team Ion Cannon Turbo Lasers 
+FrontArcOffset|0
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|0
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|64
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|63
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+
+Name|MC75 Armored Cruiser 
+Keyword|None
+Faction|Rebel
+Size|Large
+Points|104
+Hull|9
+Defense token| Rd Br Cn Cn 
+Command|3
+Squad|3
+Eng|4
+Nav chart 
+Speed 1|2
+Speed 2|1 1
+Speed 3|0 1 1
+Front Arc 4 |BBBKK
+Side Arc 3 |BBRRR
+Rear Arc 3 |BK
+Anti Squadron|BK
+Upgrade|Title Officers Defensive Offensive Support Team Ion Cannon Turbo Laser Weapons team Ordance   
+FrontArcOffset|20
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|0
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|65
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|62
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+
+Name|MC75 Ordnance Cruiser
+Keyword|None
+Faction|Rebel
+Size|Large
+Points|100
+Hull|9
+Defense token| Rd Br Cn Cn 
+Command|3
+Squad|2
+Eng|4
+Nav chart 
+Speed 1|2
+Speed 2|1 1
+Speed 3|0 1 1
+Front Arc 4 |BBKKK
+Side Arc 3 |KKRRR
+Rear Arc 3 |KK
+Anti Squadron|K
+Upgrade|Title Officers Defensive Offensive Support Team Weapons team Ordance Ordance    
+FrontArcOffset|20
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|0
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|65
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|62
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+Name|Imperial Star Destroyer Kuat Refit
+Keyword|None
+Faction|Empire 
+Size|Large
+Points|112
+Hull|11
+Defense token| Rd Br Br Cn 
+Command|3
+Squad|2
+Eng|4
+Nav chart 
+Speed 1|1
+Speed 2|1 1
+Speed 3|0 1 1
+Front Arc 4 |RRRBBKKK
+Side Arc 3 |RBKK
+Rear Arc 3 |RBK
+Anti Squadron|KB
+Upgrade|Title Officers Defensive Offensive Support Team Weapons Team  Ordance Ion Cannon 
+FrontArcOffset|41
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|15
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|79
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|49
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+Name|Imperial Star Destroyer Kuat Refit
+Keyword|None
+Faction|Empire 
+Size|Large
+Points|112
+Hull|11
+Defense token| Rd Br Br Cn 
+Command|3
+Squad|2
+Eng|4
+Nav chart 
+Speed 1|1
+Speed 2|1 1
+Speed 3|0 1 1
+Front Arc 4 |RRRBBKKK
+Side Arc 3 |RBKK
+Rear Arc 2 |RBK
+Anti Squadron|KB
+Upgrade|Title Officers Defensive Offensive Support Team Weapons Team  Ordance Ion Cannon 
+FrontArcOffset|41
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|15
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|79
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|49
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+Name|Imperial Star Destroyer Cymoon 1 Refit
+Keyword|None
+Faction|Empire 
+Size|Large
+Points|112
+Hull|11
+Defense token| Rd Br Br Cn 
+Command|3
+Squad|3
+Eng|4
+Nav chart 
+Speed 1|1
+Speed 2|1 1
+Speed 3|0 1 1
+Front Arc 4 |RRRRRBB
+Side Arc 3 |RBBB
+Rear Arc 2 |RBB
+Anti Squadron|KK
+Upgrade|Title Officers Offensive Weapons Team Turbo Laser Turbo Laser Fleet Command
+FrontArcOffset|41
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|15
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|79
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|49
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+
+Name|Imperial II Class Star Destroyer 
+Keyword|None
+Faction|Empire 
+Size|Large
+Points|120
+Hull|11
+Defense token| Rd Br Br Cn 
+Command|3
+Squad|4
+Eng|4
+Nav chart 
+Speed 1|1
+Speed 2|1 1
+Speed 3|0 1 1
+Front Arc 4 |RRRRBBBB
+Side Arc 3 |RRBB
+Rear Arc 2 |RBB
+Anti Squadron|BB
+Upgrade|Title Officers Defensive Offensive Weapons Team Turbo Laser Defensive Ion Cannon
+FrontArcOffset|41
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|15
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|79
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|49
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+Name|Imperial I Class Star Destroyer 
+Keyword|None
+Faction|Empire 
+Size|Large
+Points|110
+Hull|11
+Defense token| Rd Br Br Cn 
+Command|3
+Squad|4
+Eng|4
+Nav chart 
+Speed 1|1
+Speed 2|1 1
+Speed 3|0 1 1
+Front Arc 4 |RRRBBKKK
+Side Arc 3 |RRKK
+Rear Arc 2 |RBB
+Anti Squadron|BK
+Upgrade|Title Officers Defensive Offensive Offensive Weapons Team Turbo Laser Defensive Ion Cannon
+FrontArcOffset|41
+//How far from the front corner does the hull zone line hit the cardboard edge//
+RearArcOffset|15
+//How far from the rear corner does the hull zone line hit the cardboard edge//
+FrontArcConjunction|79
+//How far from the front of the ship do the front hull zone lines meet//
+RearArcConjunction|49
+//How far from the rear of the ship do the rear hull zone lines meet//
+
+
+
