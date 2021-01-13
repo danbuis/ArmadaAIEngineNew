@@ -6,6 +6,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
+/**
+ * A class to read text files and build the Squadrons defined by that file.  It holds a single instance of every type
+ * of squadron in the files in a map.  Users can retrieve a Squadron by calling the getSquadron() function, which will
+ * return a copy of that Squadron.
+ */
 public class SquadronFactory {
     private HashMap<String, Squadron> squadronMap = new HashMap<>();
     private String name;

@@ -3,6 +3,9 @@ package gameComponents;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+/**
+ * A class representing a Squadron object
+ */
 public class Squadron {
 
     private final String type;
