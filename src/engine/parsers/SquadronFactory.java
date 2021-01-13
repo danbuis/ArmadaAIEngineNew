@@ -1,13 +1,12 @@
 package engine.parsers;
 
-import engine.GameConstants;
 import gameComponents.Squadron;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class Squadrons {
+public class SquadronFactory {
     private HashMap<String, Squadron> squadronMap = new HashMap<>();
     private String name;
     private Boolean unique;
@@ -23,11 +22,22 @@ public class Squadrons {
 
     private final int NUMBER_OF_FIELDS = 11;
 
-    public Squadrons() throws FileNotFoundException, ParsingException {
+    /**
+     * Constructor that uses the default file path for the input text doc.  It ends up feeding into the other constructor.
+     * @throws FileNotFoundException Exception thrown if the file does not exist
+     * @throws ParsingException Exception thrown if there is an error while Parsing
+     */
+    public SquadronFactory() throws FileNotFoundException, ParsingException {
         this("assets/data/squadrons.txt");
     }
 
-    public Squadrons(String pathToFile) throws FileNotFoundException, ParsingException {
+    /**
+     * Constructor that takes in a file path used to create some Squadron objects
+     * @param pathToFile String containing the relative file path to the desired file to parse
+     * @throws FileNotFoundException Exception thrown if the file does not exist
+     * @throws ParsingException Exception thrown if there is an error while Parsing
+     */
+    public SquadronFactory(String pathToFile) throws FileNotFoundException, ParsingException {
         Scanner fileScanner = new Scanner(new File(pathToFile));
         String nextLine;
         while(fileScanner.hasNext()){
@@ -80,6 +90,11 @@ public class Squadrons {
         ParsingUtils.checkNotPartialObject(countNonNullFields(), 0);
     }
 
+    /**
+     * Function to actually create a Squadron object using the values parsed from the file.  After creation we need to
+     * reset the fields used to build the next squadron, that way if we have a partially completed squadron, or a squadron
+     * listing out of order, we can still tell when it is complete.
+     */
     private void buildSquadron() {
         Squadron newSquadron = new Squadron(this.type, this.name, this.unique, this.hull, this.speed, this.antiShipDice,
             this.antiSquadronDice, this.keywords, this.points, this.defenseTokens);
@@ -88,6 +103,9 @@ public class Squadrons {
         this.resetFields();
     }
 
+    /**
+     * Reset all the fields to a neutral value that would be invalid for a new Squadron
+     */
     private void resetFields() {
         this.name=null;
         this.unique=null;
@@ -102,6 +120,11 @@ public class Squadrons {
         this.defenseTokens = null;
     }
 
+    /**
+     * Count how many fields are null/void or otherwise how they are reset.  This is to tell if we have a Squadron partially
+     * parsed at the end of the file.
+     * @return
+     */
     private int countNonNullFields() {
         int nonNullCount = 0;
 
@@ -142,8 +165,11 @@ public class Squadrons {
         return nonNullCount;
     }
 
-
-
+    /**
+     * Get a copy of a squadron from the SquadronFactory instance.
+     * @param name what Squadron do you want
+     * @return a copy of that Squadron
+     */
     public Squadron getSquadron(String name){
         Squadron original = this.squadronMap.get(name);
         return new Squadron(original);

@@ -61,6 +61,21 @@ public class Squadron {
         return defenseTokens;
     }
 
+    /**
+     * Constructor used by the SquadronFactory to build a new object.  Could also be used to build something programmitically
+     * if you feel so inclined.
+     *
+     * @param type What type/hull is the Squadron, ie X-wing
+     * @param name The name of the Squadron, ie Biggs Darklighter, or X-wing
+     * @param unique Is this squadron unique
+     * @param fullHealth How much health does it start with
+     * @param maxSpeed How much distance can it move at full speed
+     * @param antiShipDice anti ship armament
+     * @param antiSquadronDice anti squadron armament
+     * @param keywords keywords the Squadron has access to. Must have a value, even if it is an empty list
+     * @param pointsValue How many points is it worth
+     * @param defenseTokens What defense tokens, if any, does it have?  Must have a value, even if it is an empty list
+     */
     public Squadron(String type, String name, boolean unique, int fullHealth,
                     int maxSpeed, String antiShipDice, String antiSquadronDice,
                     ArrayList<String> keywords, int pointsValue, ArrayList<String> defenseTokens){
@@ -77,6 +92,10 @@ public class Squadron {
         this.defenseTokens = defenseTokens;
     }
 
+    /**
+     * Constructor used to clone another Squadron.  Used to get a Squadron from the SquadronFactory
+     * @param original original Squadron to use as a template
+     */
     public Squadron(Squadron original){
         this.type = original.type;
         this.name = original.name;
