@@ -1,7 +1,5 @@
-Zoom 93% 
-
 Name|Gladiator I-class Star Destroyer
-Faction|Empire 
+Faction|Imperial
 Size|Small
 Points|56
 Hull|5
@@ -13,6 +11,7 @@ Nav chart
 Speed 1|2 
 Speed 2|1 1 
 Speed 3|0 1 1
+Speed 4|-
 Front Arc 3 |RRKK 
 Side Arc 2 |KKKK
 Rear Arc 1 |RK
@@ -28,7 +27,7 @@ RearArcConjunction|37
 //How far from the rear of the ship do the rear hull zone lines meet//
 
 Name|Gladiator II-class Star Destroyer
-Faction|Empire 
+Faction|Imperial
 Size|Small
 Points|62
 Hull|5
@@ -40,6 +39,7 @@ Nav chart
 Speed 1|2 
 Speed 2|1 1 
 Speed 3|0 1 1
+Speed 4|-
 Front Arc 3 |RRKK 
 Side Arc 2 |KKKR
 Rear Arc 1 |RK
@@ -57,7 +57,7 @@ RearArcConjunction|37
 
 Name|Consular Charger C70
 Keyword|Clone
-Faction|GAR
+Faction|Republic
 Size|Small
 Points|45
 Hull|4
@@ -70,10 +70,10 @@ Speed 1|2
 Speed 2|2 1 
 Speed 3|1 1 1
 Speed 4|1 0 1 1 
-Front Arc 2 |RRB
-Side Arc 2 |RR
-Rear Arc 1 |RB
-Anti Squadron|K
+FrontArc 2 |RRB
+SideArc 2 |RR
+RearArc 1 |RB
+AntiSquadron|K
 Upgrade|Title Officers Support TurboLaser Offensive   
 FrontArcOffset|15.1
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -88,7 +88,7 @@ RearArcConjunction|29
 
 Name|Consular-class Armed Cruiser
 Keyword|Senate Comms
-Faction|GAR
+Faction|Republic
 Size|Small
 Points|37
 Hull|4
@@ -101,10 +101,10 @@ Speed 1|2
 Speed 2|2 1 
 Speed 3|1 1 1
 Speed 4|1 0 1 1 
-Front Arc 2 |BBK
-Side Arc 2 |BK
-Rear Arc 1 |B
-Anti Squadron|bb
+FrontArc2 |BBK
+SideArc2 |BK
+RearArc1 |B
+AntiSquadron|BB
 Upgrade|Title Support Defense Ordnance Officer
 FrontArcOffset|15.1
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -115,9 +115,9 @@ FrontArcConjunction|41
 RearArcConjunction|29
 //How far from the rear of the ship do the rear hull zone lines meet//
 
-Name|Acclamator II
+Name|Acclamator II-class Assault Ship
 Keyword|Clone Bombard Transport
-Faction|GAR
+Faction|Republic
 Size|Medium
 Points|71
 Hull|7
@@ -129,10 +129,11 @@ Nav chart
 Speed 1|1
 Speed 2|1 0 
 Speed 3|0 1 0
-Front Arc 4 |RRRBKK
-Side Arc 2 |RRK
-Rear Arc 2 |RBK
-Anti Squadron|BK
+Speed 4|-
+FrontArc 4 |RRRBKK
+SideArc 2 |RRK
+RearArc 2 |RBK
+AntiSquadron|BK
 Upgrade|Title Officers Defense TurboLaser Weapon Team Ordance   
 FrontArcOffset|24.6
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -145,9 +146,9 @@ RearArcConjunction|41
 
 //This ship has a 9 mm section between the rear and front conjuctions.//
 
-Name|Acclamator I
+Name|Acclamator I-class Assault Ship
 Keyword|Clone Transport
-Faction|GAR
+Faction|Republic
 Size|Medium
 Points|66
 Hull|7
@@ -159,10 +160,11 @@ Nav chart
 Speed 1|1
 Speed 2|1 0 
 Speed 3|0 1 0
-Front Arc 4 |RRRKKK
-Side Arc 2 |RRK
-Rear Arc 2 |RBK
-Anti Squadron|KK
+Speed 4|-
+FrontArc 4 |RRRKKK
+SideArc 2 |RRK
+RearArc 2 |RBK
+AntiSquadron|KK
 Upgrade|Title Officers TurboLaser Offensive Offensive  Weapon Team Ordance   
 FrontArcOffset|24.6
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -177,7 +179,7 @@ RearArcConjunction|41
 51++
 Name|Victory I-class Star Destroyer
 Keyword|None
-Faction|Empire
+Faction|Imperial
 Size|Medium
 Points|73
 Hull|8
@@ -187,11 +189,13 @@ Squad|3
 Eng|4
 Nav chart 
 Speed 1|1
-Speed 2|0 1  
-Front Arc 3 |RRRKKK
-Side Arc 3 |RRK
-Rear Arc 1 |RR
-Anti Squadron|B
+Speed 2|0 1
+Speed 3|-
+Speed 4|-
+FrontArc 3 |RRRKKK
+SideArc 3 |RRK
+RearArc 1 |RR
+AntiSquadron|B
 Upgrade|Title Officers TurboLaser Offensive Weapon Team Ordance   
 FrontArcOffset|21
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -205,7 +209,7 @@ RearArcConjunction|54
 
 Name|Victory II-class Star Destroyer
 Keyword|None
-Faction|Empire
+Faction|Imperial
 Size|Medium
 Points|85
 Hull|8
@@ -216,10 +220,12 @@ Eng|4
 Nav chart 
 Speed 1|1
 Speed 2|0 1  
-Front Arc 3 |RRRBBB
-Side Arc 3 |RRB
-Rear Arc 1 |RR
-Anti Squadron|B
+Speed 3|-
+Speed 4|-
+FrontArc 3 |RRRBBB
+SideArc 3 |RRB
+RearArc 1 |RR
+AntiSquadron|B
 Upgrade|Title Officers TurboLaser Offensive Weapon Team Ion cannon    
 FrontArcOffset|21
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -233,8 +239,8 @@ RearArcConjunction|54
 //This ship has a 1mm section between the rear and front conjuctions.//
 
 Name|Munificent-class Comms Frigate
-Keyword| Droid Bombard Comms
-Faction|SA
+Keyword|Droid Bombard Comms
+Faction|Separatist
 Size|Medium
 Points|70
 Hull|6
@@ -245,10 +251,12 @@ Eng|4
 Nav chart 
 Speed 1|1
 Speed 2|1 2
-Front Arc 4 |RRBB
-Side Arc 3 |RRR
-Rear Arc 2 |RR
-Anti Squadron|R
+Speed 3|-
+Speed 4|-
+FrontArc 4 |RRBB
+SideArc 3 |RRR
+RearArc 2 |RR
+AntiSquadron|R
 Upgrade|Title Officers TurboLaser Offensive Support Team Ion Cannon  
 FrontArcOffset| 7.9
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -261,8 +269,8 @@ RearArcConjunction|49
 
 
 Name|Munificent-class Star Frigate
-Keyword| Droid Bombard Transport
-Faction|SA
+Keyword|Droid Bombard Transport
+Faction|Separatist
 Keyword|None
 Size|Medium
 Points|73
@@ -274,10 +282,12 @@ Eng|4
 Nav chart 
 Speed 1|1
 Speed 2|1 2
-Front Arc 4 |RRBB
-Side Arc 3 |RRR
-Rear Arc 2 |RR
-Anti Squadron|RR
+Speed 3|-
+Speed 4|-
+FrontArc 4 |RRBB
+SideArc 3 |RRR
+RearArc 2 |RR
+AntiSquadron|RR
 Upgrade|Title Officers TurboLaser Defensive Suport Team Ion Cannon  
 FrontArcOffset| 7.9
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -293,7 +303,7 @@ RearArcConjunction|49
 
 Name|Hardcell-class Transport
 Keyword|Droid Transport
-Faction| SA
+Faction|Separatist
 Size|Small
 Points|47
 Hull|5
@@ -305,10 +315,11 @@ Nav chart
 Speed 1|2
 Speed 2|1 1 
 Speed 3|1 1 0 
-Front Arc 3 |RRB
-Side Arc 1 |B
-Rear Arc 2 |0
-Anti Squadron|B
+Speed 4|-
+FrontArc 3 |RRB
+SideArc 1 |B
+RearArc 2 |0
+AntiSquadron|B
 Upgrade|Title Support Fleet Support Officer Officer
 FrontArcOffset| 13.1
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -322,7 +333,7 @@ RearArcConjunction|31
 
 Name|Hardcell-class Battle Refit
 Keyword|Droid Transport
-Faction| SA
+Faction|Separatist
 Size|Small
 Points|52
 Hull|5
@@ -333,11 +344,12 @@ Eng|3
 Nav chart 
 Speed 1|2
 Speed 2|1 1 
-Speed 3|1 1 0 
-Front Arc 3 |RRR
-Side Arc 1 |R
-Rear Arc 2 |0
-Anti Squadron|BK
+Speed 3|1 1 0
+Speed 4|-
+FrontArc 3 |RRR
+SideArc 1 |R
+RearArc 2 |0
+AntiSquadron|BK
 Upgrade|Title Turbo Laser Offensive Defensive Officer 
 FrontArcOffset| 13.1
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -351,7 +363,7 @@ RearArcConjunction|31
 
 Name|CR90 Corvette A
 Keyword|None
-Faction| Rebel
+Faction|Rebel
 Size|Small
 Points|44
 Hull|4
@@ -380,7 +392,7 @@ RearArcConjunction|28
 
 Name|CR90 Corvette B
 Keyword|None
-Faction| Rebel
+Faction|Rebel
 Size|Small
 Points|39
 Hull|4
@@ -393,10 +405,10 @@ Speed 1|2
 Speed 2|1 2 
 Speed 3|0 1 2 
 Speed 4|0 1 1 2 
-Front Arc 2 |BBB
-Side Arc 2 |BB
-Rear Arc 1 |B
-Anti Squadron|B
+FrontArc 2 |BBB
+SideArc 2 |BB
+RearArc 1 |B
+AntiSquadron|B
 Upgrade|Title Ion Cannon Offensive Support Team Defensive Officer 
 FrontArcOffset| 19.8
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -420,11 +432,12 @@ Eng|4
 Nav chart 
 Speed 1|1
 Speed 2|1 1
-Speed 3|0 1 1  
-Front Arc 4 |RRB
-Side Arc 3 |RRRB
-Rear Arc 2 |RRB
-Anti Squadron|BB
+Speed 3|0 1 1
+Speed 4|-  
+FrontArc 4 |RRB
+SideArc 3 |RRRB
+RearArc 2 |RRB
+AntiSquadron|BB
 Upgrade|Title Officers TurboLaser Offensive Defensive Weapon Team Ordance   
 FrontArcOffset|2
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -450,10 +463,10 @@ Nav chart
 Speed 1|1
 Speed 2|1 1
 Speed 3|0 1 1  
-Front Arc 4 |RR
-Side Arc 3 |RRRB
-Rear Arc 2 |RR
-Anti Squadron|B
+FrontArc 4 |RR
+SideArc 3 |RRRB
+RearArc 2 |RR
+AntiSquadron|B
 Upgrade|Title Officers TurboLaser Offensive Defensive Weapon Team Ordance   
 FrontArcOffset|2
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -468,7 +481,7 @@ RearArcConjunction|53
 
 Name|Quasar Fire I
 Keyword|None
-Faction|Empire 
+Faction|Imperial
 Size|Medium
 Points|54
 Hull|6
@@ -480,10 +493,11 @@ Nav chart
 Speed 1|2
 Speed 2|1 0 
 Speed 3|0 1 1
-Front Arc 2 |BBB
-Side Arc 2 |BB
-Rear Arc 1 |B
-Anti Squadron|B
+Speed 4|-
+FrontArc 2 |BBB
+SideArc 2 |BB
+RearArc 1 |B
+AntiSquadron|B
 Upgrade|Title Officers Offensive Offensive Weapon Team 
 FrontArcOffset|35.3
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -496,7 +510,7 @@ RearArcConjunction|45
 
 Name|Quasar Fire II
 Keyword|None
-Faction|Empire 
+Faction|Imperial
 Size|Medium
 Points|61
 Hull|6
@@ -508,10 +522,11 @@ Nav chart
 Speed 1|2
 Speed 2|1 0 
 Speed 3|0 1 1
-Front Arc 2 |RRB
-Side Arc 2 |BR
-Rear Arc 1 |B
-Anti Squadron|R
+Speed 4|-
+FrontArc 2 |RRB
+SideArc 2 |BR
+RearArc 1 |B
+AntiSquadron|R
 Upgrade|Title Officers Offensive Weapon Team Weapon Team 
 FrontArcOffset|35.3
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -536,10 +551,12 @@ Eng|4
 Nav chart 
 Speed 1|1
 Speed 2|1 1
-Front Arc 4 |RRB
-Side Arc 4 |BBRRR
-Rear Arc 3 |BRR
-Anti Squadron|BB
+Speed 3|-
+Speed 4|-
+FrontArc 4 |RRB
+SideArc 4 |BBRRR
+RearArc 3 |BRR
+AntiSquadron|BB
 Upgrade|Title Officers Defensive Defensive Support Team Ion Cannon Turbo Lasers 
 FrontArcOffset|0
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -563,10 +580,12 @@ Eng|4
 Nav chart 
 Speed 1|1
 Speed 2|1 1
-Front Arc 4 |RBB
-Side Arc 4 |BBBRRR
-Rear Arc 3 |BBR
-Anti Squadron|BB
+Speed 3|-
+Speed 4|-
+FrontArc 4 |RBB
+SideArc 4 |BBBRRR
+RearArc 3 |BBR
+AntiSquadron|BB
 Upgrade|Title Officers Defensive Offensive Support Team Ion Cannon Turbo Lasers 
 FrontArcOffset|0
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -592,10 +611,10 @@ Nav chart
 Speed 1|2
 Speed 2|1 1
 Speed 3|0 1 1
-Front Arc 4 |BBBKK
-Side Arc 3 |BBRRR
-Rear Arc 3 |BK
-Anti Squadron|BK
+FrontArc 4 |BBBKK
+SideArc 3 |BBRRR
+RearArc 3 |BK
+AntiSquadron|BK
 Upgrade|Title Officers Defensive Offensive Support Team Ion Cannon Turbo Laser Weapons team Ordance   
 FrontArcOffset|20
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -637,7 +656,7 @@ RearArcConjunction|62
 
 Name|Imperial Star Destroyer Kuat Refit
 Keyword|None
-Faction|Empire 
+Faction|Imperial
 Size|Large
 Points|112
 Hull|11
@@ -649,10 +668,11 @@ Nav chart
 Speed 1|1
 Speed 2|1 1
 Speed 3|0 1 1
-Front Arc 4 |RRRBBKKK
-Side Arc 3 |RBKK
-Rear Arc 3 |RBK
-Anti Squadron|KB
+Speed 4|-
+FrontArc 4 |RRRBBKKK
+SideArc 3 |RBKK
+RearArc 3 |RBK
+AntiSquadron|KB
 Upgrade|Title Officers Defensive Offensive Support Team Weapons Team  Ordance Ion Cannon 
 FrontArcOffset|41
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -665,7 +685,7 @@ RearArcConjunction|49
 
 Name|Imperial Star Destroyer Kuat Refit
 Keyword|None
-Faction|Empire 
+Faction|Imperial
 Size|Large
 Points|112
 Hull|11
@@ -677,10 +697,11 @@ Nav chart
 Speed 1|1
 Speed 2|1 1
 Speed 3|0 1 1
-Front Arc 4 |RRRBBKKK
-Side Arc 3 |RBKK
-Rear Arc 2 |RBK
-Anti Squadron|KB
+Speed 4|-
+FrontArc 4 |RRRBBKKK
+SideArc 3 |RBKK
+RearArc 2 |RBK
+AntiSquadron|KB
 Upgrade|Title Officers Defensive Offensive Support Team Weapons Team  Ordance Ion Cannon 
 FrontArcOffset|41
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -693,7 +714,7 @@ RearArcConjunction|49
 
 Name|Imperial Star Destroyer Cymoon 1 Refit
 Keyword|None
-Faction|Empire 
+Faction|Imperial
 Size|Large
 Points|112
 Hull|11
@@ -705,10 +726,11 @@ Nav chart
 Speed 1|1
 Speed 2|1 1
 Speed 3|0 1 1
-Front Arc 4 |RRRRRBB
-Side Arc 3 |RBBB
-Rear Arc 2 |RBB
-Anti Squadron|KK
+Speed 4|-
+FrontArc 4 |RRRRRBB
+SideArc 3 |RBBB
+RearArc 2 |RBB
+AntiSquadron|KK
 Upgrade|Title Officers Offensive Weapons Team Turbo Laser Turbo Laser Fleet Command
 FrontArcOffset|41
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -722,7 +744,7 @@ RearArcConjunction|49
 
 Name|Imperial II Class Star Destroyer 
 Keyword|None
-Faction|Empire 
+Faction|Imperial
 Size|Large
 Points|120
 Hull|11
@@ -734,10 +756,11 @@ Nav chart
 Speed 1|1
 Speed 2|1 1
 Speed 3|0 1 1
-Front Arc 4 |RRRRBBBB
-Side Arc 3 |RRBB
-Rear Arc 2 |RBB
-Anti Squadron|BB
+Speed 4|-
+FrontArc 4 |RRRRBBBB
+SideArc 3 |RRBB
+RearArc 2 |RBB
+AntiSquadron|BB
 Upgrade|Title Officers Defensive Offensive Weapons Team Turbo Laser Defensive Ion Cannon
 FrontArcOffset|41
 //How far from the front corner does the hull zone line hit the cardboard edge//
@@ -750,7 +773,7 @@ RearArcConjunction|49
 
 Name|Imperial I Class Star Destroyer 
 Keyword|None
-Faction|Empire 
+Faction|Imperial
 Size|Large
 Points|110
 Hull|11
@@ -762,10 +785,11 @@ Nav chart
 Speed 1|1
 Speed 2|1 1
 Speed 3|0 1 1
-Front Arc 4 |RRRBBKKK
-Side Arc 3 |RRKK
-Rear Arc 2 |RBB
-Anti Squadron|BK
+Speed 4|-
+FrontArc 4 |RRRBBKKK
+SideArc 3 |RRKK
+RearArc 2 |RBB
+AntiSquadron|BK
 Upgrade|Title Officers Defensive Offensive Offensive Weapons Team Turbo Laser Defensive Ion Cannon
 FrontArcOffset|41
 //How far from the front corner does the hull zone line hit the cardboard edge//
