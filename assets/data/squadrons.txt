@@ -1,0 +1,493 @@
+SquadName|"Axe"
+Unique|Y
+SquadType|V-19 Torrent
+Faction|Republic
+Hull|5
+Speed|3
+AntiShipDice|K
+AntiSquadronDice|RBB
+Keywords|Escort Swarm
+Points|17
+DefenseTokens|Br Ev
+
+SquadName|"Kickback"
+Unique|Y
+SquadType|V-19 Torrent
+Faction|Republic
+Hull|5
+Speed|3
+AntiShipDice|K
+AntiSquadronDice|RBB
+Keywords|Escort Swarm
+Points|16
+DefenseTokens|Br Br
+
+SquadName|V-19 Torrent
+Unique|N
+SquadType|V-19 Torrent
+Faction|Republic
+Hull|5
+Speed|3
+AntiShipDice|K
+AntiSquadronDice|RBB
+Keywords|Swarm Escort
+Points|12
+DefenseTokens|
+
+SquadName|Anakin Skywalker
+Unique|Y
+SquadType|BTL-B Y-wing
+Faction|Republic
+Hull|6
+Speed|3
+AntiShipDice|RB
+AntiSquadronDice|BBB
+Keywords|Bomber Heavy Adept2
+Points|19
+DefenseTokens|Br Br
+
+SquadName|BTL-B Y-wing
+Unique|N
+SquadType|BTL-B Y-wing
+Faction|Republic
+Hull|6
+Speed|3
+AntiShipDice|K
+AntiSquadronDice|BK
+Keywords|Bomber Heavy
+Points|10
+DefenseTokens|
+
+
+SquadName|"Odd Ball"
+Unique|Y
+SquadType|ARC-170 Starfighter
+Faction|Republic
+Hull|7
+Speed|2
+AntiShipDice|BB
+AntiSquadronDice|RBB
+Keywords|Bomber Counter1
+Points|23
+DefenseTokens|Br Ev
+
+SquadName|ARC-170 Starfighter
+Unique|N
+SquadType|ARC-170 Starfighter
+Faction|Republic
+Hull|7
+Speed|2
+AntiShipDice|BB
+AntiSquadronDice|RBB
+Keywords|Bomber Counter1
+Points|15
+DefenseTokens|
+
+SquadName|Ahsoka Tano
+Unique|Y
+SquadType|Delta-7 Aethersprite
+Faction|Republic
+Hull|4
+Speed|4
+AntiShipDice|B
+AntiSquadronDice|BBBK
+Keywords|Adept1 Counter2 Grit
+Points|23
+DefenseTokens|Br Sc
+
+SquadName|Kit Fisto
+Unique|Y
+SquadType|Delta-7 Aethersprite
+Faction|Republic
+Hull|4
+Speed|4
+AntiShipDice|B
+AntiSquadronDice|BBBK
+Keywords|Adept2 Counter2 Intel
+Points|26
+DefenseTokens|Br Br
+
+SquadName|Luminara Unduli
+Unique|Y
+SquadType|Delta-7 Aethersprite
+Faction|Republic
+Hull|4
+Speed|4
+AntiShipDice|B
+AntiSquadronDice|BBBK
+Keywords|Adept1 Counter2
+Points|23
+DefenseTokens|Br Sc
+
+SquadName|Plo Koon
+Unique|Y
+SquadType|Delta-7 Aethersprite
+Faction|Republic
+Hull|4
+Speed|4
+AntiShipDice|B
+AntiSquadronDice|BBBK
+Keywords|Adept2 Counter2
+Points|24
+DefenseTokens|Br Sc
+
+SquadName|Delta-7 Aethersprite
+Unique|N
+SquadType|Delta-7 Aethersprite
+Faction|Republic
+Hull|4
+Speed|4
+AntiShipDice|B
+AntiSquadronDice|BBBK
+Keywords|Adept1 Counter2 Dodge1
+Points|17
+DefenseTokens|
+
+SquadName|Haor Chall Prototypes
+Unique|Y
+SquadType|Vulture-class Droid Fighter
+Faction|Separatist
+Hull|3
+Speed|4
+AntiShipDice|R
+AntiSquadronDice|BK
+Keywords|Swarm AI:Anti-Squadron1
+Points|16
+DefenseTokens|Br Sc
+
+SquadName|DFS-311
+Unique|Y
+SquadType|Vulture-class Droid Fighter
+Faction|Separatist
+Hull|3
+Speed|4
+AntiShipDice|R
+AntiSquadronDice|RK
+Keywords|Swarm AI:Anti-Squadron1 Intel
+Points|18
+DefenseTokens|Br Sc
+
+SquadName|Vulture-class Droid Fighter
+Unique|N
+SquadType|Vulture-class Droid Fighter
+Faction|Separatist
+Hull|3
+Speed|4
+AntiShipDice|R
+AntiSquadronDice|BK
+Keywords|Swarm AI:Anti-Squadron1
+Points|8
+DefenseTokens|
+
+SquadName|DBS-404
+Unique|Y
+SquadType|Hyena-class Droid Bomber
+Faction|Separatist
+Hull|4
+Speed|4
+AntiShipDice|R
+AntiSquadronDice|BB
+Keywords|Bomber Heavy AI:Battery1
+Points|17
+DefenseTokens|Br Sc
+
+SquadName|Baktoid Prototypes
+Unique|Y
+SquadType|Hyena-class Droid Bomber
+Faction|Separatist
+Hull|4
+Speed|4
+AntiShipDice|R
+AntiSquadronDice|BB
+Keywords|Bomber Heavy AI:Battery1
+Points|16
+DefenseTokens|Br Sc
+
+SquadName|Hyena-class Droid Bomber
+Unique|N
+SquadType|Hyena-class Droid Bomber
+Faction|Separatist
+Hull|4
+Speed|4
+AntiShipDice|R
+AntiSquadronDice|BB
+Keywords|Bomber Heavy AI:Battery1
+Points|11
+DefenseTokens|
+
+
+SquadName|General Grievous
+Unique|Y
+SquadType|Belbullab-22 Starfighter
+Faction|Separatist
+Hull|5
+Speed|4
+AntiShipDice|K
+AntiSquadronDice|KKBB
+Keywords|Relay2 Screen
+Points|22
+DefenseTokens|Br Br
+
+SquadName|Belbullab-22 Starfighter
+Unique|N
+SquadType|Belbullab-22 Starfighter
+Faction|Separatist
+Hull|5
+Speed|4
+AntiShipDice|B
+AntiSquadronDice|KKBB
+Keywords|Relay1 Screen
+Points|15
+DefenseTokens|
+
+SquadName|Phlac-Arphocc Prototypes
+Unique|Y
+SquadType|Droid Tri-Fighter
+Faction|Separatist
+Hull|3
+Speed|5
+AntiShipDice|K
+AntiSquadronDice|RBK
+Keywords|AI:Anti-Squadron1 Counter2 Swarm
+Points|19
+DefenseTokens|Br Sc
+
+SquadName|DIS-T81
+Unique|Y
+SquadType|Droid Tri-Fighter
+Faction|Separatist
+Hull|3
+Speed|5
+AntiShipDice|K
+AntiSquadronDice|RBK
+Keywords|AI:Anti-Squadron1 Counter2 Swarm Snipe3
+Points|17
+DefenseTokens|Br Sc
+
+SquadName|Droid Tri-Fighter
+Unique|N
+SquadType|Droid Tri-Fighter
+Faction|Separatist
+Hull|3
+Speed|5
+AntiShipDice|K
+AntiSquadronDice|RBB
+Keywords|AI:Anti-Squadron1 Counter2 Swarm
+Points|11
+DefenseTokens|
+
+SquadName|Luke Skywalker
+Unique|Y
+SquadType|X-wing
+Faction|Rebel
+Hull|5
+Speed|3
+AntiShipDice|K
+AntiSquadronDice|BBBB
+Keywords|Escort Bomber
+Points|20
+DefenseTokens|Br Br
+
+SquadName|Wedge Antilles
+Unique|Y
+SquadType|X-wing
+Faction|Rebel
+Hull|5
+Speed|3
+AntiShipDice|K
+AntiSquadronDice|BBBB
+Keywords|Escort Bomber
+Points|19
+DefenseTokens|Br Br
+
+SquadName|X-wing
+Unique|N
+SquadType|X-wing
+Faction|Rebel
+Hull|5
+Speed|3
+AntiShipDice|R
+AntiSquadronDice|BBBB
+Keywords|Escort Bomber
+Points|13
+DefenseTokens|
+
+SquadName|"Dutch" Vander
+Unique|Y
+SquadType|Y-wing
+Faction|Rebel
+Hull|6
+Speed|3
+AntiShipDice|K
+AntiSquadronDice|BBB
+Keywords|Bomber Heavy
+Points|16
+DefenseTokens|Br Br
+
+SquadName|Y-wing
+Unique|N
+SquadType|Y-wing
+Faction|Rebel
+Hull|5
+Speed|3
+AntiShipDice|K
+AntiSquadronDice|BB
+Keywords|Bomber
+Points|10
+DefenseTokens|
+
+SquadName|Keyan Farlander
+Unique|Y
+SquadType|B-wing
+Faction|Rebel
+Hull|6
+Speed|3
+AntiShipDice|KK
+AntiSquadronDice|BBB
+Keywords|Bomber
+Points|20
+DefenseTokens|Br Br
+
+SquadName|B-wing
+Unique|N
+SquadType|B-wing
+Faction|Rebel
+Hull|5
+Speed|2
+AntiShipDice|KB
+AntiSquadronDice|BBB
+Keywords|Bomber
+Points|14
+DefenseTokens|
+
+SquadName|Tycho Celchu
+Unique|Y
+SquadType|A-wing
+Faction|Rebel
+Hull|4
+Speed|5
+AntiShipDice|K
+AntiSquadronDice|BBB
+Keywords|Counter2
+Points|16
+DefenseTokens|Br Sc
+
+SquadName|A-wing
+Unique|N
+SquadType|A-wing
+Faction|Rebel
+Hull|4
+Speed|5
+AntiShipDice|K
+AntiSquadronDice|BBB
+Keywords|Counter2
+Points|11
+DefenseTokens|
+
+SquadName|"Howlrunner"
+Unique|Y
+SquadType|TIE Fighter
+Faction|Imperial
+Hull|3
+Speed|4
+AntiShipDice|B
+AntiSquadronDice|BBB
+Keywords|Swarm
+Points|16
+DefenseTokens|Br Sc
+
+SquadName|"Mauler" Mithel
+Unique|Y
+SquadType|TIE Fighter
+Faction|Imperial
+Hull|3
+Speed|4
+AntiShipDice|B
+AntiSquadronDice|BBB
+Keywords|Swarm
+Points|15
+DefenseTokens|Br Sc
+
+SquadName|TIE Fighter
+Unique|N
+SquadType|Tie Fighter
+Faction|Imperial
+Hull|3
+Speed|4
+AntiShipDice|B
+AntiSquadronDice|BBB
+Keywords|Swarm
+Points|8
+DefenseTokens|
+
+SquadName|Major Rhymer
+Unique|Y
+SquadType|TIE Bomber
+Faction|Imperial
+Hull|5
+Speed|4
+AntiShipDice|K
+AntiSquadronDice|KB
+Keywords|Bomber Heavy
+Points|16
+DefenseTokens|Br Br
+
+SquadName|TIE Bomber
+Unique|N
+SquadType|TIE Bomber
+Faction|Imperial
+Hull|5
+Speed|4
+AntiShipDice|K
+AntiSquadronDice|K
+Keywords|Bomber
+Points|9
+DefenseTokens|
+
+SquadName|Darth Vader
+Unique|Y
+SquadType|TIE Advanced
+Faction|Imperial
+Hull|5
+Speed|4
+AntiShipDice|K
+AntiSquadronDice|BBBK
+Keywords|Escort
+Points|21
+DefenseTokens|Br Br
+
+SquadName|TIE Advanced
+Unique|N
+SquadType|TIE Advanced
+Faction|Imperial
+Hull|5
+Speed|4
+AntiShipDice|K
+AntiSquadronDice|BBB
+Keywords|Escort
+Points|12
+DefenseTokens|
+
+SquadName|Soontir Fel
+Unique|Y
+SquadType|TIE Interceptor
+Faction|Imperial
+Hull|3
+Speed|5
+AntiShipDice|B
+AntiSquadronDice|BBBB
+Keywords|Counter2 Swarm
+Points|18
+DefenseTokens|Br Sc
+
+SquadName|TIE Interceptor
+Unique|N
+SquadType|TIE Interceptor
+Faction|Imperial
+Hull|3
+Speed|5
+AntiShipDice|B
+AntiSquadronDice|BBB
+Keywords|Counter2 Swarm
+Points|11
+DefenseTokens|
