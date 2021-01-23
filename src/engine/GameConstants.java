@@ -1,5 +1,8 @@
 package engine;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class GameConstants {
     /**
      * This is going to be a static class object to contain common values that need to be accessible across many
@@ -23,6 +26,8 @@ public class GameConstants {
     public static final float RANGE_LONG = 305;
     public static final float SHORT_BOARD_EDGE = 914.4f;
     public static final float LONG_BOARD_EDGE = 1828.8f;
+
+    public static final ArrayList<String> CURRENT_FACTIONS = new ArrayList<String>(Arrays.asList(new String[]{"Rebel", "Imperial", "Separatist", "Republic"}));
 
     /**
      * Ship sizes were sourced from
