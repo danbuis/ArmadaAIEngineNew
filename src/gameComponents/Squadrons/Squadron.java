@@ -1,10 +1,17 @@
 package gameComponents.Squadrons;
 
 import BBDGameLibrary.GameEngine.GameComponent;
+import BBDGameLibrary.GameEngine.GameItem;
+import BBDGameLibrary.GameEngine.GameItem2d;
 import BBDGameLibrary.GameEngine.MouseInput;
+import BBDGameLibrary.Geometry2d.BBDGeometryUtils;
+import BBDGameLibrary.Geometry2d.BBDPoint;
+import BBDGameLibrary.Geometry2d.BBDPolygon;
+import BBDGameLibrary.OpenGL.Mesh;
 import BBDGameLibrary.OpenGL.Window;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * A class representing a Squadron object
@@ -22,6 +29,7 @@ public class Squadron implements GameComponent {
     private final ArrayList<String> keywords;
     private final int pointsValue;
     private ArrayList<String> defenseTokens;
+    private HashMap<String, GameItem> gameItems;
 
     /**
      * Constructor used by the SquadronFactory to build a new object.  Could also be used to build something programmitically
@@ -74,7 +82,14 @@ public class Squadron implements GameComponent {
 
     @Override
     public void init(Window window) {
+        BBDPolygon plasticBase = BBDGeometryUtils.createCircle(new BBDPoint(0,0), 12.7f, 100);
+        BBDPolygon cardboard = BBDGeometryUtils.createCircle(new BBDPoint(0,0), 12.4f, 100);
 
+        GameItem plasticBaseItem = new GameItem2d(Mesh.buildMeshFromPolygon(plasticBase), engine.Utils.buildSolidColorShader("white"), plasticBase, 25, true);
+        this.gameItems.put("base", plasticBaseItem);
+
+        GameItem cardboardItem = new GameItem2d(Mesh.buildMeshFromPolygon(cardboard), engine.Utils.buildSolidColorShader("black"), cardboard, 24, true);
+        this.gameItems.put("cardboard", cardboardItem);
     }
 
     @Override
