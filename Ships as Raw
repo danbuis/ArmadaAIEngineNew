@@ -9,11 +9,10 @@ defenseTokens|Br Rd Ev
 Command|2 
 Squad|2 
 Eng|3 
-NavChart|
-Speed 1|2 
-Speed 2|1 1 
-Speed 3|0 1 1
-Speed 4|-
+Speed1|2
+Speed2|11
+Speed3|011
+Speed4|0
 FrontShields|3
 SideShields|2
 RearShields|1
@@ -41,11 +40,10 @@ defenseTokens|Br Rd Ev
 Command|2 
 Squad|2 
 Eng|3 
-NavChart| 
-Speed 1|2 
-Speed 2|1 1 
-Speed 3|0 1 1
-Speed 4|-
+Speed1|2
+Speed2|11
+Speed3|011
+Speed4|0
 FrontShields|3
 SideShields|2
 RearShields|1
@@ -75,11 +73,10 @@ defenseTokens|Rd Rd Br
 Command|3
 Squad|3
 Eng|4
-NavChart| 
-Speed 1|1
-Speed 2|0 1 
-Speed 3|-
-Speed 4|- 
+Speed1|1
+Speed2|01
+Speed3|0
+Speed4|0
 FrontShields|3
 SideShields|3
 RearShields|1
@@ -109,11 +106,10 @@ defenseTokens|Rd Rd Br
 Command|3
 Squad|3
 Eng|4
-NavChart| 
-Speed 1|1
-Speed 2|0 1 
-Speed 3|-
-Speed 4|-
+Speed1|1
+Speed2|01
+Speed3|0
+Speed4|0
 FrontShields|3
 SideShields|3
 RearShields|1
@@ -144,11 +140,10 @@ defenseTokens|Rd Br
 Command|2
 Squad|4
 Eng|2
-NavChart|
-Speed 1|2
-Speed 2|1 0
-Speed 3|0 1 1
-Speed 4|-
+Speed1|2
+Speed2|10
+Speed3|011
+Speed4|0
 FrontShields|2
 SideShields|2
 RearShields|1
@@ -177,11 +172,10 @@ defenseTokens|Rd Br
 Command|2
 Squad|4
 Eng|2
-NavChart|
-Speed 1|2
-Speed 2|1 0
-Speed 3|0 1 1
-Speed 4|-
+Speed1|2
+Speed2|10
+Speed3|011
+Speed4|0
 FrontShields|2
 SideShields|2
 RearShields|1
@@ -210,11 +204,10 @@ defenseTokens|Rd Br Br Cn
 Command|3
 Squad|2
 Eng|4
-NavChart|
-Speed 1|1
-Speed 2|1 1
-Speed 3|0 1 1
-Speed 4|-
+Speed1|1
+Speed2|11
+Speed3|011
+Speed4|0
 FrontShields|4
 SideShields|3
 RearShields|2
@@ -243,11 +236,10 @@ defenseTokens|Rd Br Br Cn
 Command|3
 Squad|3
 Eng|4
-NavChart|
-Speed 1|1
-Speed 2|1 1
-Speed 3|0 1 1
-Speed 4|-
+Speed1|1
+Speed2|11
+Speed3|011
+Speed4|0
 FrontShields|4
 SideShields|3
 RearShields|2
@@ -276,10 +268,10 @@ defenseTokens|Rd Br Br Cn
 Command|3
 Squad|4
 Eng|4
-NavChart|
-Speed 1|1
-Speed 2|1 1
-Speed 3|0 1 1
+Speed1|1
+Speed2|11
+Speed3|011
+Speed4|0
 FrontShields|4
 SideShields|3
 RearShields|2
@@ -308,11 +300,10 @@ defenseTokens|Rd Br Br Cn
 Command|3
 Squad|4
 Eng|4
-NavChart|
-Speed 1|1
-Speed 2|1 1
-Speed 3|0 1 1
-Speed 4|-
+Speed1|1
+Speed2|11
+Speed3|011
+Speed4|0
 FrontShields|4
 SideShields|3
 RearShields|2
@@ -344,11 +335,10 @@ defenseTokens|Rd Rd Ev
 Command|1 
 Squad|1
 Eng|2
-NavChart| 
-Speed 1|2
-Speed 2|1 2 
-Speed 3|0 1 2 
-Speed 4|0 1 1 2 
+Speed1|2
+Speed2|12
+Speed3|012
+Speed4|0112
 FrontShields|2
 SideShields|2
 RearShields|1
@@ -377,11 +367,10 @@ defenseTokens|Rd Rd Ev
 Command|1 
 Squad|1
 Eng|2
-NavChart| 
-Speed 1|2
-Speed 2|1 2 
-Speed 3|0 1 2 
-Speed 4|0 1 1 2
+Speed1|2
+Speed2|12
+Speed3|012
+Speed4|0112
 FrontShields|2
 SideShields|2
 RearShields|1
@@ -410,11 +399,10 @@ defenseTokens|Rd Ev Br
 Command|3
 Squad|2
 Eng|4
-NavChart| 
-Speed 1|1
-Speed 2|1 1
-Speed 3|0 1 1
-Speed 4|-  
+Speed1|1
+Speed2|11
+Speed3|011
+Speed4|0
 FrontShields|4
 SideShields|3
 RearShields|2
@@ -444,11 +432,10 @@ defenseTokens|Rd Ev Br
 Command|3
 Squad|2
 Eng|4
-NavChart| 
-Speed 1|1
-Speed 2|1 1
-Speed 3|0 1 1  
-Speed 4|-  
+Speed1|1
+Speed2|11
+Speed3|011
+Speed4|0
 Anti Squadron|B
 FrontShields|4
 SideShields|3
@@ -480,11 +467,10 @@ defenseTokens|Rd Br Rd Cn
 Command|3
 Squad|3
 Eng|4
-NavChart| 
-Speed 1|1
-Speed 2|1 1
-Speed 3|-
-Speed 4|-    
+Speed1|1
+Speed2|11
+Speed3|0
+Speed4|0
 FrontShields|4
 SideShields|4
 RearShields|3
@@ -513,11 +499,10 @@ defenseTokens|Rd Br Rd Cn
 Command|3
 Squad|4
 Eng|4
-NavChart| 
-Speed 1|1
-Speed 2|1 1
-Speed 3|-
-Speed 4|-    
+Speed1|1
+Speed2|11
+Speed3|0
+Speed4|0
 FrontShields|4
 SideShields|4
 RearShields|3
@@ -547,11 +532,10 @@ defenseTokens|Rd Br Cn Cn
 Command|3
 Squad|3
 Eng|4
-NavChart| 
-Speed 1|2
-Speed 2|1 1
-Speed 3|0 1 1
-Speed 4|-  
+Speed1|2
+Speed2|11
+Speed3|011
+Speed4|0
 FrontShields|4
 SideShields|3
 RearShields|3
@@ -581,11 +565,10 @@ defenseTokens|Rd Br Cn Cn
 Command|3
 Squad|2
 Eng|4
-NavChart| 
-Speed 1|2
-Speed 2|1 1
-Speed 3|0 1 1
-Speed 4|-  
+Speed1|2
+Speed2|11
+Speed3|011
+Speed4|0
 FrontShields|4
 SideShields|3
 RearShields|3
@@ -616,11 +599,10 @@ defenseTokens|Con Rd Ev
 Command|1
 Squad|1
 Eng|2
-NavChart|
-Speed 1|2
-Speed 2|2 1
-Speed 3|1 1 1
-Speed 4|1 0 1 1
+Speed1|2
+Speed2|21
+Speed3|111
+Speed4|1011
 FrontShields|2
 SideShields|2
 RearShields|1
@@ -651,11 +633,10 @@ defenseTokens|Con Rd Ev
 Command|1
 Squad|1
 Eng|2
-NavChart|
-Speed 1|2
-Speed 2|2 1
-Speed 3|1 1 1
-Speed 4|1 0 1 1
+Speed1|2
+Speed2|21
+Speed3|111
+Speed4|1011
 FrontShields|2
 SideShields|2
 RearShields|1
@@ -684,11 +665,10 @@ defenseTokens|Sal Rd Br
 Command|3
 Squad|3
 Eng|4
-NavChart|
-Speed 1|1
-Speed 2|1 0
-Speed 3|0 1 0
-Speed 4|-
+Speed1|1
+Speed2|10
+Speed3|010
+Speed4|0
 FrontShields|4
 SideShields|2
 RearShields|2
@@ -719,11 +699,10 @@ defenseTokens|Sal Rd Br
 Command|3
 Squad|3
 Eng|4
-NavChart|
-Speed 1|1
-Speed 2|1 0
-Speed 3|0 1 0
-Speed 4|-
+Speed1|1
+Speed2|10
+Speed3|010
+Speed4|0
 FrontShields|4
 SideShields|2
 RearShields|2
@@ -753,11 +732,10 @@ defenseTokens|Sal Rd Br
 Command|2
 Squad|3
 Eng|4
-NavChart|
-Speed 1|1
-Speed 2|1 2
-Speed 3|-
-Speed 4|-
+Speed1|1
+Speed2|12
+Speed3|0
+Speed4|0
 FrontShields|4
 SideShields|3
 RearShields|2
@@ -787,11 +765,10 @@ defenseTokens|Sal Rd Br
 Command|2
 Squad|3
 Eng|4
-NavChart|
-Speed 1|1
-Speed 2|1 2
-Speed 3|-
-Speed 4|-
+Speed1|1
+Speed2|12
+Speed3|0
+Speed4|0
 FrontShields|4
 SideShields|3
 RearShields|2
@@ -821,11 +798,10 @@ defenseTokens|Br Rd Ev
 Command|1
 Squad|2
 Eng|3
-NavChart|
-Speed 1|2
-Speed 2|1 1
-Speed 3|1 1 0
-Speed 4|-
+Speed1|2
+Speed2|11
+Speed3|110
+Speed4|0
 FrontShields|3
 SideShields|1
 RearShields|2
@@ -857,9 +833,9 @@ Squad|2
 Eng|3
 NavChart|
 Speed 1|2
-Speed 2|1 1
-Speed 3|1 1 0
-Speed 4|-
+Speed 2|11
+Speed 3|110
+Speed 4|0
 FrontShields|3
 SideShields|1
 RearShields|2
@@ -877,5 +853,6 @@ FrontArcConjunction|32
 RearArcConjunction|31
 //How far from the rear of the ship do the rear hull zone lines meet//
 //This ship has a 7 section between the rear and front conjuctions.//
+
 
 
