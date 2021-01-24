@@ -858,3 +858,194 @@ RearArcConjunction|31
 
 
 
+
+package gameComponents;
+
+import java.lang.reflect.array;
+import java.util.arrayList;
+
+public class Ships {
+
+    
+    private final string Name;
+    private final string Type;
+    private final arrayList<string> Keywords;
+    private final string Faction ;
+    private final string Size;
+    private final int Points;
+    private final int Hull;
+    private arrayList<string> defenseTokens;
+    private final string Command;
+    private final string Squad;
+    private final string Eng;
+    private final string NavChart;
+    private final string Speed1;
+    private final string Speed2;
+    private final string Speed3;
+    private final string Speed4;
+    private final int FrontShields;
+    private final int SideShields;
+    private final int RearShields;
+    private final arrayList<string> FrontArmament;
+    private final arrayList<string> SideArmament;
+    private final arrayList<string>  RearArmament;
+    private final arrayList<string> AntiSquadron;
+    private arraylist<string> Upgrade;
+    private final int FrontArcOffset;
+    private final int RearArcOffset;
+    private final int FrontArcOffset;
+    private final int FrontArcConjunction;
+    private final int RearArcConjunction;
+
+    public string getName() {
+            return Name;
+
+    public string getType() {
+        return Type;
+    }
+
+    public int arrayList<string> Keywords() {
+                return arrayList<string> Keywords;
+    }
+
+    public string getFaction() {
+        return Faction;
+    }
+
+    public string Size() {
+            return Size;
+   }
+
+    public int getPoints() {
+        return Points;
+    }
+
+    public int getHull() {
+        return Hull;
+    }
+
+    public ArrayList<string> getDefenseTokens() {
+            return defenseTokens;
+    }
+
+    public int getCommand() {
+                return getCommand;
+    }
+
+    public int getSquad() {
+                    return getSquad;
+    }
+
+    public int getEng() {
+                return getEng;
+    }
+
+    public int getSpeed1() {
+        return getSpeed1;
+    }
+
+    public int getSpeed2() {
+            return getSpeed2;
+    }
+
+    public int getSpeed3() {
+            return getSpeed3;
+    }
+
+    public int getSpeed4() {
+            return getSpeed4;
+    }
+
+    public string FrontShields() {
+            return FrontShields;
+    }
+
+    public string SideShields() {
+                return SideShields;
+    }
+
+    public string RearShields() {
+                return RearShields;
+    }
+
+    public ArrayList<string> FrontArmament() {
+                return FrontArmament;
+    }
+
+    public ArrayList<string> SideArmament() {
+                    return SideArmament;
+    }
+
+    public ArrayList<string> RearArmament() {
+                    return RearArmament;
+    }
+
+    public ArrayList<string> AntiSquadron() {
+                        return AntiSquadron;
+    }
+
+    public ArrayList<string> Upgrade() {
+                        return Upgrade;
+    }
+
+    public int FrontArcOffset() {
+                return FrontArcOffset;
+    }
+
+    public int RearArcOffset() {
+                    return RearArcOffset;
+    }
+
+    public int FrontArcConjunction() {
+                    return FrontArcConjunction;
+    }
+
+    public int RearArcConjunction() {
+                    return RearArcConjunction;
+    }
+
+
+
+
+
+
+
+
+
+    public Ship(string Name, string Type, string Keyword, string Faction ,string size, int Points, int Hull,
+                arrayList<string> defenseTokens, string Command, string Squad, string Eng, int Speed1, int Speed2
+                    int Speed3,int Speed4,
+                     int FrontShields, int SideShields, int RearShields, ArrayList<string> FrontArmaments,
+                     ArrayList<string> SideArmaments, ArrayList<string> RearArmament,
+                     ArrayList<string> AntiSquadron,
+                     arraylist<string> Upgrade, int FrontArcOffset, int RearArcOffset, int FrontArcConjunction,
+                     int RearArcConjuction){
+
+        this.Type = Type;
+        this.Name = Name;
+        this.Keywords = Keywords;
+        this.Faction  = Faction ;
+        this.Points = Points;
+        this.Hull = Hull;
+        this.defenseTokens = defenseTokens;
+        this.Command = Command;
+        this.Squad = Squad;
+        this.Eng = Eng;
+        this.string Speed1 = Speed1;
+        this.string Speed2 = Speed2;
+        this.string Speed3 = Speed3;
+        this.string Speed4 = Speed4;
+        this.FrontShields = FrontShields;
+        this.SideShields = SideShields;
+        this.RearShields = RearShields;
+        this.FrontArmament = FrontArmament;
+        this.SideArmament = SideArmament;
+        this.RearArmament = RearArmament;
+        this.AntiSquadron = AntiSquadron;
+        this.Upgrade = Upgrade;
+        this.FrontArcOffset = FrontArcOffset;
+        this.RearArcOffset = RearArcOffset;
+        this.FrontArcConjunction = FrontArcConjunction;
+        this.RearArcConjunction = RearArcConjunction;
+}
+
