@@ -1,6 +1,7 @@
 
 Name|Gladiator I-class Star Destroyer
 Type|Gladiator
+Keyword|None
 Faction|Imperial
 Size|Small
 Points|56
@@ -32,6 +33,7 @@ RearArcConjunction|37
 
 Name|Gladiator II-class Star Destroyer
 Type|Gladiator
+Keyword|None
 Faction|Imperial 
 Size|Small
 Points|62
