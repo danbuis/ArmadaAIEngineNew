@@ -1,6 +1,6 @@
 package engine.parsers;
 
-import gameComponents.Squadron;
+import gameComponents.Squadrons.Squadron;
 
 import java.io.File;
 import java.io.FileNotFoundException;

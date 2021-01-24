@@ -1,12 +1,15 @@
-package gameComponents;
+package gameComponents.Squadrons;
 
-import java.lang.reflect.Array;
+import BBDGameLibrary.GameEngine.GameComponent;
+import BBDGameLibrary.GameEngine.MouseInput;
+import BBDGameLibrary.OpenGL.Window;
+
 import java.util.ArrayList;
 
 /**
  * A class representing a Squadron object
  */
-public class Squadron {
+public class Squadron implements GameComponent {
 
     private final String type;
     private final String name;
@@ -111,5 +114,30 @@ public class Squadron {
         this.keywords = original.keywords;
         this.pointsValue = original.pointsValue;
         this.defenseTokens = original.defenseTokens;
+    }
+
+    @Override
+    public void init(Window window) {
+
+    }
+
+    @Override
+    public void input(Window window, MouseInput mouseInput) {
+
+    }
+
+    @Override
+    public void update(float v, MouseInput mouseInput, Window window) {
+
+    }
+
+    @Override
+    public void render(Window window) {
+
+    }
+
+    @Override
+    public void cleanup() {
+
     }
 }

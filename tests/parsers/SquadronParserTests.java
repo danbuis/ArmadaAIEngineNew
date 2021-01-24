@@ -2,7 +2,7 @@ package parsers;
 
 import engine.parsers.ParsingException;
 import engine.parsers.SquadronFactory;
-import gameComponents.Squadron;
+import gameComponents.Squadrons.Squadron;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
