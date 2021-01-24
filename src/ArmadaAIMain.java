@@ -1,5 +1,6 @@
 import BBDGameLibrary.GameEngine.Engine;
 import BBDGameLibrary.GameEngine.GameComponent;
+import BBDGameLibrary.OpenGL.Window;
 import engine.ArmadaGame;
 
 public class ArmadaAIMain {
@@ -8,7 +9,7 @@ public class ArmadaAIMain {
 		try {
 			GameComponent gameLogic = new ArmadaGame();
 			Engine gameEng = new Engine("GAME",
-					1800, 980, true, gameLogic);
+					1800, 980, true, new Window.WindowOptions(), gameLogic);
 			gameEng.run();
 		} catch (Exception excp) {
 			excp.printStackTrace();

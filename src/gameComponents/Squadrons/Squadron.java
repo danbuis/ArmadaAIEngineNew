@@ -23,50 +23,6 @@ public class Squadron implements GameComponent {
     private final int pointsValue;
     private ArrayList<String> defenseTokens;
 
-    public String getType() {
-        return type;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public boolean isUnique() {
-        return unique;
-    }
-
-    public int getCurrentHealth() {
-        return currentHealth;
-    }
-
-    public int getFullHealth() {
-        return fullHealth;
-    }
-
-    public int getMaxSpeed() {
-        return maxSpeed;
-    }
-
-    public String getAntiShipDice() {
-        return antiShipDice;
-    }
-
-    public String getAntiSquadronDice() {
-        return antiSquadronDice;
-    }
-
-    public ArrayList<String> getKeywords() {
-        return keywords;
-    }
-
-    public int getPointsValue() {
-        return pointsValue;
-    }
-
-    public ArrayList<String> getDefenseTokens() {
-        return defenseTokens;
-    }
-
     /**
      * Constructor used by the SquadronFactory to build a new object.  Could also be used to build something programmitically
      * if you feel so inclined.
@@ -139,5 +95,50 @@ public class Squadron implements GameComponent {
     @Override
     public void cleanup() {
 
+    }
+
+
+    public String getType() {
+        return type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isUnique() {
+        return unique;
+    }
+
+    public int getCurrentHealth() {
+        return currentHealth;
+    }
+
+    public int getFullHealth() {
+        return fullHealth;
+    }
+
+    public int getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public String getAntiShipDice() {
+        return antiShipDice;
+    }
+
+    public String getAntiSquadronDice() {
+        return antiSquadronDice;
+    }
+
+    public ArrayList<String> getKeywords() {
+        return keywords;
+    }
+
+    public int getPointsValue() {
+        return pointsValue;
+    }
+
+    public ArrayList<String> getDefenseTokens() {
+        return defenseTokens;
     }
 }
