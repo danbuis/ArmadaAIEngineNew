@@ -50,7 +50,7 @@ public class Utils {
      * @param color name of the color to render
      * @return a ShaderProgram to render things to the screen.
      */
-    public ShaderProgram buildSolidColorShader(String color){
+    public static ShaderProgram buildSolidColorShader(String color){
         ShaderProgram returnProgram = null;
         try {
             returnProgram = new ShaderProgram();
