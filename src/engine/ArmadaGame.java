@@ -73,7 +73,6 @@ public class ArmadaGame implements GameComponent {
      */
     @Override
     public void render(Window window) {
-        System.out.println("rendering");
         renderer.resetRenderer(window);
         renderer.renderItem(window, demoMap, camera);
     }
@@ -95,7 +94,7 @@ public class ArmadaGame implements GameComponent {
     private DemoMap initializeDemoMap(){
         BBDPolygon poly = Utils.buildQuad(GameConstants.SHORT_BOARD_EDGE, GameConstants.SHORT_BOARD_EDGE);
         ShaderProgram shader = Utils.buildBasicTexturedShaderProgram();
-        Texture texture = new Texture("assets/images/map1.jpg");
+        Texture texture = new Texture("assets/images/maps/map1.jpg");
 
         return new DemoMap(Mesh.buildMeshFromPolygon(poly, texture), shader, poly, GameConstants.MAP_BACKGROUND_LAYER, true);
     }
