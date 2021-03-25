@@ -8,7 +8,10 @@ import BBDGameLibrary.Geometry2d.BBDGeometryUtils;
 import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.OpenGL.Mesh;
+import BBDGameLibrary.OpenGL.ShaderProgram;
+import BBDGameLibrary.OpenGL.Texture;
 import BBDGameLibrary.OpenGL.Window;
+import engine.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,7 +32,9 @@ public class Squadron implements GameComponent {
     private final ArrayList<String> keywords;
     private final int pointsValue;
     private ArrayList<String> defenseTokens;
-    private HashMap<String, GameItem> gameItems;
+    private HashMap<String, GameItem> gameItems = new HashMap<>();
+    private float currentX = 0;
+    private float currentY = 0;
 
     /**
      * Constructor used by the SquadronFactory to build a new object.  Could also be used to build something programmitically
@@ -63,10 +68,11 @@ public class Squadron implements GameComponent {
     }
 
     /**
-     * Constructor used to clone another Squadron.  Used to get a Squadron from the SquadronFactory
+     * Constructor used to clone another Squadron.  Used to get a Squadron from the SquadronFactory and prepare it for
+     * being used in the game
      * @param original original Squadron to use as a template
      */
-    public Squadron(Squadron original){
+    public Squadron(Squadron original, boolean renderSquadrons){
         this.type = original.type;
         this.name = original.name;
         this.unique = original.unique;
@@ -78,18 +84,15 @@ public class Squadron implements GameComponent {
         this.keywords = original.keywords;
         this.pointsValue = original.pointsValue;
         this.defenseTokens = original.defenseTokens;
+
+        if (renderSquadrons) {
+            this.buildGameItems();
+        }
     }
 
     @Override
     public void init(Window window) {
-        BBDPolygon plasticBase = BBDGeometryUtils.createCircle(new BBDPoint(0,0), 12.7f, 100);
-        BBDPolygon cardboard = BBDGeometryUtils.createCircle(new BBDPoint(0,0), 12.4f, 100);
 
-        GameItem plasticBaseItem = new GameItem2d(Mesh.buildMeshFromPolygon(plasticBase), engine.Utils.buildSolidColorShader("white"), plasticBase, 25, true);
-        this.gameItems.put("base", plasticBaseItem);
-
-        GameItem cardboardItem = new GameItem2d(Mesh.buildMeshFromPolygon(cardboard), engine.Utils.buildSolidColorShader("black"), cardboard, 24, true);
-        this.gameItems.put("cardboard", cardboardItem);
     }
 
     @Override
@@ -110,6 +113,36 @@ public class Squadron implements GameComponent {
     @Override
     public void cleanup() {
 
+    }
+
+    private void buildGameItems(){
+        BBDPolygon plasticBase = BBDGeometryUtils.createCircle(new BBDPoint(this.currentX,this.currentY), 12.7f, 100);
+        BBDPolygon cardboard = BBDGeometryUtils.createCircle(new BBDPoint(this.currentX,this.currentY), 12.4f, 100);
+
+        GameItem plasticBaseItem = new GameItem2d(Mesh.buildMeshFromPolygon(plasticBase, null), engine.Utils.buildSolidColorShader("white"), plasticBase, 25, true);
+        this.gameItems.put("base", plasticBaseItem);
+
+        GameItem cardboardItem = new GameItem2d(Mesh.buildMeshFromPolygon(cardboard, null), engine.Utils.buildSolidColorShader("black"), cardboard, 24, true);
+        this.gameItems.put("cardboard", cardboardItem);
+    }
+
+    private void moveNew(float newX, float newY){
+        this.currentX = newX;
+        this.currentY = newY;
+    }
+
+    public void moveOffsets(float deltaX, float deltaY){
+        moveNew(this.currentX + deltaX, this.currentY + deltaY);
+    }
+
+    public void moveAngle(float distance, float angle){
+        float deltaX = (float) (Math.cos(angle) * distance);
+        float deltaY = (float) (Math.sin(angle) * distance);
+        moveOffsets(deltaX, deltaY);
+    }
+
+    public void relocate(float newX, float newY){
+        moveNew(newX, newY);
     }
 
 
@@ -155,5 +188,13 @@ public class Squadron implements GameComponent {
 
     public ArrayList<String> getDefenseTokens() {
         return defenseTokens;
+    }
+
+    public HashMap<String, GameItem> getGameItems() {
+        return gameItems;
+    }
+
+    public BBDPoint getLocation(){
+        return new BBDPoint(currentX, currentY);
     }
 }

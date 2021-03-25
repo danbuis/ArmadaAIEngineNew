@@ -27,13 +27,25 @@ public class SquadronFactory {
 
     private final int NUMBER_OF_FIELDS = 11;
 
+    private boolean renderSquadrons;
+
+    /**
+     * Constructor To be used in a non testing space
+     * @throws FileNotFoundException Exception thrown if the file does not exist
+     * @throws ParsingException Exception thrown if there is an error while Parsing
+     */
+    public SquadronFactory() throws FileNotFoundException, ParsingException {
+        this("assets/data/squadrons.txt", true);
+    }
+
+
     /**
      * Constructor that uses the default file path for the input text doc.  It ends up feeding into the other constructor.
      * @throws FileNotFoundException Exception thrown if the file does not exist
      * @throws ParsingException Exception thrown if there is an error while Parsing
      */
-    public SquadronFactory() throws FileNotFoundException, ParsingException {
-        this("assets/data/squadrons.txt");
+    public SquadronFactory(boolean renderSquadrons) throws FileNotFoundException, ParsingException {
+        this("assets/data/squadrons.txt", renderSquadrons);
     }
 
     /**
@@ -42,7 +54,8 @@ public class SquadronFactory {
      * @throws FileNotFoundException Exception thrown if the file does not exist
      * @throws ParsingException Exception thrown if there is an error while Parsing
      */
-    public SquadronFactory(String pathToFile) throws FileNotFoundException, ParsingException {
+    public SquadronFactory(String pathToFile, boolean renderSquadrons) throws FileNotFoundException, ParsingException {
+        this.renderSquadrons = renderSquadrons;
         Scanner fileScanner = new Scanner(new File(pathToFile));
         String nextLine;
         while(fileScanner.hasNext()){
@@ -177,6 +190,6 @@ public class SquadronFactory {
      */
     public Squadron getSquadron(String name){
         Squadron original = this.squadronMap.get(name);
-        return new Squadron(original);
+        return new Squadron(original, this.renderSquadrons);
     }
 }
