@@ -35,7 +35,7 @@ public class Utils {
 
             // Create uniforms for world and projection matrices and texture
             returnProgram.createUniform("projectionMatrix");
-            returnProgram.createUniform("modelViewMatrix");
+            returnProgram.createUniform("worldMatrix");
             returnProgram.createUniform("texture_sampler");
         } catch (Exception e) {
             e.printStackTrace();
@@ -64,7 +64,7 @@ public class Utils {
 
             // Create uniforms for world and projection matrices and texture
             returnProgram.createUniform("projectionMatrix");
-            returnProgram.createUniform("modelViewMatrix");
+            returnProgram.createUniform("worldMatrix");
         } catch (Exception e) {
             e.printStackTrace();
         }
