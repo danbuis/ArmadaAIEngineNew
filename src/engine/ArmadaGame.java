@@ -2,11 +2,19 @@ package engine;
 
 import BBDGameLibrary.GameEngine.Camera;
 import BBDGameLibrary.GameEngine.GameComponent;
+import BBDGameLibrary.GameEngine.GameItem;
 import BBDGameLibrary.GameEngine.MouseInput;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.OpenGL.*;
+import engine.parsers.ParsingException;
+import engine.parsers.SquadronFactory;
 import gameComponents.DemoMap;
+import gameComponents.Squadrons.Squadron;
 import org.joml.Vector3f;
+import org.lwjgl.system.CallbackI;
+
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 /**ArmadaGame holds the root logic for the game.  Any object present in the game is eventually attached to here.  It
  * implements the GameComponent interface, which means that contractually it MUST implement the required 5 functions.
@@ -19,6 +27,8 @@ public class ArmadaGame implements GameComponent {
     private final Camera camera;
     //An object representing the 3x3 mat a demo game is played on
     private DemoMap demoMap;
+
+    private ArrayList<Squadron> squadrons;
 
     /**
      * A basic constructor.  Sets up the items only need one instance that is then shared between objects
@@ -35,7 +45,20 @@ public class ArmadaGame implements GameComponent {
      */
     @Override
     public void init(Window window) {
+
         demoMap = initializeDemoMap();
+
+        squadrons = new ArrayList<>();
+        try {
+            SquadronFactory squadronFactory = new SquadronFactory();
+            squadrons.add(squadronFactory.getSquadron("X-wing"));
+            squadrons.add(squadronFactory.getSquadron("X-wing"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (ParsingException e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -75,6 +98,11 @@ public class ArmadaGame implements GameComponent {
     public void render(Window window) {
         renderer.resetRenderer(window);
         renderer.renderItem(window, demoMap, camera);
+        for(Squadron squadron: squadrons){
+            for(GameItem item: squadron.getGameItems().values()){
+                renderer.renderItem(window, item, camera);
+            }
+        }
     }
 
     /**
