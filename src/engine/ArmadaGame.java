@@ -51,8 +51,22 @@ public class ArmadaGame implements GameComponent {
         squadrons = new ArrayList<>();
         try {
             SquadronFactory squadronFactory = new SquadronFactory();
-            squadrons.add(squadronFactory.getSquadron("X-wing"));
-            squadrons.add(squadronFactory.getSquadron("X-wing"));
+            Squadron temp;
+            int currentCol = 0;
+            int currentRow = 0;
+            for (String squadronName : squadronFactory.getSquadronTypes()){
+                temp = squadronFactory.getSquadron(squadronName);
+                if(currentCol == 10){
+                    currentRow++;
+                    currentCol=0;
+                }
+
+                temp.relocate(currentCol * 100, currentRow * 100);
+                currentCol++;
+                System.out.println(temp.getLocation());
+                squadrons.add(temp);
+            }
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (ParsingException e) {
@@ -83,7 +97,7 @@ public class ArmadaGame implements GameComponent {
     @Override
     public void update(float v, MouseInput mouseInput, Window window) {
         Vector3f mapCenter = demoMap.getPosition();
-        camera.setPosition(mapCenter.x, mapCenter.y, 920);
+        camera.setPosition(mapCenter.x, mapCenter.y, 220);
     }
 
     /**

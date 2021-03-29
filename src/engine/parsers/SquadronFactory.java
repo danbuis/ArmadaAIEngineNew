@@ -192,4 +192,11 @@ public class SquadronFactory {
         Squadron original = this.squadronMap.get(name);
         return new Squadron(original, this.renderSquadrons);
     }
+
+    /**
+     *
+     */
+    public Set<String> getSquadronTypes(){
+        return this.squadronMap.keySet();
+    }
 }
