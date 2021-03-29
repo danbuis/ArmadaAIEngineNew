@@ -1,5 +1,7 @@
 
 Name|Gladiator I-class Star Destroyer
+Type|Gladiator
+Keywords|0
 Faction|Imperial
 Size|Small
 Points|56
@@ -8,11 +10,10 @@ defenseTokens|Br Rd Ev
 Command|2 
 Squad|2 
 Eng|3 
-NavChart|
-Speed 1|2 
-Speed 2|1 1 
-Speed 3|0 1 1
-Speed 4|-
+Speed1|2
+Speed2|11
+Speed3|011
+Speed4|0
 FrontShields|3
 SideShields|2
 RearShields|1
@@ -31,6 +32,8 @@ RearArcConjunction|37
 //How far from the rear of the ship do the rear hull zone lines meet//
 
 Name|Gladiator II-class Star Destroyer
+Type|Gladiator
+Keywords|0
 Faction|Imperial 
 Size|Small
 Points|62
@@ -39,11 +42,10 @@ defenseTokens|Br Rd Ev
 Command|2 
 Squad|2 
 Eng|3 
-NavChart| 
-Speed 1|2 
-Speed 2|1 1 
-Speed 3|0 1 1
-Speed 4|-
+Speed1|2
+Speed2|11
+Speed3|011
+Speed4|0
 FrontShields|3
 SideShields|2
 RearShields|1
@@ -63,7 +65,8 @@ RearArcConjunction|37
 
 
 Name|Victory I-class Star Destroyer
-Keyword|None
+Type|Victory
+Keywords|0
 Faction|Imperial
 Size|Medium
 Points|73
@@ -72,11 +75,10 @@ defenseTokens|Rd Rd Br
 Command|3
 Squad|3
 Eng|4
-NavChart| 
-Speed 1|1
-Speed 2|0 1 
-Speed 3|-
-Speed 4|- 
+Speed1|1
+Speed2|01
+Speed3|0
+Speed4|0
 FrontShields|3
 SideShields|3
 RearShields|1
@@ -96,7 +98,8 @@ RearArcConjunction|54
 //This ship has a 1 mm section between the rear and front conjuctions.//
 
 Name|Victory II-class Star Destroyer
-Keyword|None
+Type|Victory
+Keywords|0
 Faction|Imperial
 Size|Medium
 Points|85
@@ -105,11 +108,10 @@ defenseTokens|Rd Rd Br
 Command|3
 Squad|3
 Eng|4
-NavChart| 
-Speed 1|1
-Speed 2|0 1 
-Speed 3|-
-Speed 4|-
+Speed1|1
+Speed2|01
+Speed3|0
+Speed4|0
 FrontShields|3
 SideShields|3
 RearShields|1
@@ -130,7 +132,8 @@ RearArcConjunction|54
 //This ship has a 1mm section between the rear and front conjuctions.//
 
 Name|Quasar Fire I
-Keyword|None
+Type|Quasar
+Keywords|0
 Faction|Imperial
 Size|Medium
 Points|54
@@ -139,11 +142,10 @@ defenseTokens|Rd Br
 Command|2
 Squad|4
 Eng|2
-NavChart|
-Speed 1|2
-Speed 2|1 0
-Speed 3|0 1 1
-Speed 4|-
+Speed1|2
+Speed2|10
+Speed3|011
+Speed4|0
 FrontShields|2
 SideShields|2
 RearShields|1
@@ -162,7 +164,8 @@ RearArcConjunction|45
 //How far from the rear of the ship do the rear hull zone lines meet//
 
 Name|Quasar Fire II
-Keyword|None
+Type|Quasar
+Keywords|0
 Faction|Imperial
 Size|Medium
 Points|61
@@ -171,11 +174,10 @@ defenseTokens|Rd Br
 Command|2
 Squad|4
 Eng|2
-NavChart|
-Speed 1|2
-Speed 2|1 0
-Speed 3|0 1 1
-Speed 4|-
+Speed1|2
+Speed2|10
+Speed3|011
+Speed4|0
 FrontShields|2
 SideShields|2
 RearShields|1
@@ -194,7 +196,8 @@ RearArcConjunction|46
 //How far from the rear of the ship do the rear hull zone lines meet//
 
 Name|Imperial Star Destroyer Kuat Refit
-Keyword|None
+Type|Imperial Star Destoryer
+Keywords|0
 Faction|Imperial
 Size|Large
 Points|112
@@ -203,11 +206,10 @@ defenseTokens|Rd Br Br Cn
 Command|3
 Squad|2
 Eng|4
-NavChart|
-Speed 1|1
-Speed 2|1 1
-Speed 3|0 1 1
-Speed 4|-
+Speed1|1
+Speed2|11
+Speed3|011
+Speed4|0
 FrontShields|4
 SideShields|3
 RearShields|2
@@ -226,7 +228,8 @@ RearArcConjunction|49
 //How far from the rear of the ship do the rear hull zone lines meet//
 
 Name|Imperial Star Destroyer Cymoon 1 Refit
-Keyword|None
+Type|Imperial Star Destoryer
+Keywords|0
 Faction|Imperial
 Size|Large
 Points|112
@@ -235,11 +238,10 @@ defenseTokens|Rd Br Br Cn
 Command|3
 Squad|3
 Eng|4
-NavChart|
-Speed 1|1
-Speed 2|1 1
-Speed 3|0 1 1
-Speed 4|-
+Speed1|1
+Speed2|11
+Speed3|011
+Speed4|0
 FrontShields|4
 SideShields|3
 RearShields|2
@@ -258,7 +260,8 @@ RearArcConjunction|49
 //How far from the rear of the ship do the rear hull zone lines meet//
 
 Name|Imperial I Class Star Destroyer
-Keyword|None
+Type|Imperial Star Destoryer
+Keywords|0
 Faction|Imperial
 Size|Large
 Points|110
@@ -267,10 +270,10 @@ defenseTokens|Rd Br Br Cn
 Command|3
 Squad|4
 Eng|4
-NavChart|
-Speed 1|1
-Speed 2|1 1
-Speed 3|0 1 1
+Speed1|1
+Speed2|11
+Speed3|011
+Speed4|0
 FrontShields|4
 SideShields|3
 RearShields|2
@@ -289,7 +292,8 @@ RearArcConjunction|49
 //How far from the rear of the ship do the rear hull zone lines meet//
 
 Name|Imperial II Class Star Destroyer
-Keyword|None
+Type|Imperial Star Destoryer
+Keywords|0
 Faction|Imperial
 Size|Large
 Points|120
@@ -298,11 +302,10 @@ defenseTokens|Rd Br Br Cn
 Command|3
 Squad|4
 Eng|4
-NavChart|
-Speed 1|1
-Speed 2|1 1
-Speed 3|0 1 1
-Speed 4|-
+Speed1|1
+Speed2|11
+Speed3|011
+Speed4|0
 FrontShields|4
 SideShields|3
 RearShields|2
@@ -324,7 +327,8 @@ RearArcConjunction|49
 
 
 Name|CR90 Corvette A
-Keyword|None
+Type|CR90 Corvette
+Keywords|0
 Faction|Rebel
 Size|Small
 Points|44
@@ -333,11 +337,10 @@ defenseTokens|Rd Rd Ev
 Command|1 
 Squad|1
 Eng|2
-NavChart| 
-Speed 1|2
-Speed 2|1 2 
-Speed 3|0 1 2 
-Speed 4|0 1 1 2 
+Speed1|2
+Speed2|12
+Speed3|012
+Speed4|0112
 FrontShields|2
 SideShields|2
 RearShields|1
@@ -356,7 +359,8 @@ RearArcConjunction|28
 //How far from the rear of the ship do the rear hull zone lines meet//
 
 Name|CR90 Corvette B
-Keyword|None
+Type|CR90 Corvette
+Keywords|0
 Faction|Rebel
 Size|Small
 Points|39
@@ -365,11 +369,10 @@ defenseTokens|Rd Rd Ev
 Command|1 
 Squad|1
 Eng|2
-NavChart| 
-Speed 1|2
-Speed 2|1 2 
-Speed 3|0 1 2 
-Speed 4|0 1 1 2
+Speed1|2
+Speed2|12
+Speed3|012
+Speed4|0112
 FrontShields|2
 SideShields|2
 RearShields|1
@@ -388,7 +391,8 @@ RearArcConjunction|28
 //How far from the rear of the ship do the rear hull zone lines meet//
 
 Name|Assault Frigate Mark II A
-Keyword|None
+Type|Assault Frigate Mark II
+Keywords|0
 Faction|Rebel
 Size|Medium
 Points|81
@@ -397,11 +401,10 @@ defenseTokens|Rd Ev Br
 Command|3
 Squad|2
 Eng|4
-NavChart| 
-Speed 1|1
-Speed 2|1 1
-Speed 3|0 1 1
-Speed 4|-  
+Speed1|1
+Speed2|11
+Speed3|011
+Speed4|0
 FrontShields|4
 SideShields|3
 RearShields|2
@@ -421,7 +424,8 @@ RearArcConjunction|53
 //This ship has a 2 section between the rear and front conjuctions.//
 
 Name|Assault Frigate Mark II B
-Keyword|None
+Type|Assault Frigate Mark II
+Keywords|0
 Faction|Rebel
 Size|Medium
 Points|72
@@ -430,11 +434,10 @@ defenseTokens|Rd Ev Br
 Command|3
 Squad|2
 Eng|4
-NavChart| 
-Speed 1|1
-Speed 2|1 1
-Speed 3|0 1 1  
-Speed 4|-  
+Speed1|1
+Speed2|11
+Speed3|011
+Speed4|0
 Anti Squadron|B
 FrontShields|4
 SideShields|3
@@ -456,7 +459,8 @@ RearArcConjunction|53
 
 
 Name|MC80 Assault Cruiser
-Keyword|None
+Type|MC80 Assault Cruiser
+Keywords|0
 Faction|Rebel
 Size|Large
 Points|114
@@ -465,11 +469,10 @@ defenseTokens|Rd Br Rd Cn
 Command|3
 Squad|3
 Eng|4
-NavChart| 
-Speed 1|1
-Speed 2|1 1
-Speed 3|-
-Speed 4|-    
+Speed1|1
+Speed2|11
+Speed3|0
+Speed4|0
 FrontShields|4
 SideShields|4
 RearShields|3
@@ -488,7 +491,8 @@ RearArcConjunction|63
 //How far from the rear of the ship do the rear hull zone lines meet//
 
 Name|MC80 Command Cruiser
-Keyword|None
+Type|MC80 Assault Cruiser
+Keywords|0
 Faction|Rebel
 Size|Large
 Points|106
@@ -497,11 +501,10 @@ defenseTokens|Rd Br Rd Cn
 Command|3
 Squad|4
 Eng|4
-NavChart| 
-Speed 1|1
-Speed 2|1 1
-Speed 3|-
-Speed 4|-    
+Speed1|1
+Speed2|11
+Speed3|0
+Speed4|0
 FrontShields|4
 SideShields|4
 RearShields|3
@@ -520,8 +523,9 @@ RearArcConjunction|63
 //How far from the rear of the ship do the rear hull zone lines meet//
 
 
-Name|MC75 Armored Cruiser 
-Keyword|None
+Name|MC75 Armored Cruiser
+Type|MC75 Armored Cruiser
+Keywords|0
 Faction|Rebel
 Size|Large
 Points|104
@@ -530,11 +534,10 @@ defenseTokens|Rd Br Cn Cn
 Command|3
 Squad|3
 Eng|4
-NavChart| 
-Speed 1|2
-Speed 2|1 1
-Speed 3|0 1 1
-Speed 4|-  
+Speed1|2
+Speed2|11
+Speed3|011
+Speed4|0
 FrontShields|4
 SideShields|3
 RearShields|3
@@ -554,7 +557,8 @@ RearArcConjunction|62
 
 
 Name|MC75 Ordnance Cruiser
-Keyword|None
+Type|MC75 Ordnance Cruiser
+Keywords|0
 Faction|Rebel
 Size|Large
 Points|100
@@ -563,11 +567,10 @@ defenseTokens|Rd Br Cn Cn
 Command|3
 Squad|2
 Eng|4
-NavChart| 
-Speed 1|2
-Speed 2|1 1
-Speed 3|0 1 1
-Speed 4|-  
+Speed1|2
+Speed2|11
+Speed3|011
+Speed4|0
 FrontShields|4
 SideShields|3
 RearShields|3
@@ -588,7 +591,8 @@ RearArcConjunction|62
 
 
 Name|Consular Charger C70
-Keyword|Clone
+Type|Consular Charger
+Keywords|Clone
 Faction|Republic
 Size|Small
 Points|45
@@ -597,11 +601,10 @@ defenseTokens|Con Rd Ev
 Command|1
 Squad|1
 Eng|2
-NavChart|
-Speed 1|2
-Speed 2|2 1
-Speed 3|1 1 1
-Speed 4|1 0 1 1
+Speed1|2
+Speed2|21
+Speed3|111
+Speed4|1011
 FrontShields|2
 SideShields|2
 RearShields|1
@@ -622,7 +625,8 @@ RearArcConjunction|29
 
 
 Name|Consular-class Armed Cruiser
-Keyword|Senate Comms
+Type|Consular Charger
+Keywords|Senate Comms
 Faction|Republic
 Size|Small
 Points|37
@@ -631,11 +635,10 @@ defenseTokens|Con Rd Ev
 Command|1
 Squad|1
 Eng|2
-NavChart|
-Speed 1|2
-Speed 2|2 1
-Speed 3|1 1 1
-Speed 4|1 0 1 1
+Speed1|2
+Speed2|21
+Speed3|111
+Speed4|1011
 FrontShields|2
 SideShields|2
 RearShields|1
@@ -654,7 +657,8 @@ RearArcConjunction|29
 //How far from the rear of the ship do the rear hull zone lines meet//
 
 Name|Acclamator II-class Assault Ship
-Keyword|Clone Bombard Transport
+Type|Acclamator
+Keywords|Clone Bombard Transport
 Faction|Republic
 Size|Medium
 Points|71
@@ -663,11 +667,10 @@ defenseTokens|Sal Rd Br
 Command|3
 Squad|3
 Eng|4
-NavChart|
-Speed 1|1
-Speed 2|1 0
-Speed 3|0 1 0
-Speed 4|-
+Speed1|1
+Speed2|10
+Speed3|010
+Speed4|0
 FrontShields|4
 SideShields|2
 RearShields|2
@@ -688,7 +691,8 @@ RearArcConjunction|41
 //This ship has a 9 mm section between the rear and front conjuctions.//
 
 Name|Acclamator I-class Assault Ship
-Keyword|Clone Transport
+Type|Acclamator
+Keywords|Clone Transport
 Faction|Republic
 Size|Medium
 Points|66
@@ -697,11 +701,10 @@ defenseTokens|Sal Rd Br
 Command|3
 Squad|3
 Eng|4
-NavChart|
-Speed 1|1
-Speed 2|1 0
-Speed 3|0 1 0
-Speed 4|-
+Speed1|1
+Speed2|10
+Speed3|010
+Speed4|0
 FrontShields|4
 SideShields|2
 RearShields|2
@@ -721,7 +724,8 @@ RearArcConjunction|41
 //This ship has a 9 mm section between the rear and front conjuctions.//
 
 Name|Munificent-class Comms Frigate
-Keyword|Droid Bombard Comms
+Type|Munificent
+Keywords|Droid Bombard Comms
 Faction|Separatist
 Size|Medium
 Points|70
@@ -730,11 +734,10 @@ defenseTokens|Sal Rd Br
 Command|2
 Squad|3
 Eng|4
-NavChart|
-Speed 1|1
-Speed 2|1 2
-Speed 3|-
-Speed 4|-
+Speed1|1
+Speed2|12
+Speed3|0
+Speed4|0
 FrontShields|4
 SideShields|3
 RearShields|2
@@ -753,7 +756,8 @@ RearArcConjunction|49
 //How far from the rear of the ship do the rear hull zone lines meet//
 
 Name|Munificent-class Star Frigate
-Keyword| Droid Bombard Transport
+Type|Munificent
+Keywords|Droid Bombard Transport
 Faction|Separatist
 Keyword|None
 Size|Medium
@@ -763,11 +767,10 @@ defenseTokens|Sal Rd Br
 Command|2
 Squad|3
 Eng|4
-NavChart|
-Speed 1|1
-Speed 2|1 2
-Speed 3|-
-Speed 4|-
+Speed1|1
+Speed2|12
+Speed3|0
+Speed4|0
 FrontShields|4
 SideShields|3
 RearShields|2
@@ -787,7 +790,8 @@ RearArcConjunction|49
 
 
 Name|Hardcell-class Transport
-Keyword|Droid Transport
+Type|Hardcell
+Keywords|Droid Transport
 Faction|Separatist
 Size|Small
 Points|47
@@ -796,11 +800,10 @@ defenseTokens|Br Rd Ev
 Command|1
 Squad|2
 Eng|3
-NavChart|
-Speed 1|2
-Speed 2|1 1
-Speed 3|1 1 0
-Speed 4|-
+Speed1|2
+Speed2|11
+Speed3|110
+Speed4|0
 FrontShields|3
 SideShields|1
 RearShields|2
@@ -820,7 +823,8 @@ RearArcConjunction|31
 //This ship has a 7mm section between the rear and front conjuctions.//
 
 Name|Hardcell-class Battle Refit
-Keyword|Droid Transport
+Type|Hardcell
+Keywords|Droid Transport
 Faction|Separatist
 Size|Small
 Points|52
@@ -831,9 +835,9 @@ Squad|2
 Eng|3
 NavChart|
 Speed 1|2
-Speed 2|1 1
-Speed 3|1 1 0
-Speed 4|-
+Speed 2|11
+Speed 3|110
+Speed 4|0
 FrontShields|3
 SideShields|1
 RearShields|2
@@ -851,6 +855,8 @@ FrontArcConjunction|32
 RearArcConjunction|31
 //How far from the rear of the ship do the rear hull zone lines meet//
 //This ship has a 7 section between the rear and front conjuctions.//
+
+
 
 
 
