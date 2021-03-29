@@ -33,7 +33,7 @@ public class Squadron implements GameComponent {
     private final ArrayList<String> keywords;
     private final int pointsValue;
     private ArrayList<String> defenseTokens;
-    private HashMap<String, GameItem> gameItems = new HashMap<>();
+    private ArrayList<GameItem> gameItems = new ArrayList<>();
     private float currentX = 0;
     private float currentY = 0;
     private boolean renderSquadrons;
@@ -123,16 +123,16 @@ public class Squadron implements GameComponent {
         BBDPolygon cardboard = BBDGeometryUtils.createCircle(new BBDPoint(this.currentX,this.currentY), 12.4f, 100);
 
         GameItem plasticBaseItem = new GameItem2d(Mesh.buildMeshFromPolygon(plasticBase, null), engine.Utils.buildSolidColorShader("white"), plasticBase, 25, true);
-        this.gameItems.put("base", plasticBaseItem);
 
         GameItem cardboardItem = new GameItem2d(Mesh.buildMeshFromPolygon(cardboard, null), engine.Utils.buildSolidColorShader("black"), cardboard, 24, true);
-        this.gameItems.put("cardboard", cardboardItem);
 
         BBDPolygon poly = Utils.buildQuad(20, 20);
         ShaderProgram shader = Utils.buildBasicTexturedShaderProgram();
         Texture texture = new Texture("assets/images/squadrons/squad_"+buildSquadFileName());
         GameItem squadronGraphic = new GameItem2d(Mesh.buildMeshFromPolygon(poly, texture), shader, poly, 22, false);
-        this.gameItems.put("squadGraphic", squadronGraphic);
+        this.gameItems.add(squadronGraphic);
+        this.gameItems.add(cardboardItem);
+        this.gameItems.add(plasticBaseItem);
     }
 
     public String buildSquadFileName() {
@@ -150,9 +150,9 @@ public class Squadron implements GameComponent {
         this.currentX = newX;
         this.currentY = newY;
         if(this.renderSquadrons) {
-            this.gameItems.get("base").setPosition(newX, newY, this.gameItems.get("base").getPosition().z);
-            this.gameItems.get("cardboard").setPosition(newX, newY, this.gameItems.get("cardboard").getPosition().z);
-            this.gameItems.get("squadGraphic").setPosition(newX, newY, this.gameItems.get("squadGraphic").getPosition().z);
+            for(GameItem gameItem:this.gameItems){
+                gameItem.setPosition(newX, newY, gameItem.getPosition().z);
+            }
         }
     }
 
@@ -215,7 +215,7 @@ public class Squadron implements GameComponent {
         return defenseTokens;
     }
 
-    public HashMap<String, GameItem> getGameItems() {
+    public ArrayList<GameItem> getGameItems() {
         return gameItems;
     }
 

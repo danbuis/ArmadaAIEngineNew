@@ -97,7 +97,7 @@ public class ArmadaGame implements GameComponent {
     @Override
     public void update(float v, MouseInput mouseInput, Window window) {
         Vector3f mapCenter = demoMap.getPosition();
-        camera.setPosition(mapCenter.x, mapCenter.y, 220);
+        camera.setPosition(mapCenter.x, mapCenter.y, 920);
     }
 
     /**
@@ -113,7 +113,7 @@ public class ArmadaGame implements GameComponent {
         renderer.resetRenderer(window);
         renderer.renderItem(window, demoMap, camera);
         for(Squadron squadron: squadrons){
-            for(GameItem item: squadron.getGameItems().values()){
+            for(GameItem item: squadron.getGameItems()){
                 renderer.renderItem(window, item, camera);
             }
         }
