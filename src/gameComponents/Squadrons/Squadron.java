@@ -11,6 +11,7 @@ import BBDGameLibrary.OpenGL.Mesh;
 import BBDGameLibrary.OpenGL.ShaderProgram;
 import BBDGameLibrary.OpenGL.Texture;
 import BBDGameLibrary.OpenGL.Window;
+import engine.GameConstants;
 import engine.Utils;
 
 import java.util.ArrayList;
@@ -35,9 +36,10 @@ public class Squadron implements GameComponent {
     private HashMap<String, GameItem> gameItems = new HashMap<>();
     private float currentX = 0;
     private float currentY = 0;
+    private boolean renderSquadrons;
 
     /**
-     * Constructor used by the SquadronFactory to build a new object.  Could also be used to build something programmitically
+     * Constructor used by the SquadronFactory to build a new object.  Could also be used to build something programmatically
      * if you feel so inclined.
      *
      * @param type What type/hull is the Squadron, ie X-wing
@@ -84,6 +86,7 @@ public class Squadron implements GameComponent {
         this.keywords = original.keywords;
         this.pointsValue = original.pointsValue;
         this.defenseTokens = original.defenseTokens;
+        this.renderSquadrons = renderSquadrons;
 
         if (renderSquadrons) {
             this.buildGameItems();
@@ -124,11 +127,33 @@ public class Squadron implements GameComponent {
 
         GameItem cardboardItem = new GameItem2d(Mesh.buildMeshFromPolygon(cardboard, null), engine.Utils.buildSolidColorShader("black"), cardboard, 24, true);
         this.gameItems.put("cardboard", cardboardItem);
+
+        BBDPolygon poly = Utils.buildQuad(20, 20);
+        ShaderProgram shader = Utils.buildBasicTexturedShaderProgram();
+        Texture texture = new Texture("assets/images/squadrons/squad_"+buildSquadFileName());
+        GameItem squadronGraphic = new GameItem2d(Mesh.buildMeshFromPolygon(poly, texture), shader, poly, 22, false);
+        this.gameItems.put("squadGraphic", squadronGraphic);
+    }
+
+    public String buildSquadFileName() {
+        String baseFileName = this.type;
+        if(this.unique){
+            baseFileName = baseFileName+"_"+this.name;
+        }
+
+        String cleanedFileName = baseFileName.toLowerCase().replace(" ", "-").replace("\"", "");
+
+        return cleanedFileName+".png";
     }
 
     private void moveNew(float newX, float newY){
         this.currentX = newX;
         this.currentY = newY;
+        if(this.renderSquadrons) {
+            this.gameItems.get("base").setPosition(newX, newY, this.gameItems.get("base").getPosition().z);
+            this.gameItems.get("cardboard").setPosition(newX, newY, this.gameItems.get("cardboard").getPosition().z);
+            this.gameItems.get("squadGraphic").setPosition(newX, newY, this.gameItems.get("squadGraphic").getPosition().z);
+        }
     }
 
     public void moveOffsets(float deltaX, float deltaY){
