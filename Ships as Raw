@@ -1,7 +1,7 @@
 
 Name|Gladiator I-class Star Destroyer
 Type|Gladiator
-Keyword|None
+Keywords|0
 Faction|Imperial
 Size|Small
 Points|56
@@ -33,7 +33,7 @@ RearArcConjunction|37
 
 Name|Gladiator II-class Star Destroyer
 Type|Gladiator
-Keyword|None
+Keywords|0
 Faction|Imperial 
 Size|Small
 Points|62
@@ -66,7 +66,7 @@ RearArcConjunction|37
 
 Name|Victory I-class Star Destroyer
 Type|Victory
-Keyword|None
+Keywords|0
 Faction|Imperial
 Size|Medium
 Points|73
@@ -99,7 +99,7 @@ RearArcConjunction|54
 
 Name|Victory II-class Star Destroyer
 Type|Victory
-Keyword|None
+Keywords|0
 Faction|Imperial
 Size|Medium
 Points|85
@@ -133,7 +133,7 @@ RearArcConjunction|54
 
 Name|Quasar Fire I
 Type|Quasar
-Keyword|None
+Keywords|0
 Faction|Imperial
 Size|Medium
 Points|54
@@ -165,7 +165,7 @@ RearArcConjunction|45
 
 Name|Quasar Fire II
 Type|Quasar
-Keyword|None
+Keywords|0
 Faction|Imperial
 Size|Medium
 Points|61
@@ -197,7 +197,7 @@ RearArcConjunction|46
 
 Name|Imperial Star Destroyer Kuat Refit
 Type|Imperial Star Destoryer
-Keyword|None
+Keywords|0
 Faction|Imperial
 Size|Large
 Points|112
@@ -229,7 +229,7 @@ RearArcConjunction|49
 
 Name|Imperial Star Destroyer Cymoon 1 Refit
 Type|Imperial Star Destoryer
-Keyword|None
+Keywords|0
 Faction|Imperial
 Size|Large
 Points|112
@@ -261,7 +261,7 @@ RearArcConjunction|49
 
 Name|Imperial I Class Star Destroyer
 Type|Imperial Star Destoryer
-Keyword|None
+Keywords|0
 Faction|Imperial
 Size|Large
 Points|110
@@ -293,7 +293,7 @@ RearArcConjunction|49
 
 Name|Imperial II Class Star Destroyer
 Type|Imperial Star Destoryer
-Keyword|None
+Keywords|0
 Faction|Imperial
 Size|Large
 Points|120
@@ -328,7 +328,7 @@ RearArcConjunction|49
 
 Name|CR90 Corvette A
 Type|CR90 Corvette
-Keyword|None
+Keywords|0
 Faction|Rebel
 Size|Small
 Points|44
@@ -360,7 +360,7 @@ RearArcConjunction|28
 
 Name|CR90 Corvette B
 Type|CR90 Corvette
-Keyword|None
+Keywords|0
 Faction|Rebel
 Size|Small
 Points|39
@@ -392,7 +392,7 @@ RearArcConjunction|28
 
 Name|Assault Frigate Mark II A
 Type|Assault Frigate Mark II
-Keyword|None
+Keywords|0
 Faction|Rebel
 Size|Medium
 Points|81
@@ -425,7 +425,7 @@ RearArcConjunction|53
 
 Name|Assault Frigate Mark II B
 Type|Assault Frigate Mark II
-Keyword|None
+Keywords|0
 Faction|Rebel
 Size|Medium
 Points|72
@@ -460,7 +460,7 @@ RearArcConjunction|53
 
 Name|MC80 Assault Cruiser
 Type|MC80 Assault Cruiser
-Keyword|None
+Keywords|0
 Faction|Rebel
 Size|Large
 Points|114
@@ -492,7 +492,7 @@ RearArcConjunction|63
 
 Name|MC80 Command Cruiser
 Type|MC80 Assault Cruiser
-Keyword|None
+Keywords|0
 Faction|Rebel
 Size|Large
 Points|106
@@ -525,7 +525,7 @@ RearArcConjunction|63
 
 Name|MC75 Armored Cruiser
 Type|MC75 Armored Cruiser
-Keyword|None
+Keywords|0
 Faction|Rebel
 Size|Large
 Points|104
@@ -558,7 +558,7 @@ RearArcConjunction|62
 
 Name|MC75 Ordnance Cruiser
 Type|MC75 Ordnance Cruiser
-Keyword|None
+Keywords|0
 Faction|Rebel
 Size|Large
 Points|100
@@ -592,7 +592,7 @@ RearArcConjunction|62
 
 Name|Consular Charger C70
 Type|Consular Charger
-Keyword|Clone
+Keywords|Clone
 Faction|Republic
 Size|Small
 Points|45
@@ -626,7 +626,7 @@ RearArcConjunction|29
 
 Name|Consular-class Armed Cruiser
 Type|Consular Charger
-Keyword|Senate Comms
+Keywords|Senate Comms
 Faction|Republic
 Size|Small
 Points|37
@@ -658,7 +658,7 @@ RearArcConjunction|29
 
 Name|Acclamator II-class Assault Ship
 Type|Acclamator
-Keyword|Clone Bombard Transport
+Keywords|Clone Bombard Transport
 Faction|Republic
 Size|Medium
 Points|71
@@ -692,7 +692,7 @@ RearArcConjunction|41
 
 Name|Acclamator I-class Assault Ship
 Type|Acclamator
-Keyword|Clone Transport
+Keywords|Clone Transport
 Faction|Republic
 Size|Medium
 Points|66
@@ -725,7 +725,7 @@ RearArcConjunction|41
 
 Name|Munificent-class Comms Frigate
 Type|Munificent
-Keyword|Droid Bombard Comms
+Keywords|Droid Bombard Comms
 Faction|Separatist
 Size|Medium
 Points|70
@@ -757,7 +757,7 @@ RearArcConjunction|49
 
 Name|Munificent-class Star Frigate
 Type|Munificent
-Keyword| Droid Bombard Transport
+Keywords|Droid Bombard Transport
 Faction|Separatist
 Keyword|None
 Size|Medium
@@ -791,7 +791,7 @@ RearArcConjunction|49
 
 Name|Hardcell-class Transport
 Type|Hardcell
-Keyword|Droid Transport
+Keywords|Droid Transport
 Faction|Separatist
 Size|Small
 Points|47
@@ -824,7 +824,7 @@ RearArcConjunction|31
 
 Name|Hardcell-class Battle Refit
 Type|Hardcell
-Keyword|Droid Transport
+Keywords|Droid Transport
 Faction|Separatist
 Size|Small
 Points|52
@@ -857,195 +857,4 @@ RearArcConjunction|31
 //This ship has a 7 section between the rear and front conjuctions.//
 
 
-
-
-package gameComponents;
-
-import java.lang.reflect.array;
-import java.util.arrayList;
-
-public class Ships {
-
-    
-    private final string Name;
-    private final string Type;
-    private final arrayList<string> Keywords;
-    private final string Faction ;
-    private final string Size;
-    private final int Points;
-    private final int Hull;
-    private arrayList<string> defenseTokens;
-    private final string Command;
-    private final string Squad;
-    private final string Eng;
-    private final string NavChart;
-    private final string Speed1;
-    private final string Speed2;
-    private final string Speed3;
-    private final string Speed4;
-    private final int FrontShields;
-    private final int SideShields;
-    private final int RearShields;
-    private final arrayList<string> FrontArmament;
-    private final arrayList<string> SideArmament;
-    private final arrayList<string>  RearArmament;
-    private final arrayList<string> AntiSquadron;
-    private arraylist<string> Upgrade;
-    private final int FrontArcOffset;
-    private final int RearArcOffset;
-    private final int FrontArcOffset;
-    private final int FrontArcConjunction;
-    private final int RearArcConjunction;
-
-    public string getName() {
-            return Name;
-
-    public string getType() {
-        return Type;
-    }
-
-    public int arrayList<string> Keywords() {
-                return arrayList<string> Keywords;
-    }
-
-    public string getFaction() {
-        return Faction;
-    }
-
-    public string Size() {
-            return Size;
-   }
-
-    public int getPoints() {
-        return Points;
-    }
-
-    public int getHull() {
-        return Hull;
-    }
-
-    public ArrayList<string> getDefenseTokens() {
-            return defenseTokens;
-    }
-
-    public int getCommand() {
-                return getCommand;
-    }
-
-    public int getSquad() {
-                    return getSquad;
-    }
-
-    public int getEng() {
-                return getEng;
-    }
-
-    public int getSpeed1() {
-        return getSpeed1;
-    }
-
-    public int getSpeed2() {
-            return getSpeed2;
-    }
-
-    public int getSpeed3() {
-            return getSpeed3;
-    }
-
-    public int getSpeed4() {
-            return getSpeed4;
-    }
-
-    public string FrontShields() {
-            return FrontShields;
-    }
-
-    public string SideShields() {
-                return SideShields;
-    }
-
-    public string RearShields() {
-                return RearShields;
-    }
-
-    public ArrayList<string> FrontArmament() {
-                return FrontArmament;
-    }
-
-    public ArrayList<string> SideArmament() {
-                    return SideArmament;
-    }
-
-    public ArrayList<string> RearArmament() {
-                    return RearArmament;
-    }
-
-    public ArrayList<string> AntiSquadron() {
-                        return AntiSquadron;
-    }
-
-    public ArrayList<string> Upgrade() {
-                        return Upgrade;
-    }
-
-    public int FrontArcOffset() {
-                return FrontArcOffset;
-    }
-
-    public int RearArcOffset() {
-                    return RearArcOffset;
-    }
-
-    public int FrontArcConjunction() {
-                    return FrontArcConjunction;
-    }
-
-    public int RearArcConjunction() {
-                    return RearArcConjunction;
-    }
-
-
-
-
-
-
-
-
-
-    public Ship(string Name, string Type, string Keyword, string Faction ,string size, int Points, int Hull,
-                arrayList<string> defenseTokens, string Command, string Squad, string Eng, int Speed1, int Speed2
-                    int Speed3,int Speed4,
-                     int FrontShields, int SideShields, int RearShields, ArrayList<string> FrontArmaments,
-                     ArrayList<string> SideArmaments, ArrayList<string> RearArmament,
-                     ArrayList<string> AntiSquadron,
-                     arraylist<string> Upgrade, int FrontArcOffset, int RearArcOffset, int FrontArcConjunction,
-                     int RearArcConjuction){
-
-        this.Type = Type;
-        this.Name = Name;
-        this.Keywords = Keywords;
-        this.Faction  = Faction ;
-        this.Points = Points;
-        this.Hull = Hull;
-        this.defenseTokens = defenseTokens;
-        this.Command = Command;
-        this.Squad = Squad;
-        this.Eng = Eng;
-        this.string Speed1 = Speed1;
-        this.string Speed2 = Speed2;
-        this.string Speed3 = Speed3;
-        this.string Speed4 = Speed4;
-        this.FrontShields = FrontShields;
-        this.SideShields = SideShields;
-        this.RearShields = RearShields;
-        this.FrontArmament = FrontArmament;
-        this.SideArmament = SideArmament;
-        this.RearArmament = RearArmament;
-        this.AntiSquadron = AntiSquadron;
-        this.Upgrade = Upgrade;
-        this.FrontArcOffset = FrontArcOffset;
-        this.RearArcOffset = RearArcOffset;
-        this.FrontArcConjunction = FrontArcConjunction;
-        this.RearArcConjunction = RearArcConjunction;
-}
 
