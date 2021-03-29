@@ -40,4 +40,17 @@ public class SquadronTests {
         arc.moveAngle(10, (float) (Math.PI/2));
         assertEquals(new BBDPoint(10,10), arc.getLocation());
     }
+
+    @Test
+    public void testSquadFileNames() throws FileNotFoundException, ParsingException {
+        SquadronFactory testParser = new SquadronFactory(false);
+
+        Squadron arc = testParser.getSquadron("ARC-170 Starfighter");
+        String expectedFileName = "arc-170-starfighter.png";
+        assertEquals(expectedFileName, arc.buildSquadFileName());
+
+        Squadron haor = testParser.getSquadron("Haor Chall Prototypes");
+        expectedFileName = "vulture-class-droid-fighter_haor-chall-prototypes.png";
+        assertEquals(expectedFileName, haor.buildSquadFileName());
+    }
 }

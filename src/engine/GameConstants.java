@@ -45,5 +45,5 @@ public class GameConstants {
     /**Layers, how far from the camera the associated items are drawn
      *
      */
-    public static final int MAP_BACKGROUND_LAYER = 200;
+    public static final int MAP_BACKGROUND_LAYER = 20000;
 }
