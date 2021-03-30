@@ -10,13 +10,25 @@ public enum DiceFacings {
     ACCURACY("accuracy", 0, false);
     
 
-    public final String label;
-    public final int damage;
-    public final boolean critical;
+    private final String label;
+    private final int damage;
+    private final boolean critical;
 
     DiceFacings(String label, int damage, boolean critical){
         this.label = label;
         this.damage = damage;
         this.critical = critical;
+    }
+
+    public int getDamage(){
+        return this.damage;
+    }
+
+    public boolean isCritical(){
+        return this.critical;
+    }
+
+    public String getLabel(){
+        return this.label;
     }
 }

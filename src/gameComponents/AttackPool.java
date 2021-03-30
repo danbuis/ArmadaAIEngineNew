@@ -39,7 +39,12 @@ public class AttackPool {
     }
 
     private void updatePool(){
-        //TODO stuff to update rolled damage and any other housekeeping things.
+        int totalDamage = 0;
+        for(Die die:this.currentPool){
+            DiceFacings currentFace = (DiceFacings) die.getCurrentFace();
+            totalDamage += currentFace.getDamage();
+        }
+        this.currentRolledDamage = totalDamage;
     }
 
     public static ArrayList<Die> getDice(String color, int quantity){
@@ -58,5 +63,6 @@ public class AttackPool {
                 returnDice.add(new Die<DiceFacings>(blackFacings));
             }
         }
+        return returnDice;
     }
 }
