@@ -8,8 +8,8 @@ public class ArmadaAIMain {
 	public static void main(String[] args) {
 		try {
 			GameComponent gameLogic = new ArmadaGame();
-			Engine gameEng = new Engine("GAME",
-					1800, 980, true, new Window.WindowOptions(), gameLogic);
+			Engine gameEng = new Engine("Star Wars Aramda AI",
+					1800, 980, true, gameLogic);
 			gameEng.run();
 		} catch (Exception excp) {
 			excp.printStackTrace();
