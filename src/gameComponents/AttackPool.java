@@ -1,5 +1,9 @@
 package gameComponents;
 
+import BBDGameLibrary.GameEngine.Die;
+
+import java.util.ArrayList;
+
 public class AttackPool {
     private boolean spentBrace = false;
     private boolean spentEvade = false;
@@ -7,15 +11,19 @@ public class AttackPool {
     private boolean spentScatter = false;
     private boolean spentRedirect = false;
     private int currentRolledDamage;
-    private String currentPool;
+    private ArrayList<Die> currentPool;
 
 
-    public AttackPool(){
-
+    public AttackPool(ArrayList<Die> dicePool){
+        this.currentPool = dicePool;
+        this.rollPool();
     }
 
-    public void rollPool(){
-
+    private void rollPool(){
+        for (Die die : this.currentPool){
+            die.roll();
+        }
+        this.updatePool();
     }
 
     public void rerollDie(){
@@ -28,5 +36,9 @@ public class AttackPool {
 
     public void cancelDie(){
 
+    }
+
+    private void updatePool(){
+        //TODO stuff to update rolled damage and any other housekeeping things.
     }
 }
