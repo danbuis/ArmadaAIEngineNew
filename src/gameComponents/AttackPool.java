@@ -26,16 +26,31 @@ public class AttackPool {
         this.updatePool();
     }
 
-    public void rerollDie(){
-
+    public void rerollDie(Die die){
+        die.roll();
+        updatePool();
     }
 
-    public void addDie(){
-
+    public void rerollDie(int index){
+        Die die = this.currentPool.get(index);
+        rerollDie(die);
     }
 
-    public void cancelDie(){
+    public void addDie(String color){
+        Die newDie = getDice(color, 1).get(0);
+        newDie.roll();
+        this.currentPool.add(newDie);
+        updatePool();
+    }
 
+    public void cancelDie(Die die){
+        this.currentPool.remove(die);
+        updatePool();
+    }
+
+    public void cancelDie(int index){
+        this.currentPool.remove(index);
+        updatePool();
     }
 
     private void updatePool(){
@@ -62,6 +77,7 @@ public class AttackPool {
             }else if (color.toLowerCase().equals("black")){
                 returnDice.add(new Die<DiceFacings>(blackFacings));
             }
+            // TODO execption if an invalid color is tossed in
         }
         return returnDice;
     }
