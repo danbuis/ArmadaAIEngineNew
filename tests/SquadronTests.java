@@ -21,20 +21,20 @@ public class SquadronTests {
         assertEquals(new BBDPoint(0,0), arc.getLocation());
 
         //test a straight relocate
-        arc.relocate(10,10);
+        arc.relocate(new BBDPoint(10,10));
         assertEquals(new BBDPoint(10,10), arc.getLocation());
-        arc.relocate(12,-10);
+        arc.relocate(new BBDPoint(12,-10));
         assertEquals(new BBDPoint(12,-10), arc.getLocation());
 
         //recenter and test moveOffsets
-        arc.relocate(0,0);
+        arc.relocate(new BBDPoint(0,0));
         arc.moveOffsets(10, 1);
         assertEquals(new BBDPoint(10,1), arc.getLocation());
         arc.moveOffsets(-5,7);
         assertEquals(new BBDPoint(5,8), arc.getLocation());
 
         //recenter ad test moveAngle
-        arc.relocate(0,0);
+        arc.relocate(new BBDPoint(0,0));
         arc.moveAngle(10,0);
         assertEquals(new BBDPoint(10,0), arc.getLocation());
         arc.moveAngle(10, (float) (Math.PI/2));

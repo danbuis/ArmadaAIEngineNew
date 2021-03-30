@@ -34,8 +34,7 @@ public class Squadron implements GameComponent {
     private final int pointsValue;
     private ArrayList<String> defenseTokens;
     private ArrayList<GameItem> gameItems = new ArrayList<>();
-    private float currentX = 0;
-    private float currentY = 0;
+    private BBDPoint currentLocation = new BBDPoint(0,0);
     private boolean renderSquadrons;
 
     /**
@@ -122,8 +121,8 @@ public class Squadron implements GameComponent {
      * Build the GameItem objects to be used to render this object.
      */
     private void buildGameItems(){
-        BBDPolygon plasticBase = BBDGeometryUtils.createCircle(new BBDPoint(this.currentX,this.currentY), GameConstants.SQUADRON_PLASTIC_RADIUS, 100);
-        BBDPolygon cardboard = BBDGeometryUtils.createCircle(new BBDPoint(this.currentX,this.currentY), GameConstants.SQUADRON_CARDBOARD_RADIUS, 100);
+        BBDPolygon plasticBase = BBDGeometryUtils.createCircle(this.currentLocation, GameConstants.SQUADRON_PLASTIC_RADIUS, 100);
+        BBDPolygon cardboard = BBDGeometryUtils.createCircle(this.currentLocation, GameConstants.SQUADRON_CARDBOARD_RADIUS, 100);
 
         GameItem plasticBaseItem = new GameItem2d(Mesh.buildMeshFromPolygon(plasticBase, null), engine.Utils.buildSolidColorShader("white"), plasticBase, GameConstants.SQUADRON_PLASTIC, true);
 
@@ -157,12 +156,12 @@ public class Squadron implements GameComponent {
     /**
      * Root movement function.  All movement functions eventually lead to here.  Function is private because it is the one
      * that modifies items of the class.
-     * @param newX new X coordinate
-     * @param newY new Y coordinate
+     * @param newPoint new BBDPoint to use for the location of the squadron
      */
-    private void moveNew(float newX, float newY){
-        this.currentX = newX;
-        this.currentY = newY;
+    private void moveNew(BBDPoint newPoint){
+        this.currentLocation = newPoint;
+        float newX = newPoint.getXLoc();
+        float newY = newPoint.getYLoc();
         if(this.renderSquadrons) {
             for(GameItem gameItem:this.gameItems){
                 gameItem.setPosition(newX, newY, gameItem.getPosition().z);
@@ -176,7 +175,9 @@ public class Squadron implements GameComponent {
      * @param deltaY change in Y coordinate
      */
     public void moveOffsets(float deltaX, float deltaY){
-        moveNew(this.currentX + deltaX, this.currentY + deltaY);
+        this.currentLocation.translate(deltaX, deltaY);
+        //gotta call the private one so that we update the underlying widgets
+        moveNew(this.currentLocation);
     }
 
     /**
@@ -192,11 +193,10 @@ public class Squadron implements GameComponent {
 
     /**
      * A public facing function to feed into the root movement function.
-     * @param newX new X coordinate
-     * @param newY new Y coordinate
+     * @param newLocation new location for the squadron
      */
-    public void relocate(float newX, float newY){
-        moveNew(newX, newY);
+    public void relocate(BBDPoint newLocation){
+        moveNew(newLocation);
     }
 
     public String getType() {
@@ -248,6 +248,6 @@ public class Squadron implements GameComponent {
     }
 
     public BBDPoint getLocation(){
-        return new BBDPoint(currentX, currentY);
+        return this.currentLocation;
     }
 }
