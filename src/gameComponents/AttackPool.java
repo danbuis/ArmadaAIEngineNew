@@ -19,6 +19,26 @@ public class AttackPool {
         this.rollPool();
     }
 
+    public static ArrayList<Die> getDice(String color, int quantity){
+        DiceFacings[] redFacings = {DiceFacings.HIT, DiceFacings.HIT, DiceFacings.DOUBLE_HIT, DiceFacings.CRIT, DiceFacings.CRIT, DiceFacings.ACCURACY, DiceFacings.BLANK, DiceFacings.BLANK};
+        DiceFacings[] blueFacings = {DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.CRIT, DiceFacings.CRIT, DiceFacings.ACCURACY, DiceFacings.ACCURACY};
+        DiceFacings[] blackFacings = {DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT_CRIT, DiceFacings.HIT_CRIT, DiceFacings.BLANK, DiceFacings.BLANK};
+
+        ArrayList<Die> returnDice = new ArrayList<>();
+
+        for(int i = 0; i < quantity; i++){
+            if(color.toLowerCase().equals("red")){
+                returnDice.add(new Die<DiceFacings>(redFacings));
+            }else if (color.toLowerCase().equals("blue")){
+                returnDice.add(new Die<DiceFacings>(blueFacings));
+            }else if (color.toLowerCase().equals("black")){
+                returnDice.add(new Die<DiceFacings>(blackFacings));
+            }
+            // TODO execption if an invalid color is tossed in
+        }
+        return returnDice;
+    }
+
     private void rollPool(){
         for (Die die : this.currentPool){
             die.roll();
@@ -62,23 +82,11 @@ public class AttackPool {
         this.currentRolledDamage = totalDamage;
     }
 
-    public static ArrayList<Die> getDice(String color, int quantity){
-        DiceFacings[] redFacings = {DiceFacings.HIT, DiceFacings.HIT, DiceFacings.DOUBLE_HIT, DiceFacings.CRIT, DiceFacings.CRIT, DiceFacings.ACCURACY, DiceFacings.BLANK, DiceFacings.BLANK};
-        DiceFacings[] blueFacings = {DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.CRIT, DiceFacings.CRIT, DiceFacings.ACCURACY, DiceFacings.ACCURACY};
-        DiceFacings[] blackFacings = {DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT_CRIT, DiceFacings.HIT_CRIT, DiceFacings.BLANK, DiceFacings.BLANK};
+    public int getCurrentRolledDamage() {
+        return currentRolledDamage;
+    }
 
-        ArrayList<Die> returnDice = new ArrayList<>();
-
-        for(int i = 0; i < quantity; i++){
-            if(color.toLowerCase().equals("red")){
-                returnDice.add(new Die<DiceFacings>(redFacings));
-            }else if (color.toLowerCase().equals("blue")){
-                returnDice.add(new Die<DiceFacings>(blueFacings));
-            }else if (color.toLowerCase().equals("black")){
-                returnDice.add(new Die<DiceFacings>(blackFacings));
-            }
-            // TODO execption if an invalid color is tossed in
-        }
-        return returnDice;
+    public ArrayList<Die> getCurrentPool() {
+        return currentPool;
     }
 }
