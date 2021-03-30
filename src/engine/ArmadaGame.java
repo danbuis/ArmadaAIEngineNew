@@ -48,6 +48,7 @@ public class ArmadaGame implements GameComponent {
 
         demoMap = initializeDemoMap();
 
+        //Temporary - just list out all the squadrons and show them all
         squadrons = new ArrayList<>();
         try {
             SquadronFactory squadronFactory = new SquadronFactory();
@@ -61,7 +62,7 @@ public class ArmadaGame implements GameComponent {
                     currentCol=0;
                 }
 
-                temp.relocate(currentCol * 100, currentRow * 100);
+                temp.relocate(currentCol * 40, currentRow * 40);
                 currentCol++;
                 System.out.println(temp.getLocation());
                 squadrons.add(temp);

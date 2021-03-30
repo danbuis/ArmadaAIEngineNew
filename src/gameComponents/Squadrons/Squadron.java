@@ -118,6 +118,9 @@ public class Squadron implements GameComponent {
 
     }
 
+    /**
+     * Build the GameItem objects to be used to render this object.
+     */
     private void buildGameItems(){
         BBDPolygon plasticBase = BBDGeometryUtils.createCircle(new BBDPoint(this.currentX,this.currentY), GameConstants.SQUADRON_PLASTIC_RADIUS, 100);
         BBDPolygon cardboard = BBDGeometryUtils.createCircle(new BBDPoint(this.currentX,this.currentY), GameConstants.SQUADRON_CARDBOARD_RADIUS, 100);
@@ -135,6 +138,11 @@ public class Squadron implements GameComponent {
         this.gameItems.add(plasticBaseItem);
     }
 
+    /**
+     * Build a string based on the squadron object's properties to grab the appropriate descriptively named file.
+     * Concatenates a few fields and cleans up outstanding chars like spaces, quotes etc.
+     * @return image file to be used from the assets directory
+     */
     public String buildSquadFileName() {
         String baseFileName = this.type;
         if(this.unique){
@@ -146,6 +154,12 @@ public class Squadron implements GameComponent {
         return cleanedFileName+".png";
     }
 
+    /**
+     * Root movement function.  All movement functions eventually lead to here.  Function is private because it is the one
+     * that modifies items of the class.
+     * @param newX new X coordinate
+     * @param newY new Y coordinate
+     */
     private void moveNew(float newX, float newY){
         this.currentX = newX;
         this.currentY = newY;
@@ -156,20 +170,34 @@ public class Squadron implements GameComponent {
         }
     }
 
+    /**
+     * Movement function for when we know the relative offset
+     * @param deltaX change in X coordinate
+     * @param deltaY change in Y coordinate
+     */
     public void moveOffsets(float deltaX, float deltaY){
         moveNew(this.currentX + deltaX, this.currentY + deltaY);
     }
 
+    /**
+     * Movement function for when we know angle and distance
+     * @param distance movement length
+     * @param angle angle of movement
+     */
     public void moveAngle(float distance, float angle){
         float deltaX = (float) (Math.cos(angle) * distance);
         float deltaY = (float) (Math.sin(angle) * distance);
         moveOffsets(deltaX, deltaY);
     }
 
+    /**
+     * A public facing function to feed into the root movement function.
+     * @param newX new X coordinate
+     * @param newY new Y coordinate
+     */
     public void relocate(float newX, float newY){
         moveNew(newX, newY);
     }
-
 
     public String getType() {
         return type;
