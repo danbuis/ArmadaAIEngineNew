@@ -2,6 +2,7 @@ package engine;
 
 import BBDGameLibrary.GameEngine.Camera;
 import BBDGameLibrary.GameEngine.GameComponent;
+import BBDGameLibrary.GameEngine.MouseInput;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.OpenGL.*;
 import gameComponents.DemoMap;
@@ -42,19 +43,22 @@ public class ArmadaGame implements GameComponent {
      * and directs it to objects.  For instance the below code passes input to the demoMap, even though the demoMap
      * doesn't do anything with the input
      * @param window
+     * @param mouseInput object to handle input from the mouse
      */
     @Override
-    public void input(Window window) {
-        demoMap.input(window);
+    public void input(Window window, MouseInput mouseInput) {
+        demoMap.input(window, mouseInput);
     }
 
     /**
      * All GameComponents and objects that implement GameComponent need this function.  It handles the updates to gameItems
      * between ticks.  As an example the current code makes sure that the camera is always centered on the map.
      * @param v
+     * @param mouseInput object handling mouse input
+     * @parma window Window object where everything is rendered
      */
     @Override
-    public void update(float v) {
+    public void update(float v, MouseInput mouseInput, Window window) {
         Vector3f mapCenter = demoMap.getPosition();
         camera.setPosition(mapCenter.x, mapCenter.y, 920);
     }
