@@ -27,10 +27,10 @@ public class AttackPoolTests {
         ArrayList<Die> combined = AttackPool.getDice(3,2,3);
 
         AttackPool isd1Front = new AttackPool(combined);
-        assertEquals(8, isd1Front.getCurrentPool().size());
+        assertEquals(8, isd1Front.getPoolSize());
 
         //should be rolled as part of the constructor
-        assertFalse(isd1Front.getCurrentPool().get(0).isUnrolled());
+        assertNotNull(isd1Front.getCurrentDiceFacings()[0]);
     }
 
     @Test
@@ -38,9 +38,9 @@ public class AttackPoolTests {
         ArrayList<Die> combined = AttackPool.getDice(3,2,3);
         AttackPool isd1Front = new AttackPool(combined);
         isd1Front.setFace(0, DiceFacings.BLANK);
-        assertEquals(DiceFacings.BLANK, isd1Front.getCurrentPool().get(0).getCurrentFace());
-        isd1Front.setFace(0, DiceFacings.CRIT);
-        assertEquals(DiceFacings.CRIT, isd1Front.getCurrentPool().get(0).getCurrentFace());
+        //assertEquals(DiceFacings.BLANK, isd1Front.getCurrentDiceFacings()[0]);
+        isd1Front.setFace(0, DiceFacings.HIT_CRIT);
+        assertEquals(DiceFacings.HIT_CRIT, isd1Front.getCurrentDiceFacings()[0]);
     }
 
     @Test
@@ -48,19 +48,6 @@ public class AttackPoolTests {
 
     }
 
-    @Test
-    public void testGetCurrentPoolNewObject(){
-        ArrayList<Die> combined = AttackPool.getDice(3,2,3);
-        AttackPool isd1Front = new AttackPool(combined);
-
-        //important that the object from the "get" is not the same as the internal one
-        //otherwise its too easy to change the internal state and not go through the expected channels
-        ArrayList<Die> pool = isd1Front.getCurrentPool();
-        pool.get(0).setToFace(DiceFacings.BLANK);
-        isd1Front.setFace(0, DiceFacings.HIT);
-
-        assertNotEquals(pool.get(0).getCurrentFace(), isd1Front.getCurrentPool().get(0).getCurrentFace());
-    }
 
     @Test
     public void testDamageTotaling(){
@@ -100,21 +87,10 @@ public class AttackPoolTests {
         }
 
         assertNotEquals(4, test.getCurrentRolledDamage());
-        assertEquals(DiceFacings.DOUBLE_HIT, test.getCurrentPool().get(1).getCurrentFace());
+        assertEquals(DiceFacings.DOUBLE_HIT, test.getCurrentDiceFacings()[1]);
 
         test.setFace(0, DiceFacings.DOUBLE_HIT);
         test.setFace(1, DiceFacings.DOUBLE_HIT);
-
-        //test the other reroll method
-        Die dieToReroll = test.getCurrentPool().get(1);
-        for (int i=0; i<20; i++){
-            test.rerollDie(dieToReroll);
-            if(test.getCurrentRolledDamage()!=4){
-                break;
-            }
-        }
-        assertNotEquals(4, test.getCurrentRolledDamage());
-        assertEquals(DiceFacings.DOUBLE_HIT, test.getCurrentPool().get(1).getCurrentFace());
     }
 
     @Test
@@ -127,7 +103,7 @@ public class AttackPoolTests {
         assertEquals(4, test.getCurrentRolledDamage());
         test.cancelDie(0);
         assertEquals(2, test.getCurrentRolledDamage());
-        assertEquals(1, test.getCurrentPool().size());
+        assertEquals(1, test.getPoolSize());
     }
 
     @Test
@@ -142,7 +118,7 @@ public class AttackPoolTests {
         assertEquals(2, test.getCurrentRolledDamage());
         test.cancelDie(0);
         assertEquals(0, test.getCurrentRolledDamage());
-        assertEquals(0, test.getCurrentPool().size());
+        assertEquals(0, test.getPoolSize());
     }
 
     @Test
@@ -150,10 +126,10 @@ public class AttackPoolTests {
         ArrayList<Die> combined = AttackPool.getDice(2,0,0);
         AttackPool test = new AttackPool(combined);
 
-        assertEquals(2, test.getCurrentPool().size());
+        assertEquals(2, test.getPoolSize());
         test.addDie("red");
-        assertEquals(3, test.getCurrentPool().size());
-        assertFalse(test.getCurrentPool().get(2).isUnrolled());
+        assertEquals(3, test.getPoolSize());
+        assertNotNull(test.getCurrentDiceFacings()[2]);
     }
 
     @Test
