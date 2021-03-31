@@ -19,6 +19,19 @@ public class AttackPool {
         this.rollPool();
     }
 
+    public static ArrayList<Die> getDice(int red, int blue, int black){
+        ArrayList<Die> redDice = getDice("red", red);
+        ArrayList<Die> blueDice = getDice("blue", blue);
+        ArrayList<Die> blackDice = getDice("black", black);
+
+        ArrayList<Die> combined = new ArrayList<>();
+        combined.addAll(blackDice);
+        combined.addAll(blueDice);
+        combined.addAll(redDice);
+
+        return combined;
+    }
+
     public static ArrayList<Die> getDice(String color, int quantity){
         DiceFacings[] redFacings = {DiceFacings.HIT, DiceFacings.HIT, DiceFacings.DOUBLE_HIT, DiceFacings.CRIT, DiceFacings.CRIT, DiceFacings.ACCURACY, DiceFacings.BLANK, DiceFacings.BLANK};
         DiceFacings[] blueFacings = {DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.CRIT, DiceFacings.CRIT, DiceFacings.ACCURACY, DiceFacings.ACCURACY};
@@ -71,6 +84,15 @@ public class AttackPool {
     public void cancelDie(int index){
         this.currentPool.remove(index);
         updatePool();
+    }
+
+    public void setFace(Die die, DiceFacings newFacing){
+        die.setToFace(newFacing);
+        updatePool();
+    }
+
+    public void setFace(int index, DiceFacings newFacing){
+        setFace(this.currentPool.get(index), newFacing);
     }
 
     private void updatePool(){
