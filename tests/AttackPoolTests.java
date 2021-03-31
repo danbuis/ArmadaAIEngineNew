@@ -1,6 +1,8 @@
 import BBDGameLibrary.GameEngine.Die;
 import gameComponents.AttackPool;
+import gameComponents.DiceColor;
 import gameComponents.DiceFacings;
+import gameComponents.DiceSymbol;
 import org.junit.jupiter.api.Test;
 
 
@@ -127,7 +129,7 @@ public class AttackPoolTests {
         AttackPool test = new AttackPool(combined);
 
         assertEquals(2, test.getPoolSize());
-        test.addDie("red");
+        test.addDie(DiceColor.RED);
         assertEquals(3, test.getPoolSize());
         assertNotNull(test.getCurrentDiceFacings()[2]);
     }
@@ -160,19 +162,19 @@ public class AttackPoolTests {
         test.setFace(0, DiceFacings.DOUBLE_HIT);
         test.setFace(1, DiceFacings.DOUBLE_HIT);
 
-        int testVal = test.getSymbolCount("hit");
+        int testVal = test.getSymbolCount(DiceSymbol.HIT);
 
-        assertEquals(4, test.getSymbolCount("hit"));
-        assertEquals(0, test.getSymbolCount("crit"));
-        assertEquals(0, test.getSymbolCount("accuracy"));
+        assertEquals(4, test.getSymbolCount(DiceSymbol.HIT));
+        assertEquals(0, test.getSymbolCount(DiceSymbol.CRIT));
+        assertEquals(0, test.getSymbolCount(DiceSymbol.ACCURACY));
 
         combined = AttackPool.getDice(0,0,2);
         test = new AttackPool(combined);
         test.setFace(0, DiceFacings.HIT);
         test.setFace(1, DiceFacings.HIT_CRIT);
-        assertEquals(2, test.getSymbolCount("hit"));
-        assertEquals(1, test.getSymbolCount("crit"));
-        assertEquals(0, test.getSymbolCount("accuracy"));
+        assertEquals(2, test.getSymbolCount(DiceSymbol.HIT));
+        assertEquals(1, test.getSymbolCount(DiceSymbol.CRIT));
+        assertEquals(0, test.getSymbolCount(DiceSymbol.ACCURACY));
     }
 }
 

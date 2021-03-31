@@ -37,9 +37,9 @@ public class AttackPool {
      * @return List of new Die objects
      */
     public static ArrayList<Die> getDice(int red, int blue, int black){
-        ArrayList<Die> redDice = getDice("red", red);
-        ArrayList<Die> blueDice = getDice("blue", blue);
-        ArrayList<Die> blackDice = getDice("black", black);
+        ArrayList<Die> redDice = getDice(DiceColor.RED, red);
+        ArrayList<Die> blueDice = getDice(DiceColor.BLUE, blue);
+        ArrayList<Die> blackDice = getDice(DiceColor.BLACK, black);
 
         ArrayList<Die> combined = new ArrayList<>();
         combined.addAll(blackDice);
@@ -55,7 +55,7 @@ public class AttackPool {
      * @param quantity How many dice are in the pool.
      * @return List of new Die objects
      */
-    private static ArrayList<Die> getDice(String color, int quantity){
+    private static ArrayList<Die> getDice(DiceColor color, int quantity){
         DiceFacings[] redFacings = {DiceFacings.HIT, DiceFacings.HIT, DiceFacings.DOUBLE_HIT, DiceFacings.CRIT, DiceFacings.CRIT, DiceFacings.ACCURACY, DiceFacings.BLANK, DiceFacings.BLANK};
         DiceFacings[] blueFacings = {DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.CRIT, DiceFacings.CRIT, DiceFacings.ACCURACY, DiceFacings.ACCURACY};
         DiceFacings[] blackFacings = {DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT_CRIT, DiceFacings.HIT_CRIT, DiceFacings.BLANK, DiceFacings.BLANK};
@@ -63,14 +63,13 @@ public class AttackPool {
         ArrayList<Die> returnDice = new ArrayList<>();
 
         for(int i = 0; i < quantity; i++){
-            if(color.toLowerCase().equals("red")){
+            if(color == DiceColor.RED){
                 returnDice.add(new Die<DiceFacings>(redFacings));
-            }else if (color.toLowerCase().equals("blue")){
+            }else if (color == DiceColor.BLUE){
                 returnDice.add(new Die<DiceFacings>(blueFacings));
-            }else if (color.toLowerCase().equals("black")){
+            }else if (color == DiceColor.BLACK){
                 returnDice.add(new Die<DiceFacings>(blackFacings));
             }
-            // TODO execption if an invalid color is tossed in
         }
         return returnDice;
     }
@@ -98,7 +97,7 @@ public class AttackPool {
      * Add a new die to the pool
      * @param color Color of the new die
      */
-    public void addDie(String color){
+    public void addDie(DiceColor color){
         Die newDie = getDice(color, 1).get(0);
         newDie.roll();
         this.currentPool.add(newDie);
@@ -136,7 +135,7 @@ public class AttackPool {
         }
         this.currentRolledDamage = totalDamage;
 
-        this.critEffect = getSymbolCount("crit") != 0;
+        this.critEffect = getSymbolCount(DiceSymbol.CRIT) != 0;
     }
 
     /**
@@ -149,10 +148,16 @@ public class AttackPool {
 
     /**
      * Get the count of a specific symbol on the dice
-     * @param symbolLabel What symbol do you want counted
+     * @param diceSymbol What symbol do you want counted
      * @return How many instances of that symbol in the dice pool
      */
-    public int getSymbolCount(String symbolLabel){
+    public int getSymbolCount(DiceSymbol diceSymbol){
+        String symbolLabel = "";
+
+        if (diceSymbol == DiceSymbol.HIT){ symbolLabel = "hit";}
+        else if (diceSymbol == DiceSymbol.CRIT){ symbolLabel = "crit";}
+        else if (diceSymbol == DiceSymbol.ACCURACY){ symbolLabel = "accuracy";}
+
         int count = 0;
         for(Die die:currentPool){
             DiceFacings currentFace = (DiceFacings) die.getCurrentFace();
