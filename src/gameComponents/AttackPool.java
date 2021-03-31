@@ -1,7 +1,6 @@
 package gameComponents;
 
 import BBDGameLibrary.GameEngine.Die;
-import com.sun.deploy.util.StringUtils;
 
 import java.util.ArrayList;
 
@@ -13,6 +12,7 @@ public class AttackPool {
     private boolean spentRedirect = false;
     private int currentRolledDamage;
     private ArrayList<Die> currentPool;
+    private boolean critEffect;
 
 
     public AttackPool(ArrayList<Die> dicePool){
@@ -33,7 +33,7 @@ public class AttackPool {
         return combined;
     }
 
-    public static ArrayList<Die> getDice(String color, int quantity){
+    private static ArrayList<Die> getDice(String color, int quantity){
         DiceFacings[] redFacings = {DiceFacings.HIT, DiceFacings.HIT, DiceFacings.DOUBLE_HIT, DiceFacings.CRIT, DiceFacings.CRIT, DiceFacings.ACCURACY, DiceFacings.BLANK, DiceFacings.BLANK};
         DiceFacings[] blueFacings = {DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.CRIT, DiceFacings.CRIT, DiceFacings.ACCURACY, DiceFacings.ACCURACY};
         DiceFacings[] blackFacings = {DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT_CRIT, DiceFacings.HIT_CRIT, DiceFacings.BLANK, DiceFacings.BLANK};
@@ -89,6 +89,8 @@ public class AttackPool {
             totalDamage += currentFace.getDamage();
         }
         this.currentRolledDamage = totalDamage;
+
+        this.critEffect = getSymbolCount("crit") != 0;
     }
 
     public int getCurrentRolledDamage() {
@@ -100,8 +102,11 @@ public class AttackPool {
         for(Die die:currentPool){
             DiceFacings currentFace = (DiceFacings) die.getCurrentFace();
             String label = currentFace.getLabel();
-
-            count += label.split(symbolLabel.toLowerCase()).length-1;
+            int fromIndex = 0;
+            while((fromIndex = label.indexOf(symbolLabel, fromIndex)) != -1) {
+                count++;
+                fromIndex++;
+            }
         }
 
         return count;
@@ -119,6 +124,10 @@ public class AttackPool {
         }
 
         return currentDice;
+    }
+
+    public boolean getCritEffect(){
+        return critEffect;
     }
 
 }
