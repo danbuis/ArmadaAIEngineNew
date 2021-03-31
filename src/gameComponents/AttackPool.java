@@ -1,6 +1,7 @@
 package gameComponents;
 
 import BBDGameLibrary.GameEngine.Die;
+import com.sun.deploy.util.StringUtils;
 
 import java.util.ArrayList;
 
@@ -59,14 +60,9 @@ public class AttackPool {
         this.updatePool();
     }
 
-    public void rerollDie(Die die){
-        die.roll();
-        updatePool();
-    }
-
     public void rerollDie(int index){
-        Die die = this.currentPool.get(index);
-        rerollDie(die);
+        this.currentPool.get(index).roll();
+        updatePool();
     }
 
     public void addDie(String color){
@@ -76,23 +72,14 @@ public class AttackPool {
         updatePool();
     }
 
-    public void cancelDie(Die die){
-        this.currentPool.remove(die);
-        updatePool();
-    }
-
     public void cancelDie(int index){
         this.currentPool.remove(index);
         updatePool();
     }
 
-    public void setFace(Die die, DiceFacings newFacing){
-        die.setToFace(newFacing);
-        updatePool();
-    }
-
     public void setFace(int index, DiceFacings newFacing){
-        setFace(this.currentPool.get(index), newFacing);
+        this.currentPool.get(index).setToFace( newFacing);
+        updatePool();
     }
 
     private void updatePool(){
@@ -108,7 +95,30 @@ public class AttackPool {
         return currentRolledDamage;
     }
 
-    public ArrayList<Die> getCurrentPool() {
-        return currentPool;
+    public int getSymbolCount(String symbolLabel){
+        int count = 0;
+        for(Die die:currentPool){
+            DiceFacings currentFace = (DiceFacings) die.getCurrentFace();
+            String label = currentFace.getLabel();
+
+            count += label.split(symbolLabel.toLowerCase()).length-1;
+        }
+
+        return count;
     }
+
+    public int getPoolSize(){
+        return currentPool.size();
+    }
+
+    public DiceFacings[] getCurrentDiceFacings(){
+        DiceFacings[] currentDice = new DiceFacings[currentPool.size()];
+
+        for (int i=0; i<currentPool.size(); i++){
+            currentDice[i] = (DiceFacings) currentPool.get(i).getCurrentFace();
+        }
+
+        return currentDice;
+    }
+
 }
