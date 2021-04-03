@@ -41,9 +41,15 @@ public class GameConstants {
     public static final float SHIP_LARGE_WIDTH = 76;
     public static final float SHIP_LARGE_LENGTH = 129;
     public static final float SHIP_BASE_RAILS = 2;
+    public static final float SQUADRON_PLASTIC_RADIUS = 12.7f;
+    public static final float SQUADRON_CARDBOARD_RADIUS =12.4f;
+
 
     /**Layers, how far from the camera the associated items are drawn
      *
      */
-    public static final int MAP_BACKGROUND_LAYER = 100;
+    public static final int SQUADRON_PLASTIC = 25;
+    public static final int SQUADRON_CARDBOARD = 24;
+    public static final int SQUADRON_GRAPHIC = 22;
+    public static final int MAP_BACKGROUND_LAYER = 20000;
 }
