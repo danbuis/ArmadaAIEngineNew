@@ -12,10 +12,10 @@ import BBDGameLibrary.OpenGL.ShaderProgram;
 import BBDGameLibrary.OpenGL.Texture;
 import BBDGameLibrary.OpenGL.Window;
 import engine.GameConstants;
+import engine.GameItemSorter;
 import engine.Utils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * A class representing a Squadron object
@@ -33,7 +33,7 @@ public class Squadron implements GameComponent {
     private final ArrayList<String> keywords;
     private final int pointsValue;
     private ArrayList<String> defenseTokens;
-    private ArrayList<GameItem> gameItems = new ArrayList<>();
+    private GameItemSorter gameItems = new GameItemSorter();
     private BBDPoint currentLocation = new BBDPoint(0,0);
     private boolean renderSquadrons;
 
@@ -124,17 +124,17 @@ public class Squadron implements GameComponent {
         BBDPolygon plasticBase = BBDGeometryUtils.createCircle(this.currentLocation, GameConstants.SQUADRON_PLASTIC_RADIUS, 100);
         BBDPolygon cardboard = BBDGeometryUtils.createCircle(this.currentLocation, GameConstants.SQUADRON_CARDBOARD_RADIUS, 100);
 
-        GameItem plasticBaseItem = new GameItem2d(Mesh.buildMeshFromPolygon(plasticBase, null), engine.Utils.buildSolidColorShader("white"), plasticBase, GameConstants.SQUADRON_PLASTIC, true);
+        GameItem2d plasticBaseItem = new GameItem2d(Mesh.buildMeshFromPolygon(plasticBase, null), engine.Utils.buildSolidColorShader("white"), plasticBase, GameConstants.LAYER_SQUADRON_PLASTIC, true);
 
-        GameItem cardboardItem = new GameItem2d(Mesh.buildMeshFromPolygon(cardboard, null), engine.Utils.buildSolidColorShader("black"), cardboard, GameConstants.SQUADRON_CARDBOARD, true);
+        GameItem2d cardboardItem = new GameItem2d(Mesh.buildMeshFromPolygon(cardboard, null), engine.Utils.buildSolidColorShader("black"), cardboard, GameConstants.LAYER_SQUADRON_CARDBOARD, true);
 
         BBDPolygon poly = Utils.buildQuad(20, 20);
         ShaderProgram shader = Utils.buildBasicTexturedShaderProgram();
         Texture texture = new Texture("assets/images/squadrons/squad_"+buildSquadFileName());
-        GameItem squadronGraphic = new GameItem2d(Mesh.buildMeshFromPolygon(poly, texture), shader, poly, GameConstants.SQUADRON_GRAPHIC, false);
-        this.gameItems.add(squadronGraphic);
-        this.gameItems.add(cardboardItem);
-        this.gameItems.add(plasticBaseItem);
+        GameItem2d squadronGraphic = new GameItem2d(Mesh.buildMeshFromPolygon(poly, texture), shader, poly, GameConstants.LAYER_SQUADRON_GRAPHIC, false);
+        this.gameItems.addItems(squadronGraphic);
+        this.gameItems.addItems(cardboardItem);
+        this.gameItems.addItems(plasticBaseItem);
     }
 
     /**
@@ -162,10 +162,8 @@ public class Squadron implements GameComponent {
         this.currentLocation = newPoint;
         float newX = newPoint.getXLoc();
         float newY = newPoint.getYLoc();
-        if(this.renderSquadrons) {
-            for(GameItem gameItem:this.gameItems){
-                gameItem.setPosition(newX, newY, gameItem.getPosition().z);
-            }
+        for(int i =0; i<gameItems.getItemCount(); i++){
+            gameItems.getItem(i).setPosition(newX, newY, gameItems.getItem(i).getPosition().z);
         }
     }
 
@@ -243,7 +241,7 @@ public class Squadron implements GameComponent {
         return defenseTokens;
     }
 
-    public ArrayList<GameItem> getGameItems() {
+    public GameItemSorter getGameItems() {
         return gameItems;
     }
 
