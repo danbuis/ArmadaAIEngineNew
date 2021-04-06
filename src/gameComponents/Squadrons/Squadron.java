@@ -25,6 +25,7 @@ public class Squadron implements GameComponent {
     private final String type;
     private final String name;
     private final boolean unique;
+    private final String faction;
     private int currentHealth;
     private final int fullHealth;
     private final int maxSpeed;
@@ -52,12 +53,13 @@ public class Squadron implements GameComponent {
      * @param pointsValue How many points is it worth
      * @param defenseTokens What defense tokens, if any, does it have?  Must have a value, even if it is an empty list
      */
-    public Squadron(String type, String name, boolean unique, int fullHealth,
+    public Squadron(String type, String name, boolean unique, String faction, int fullHealth,
                     int maxSpeed, String antiShipDice, String antiSquadronDice,
                     ArrayList<String> keywords, int pointsValue, ArrayList<String> defenseTokens){
         this.type = type;
         this.name = name;
         this.unique = unique;
+        this.faction = faction;
         this.fullHealth = fullHealth;
         this.currentHealth = fullHealth;
         this.maxSpeed = maxSpeed;
@@ -77,6 +79,7 @@ public class Squadron implements GameComponent {
         this.type = original.type;
         this.name = original.name;
         this.unique = original.unique;
+        this.faction = original.faction;
         this.fullHealth = original.fullHealth;
         this.currentHealth = original.fullHealth;
         this.maxSpeed = original.maxSpeed;

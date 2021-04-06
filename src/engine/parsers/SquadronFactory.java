@@ -114,7 +114,7 @@ public class SquadronFactory {
      * listing out of order, we can still tell when it is complete.
      */
     private void buildSquadron() {
-        Squadron newSquadron = new Squadron(this.type, this.name, this.unique, this.hull, this.speed, this.antiShipDice,
+        Squadron newSquadron = new Squadron(this.type, this.name, this.unique, this.faction, this.hull, this.speed, this.antiShipDice,
             this.antiSquadronDice, this.keywords, this.points, this.defenseTokens);
         this.squadronMap.put(newSquadron.getName(), newSquadron);
 
