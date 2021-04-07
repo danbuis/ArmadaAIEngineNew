@@ -38,6 +38,17 @@ public class Squadron implements GameComponent {
     private BBDPoint currentLocation = new BBDPoint(0,0);
     private boolean renderSquadrons;
 
+    private static BBDPolygon plasticBase = BBDGeometryUtils.createCircle(new BBDPoint(0,0), GameConstants.SQUADRON_PLASTIC_RADIUS, 100);
+    private static float[] plasticPositions = Mesh.buildMeshPositions(plasticBase);
+    private static float[] plasticTex = Mesh.buildTextureCoordinates(plasticBase);
+    private static int[] plasticIndices = Mesh.buildIndices(plasticBase);
+
+    private static BBDPolygon cardboard = BBDGeometryUtils.createCircle(new BBDPoint(0,0), GameConstants.SQUADRON_CARDBOARD_RADIUS, 100);
+    private static float[] cardboardPositions = Mesh.buildMeshPositions(cardboard);
+    private static float[] cardboardTex = Mesh.buildTextureCoordinates(cardboard);
+    private static int[] cardboardIndices = Mesh.buildIndices(cardboard);
+
+
     /**
      * Constructor used by the SquadronFactory to build a new object.  Could also be used to build something programmatically
      * if you feel so inclined.
@@ -124,12 +135,8 @@ public class Squadron implements GameComponent {
      * Build the GameItem objects to be used to render this object.
      */
     private void buildGameItems(){
-        BBDPolygon plasticBase = BBDGeometryUtils.createCircle(this.currentLocation, GameConstants.SQUADRON_PLASTIC_RADIUS, 100);
-        BBDPolygon cardboard = BBDGeometryUtils.createCircle(this.currentLocation, GameConstants.SQUADRON_CARDBOARD_RADIUS, 100);
-
-        GameItem plasticBaseItem = new GameItem2d(Mesh.buildMeshFromPolygon(plasticBase, null), Utils.WHITE_SOLID, plasticBase, GameConstants.SQUADRON_PLASTIC, false);
-
-        GameItem cardboardItem = new GameItem2d(Mesh.buildMeshFromPolygon(cardboard, null), Utils.BLACK_SOLID, cardboard, GameConstants.SQUADRON_CARDBOARD, false);
+        GameItem plasticBaseItem = new GameItem2d(new Mesh(plasticPositions, plasticTex, plasticIndices, null), Utils.WHITE_SOLID, plasticBase, GameConstants.SQUADRON_PLASTIC, false);
+        GameItem cardboardItem = new GameItem2d(new Mesh(cardboardPositions, cardboardTex, cardboardIndices, null), Utils.BLACK_SOLID, cardboard, GameConstants.SQUADRON_CARDBOARD, false);
 
         BBDPolygon poly = Utils.buildQuad(20, 20);
         ShaderProgram shader = Utils.TEXTURED_GENERIC;
