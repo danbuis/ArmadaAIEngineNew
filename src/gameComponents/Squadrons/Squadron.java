@@ -127,12 +127,12 @@ public class Squadron implements GameComponent {
         BBDPolygon plasticBase = BBDGeometryUtils.createCircle(this.currentLocation, GameConstants.SQUADRON_PLASTIC_RADIUS, 100);
         BBDPolygon cardboard = BBDGeometryUtils.createCircle(this.currentLocation, GameConstants.SQUADRON_CARDBOARD_RADIUS, 100);
 
-        GameItem plasticBaseItem = new GameItem2d(Mesh.buildMeshFromPolygon(plasticBase, null), engine.Utils.buildSolidColorShader("white"), plasticBase, GameConstants.SQUADRON_PLASTIC, true);
+        GameItem plasticBaseItem = new GameItem2d(Mesh.buildMeshFromPolygon(plasticBase, null), Utils.WHITE_SOLID, plasticBase, GameConstants.SQUADRON_PLASTIC, false);
 
-        GameItem cardboardItem = new GameItem2d(Mesh.buildMeshFromPolygon(cardboard, null), engine.Utils.buildSolidColorShader("black"), cardboard, GameConstants.SQUADRON_CARDBOARD, true);
+        GameItem cardboardItem = new GameItem2d(Mesh.buildMeshFromPolygon(cardboard, null), Utils.BLACK_SOLID, cardboard, GameConstants.SQUADRON_CARDBOARD, false);
 
         BBDPolygon poly = Utils.buildQuad(20, 20);
-        ShaderProgram shader = Utils.buildBasicTexturedShaderProgram();
+        ShaderProgram shader = Utils.TEXTURED_GENERIC;
         Texture texture = new Texture("assets/images/squadrons/squad_"+buildSquadFileName());
         GameItem squadronGraphic = new GameItem2d(Mesh.buildMeshFromPolygon(poly, texture), shader, poly, GameConstants.SQUADRON_GRAPHIC, false);
         this.gameItems.add(squadronGraphic);

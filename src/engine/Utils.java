@@ -3,6 +3,7 @@ package engine;
 import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.OpenGL.ShaderProgram;
+import com.sun.prism.ps.Shader;
 
 import java.util.ArrayList;
 
@@ -11,6 +12,10 @@ import java.util.ArrayList;
  * should be static so that we don't need to create an object to use them.
  */
 public class Utils {
+
+    public static ShaderProgram BLACK_SOLID = buildSolidColorShader("black");
+    public static ShaderProgram WHITE_SOLID = buildSolidColorShader("white");
+    public static ShaderProgram TEXTURED_GENERIC = buildBasicTexturedShaderProgram();
 
     /**
      * Creates a ShaderProgram, which is essentially a set of instructions to the graphics card on how to render vertices.
