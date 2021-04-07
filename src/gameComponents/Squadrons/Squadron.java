@@ -15,7 +15,6 @@ import engine.GameConstants;
 import engine.Utils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * A class representing a Squadron object

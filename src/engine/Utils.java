@@ -3,7 +3,6 @@ package engine;
 import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.OpenGL.ShaderProgram;
-import com.sun.prism.ps.Shader;
 
 import java.util.ArrayList;
 
