@@ -38,6 +38,10 @@ public class Squadron implements GameComponent {
     private BBDPoint currentLocation = new BBDPoint(0,0);
     private boolean renderSquadrons;
 
+
+    /**
+     * Static objects to build meshes.  Long term these will be moved somewhere else once rendering is separated from the Squadron object.
+     */
     private static BBDPolygon plasticBase = BBDGeometryUtils.createCircle(new BBDPoint(0,0), GameConstants.SQUADRON_PLASTIC_RADIUS, 100);
     private static float[] plasticPositions = Mesh.buildMeshPositions(plasticBase);
     private static float[] plasticTex = Mesh.buildTextureCoordinates(plasticBase);
