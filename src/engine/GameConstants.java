@@ -52,4 +52,10 @@ public class GameConstants {
     public static final int SQUADRON_CARDBOARD = 24;
     public static final int SQUADRON_GRAPHIC = 22;
     public static final int MAP_BACKGROUND_LAYER = 20000;
+
+    /**
+     * Rendering criteria
+     */
+    public static final int ZOOM_MINIMUM = 100;
+    public static final int ZOOM_MAXIMUM = 1200;
 }

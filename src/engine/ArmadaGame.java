@@ -29,6 +29,9 @@ public class ArmadaGame implements GameComponent {
     private DemoMap demoMap;
 
     private ArrayList<Squadron> squadrons;
+    private int currentZoom = 920;
+
+    
 
     /**
      * A basic constructor.  Sets up the items only need one instance that is then shared between objects
@@ -98,7 +101,18 @@ public class ArmadaGame implements GameComponent {
     @Override
     public void update(float v, MouseInput mouseInput, Window window) {
         Vector3f mapCenter = demoMap.getPosition();
-        camera.setPosition(mapCenter.x, mapCenter.y, 920);
+        camera.setPosition(mapCenter.x, mapCenter.y, this.currentZoom);
+
+        //if (mouseInput.isRightButtonPressed()){
+        //    System.out.println(currentZoom);
+        //    this.currentZoom = (int) Math.min(this.currentZoom * 1.01, GameConstants.ZOOM_MAXIMUM);
+        //}
+        //else if (mouseInput.isLeftButtonPressed()){
+        //    System.out.println(currentZoom);
+        //    this.currentZoom = (int) Math.max(this.currentZoom / 1.01, GameConstants.ZOOM_MINIMUM);
+        //}
+
+
     }
 
     /**
