@@ -10,9 +10,9 @@ public class DefenseToken {
      */
 
     //The type of token
-    protected GameConstants.defenseTokenType type;
+    private GameConstants.defenseTokenType type;
     //The status of the token. All defense tokens start in the ready state
-    protected GameConstants.defenseTokenStatus status = GameConstants.defenseTokenStatus.READY;
+    private GameConstants.defenseTokenStatus status = GameConstants.defenseTokenStatus.READY;
 
     //No Null constructor
 
