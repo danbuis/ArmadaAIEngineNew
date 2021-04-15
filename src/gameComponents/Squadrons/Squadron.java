@@ -13,6 +13,7 @@ import BBDGameLibrary.OpenGL.Texture;
 import BBDGameLibrary.OpenGL.Window;
 import engine.GameConstants;
 import engine.Utils;
+import gameComponents.DefenseTokens.DefenseToken;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,7 +33,7 @@ public class Squadron implements GameComponent {
     private final String antiSquadronDice;
     private final ArrayList<String> keywords;
     private final int pointsValue;
-    private ArrayList<String> defenseTokens;
+    private ArrayList<DefenseToken> defenseTokens;
     private ArrayList<GameItem> gameItems = new ArrayList<>();
     private float currentX = 0;
     private float currentY = 0;
@@ -55,7 +56,7 @@ public class Squadron implements GameComponent {
      */
     public Squadron(String type, String name, boolean unique, int fullHealth,
                     int maxSpeed, String antiShipDice, String antiSquadronDice,
-                    ArrayList<String> keywords, int pointsValue, ArrayList<String> defenseTokens){
+                    ArrayList<String> keywords, int pointsValue, ArrayList<DefenseToken> defenseTokens){
         this.type = type;
         this.name = name;
         this.unique = unique;
@@ -239,7 +240,7 @@ public class Squadron implements GameComponent {
         return pointsValue;
     }
 
-    public ArrayList<String> getDefenseTokens() {
+    public ArrayList<DefenseToken> getDefenseTokens() {
         return defenseTokens;
     }
 
