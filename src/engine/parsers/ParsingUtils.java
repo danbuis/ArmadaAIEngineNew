@@ -1,8 +1,13 @@
 package engine.parsers;
 
 import engine.GameConstants;
+import gameComponents.DefenseTokens.DefenseToken;
+
+import java.util.Arrays;
 
 public class ParsingUtils {
+        private static String[] VALID_TOKEN_ABBR ={"Br", "Rd", "Ev", "Sc", "Cn", "Sal"};
+
     /**
      * A util method to validate ints.  Assumes that all Strings that need to be made into ints need to be
      * both non-zero and positive.
@@ -49,6 +54,17 @@ public class ParsingUtils {
            return faction;
         }else{
             throw new ParsingException("Illegal faction : "+faction+".");
+        }
+    }
+
+    /**
+     * A util function to validate a defense token input
+     * @param token abbreviation of token
+     * @throws ParsingException Exception thrown if the input is bad
+     */
+    public static void checkValidDefenseToken(String token) throws ParsingException {
+        if(!Arrays.asList(VALID_TOKEN_ABBR).contains(token)){
+            throw new ParsingException("Invalid defense token passed in : " + token + ".");
         }
     }
 
