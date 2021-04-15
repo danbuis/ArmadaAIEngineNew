@@ -1,6 +1,5 @@
 package engine.parsers;
 
-import gameComponents.DefenseTokens.DefenseToken;
 import gameComponents.Squadrons.Squadron;
 
 import java.io.File;
@@ -24,7 +23,7 @@ public class SquadronFactory {
     private String antiSquadronDice;
     private ArrayList<String> keywords;
     private int points;
-    private ArrayList<DefenseToken> defenseTokens = null;
+    private ArrayList<String> defenseTokens = null;
 
     private final int NUMBER_OF_FIELDS = 11;
 
@@ -97,13 +96,7 @@ public class SquadronFactory {
                             this.defenseTokens = new ArrayList<>();
                         }else{
                             String[] defenseTokenArray = value.split(" ");
-                            ArrayList<DefenseToken> tokens = new ArrayList<>();
-
-                            for(String token: defenseTokenArray){
-                                ParsingUtils.checkValidDefenseToken(token);
-                                tokens.add(new DefenseToken(token));
-                            }
-                            this.defenseTokens = tokens;
+                            this.defenseTokens = new ArrayList<>(Arrays.asList(defenseTokenArray));
                         }
                         break;
                 } // end switch block
