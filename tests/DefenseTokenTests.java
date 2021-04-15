@@ -6,13 +6,37 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DefenseTokenTests {
 
     @Test
-    public void testConstructor(){
+    public void testEnumConstructor(){
         DefenseToken evade = new DefenseToken(GameConstants.defenseTokenType.EVADE);
         assertEquals(GameConstants.defenseTokenType.EVADE, evade.getType());
         assertEquals(GameConstants.defenseTokenStatus.READY, evade.getStatus());
 
         DefenseToken brace = new DefenseToken(GameConstants.defenseTokenType.BRACE);
         assertEquals(GameConstants.defenseTokenType.BRACE, brace.getType());
+    }
+
+    @Test
+    public void testStrConstructor(){
+        DefenseToken evade = new DefenseToken("Ev");
+        assertEquals(GameConstants.defenseTokenType.EVADE, evade.getType());
+
+        DefenseToken scatter = new DefenseToken("Sc");
+        assertEquals(GameConstants.defenseTokenType.SCATTER, scatter.getType());
+
+        DefenseToken brace = new DefenseToken("Br");
+        assertEquals(GameConstants.defenseTokenType.BRACE, brace.getType());
+
+        DefenseToken contain = new DefenseToken("Cn");
+        assertEquals(GameConstants.defenseTokenType.CONTAIN, contain.getType());
+
+        DefenseToken salvo = new DefenseToken("Sal");
+        assertEquals(GameConstants.defenseTokenType.SALVO, salvo.getType());
+
+        DefenseToken redirect = new DefenseToken("Rd");
+        assertEquals(GameConstants.defenseTokenType.REDIRECT, redirect.getType());
+
+        DefenseToken derp = new DefenseToken("R0sf.KLVDd");
+        assertNull(derp.getType());
     }
 
     @Test

@@ -1,5 +1,6 @@
 package parsers;
 
+import engine.GameConstants;
 import engine.parsers.ParsingException;
 import engine.parsers.SquadronFactory;
 import gameComponents.Squadrons.Squadron;
@@ -49,6 +50,28 @@ public class SquadronParserTests {
         //checks the memory locations
         assertNotEquals(tie1, tie2);
     }
+
+    @Test
+    public void testDefenseTokenParse() throws FileNotFoundException, ParsingException {
+        SquadronFactory testParser = new SquadronFactory(false);
+        Squadron howl = testParser.getSquadron("\"Howlrunner\"");
+        assertEquals(2, howl.getDefenseTokens().size());
+
+        assertEquals(GameConstants.defenseTokenType.BRACE, howl.getDefenseTokens().get(0).getType());
+        assertEquals(GameConstants.defenseTokenType.SCATTER, howl.getDefenseTokens().get(1).getType());
+
+    }
+
+    @Test
+    public void testBadDefenseTokenParse() throws FileNotFoundException, ParsingException {
+        SquadronFactory testParser = new SquadronFactory(false);
+        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_def_token.txt", false));
+        String expectedMessage = "Invalid defense token passed in : Derp.";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
 
     @Test
     public void testBadUnique() throws FileNotFoundException, ParsingException {
