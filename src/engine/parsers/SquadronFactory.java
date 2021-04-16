@@ -93,12 +93,13 @@ public class SquadronFactory {
                         break;
                     case "Points": this.points = ParsingUtils.parseInteger("Points", value);
                         break;
-                    case "DefenseTokens": if(value.equals("None")){
-                            this.defenseTokens = new ArrayList<>();
+                    case "DefenseTokens":
+                        ArrayList<DefenseToken> tokens = new ArrayList<>();
+
+                        if(value.equals("None")){
+                            this.defenseTokens = tokens;
                         }else{
                             String[] defenseTokenArray = value.split(" ");
-                            ArrayList<DefenseToken> tokens = new ArrayList<>();
-
                             for(String token: defenseTokenArray){
                                 ParsingUtils.checkValidDefenseToken(token);
                                 tokens.add(new DefenseToken(token));
