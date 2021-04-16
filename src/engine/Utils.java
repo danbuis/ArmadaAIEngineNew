@@ -12,6 +12,10 @@ import java.util.ArrayList;
  */
 public class Utils {
 
+    public static ShaderProgram BLACK_SOLID = buildSolidColorShader("black");
+    public static ShaderProgram WHITE_SOLID = buildSolidColorShader("white");
+    public static ShaderProgram TEXTURED_GENERIC = buildBasicTexturedShaderProgram();
+
     /**
      * Creates a ShaderProgram, which is essentially a set of instructions to the graphics card on how to render vertices.
      * In this case it takes in a shader to tell it how to handle 3d data points, a shader to tell it how to determine what color

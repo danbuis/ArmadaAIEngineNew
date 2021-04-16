@@ -4,6 +4,7 @@ import BBDGameLibrary.GameEngine.Camera;
 import BBDGameLibrary.GameEngine.GameComponent;
 import BBDGameLibrary.GameEngine.GameItem;
 import BBDGameLibrary.GameEngine.MouseInput;
+import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.OpenGL.*;
 import engine.parsers.ParsingException;
@@ -62,7 +63,7 @@ public class ArmadaGame implements GameComponent {
                     currentCol=0;
                 }
 
-                temp.relocate(currentCol * 40, currentRow * 40);
+                temp.relocate(new BBDPoint(currentCol * 40, currentRow * 40));
                 currentCol++;
                 System.out.println(temp.getLocation());
                 squadrons.add(temp);

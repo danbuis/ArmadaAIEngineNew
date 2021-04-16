@@ -15,7 +15,6 @@ import engine.GameConstants;
 import engine.Utils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * A class representing a Squadron object
@@ -25,6 +24,7 @@ public class Squadron implements GameComponent {
     private final String type;
     private final String name;
     private final boolean unique;
+    private final String faction;
     private int currentHealth;
     private final int fullHealth;
     private final int maxSpeed;
@@ -34,9 +34,23 @@ public class Squadron implements GameComponent {
     private final int pointsValue;
     private ArrayList<String> defenseTokens;
     private ArrayList<GameItem> gameItems = new ArrayList<>();
-    private float currentX = 0;
-    private float currentY = 0;
+    private BBDPoint currentLocation = new BBDPoint(0,0);
     private boolean renderSquadrons;
+
+
+    /**
+     * Static objects to build meshes.  Long term these will be moved somewhere else once rendering is separated from the Squadron object.
+     */
+    private static BBDPolygon plasticBase = BBDGeometryUtils.createCircle(new BBDPoint(0,0), GameConstants.SQUADRON_PLASTIC_RADIUS, 100);
+    private static float[] plasticPositions = Mesh.buildMeshPositions(plasticBase);
+    private static float[] plasticTex = Mesh.buildTextureCoordinates(plasticBase);
+    private static int[] plasticIndices = Mesh.buildIndices(plasticBase);
+
+    private static BBDPolygon cardboard = BBDGeometryUtils.createCircle(new BBDPoint(0,0), GameConstants.SQUADRON_CARDBOARD_RADIUS, 100);
+    private static float[] cardboardPositions = Mesh.buildMeshPositions(cardboard);
+    private static float[] cardboardTex = Mesh.buildTextureCoordinates(cardboard);
+    private static int[] cardboardIndices = Mesh.buildIndices(cardboard);
+
 
     /**
      * Constructor used by the SquadronFactory to build a new object.  Could also be used to build something programmatically
@@ -53,12 +67,13 @@ public class Squadron implements GameComponent {
      * @param pointsValue How many points is it worth
      * @param defenseTokens What defense tokens, if any, does it have?  Must have a value, even if it is an empty list
      */
-    public Squadron(String type, String name, boolean unique, int fullHealth,
+    public Squadron(String type, String name, boolean unique, String faction, int fullHealth,
                     int maxSpeed, String antiShipDice, String antiSquadronDice,
                     ArrayList<String> keywords, int pointsValue, ArrayList<String> defenseTokens){
         this.type = type;
         this.name = name;
         this.unique = unique;
+        this.faction = faction;
         this.fullHealth = fullHealth;
         this.currentHealth = fullHealth;
         this.maxSpeed = maxSpeed;
@@ -78,6 +93,7 @@ public class Squadron implements GameComponent {
         this.type = original.type;
         this.name = original.name;
         this.unique = original.unique;
+        this.faction = original.faction;
         this.fullHealth = original.fullHealth;
         this.currentHealth = original.fullHealth;
         this.maxSpeed = original.maxSpeed;
@@ -122,15 +138,11 @@ public class Squadron implements GameComponent {
      * Build the GameItem objects to be used to render this object.
      */
     private void buildGameItems(){
-        BBDPolygon plasticBase = BBDGeometryUtils.createCircle(new BBDPoint(this.currentX,this.currentY), GameConstants.SQUADRON_PLASTIC_RADIUS, 100);
-        BBDPolygon cardboard = BBDGeometryUtils.createCircle(new BBDPoint(this.currentX,this.currentY), GameConstants.SQUADRON_CARDBOARD_RADIUS, 100);
-
-        GameItem plasticBaseItem = new GameItem2d(Mesh.buildMeshFromPolygon(plasticBase, null), engine.Utils.buildSolidColorShader("white"), plasticBase, GameConstants.SQUADRON_PLASTIC, true);
-
-        GameItem cardboardItem = new GameItem2d(Mesh.buildMeshFromPolygon(cardboard, null), engine.Utils.buildSolidColorShader("black"), cardboard, GameConstants.SQUADRON_CARDBOARD, true);
+        GameItem plasticBaseItem = new GameItem2d(new Mesh(plasticPositions, plasticTex, plasticIndices, null), Utils.WHITE_SOLID, plasticBase, GameConstants.SQUADRON_PLASTIC, false);
+        GameItem cardboardItem = new GameItem2d(new Mesh(cardboardPositions, cardboardTex, cardboardIndices, null), Utils.BLACK_SOLID, cardboard, GameConstants.SQUADRON_CARDBOARD, false);
 
         BBDPolygon poly = Utils.buildQuad(20, 20);
-        ShaderProgram shader = Utils.buildBasicTexturedShaderProgram();
+        ShaderProgram shader = Utils.TEXTURED_GENERIC;
         Texture texture = new Texture("assets/images/squadrons/squad_"+buildSquadFileName());
         GameItem squadronGraphic = new GameItem2d(Mesh.buildMeshFromPolygon(poly, texture), shader, poly, GameConstants.SQUADRON_GRAPHIC, false);
         this.gameItems.add(squadronGraphic);
@@ -157,12 +169,12 @@ public class Squadron implements GameComponent {
     /**
      * Root movement function.  All movement functions eventually lead to here.  Function is private because it is the one
      * that modifies items of the class.
-     * @param newX new X coordinate
-     * @param newY new Y coordinate
+     * @param newPoint new BBDPoint to use for the location of the squadron
      */
-    private void moveNew(float newX, float newY){
-        this.currentX = newX;
-        this.currentY = newY;
+    private void moveNew(BBDPoint newPoint){
+        this.currentLocation = newPoint;
+        float newX = newPoint.getXLoc();
+        float newY = newPoint.getYLoc();
         if(this.renderSquadrons) {
             for(GameItem gameItem:this.gameItems){
                 gameItem.setPosition(newX, newY, gameItem.getPosition().z);
@@ -176,7 +188,9 @@ public class Squadron implements GameComponent {
      * @param deltaY change in Y coordinate
      */
     public void moveOffsets(float deltaX, float deltaY){
-        moveNew(this.currentX + deltaX, this.currentY + deltaY);
+        this.currentLocation.translate(deltaX, deltaY);
+        //gotta call the private one so that we update the underlying widgets
+        moveNew(this.currentLocation);
     }
 
     /**
@@ -192,11 +206,10 @@ public class Squadron implements GameComponent {
 
     /**
      * A public facing function to feed into the root movement function.
-     * @param newX new X coordinate
-     * @param newY new Y coordinate
+     * @param newLocation new location for the squadron
      */
-    public void relocate(float newX, float newY){
-        moveNew(newX, newY);
+    public void relocate(BBDPoint newLocation){
+        moveNew(newLocation);
     }
 
     public String getType() {
@@ -248,6 +261,6 @@ public class Squadron implements GameComponent {
     }
 
     public BBDPoint getLocation(){
-        return new BBDPoint(currentX, currentY);
+        return this.currentLocation;
     }
 }
