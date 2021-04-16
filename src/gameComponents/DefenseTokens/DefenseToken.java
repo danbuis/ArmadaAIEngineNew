@@ -10,22 +10,22 @@ public class DefenseToken {
     /**
      *Defense Token Constants
      */
-    public enum defenseTokenType {BRACE, REDIRECT, EVADE, SCATTER, CONTAIN, SALVO}
+    public enum Type {BRACE, REDIRECT, EVADE, SCATTER, CONTAIN, SALVO}
 
-    public enum defenseTokenStatus {READY, EXHAUSTED, DISCARDED}
+    public enum Status {READY, EXHAUSTED, DISCARDED}
 
     /**
      * Defense Token fields
      */
     //The type of token
-    private defenseTokenType type;
+    private Type type;
     //The status of the token. All defense tokens start in the ready state
-    private defenseTokenStatus status = defenseTokenStatus.READY;
+    private Status status = Status.READY;
 
     //No Null constructor
 
     //Typed Constructor
-    public DefenseToken(defenseTokenType type){
+    public DefenseToken(Type type){
         this.type = type;
     }
     //TODO: A String based constructor to use in ship/squadron parsers / factories
@@ -34,7 +34,7 @@ public class DefenseToken {
      * Generic getter method for token status
      * @return the status of the defense token
      */
-    public defenseTokenStatus getStatus(){
+    public Status getStatus(){
         return status;
     }
 
@@ -42,7 +42,7 @@ public class DefenseToken {
      * Generic getter for token type
      * @return the type of defense token
      */
-    public defenseTokenType getType(){
+    public Type getType(){
         return type;
     }
 
@@ -51,7 +51,7 @@ public class DefenseToken {
      * @return true if token status is ready, else false
      */
     public boolean isReady(){
-        return (status == defenseTokenStatus.READY);
+        return (status == Status.READY);
     }
 
     /**
@@ -59,7 +59,7 @@ public class DefenseToken {
      * @return true if token status is exhausted, else false
      */
     public boolean isExhausted(){
-        return (status == defenseTokenStatus.EXHAUSTED);
+        return (status == Status.EXHAUSTED);
     }
 
     /**
@@ -67,7 +67,7 @@ public class DefenseToken {
      * @return true if token status is discarded, else false
      */
     public boolean isDiscarded(){
-        return (status == defenseTokenStatus.DISCARDED);
+        return (status == Status.DISCARDED);
     }
 
     /**
@@ -75,7 +75,7 @@ public class DefenseToken {
      * @param status the status of the defense token
      * @return true if token status matches, else false
      */
-    public boolean isStatus(defenseTokenStatus status){
+    public boolean isStatus(Status status){
         return (this.status == status);
     }
 
@@ -84,7 +84,7 @@ public class DefenseToken {
      * @param type the type of defense token
      * @return true if token is the specified type, else false
      */
-    public boolean isType(defenseTokenType type){
+    public boolean isType(Type type){
         return (this.type == type);
     }
 
@@ -95,7 +95,7 @@ public class DefenseToken {
      */
     public boolean exhaust(){
         if(isReady()){
-            status = defenseTokenStatus.EXHAUSTED;
+            status = Status.EXHAUSTED;
             return true;
         } else {
             return false;
@@ -108,7 +108,7 @@ public class DefenseToken {
      */
     public boolean discard(){
         if(!isDiscarded()){
-            status = defenseTokenStatus.DISCARDED;
+            status = Status.DISCARDED;
             return true;
         } else {
             return false;
@@ -138,7 +138,7 @@ public class DefenseToken {
      */
     public boolean ready(){
         if(isExhausted()){
-            status = defenseTokenStatus.READY;
+            status = Status.READY;
             return true;
         } else {
             return false;
@@ -150,7 +150,7 @@ public class DefenseToken {
      */
     public boolean recover(){
         if(isDiscarded()) {
-            status = defenseTokenStatus.READY;
+            status = Status.READY;
             return true;
         } else {
             return false;
