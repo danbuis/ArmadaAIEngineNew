@@ -1,8 +1,6 @@
 import BBDGameLibrary.Geometry2d.BBDPoint;
-import BBDGameLibrary.Geometry2d.BBDPolygon;
-import engine.parsers.ParsingException;
-import engine.parsers.SquadronFactory;
-import gameComponents.Squadrons.Squadron;
+import engine.parsers.*;
+import gameComponents.Squadrons.*;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
