@@ -1,0 +1,11 @@
+SquadName|TIE Interceptor
+Unique|N
+SquadType|TIE Interceptor
+Faction|Imperial
+Hull|3
+Speed|3
+AntiShipDice|B
+AntiSquadronDice|BBB
+Keywords|Counter2 Swarm
+Points|HarryPotter
+DefenseTokens|None
