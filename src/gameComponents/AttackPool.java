@@ -10,6 +10,10 @@ import java.util.ArrayList;
  */
 
 public class AttackPool {
+    public enum DiceSymbol {CRIT, HIT, ACCURACY}
+
+    public enum DiceColor {RED, BLUE, BLACK;}
+
     private int currentRolledDamage;
     private ArrayList<Die> currentPool;
     private boolean critEffect;
