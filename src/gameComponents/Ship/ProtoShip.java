@@ -13,7 +13,7 @@ public class ProtoShip {
     private enum Size {SMALL, MEDIUM, LARGE}
 
     private BBDPoint currentLocation = new BBDPoint(0,0);
-    private float orientation = 0f;
+    private float orientation = 0f;  //probably degrees
     private final String faction;
     private final Size size;
     private BBDPolygon cardboard;
