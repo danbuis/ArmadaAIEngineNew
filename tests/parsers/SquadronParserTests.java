@@ -2,7 +2,7 @@ package parsers;
 
 import engine.parsers.ParsingException;
 import engine.parsers.SquadronFactory;
-import gameComponents.Squadron;
+import gameComponents.Squadrons.Squadron;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -18,7 +18,7 @@ public class SquadronParserTests {
      */
     @Test
     public void testParseBasicFunctionality() throws FileNotFoundException, ParsingException {
-        SquadronFactory testParser = new SquadronFactory();
+        SquadronFactory testParser = new SquadronFactory(false);
 
         Squadron arc = testParser.getSquadron("ARC-170 Starfighter");
         assertNotNull(arc);
@@ -39,7 +39,7 @@ public class SquadronParserTests {
 
     @Test
     public void testSquadsActuallyCopies() throws FileNotFoundException, ParsingException {
-        SquadronFactory testParser = new SquadronFactory();
+        SquadronFactory testParser = new SquadronFactory(false);
         Squadron tie1 = testParser.getSquadron("TIE Fighter");
         Squadron tie2 = testParser.getSquadron("TIE Fighter");
 
@@ -52,7 +52,7 @@ public class SquadronParserTests {
 
     @Test
     public void testBadUnique() throws FileNotFoundException, ParsingException {
-        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_unique.txt"));
+        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_unique.txt", false));
         String expectedMessage = "Illegal unique value : Maybe.  Legal values are Y and N";
         String actualMessage = exception.getMessage();
 
@@ -61,7 +61,7 @@ public class SquadronParserTests {
 
     @Test
     public void testBadFaction() throws FileNotFoundException, ParsingException {
-        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_faction.txt"));
+        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_faction.txt", false));
         String expectedMessage = "Illegal faction : Weasel.";
         String actualMessage = exception.getMessage();
 
@@ -70,7 +70,7 @@ public class SquadronParserTests {
 
     @Test
     public void testBadHull() throws FileNotFoundException, ParsingException {
-        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_hull.txt"));
+        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_hull.txt", false));
         String expectedMessage = "Non integer value found for Hull : Guac.";
         String actualMessage = exception.getMessage();
 
@@ -79,7 +79,7 @@ public class SquadronParserTests {
 
     @Test
     public void testNegativeHull() throws FileNotFoundException, ParsingException {
-        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_hull_negative.txt"));
+        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_hull_negative.txt", false));
         String expectedMessage = "Illegal integer value found for Hull : -1.";
         String actualMessage = exception.getMessage();
 
@@ -88,7 +88,7 @@ public class SquadronParserTests {
 
     @Test
     public void testBadSpeed() throws FileNotFoundException, ParsingException {
-        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_speed.txt"));
+        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_speed.txt", false));
         String expectedMessage = "Non integer value found for Speed : Poodles.";
         String actualMessage = exception.getMessage();
 
@@ -97,7 +97,7 @@ public class SquadronParserTests {
 
     @Test
     public void testNegativeSpeed() throws FileNotFoundException, ParsingException {
-        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_speed_negative.txt"));
+        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_speed_negative.txt", false));
         String expectedMessage = "Illegal integer value found for Speed : -1.";
         String actualMessage = exception.getMessage();
 
@@ -106,7 +106,7 @@ public class SquadronParserTests {
 
     @Test
     public void testBadPoints() throws FileNotFoundException, ParsingException {
-        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_points.txt"));
+        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_points.txt", false));
         String expectedMessage = "Non integer value found for Points : HarryPotter.";
         String actualMessage = exception.getMessage();
 
@@ -115,7 +115,7 @@ public class SquadronParserTests {
 
     @Test
     public void testNegativePoints() throws FileNotFoundException, ParsingException {
-        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_points_negative.txt"));
+        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_points_negative.txt", false));
         String expectedMessage = "Illegal integer value found for Points : -11.";
         String actualMessage = exception.getMessage();
 
@@ -124,7 +124,7 @@ public class SquadronParserTests {
 
     @Test
     public void testNoPipe() throws FileNotFoundException, ParsingException {
-        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_row_no_pipe.txt"));
+        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_row_no_pipe.txt", false));
         String expectedMessage = "All rows must have 1 '|' character with content both before and after. : UniqueY.";
         String actualMessage = exception.getMessage();
 
@@ -133,7 +133,7 @@ public class SquadronParserTests {
 
     @Test
     public void testExtraPipe() throws FileNotFoundException, ParsingException {
-        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_row_extra_pipe.txt"));
+        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_row_extra_pipe.txt", false));
         String expectedMessage = "All rows must have 1 '|' character with content both before and after. : SquadType||TIE Interceptor.";
         String actualMessage = exception.getMessage();
 
@@ -142,7 +142,7 @@ public class SquadronParserTests {
 
     @Test
     public void testEdgePipe() throws FileNotFoundException, ParsingException {
-        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_row_edge_pipe.txt"));
+        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_row_edge_pipe.txt", false));
         String expectedMessage = "All rows must have 1 '|' character with content both before and after. : Unique|.";
         String actualMessage = exception.getMessage();
 
@@ -151,7 +151,7 @@ public class SquadronParserTests {
 
     @Test
     public void testPartialSquadron() throws FileNotFoundException, ParsingException {
-        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_partial.txt"));
+        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_partial.txt", false));
         String expectedMessage = "Reached end of file with a partially built object.";
         String actualMessage = exception.getMessage();
 

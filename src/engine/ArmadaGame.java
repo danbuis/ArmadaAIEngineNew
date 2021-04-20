@@ -2,11 +2,20 @@ package engine;
 
 import BBDGameLibrary.GameEngine.Camera;
 import BBDGameLibrary.GameEngine.GameComponent;
+import BBDGameLibrary.GameEngine.GameItem;
 import BBDGameLibrary.GameEngine.MouseInput;
+import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.OpenGL.*;
+import engine.parsers.ParsingException;
+import engine.parsers.SquadronFactory;
 import gameComponents.DemoMap;
+import gameComponents.Squadrons.Squadron;
 import org.joml.Vector3f;
+import org.lwjgl.system.CallbackI;
+
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 /**ArmadaGame holds the root logic for the game.  Any object present in the game is eventually attached to here.  It
  * implements the GameComponent interface, which means that contractually it MUST implement the required 5 functions.
@@ -19,6 +28,8 @@ public class ArmadaGame implements GameComponent {
     private final Camera camera;
     //An object representing the 3x3 mat a demo game is played on
     private DemoMap demoMap;
+
+    private ArrayList<Squadron> squadrons;
 
     /**
      * A basic constructor.  Sets up the items only need one instance that is then shared between objects
@@ -35,14 +46,43 @@ public class ArmadaGame implements GameComponent {
      */
     @Override
     public void init(Window window) {
+
         demoMap = initializeDemoMap();
+
+        //Temporary - just list out all the squadrons and show them all
+        squadrons = new ArrayList<>();
+        try {
+            SquadronFactory squadronFactory = new SquadronFactory();
+            Squadron temp;
+            int currentCol = 0;
+            int currentRow = 0;
+            for (String squadronName : squadronFactory.getSquadronTypes()){
+                temp = squadronFactory.getSquadron(squadronName);
+                if(currentCol == 10){
+                    currentRow++;
+                    currentCol=0;
+                }
+
+                temp.relocate(new BBDPoint(currentCol * 40, currentRow * 40));
+                currentCol++;
+                System.out.println(temp.getLocation());
+                squadrons.add(temp);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (ParsingException e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
      * All GameComponents and objects that implement GameComponent need this function.  It handles input from the user
      * and directs it to objects.  For instance the below code passes input to the demoMap, even though the demoMap
      * doesn't do anything with the input
-     * @param window
+
+     * @param window window object everything is being rendered to
      * @param mouseInput object to handle input from the mouse
      */
     @Override
@@ -53,7 +93,7 @@ public class ArmadaGame implements GameComponent {
     /**
      * All GameComponents and objects that implement GameComponent need this function.  It handles the updates to gameItems
      * between ticks.  As an example the current code makes sure that the camera is always centered on the map.
-     * @param v
+     * @param v time since last update
      * @param mouseInput object handling mouse input
      * @parma window Window object where everything is rendered
      */
@@ -73,9 +113,13 @@ public class ArmadaGame implements GameComponent {
      */
     @Override
     public void render(Window window) {
-        System.out.println("rendering");
         renderer.resetRenderer(window);
         renderer.renderItem(window, demoMap, camera);
+        for(Squadron squadron: squadrons){
+            for(GameItem item: squadron.getGameItems()){
+                renderer.renderItem(window, item, camera);
+            }
+        }
     }
 
     /**
@@ -95,7 +139,7 @@ public class ArmadaGame implements GameComponent {
     private DemoMap initializeDemoMap(){
         BBDPolygon poly = Utils.buildQuad(GameConstants.SHORT_BOARD_EDGE, GameConstants.SHORT_BOARD_EDGE);
         ShaderProgram shader = Utils.buildBasicTexturedShaderProgram();
-        Texture texture = new Texture("assets/images/map1.jpg");
+        Texture texture = new Texture("assets/images/maps/map1.jpg");
 
         return new DemoMap(Mesh.buildMeshFromPolygon(poly, texture), shader, poly, GameConstants.MAP_BACKGROUND_LAYER, true);
     }

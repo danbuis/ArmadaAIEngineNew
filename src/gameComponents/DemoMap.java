@@ -22,12 +22,12 @@ public class DemoMap extends GameItem2d {
      * Populate the shader uniforms for this object.  Only the first 2 are in by default, but since we are adding a third,
      * we need to put them in.
      * @param projectionMatrix
-     * @param modelViewMatrix
+     * @param worldMatrix
      */
     @Override
-    public void setUniforms(Matrix4f projectionMatrix, Matrix4f modelViewMatrix) {
+    public void setUniforms(Matrix4f projectionMatrix, Matrix4f worldMatrix) {
         this.shader.setUniform("projectionMatrix", projectionMatrix);
-        this.shader.setUniform("modelViewMatrix", modelViewMatrix);
+        this.shader.setUniform("worldMatrix", worldMatrix);
         this.shader.setUniform("texture_sampler", 0);
     }
 }

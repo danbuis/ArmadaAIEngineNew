@@ -12,6 +12,10 @@ import java.util.ArrayList;
  */
 public class Utils {
 
+    public static ShaderProgram BLACK_SOLID = buildSolidColorShader("black");
+    public static ShaderProgram WHITE_SOLID = buildSolidColorShader("white");
+    public static ShaderProgram TEXTURED_GENERIC = buildBasicTexturedShaderProgram();
+
     /**
      * Creates a ShaderProgram, which is essentially a set of instructions to the graphics card on how to render vertices.
      * In this case it takes in a shader to tell it how to handle 3d data points, a shader to tell it how to determine what color
@@ -35,8 +39,36 @@ public class Utils {
 
             // Create uniforms for world and projection matrices and texture
             returnProgram.createUniform("projectionMatrix");
-            returnProgram.createUniform("modelViewMatrix");
+            returnProgram.createUniform("worldMatrix");
             returnProgram.createUniform("texture_sampler");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return returnProgram;
+    }
+
+    /**
+     * Create a shader program to draw a given solid color.  Currently has the requirement that a file of the given name
+     * be present, although there is no requirement that the name of the file actually reflect the color contained within.
+     * @param color name of the color to render
+     * @return a ShaderProgram to render things to the screen.
+     */
+    public static ShaderProgram buildSolidColorShader(String color){
+        ShaderProgram returnProgram = null;
+        try {
+            returnProgram = new ShaderProgram();
+
+            //create and attach shaders
+            returnProgram.createVertexShader(BBDGameLibrary.OpenGL.Utils.loadShaderScript("/shaders/vertex.vs"));
+            returnProgram.createFragmentShader(BBDGameLibrary.OpenGL.Utils.loadShaderScript("/shaders/"+color+".fs"));
+
+            //build and compile
+            returnProgram.link();
+
+            // Create uniforms for world and projection matrices and texture
+            returnProgram.createUniform("projectionMatrix");
+            returnProgram.createUniform("worldMatrix");
         } catch (Exception e) {
             e.printStackTrace();
         }
