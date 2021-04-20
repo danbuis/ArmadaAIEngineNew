@@ -1,23 +1,31 @@
 package gameComponents.DefenseTokens;
 
-import engine.GameConstants;
-
 public class DefenseToken {
-    /**
+    /*
     A defense Token is a token that can be assigned to squadrons or ships. A defense token has a variety of states
     The Defense token class allows for the creation of defense tokens and allows for the various state changes
     it may undergo during normal use
      */
 
+    /**
+     *Defense Token Constants
+     */
+    public enum Type {BRACE, REDIRECT, EVADE, SCATTER, CONTAIN, SALVO}
+
+    public enum Status {READY, EXHAUSTED, DISCARDED}
+
+    /**
+     * Defense Token fields
+     */
     //The type of token
-    private GameConstants.defenseTokenType type;
+    private Type type;
     //The status of the token. All defense tokens start in the ready state
-    private GameConstants.defenseTokenStatus status = GameConstants.defenseTokenStatus.READY;
+    private Status status = Status.READY;
 
     //No Null constructor
 
     //Typed Constructor
-    public DefenseToken(GameConstants.defenseTokenType type){
+    public DefenseToken(Type type){
         this.type = type;
     }
     //TODO: A String based constructor to use in ship/squadron parsers / factories
@@ -49,7 +57,7 @@ public class DefenseToken {
      * Generic getter method for token status
      * @return the status of the defense token
      */
-    public GameConstants.defenseTokenStatus getStatus(){
+    public Status getStatus(){
         return status;
     }
 
@@ -57,7 +65,7 @@ public class DefenseToken {
      * Generic getter for token type
      * @return the type of defense token
      */
-    public GameConstants.defenseTokenType getType(){
+    public Type getType(){
         return type;
     }
 
@@ -66,7 +74,7 @@ public class DefenseToken {
      * @return true if token status is ready, else false
      */
     public boolean isReady(){
-        return (status == GameConstants.defenseTokenStatus.READY);
+        return (status == Status.READY);
     }
 
     /**
@@ -74,7 +82,7 @@ public class DefenseToken {
      * @return true if token status is exhausted, else false
      */
     public boolean isExhausted(){
-        return (status == GameConstants.defenseTokenStatus.EXHAUSTED);
+        return (status == Status.EXHAUSTED);
     }
 
     /**
@@ -82,7 +90,7 @@ public class DefenseToken {
      * @return true if token status is discarded, else false
      */
     public boolean isDiscarded(){
-        return (status == GameConstants.defenseTokenStatus.DISCARDED);
+        return (status == Status.DISCARDED);
     }
 
     /**
@@ -90,7 +98,7 @@ public class DefenseToken {
      * @param status the status of the defense token
      * @return true if token status matches, else false
      */
-    public boolean isStatus(GameConstants.defenseTokenStatus status){
+    public boolean isStatus(Status status){
         return (this.status == status);
     }
 
@@ -99,7 +107,7 @@ public class DefenseToken {
      * @param type the type of defense token
      * @return true if token is the specified type, else false
      */
-    public boolean isType(GameConstants.defenseTokenType type){
+    public boolean isType(Type type){
         return (this.type == type);
     }
 
@@ -110,7 +118,7 @@ public class DefenseToken {
      */
     public boolean exhaust(){
         if(isReady()){
-            status = GameConstants.defenseTokenStatus.EXHAUSTED;
+            status = Status.EXHAUSTED;
             return true;
         } else {
             return false;
@@ -123,7 +131,7 @@ public class DefenseToken {
      */
     public boolean discard(){
         if(!isDiscarded()){
-            status = GameConstants.defenseTokenStatus.DISCARDED;
+            status = Status.DISCARDED;
             return true;
         } else {
             return false;
@@ -153,7 +161,7 @@ public class DefenseToken {
      */
     public boolean ready(){
         if(isExhausted()){
-            status = GameConstants.defenseTokenStatus.READY;
+            status = Status.READY;
             return true;
         } else {
             return false;
@@ -165,11 +173,12 @@ public class DefenseToken {
      */
     public boolean recover(){
         if(isDiscarded()) {
-            status = GameConstants.defenseTokenStatus.READY;
+            status = Status.READY;
             return true;
         } else {
             return false;
         }
     }
+
 
 }
