@@ -96,15 +96,13 @@ public class SquadronFactory {
                     case "DefenseTokens":
                         ArrayList<DefenseToken> tokens = new ArrayList<>();
 
-                        if(value.equals("None")){
-                            this.defenseTokens = tokens;
-                        }else{
+                        if(!value.equals("None")){
                             String[] defenseTokenArray = value.split(" ");
                             for(String token: defenseTokenArray){
                                 ParsingUtils.checkValidDefenseToken(token);
                                 tokens.add(new DefenseToken(token));
                             }
-                            this.defenseTokens = tokens;
+                        this.defenseTokens = tokens;
                         }
                         break;
                 } // end switch block
