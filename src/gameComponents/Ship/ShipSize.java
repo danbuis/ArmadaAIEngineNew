@@ -8,6 +8,7 @@ import engine.Utils;
  * An enum for holding the predifined ship sizes and associated logic.
  */
 public enum ShipSize {
+    FLOTILLA(GameConstants.SHIP_SMALL_WIDTH, GameConstants.SHIP_SMALL_LENGTH),
     SMALL(GameConstants.SHIP_SMALL_WIDTH, GameConstants.SHIP_SMALL_LENGTH),
     MEDIUM(GameConstants.SHIP_MEDIUM_WIDTH, GameConstants.SHIP_MEDIUM_LENGTH),
     LARGE(GameConstants.SHIP_LARGE_WIDTH, GameConstants.SHIP_LARGE_LENGTH);
