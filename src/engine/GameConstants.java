@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class GameConstants {
-    /**
-     * This is going to be a static class object to contain common values that need to be accessible across many
-     * different types of objects.
+    /*
+      This is going to be a static class object to contain common values that need to be accessible across many
+      different types of objects.
      */
 
     // Dimensions in millimeters
@@ -52,11 +52,5 @@ public class GameConstants {
     public static final int SQUADRON_CARDBOARD = 24;
     public static final int SQUADRON_GRAPHIC = 22;
     public static final int MAP_BACKGROUND_LAYER = 20000;
-
-    /**
-     *Defense Token Constants
-     */
-    public enum defenseTokenType {BRACE, REDIRECT, EVADE, SCATTER, CONTAIN, SALVO}
-    public enum defenseTokenStatus {READY, EXHAUSTED, DISCARDED}
 
 }
