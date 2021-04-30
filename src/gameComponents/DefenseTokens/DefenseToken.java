@@ -30,6 +30,29 @@ public class DefenseToken {
     }
     //TODO: A String based constructor to use in ship/squadron parsers / factories
 
+    public DefenseToken(String tokenType){
+        switch (tokenType){
+            case "Br" :
+                this.type = GameConstants.defenseTokenType.BRACE;
+                break;
+            case "Sc" :
+                this.type = GameConstants.defenseTokenType.SCATTER;
+                break;
+            case "Ev" :
+                this.type = GameConstants.defenseTokenType.EVADE;
+                break;
+            case "Rd" :
+                this.type = GameConstants.defenseTokenType.REDIRECT;
+                break;
+            case "Sal" :
+                this.type = GameConstants.defenseTokenType.SALVO;
+                break;
+            case "Cn" :
+                this.type = GameConstants.defenseTokenType.CONTAIN;
+                break;
+        }
+    }
+
     /**
      * Generic getter method for token status
      * @return the status of the defense token
