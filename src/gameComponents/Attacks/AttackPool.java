@@ -1,6 +1,7 @@
-package gameComponents;
+package gameComponents.Attacks;
 
 import BBDGameLibrary.GameEngine.Die;
+
 import java.util.ArrayList;
 
 /*
