@@ -4,6 +4,7 @@ import BBDGameLibrary.GameEngine.Camera;
 import BBDGameLibrary.GameEngine.GameComponent;
 import BBDGameLibrary.GameEngine.GameItem;
 import BBDGameLibrary.GameEngine.MouseInput;
+import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.OpenGL.*;
 import engine.parsers.ParsingException;
@@ -65,7 +66,7 @@ public class ArmadaGame implements GameComponent {
                     currentCol=0;
                 }
 
-                temp.relocate(currentCol * 40, currentRow * 40);
+                temp.relocate(new BBDPoint(currentCol * 40, currentRow * 40));
                 currentCol++;
                 System.out.println(temp.getLocation());
                 squadrons.add(temp);
@@ -83,6 +84,7 @@ public class ArmadaGame implements GameComponent {
      * All GameComponents and objects that implement GameComponent need this function.  It handles input from the user
      * and directs it to objects.  For instance the below code passes input to the demoMap, even though the demoMap
      * doesn't do anything with the input
+
      * @param window window object everything is being rendered to
      * @param mouseInput object to handle input from the mouse
      */
