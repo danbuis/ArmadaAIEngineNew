@@ -2,7 +2,6 @@ package engine;
 
 import BBDGameLibrary.GameEngine.Camera;
 import BBDGameLibrary.GameEngine.GameComponent;
-import BBDGameLibrary.GameEngine.GameItem;
 import BBDGameLibrary.GameEngine.MouseInput;
 import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
@@ -12,7 +11,6 @@ import engine.parsers.SquadronFactory;
 import gameComponents.DemoMap;
 import gameComponents.Squadrons.Squadron;
 import org.joml.Vector3f;
-import org.lwjgl.system.CallbackI;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -30,6 +28,7 @@ public class ArmadaGame implements GameComponent {
     private DemoMap demoMap;
 
     private ArrayList<Squadron> squadrons;
+    private GameItemSorter itemsToRender = new GameItemSorter();
 
     /**
      * A basic constructor.  Sets up the items only need one instance that is then shared between objects
@@ -48,6 +47,7 @@ public class ArmadaGame implements GameComponent {
     public void init(Window window) {
 
         demoMap = initializeDemoMap();
+        this.itemsToRender.addItems(demoMap);
 
         //Temporary - just list out all the squadrons and show them all
         squadrons = new ArrayList<>();
@@ -67,6 +67,7 @@ public class ArmadaGame implements GameComponent {
                 currentCol++;
                 System.out.println(temp.getLocation());
                 squadrons.add(temp);
+                this.itemsToRender.addItems(temp.getGameItems());
             }
 
         } catch (FileNotFoundException e) {
@@ -114,11 +115,9 @@ public class ArmadaGame implements GameComponent {
     @Override
     public void render(Window window) {
         renderer.resetRenderer(window);
-        renderer.renderItem(window, demoMap, camera);
-        for(Squadron squadron: squadrons){
-            for(GameItem item: squadron.getGameItems()){
-                renderer.renderItem(window, item, camera);
-            }
+        for(int i = 0; i < this.itemsToRender.getItemCount(); i++){
+            renderer.renderItem(window, this.itemsToRender.getItem(i), camera);
+            //System.out.println(this.itemsToRender.getItem(i).getPosition());
         }
     }
 
@@ -141,6 +140,6 @@ public class ArmadaGame implements GameComponent {
         ShaderProgram shader = Utils.buildBasicTexturedShaderProgram();
         Texture texture = new Texture("assets/images/maps/map1.jpg");
 
-        return new DemoMap(Mesh.buildMeshFromPolygon(poly, texture), shader, poly, GameConstants.MAP_BACKGROUND_LAYER, true);
+        return new DemoMap(Mesh.buildMeshFromPolygon(poly, texture), shader, poly, GameConstants.LAYER_MAP_BACKGROUND, true);
     }
 }

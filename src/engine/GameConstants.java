@@ -48,9 +48,8 @@ public class GameConstants {
     /**
      * Layers, how far from the camera the associated items are drawn
      */
-    public static final int SQUADRON_PLASTIC = 25;
-    public static final int SQUADRON_CARDBOARD = 24;
-    public static final int SQUADRON_GRAPHIC = 22;
-    public static final int MAP_BACKGROUND_LAYER = 20000;
-
+    public static final int LAYER_SQUADRON_PLASTIC = 25;
+    public static final int LAYER_SQUADRON_CARDBOARD = 23;
+    public static final int LAYER_SQUADRON_GRAPHIC = 22;
+    public static final int LAYER_MAP_BACKGROUND = 26;
 }
