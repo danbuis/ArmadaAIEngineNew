@@ -14,6 +14,7 @@ import BBDGameLibrary.OpenGL.Window;
 import engine.GameConstants;
 import engine.GameItemSorter;
 import engine.Utils;
+import gameComponents.DefenseTokens.DefenseToken;
 
 import java.util.ArrayList;
 
@@ -25,6 +26,7 @@ public class Squadron implements GameComponent {
     private final String type;
     private final String name;
     private final boolean unique;
+    private final String faction;
     private int currentHealth;
     private final int fullHealth;
     private final int maxSpeed;
@@ -32,10 +34,25 @@ public class Squadron implements GameComponent {
     private final String antiSquadronDice;
     private final ArrayList<String> keywords;
     private final int pointsValue;
-    private ArrayList<String> defenseTokens;
-    private GameItemSorter gameItems = new GameItemSorter();
+    private ArrayList<DefenseToken> defenseTokens;
+    private ArrayList<GameItem> gameItems = new ArrayList<>();
     private BBDPoint currentLocation = new BBDPoint(0,0);
     private boolean renderSquadrons;
+
+
+    /**
+     * Static objects to build meshes.  Long term these will be moved somewhere else once rendering is separated from the Squadron object.
+     */
+    private static BBDPolygon plasticBase = BBDGeometryUtils.createCircle(new BBDPoint(0,0), GameConstants.SQUADRON_PLASTIC_RADIUS, 100);
+    private static float[] plasticPositions = Mesh.buildMeshPositions(plasticBase);
+    private static float[] plasticTex = Mesh.buildTextureCoordinates(plasticBase);
+    private static int[] plasticIndices = Mesh.buildIndices(plasticBase);
+
+    private static BBDPolygon cardboard = BBDGeometryUtils.createCircle(new BBDPoint(0,0), GameConstants.SQUADRON_CARDBOARD_RADIUS, 100);
+    private static float[] cardboardPositions = Mesh.buildMeshPositions(cardboard);
+    private static float[] cardboardTex = Mesh.buildTextureCoordinates(cardboard);
+    private static int[] cardboardIndices = Mesh.buildIndices(cardboard);
+
 
     /**
      * Constructor used by the SquadronFactory to build a new object.  Could also be used to build something programmatically
@@ -52,12 +69,13 @@ public class Squadron implements GameComponent {
      * @param pointsValue How many points is it worth
      * @param defenseTokens What defense tokens, if any, does it have?  Must have a value, even if it is an empty list
      */
-    public Squadron(String type, String name, boolean unique, int fullHealth,
+    public Squadron(String type, String name, boolean unique, String faction, int fullHealth,
                     int maxSpeed, String antiShipDice, String antiSquadronDice,
-                    ArrayList<String> keywords, int pointsValue, ArrayList<String> defenseTokens){
+                    ArrayList<String> keywords, int pointsValue, ArrayList<DefenseToken> defenseTokens){
         this.type = type;
         this.name = name;
         this.unique = unique;
+        this.faction = faction;
         this.fullHealth = fullHealth;
         this.currentHealth = fullHealth;
         this.maxSpeed = maxSpeed;
@@ -77,6 +95,7 @@ public class Squadron implements GameComponent {
         this.type = original.type;
         this.name = original.name;
         this.unique = original.unique;
+        this.faction = original.faction;
         this.fullHealth = original.fullHealth;
         this.currentHealth = original.fullHealth;
         this.maxSpeed = original.maxSpeed;
@@ -121,15 +140,11 @@ public class Squadron implements GameComponent {
      * Build the GameItem objects to be used to render this object.
      */
     private void buildGameItems(){
-        BBDPolygon plasticBase = BBDGeometryUtils.createCircle(this.currentLocation, GameConstants.SQUADRON_PLASTIC_RADIUS, 100);
-        BBDPolygon cardboard = BBDGeometryUtils.createCircle(this.currentLocation, GameConstants.SQUADRON_CARDBOARD_RADIUS, 100);
-
-        GameItem2d plasticBaseItem = new GameItem2d(Mesh.buildMeshFromPolygon(plasticBase, null), engine.Utils.buildSolidColorShader("white"), plasticBase, GameConstants.LAYER_SQUADRON_PLASTIC, true);
-
-        GameItem2d cardboardItem = new GameItem2d(Mesh.buildMeshFromPolygon(cardboard, null), engine.Utils.buildSolidColorShader("black"), cardboard, GameConstants.LAYER_SQUADRON_CARDBOARD, true);
+        GameItem plasticBaseItem = new GameItem2d(new Mesh(plasticPositions, plasticTex, plasticIndices, null), Utils.WHITE_SOLID, plasticBase, GameConstants.SQUADRON_PLASTIC, false);
+        GameItem cardboardItem = new GameItem2d(new Mesh(cardboardPositions, cardboardTex, cardboardIndices, null), Utils.BLACK_SOLID, cardboard, GameConstants.SQUADRON_CARDBOARD, false);
 
         BBDPolygon poly = Utils.buildQuad(20, 20);
-        ShaderProgram shader = Utils.buildBasicTexturedShaderProgram();
+        ShaderProgram shader = Utils.TEXTURED_GENERIC;
         Texture texture = new Texture("assets/images/squadrons/squad_"+buildSquadFileName());
         GameItem2d squadronGraphic = new GameItem2d(Mesh.buildMeshFromPolygon(poly, texture), shader, poly, GameConstants.LAYER_SQUADRON_GRAPHIC, false);
         this.gameItems.addItems(squadronGraphic);
@@ -237,7 +252,7 @@ public class Squadron implements GameComponent {
         return pointsValue;
     }
 
-    public ArrayList<String> getDefenseTokens() {
+    public ArrayList<DefenseToken> getDefenseTokens() {
         return defenseTokens;
     }
 

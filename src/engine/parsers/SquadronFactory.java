@@ -1,5 +1,6 @@
 package engine.parsers;
 
+import gameComponents.DefenseTokens.DefenseToken;
 import gameComponents.Squadrons.Squadron;
 
 import java.io.File;
@@ -23,7 +24,7 @@ public class SquadronFactory {
     private String antiSquadronDice;
     private ArrayList<String> keywords;
     private int points;
-    private ArrayList<String> defenseTokens = null;
+    private ArrayList<DefenseToken> defenseTokens = null;
 
     private final int NUMBER_OF_FIELDS = 11;
 
@@ -92,11 +93,16 @@ public class SquadronFactory {
                         break;
                     case "Points": this.points = ParsingUtils.parseInteger("Points", value);
                         break;
-                    case "DefenseTokens": if(value.equals("None")){
-                            this.defenseTokens = new ArrayList<>();
-                        }else{
+                    case "DefenseTokens":
+                        ArrayList<DefenseToken> tokens = new ArrayList<>();
+
+                        if(!value.equals("None")){
                             String[] defenseTokenArray = value.split(" ");
-                            this.defenseTokens = new ArrayList<>(Arrays.asList(defenseTokenArray));
+                            for(String token: defenseTokenArray){
+                                ParsingUtils.checkValidDefenseToken(token);
+                                tokens.add(new DefenseToken(token));
+                            }
+                        this.defenseTokens = tokens;
                         }
                         break;
                 } // end switch block
@@ -114,7 +120,7 @@ public class SquadronFactory {
      * listing out of order, we can still tell when it is complete.
      */
     private void buildSquadron() {
-        Squadron newSquadron = new Squadron(this.type, this.name, this.unique, this.hull, this.speed, this.antiShipDice,
+        Squadron newSquadron = new Squadron(this.type, this.name, this.unique, this.faction, this.hull, this.speed, this.antiShipDice,
             this.antiSquadronDice, this.keywords, this.points, this.defenseTokens);
         this.squadronMap.put(newSquadron.getName(), newSquadron);
 

@@ -1,0 +1,732 @@
+
+Name|Gladiator I-class Star Destroyer
+Type|Gladiator
+Keywords|None
+Faction|Imperial
+Size|Small
+Points|56
+Hull|5
+DefenseTokens|Br Rd Ev
+Command|2 
+Squad|2 
+Eng|3 
+Speed1|2
+Speed2|11
+Speed3|011
+Speed4|-
+FrontShields|3
+SideShields|2
+RearShields|1
+FrontArmament|RRKK
+SideArmament|KKKK
+RearArmament|RK
+AntiSquadron|B
+Upgrade|Title Officer WeaponTeam Support Ordnance
+FrontArcOffset|8.7
+RearArcOffset|7.5
+FrontArcConjunction|33
+RearArcConjunction|37
+
+Name|Gladiator II-class Star Destroyer
+Type|Gladiator
+Keywords|None
+Faction|Imperial 
+Size|Small
+Points|62
+Hull|5
+DefenseTokens|Br Rd Ev
+Command|2 
+Squad|2 
+Eng|3 
+Speed1|2
+Speed2|11
+Speed3|011
+Speed4|-
+FrontShields|3
+SideShields|2
+RearShields|1
+FrontArmament|RRKK
+SideArmament|KKKR
+RearArmament|RK
+AntiSquadron|BB
+Upgrade|Title Officer WeaponTeam Support Ordnance
+FrontArcOffset|8.7
+RearArcOffset|7.5
+FrontArcConjunction|33
+RearArcConjunction|37
+
+Name|Victory I-class Star Destroyer
+Type|Victory
+Keywords|None
+Faction|Imperial
+Size|Medium
+Points|73
+Hull|8
+DefenseTokens|Rd Rd Br
+Command|3
+Squad|3
+Eng|4
+Speed1|1
+Speed2|01
+Speed3|-
+Speed4|-
+FrontShields|3
+SideShields|3
+RearShields|1
+FrontArmament|RRRKKK
+SideArmament|KRRR
+RearArmament|RR
+AntiSquadron|B
+Upgrade|Title Officer TurboLaser Offensive WeaponTeam Ordnance
+FrontArcOffset|21
+RearArcOffset|21
+FrontArcConjunction|47
+RearArcConjunction|54
+
+Name|Victory II-class Star Destroyer
+Type|Victory
+Keywords|None
+Faction|Imperial
+Size|Medium
+Points|85
+Hull|8
+DefenseTokens|Rd Rd Br
+Command|3
+Squad|3
+Eng|4
+Speed1|1
+Speed2|01
+Speed3|-
+Speed4|-
+FrontShields|3
+SideShields|3
+RearShields|1
+FrontArmament|RRRBBB
+SideArmament|BRR
+RearArmament|RR
+AntiSquadron|B
+Upgrade|Title Officer TurboLaser Offensive WeaponTeam Ioncannon
+FrontArcOffset|21
+RearArcOffset|21
+FrontArcConjunction|47
+RearArcConjunction|54
+
+Name|Quasar Fire I
+Type|Quasar
+Keywords|None
+Faction|Imperial
+Size|Medium
+Points|54
+Hull|6
+DefenseTokens|Rd Br
+Command|2
+Squad|4
+Eng|2
+Speed1|2
+Speed2|10
+Speed3|011
+Speed4|-
+FrontShields|2
+SideShields|2
+RearShields|1
+FrontArmament|BBB
+SideArmament|BB
+RearArmament|B
+AntiSquadron|B
+Upgrade|Title Officer Offensive Offensive WeaponTeam
+FrontArcOffset|35.3
+RearArcOffset|9.9
+FrontArcConjunction|56
+RearArcConjunction|45
+
+Name|Quasar Fire II
+Type|Quasar
+Keywords|None
+Faction|Imperial
+Size|Medium
+Points|61
+Hull|6
+DefenseTokens|Rd Br
+Command|2
+Squad|4
+Eng|2
+Speed1|2
+Speed2|10
+Speed3|011
+Speed4|-
+FrontShields|2
+SideShields|2
+RearShields|1
+FrontArmament|RRB
+SideArmament|BR
+RearArmament|B
+AntiSquadron|R
+Upgrade|Title Officer Offensive WeaponTeam WeaponTeam
+FrontArcOffset|35.3
+RearArcOffset|9.9
+FrontArcConjunction|56
+RearArcConjunction|46
+
+Name|Imperial Star Destroyer Kuat Refit
+Type|Imperial Star Destroyer
+Keywords|None
+Faction|Imperial
+Size|Large
+Points|112
+Hull|11
+DefenseTokens|Rd Br Br Cn
+Command|3
+Squad|2
+Eng|4
+Speed1|1
+Speed2|11
+Speed3|011
+Speed4|-
+FrontShields|4
+SideShields|3
+RearShields|2
+FrontArmament|RRRBBKKK
+SideArmament|RBKK
+RearArmament|RBK
+AntiSquadron|KB
+Upgrade|Title Officer Defensive Offensive SupportTeam WeaponTeam Ordnance IonCannon
+FrontArcOffset|41
+RearArcOffset|15
+FrontArcConjunction|79
+RearArcConjunction|49
+
+Name|Imperial Star Destroyer Cymoon 1 Refit
+Type|Imperial Star Destroyer
+Keywords|None
+Faction|Imperial
+Size|Large
+Points|112
+Hull|11
+DefenseTokens|Rd Br Br Cn
+Command|3
+Squad|3
+Eng|4
+Speed1|1
+Speed2|11
+Speed3|011
+Speed4|-
+FrontShields|4
+SideShields|3
+RearShields|2
+FrontArmament|RRRRRBB
+SideArmament|RBBB
+RearArmament|RBB
+AntiSquadron|KK
+Upgrade|Title Officer Offensive WeaponTeam TurboLaser TurboLaser FleetCommand
+FrontArcOffset|41
+RearArcOffset|15
+FrontArcConjunction|79
+RearArcConjunction|49
+
+Name|Imperial I Class Star Destroyer
+Type|Imperial Star Destroyer
+Keywords|None
+Faction|Imperial
+Size|Large
+Points|110
+Hull|11
+DefenseTokens|Rd Br Br Cn
+Command|3
+Squad|4
+Eng|4
+Speed1|1
+Speed2|11
+Speed3|011
+Speed4|-
+FrontShields|4
+SideShields|3
+RearShields|2
+FrontArmament|RRRBBKKK
+SideArmament|RRKK
+RearArmament|RBB
+AntiSquadron|BK
+Upgrade|Title Officer OffensiveOffensive WeaponTeam TurboLaser IonCannon
+FrontArcOffset|41
+RearArcOffset|15
+FrontArcConjunction|79
+RearArcConjunction|49
+
+Name|Imperial II Class Star Destroyer
+Type|Imperial Star Destroyer
+Keywords|None
+Faction|Imperial
+Size|Large
+Points|120
+Hull|11
+DefenseTokens|Rd Br Br Cn
+Command|3
+Squad|4
+Eng|4
+Speed1|1
+Speed2|11
+Speed3|011
+Speed4|-
+FrontShields|4
+SideShields|3
+RearShields|2
+FrontArmament|RRRRBBBB
+SideArmament|RRBB
+RearArmament|RBB
+AntiSquadron|BB
+Upgrade|Title Officer Offensive WeaponTeam TurboLaser Defensive IonCannon
+FrontArcOffset|41
+RearArcOffset|15
+FrontArcConjunction|79
+RearArcConjunction|49
+
+
+Name|CR90 Corvette A
+Type|CR90 Corvette
+Keywords|None
+Faction|Rebel
+Size|Small
+Points|44
+Hull|4
+DefenseTokens|Rd Rd Ev
+Command|1 
+Squad|1
+Eng|2
+Speed1|2
+Speed2|12
+Speed3|012
+Speed4|0112
+FrontShields|2
+SideShields|2
+RearShields|1
+FrontArmament|RRB
+SideArmament|RB
+RearArmament|R
+AntiSquadron|B
+Upgrade|Title TurboLaser Offensive SupportTeam Defensive Officer
+FrontArcOffset| 19.8
+RearArcOffset| 5.6
+FrontArcConjunction|43
+RearArcConjunction|28
+
+Name|CR90 Corvette B
+Type|CR90 Corvette
+Keywords|None
+Faction|Rebel
+Size|Small
+Points|39
+Hull|4
+DefenseTokens|Rd Rd Ev
+Command|1 
+Squad|1
+Eng|2
+Speed1|2
+Speed2|12
+Speed3|012
+Speed4|0112
+FrontShields|2
+SideShields|2
+RearShields|1
+FrontArmament|BBB
+SideArmament|BB
+RearArmament|B
+AntiSquadron|B
+Upgrade|Title IonCannon Offensive SupportTeam Defensive Officer
+FrontArcOffset| 19.8
+RearArcOffset| 5.6
+FrontArcConjunction|43
+RearArcConjunction|28
+
+Name|Assault Frigate Mark II A
+Type|Assault Frigate Mark II
+Keywords|None
+Faction|Rebel
+Size|Medium
+Points|81
+Hull|6
+DefenseTokens|Rd Ev Br
+Command|3
+Squad|2
+Eng|4
+Speed1|1
+Speed2|11
+Speed3|011
+Speed4|-
+FrontShields|4
+SideShields|3
+RearShields|2
+FrontArmament|RRB
+SideArmament|RRRB
+RearArmament|RRB
+AntiSquadron|BB
+Upgrade|Title Officer TurboLaser Offensive Defensive WeaponTeam Ordnance
+FrontArcOffset|2
+RearArcOffset|14.3
+FrontArcConjunction|47
+RearArcConjunction|53
+
+Name|Assault Frigate Mark II B
+Type|Assault Frigate Mark II
+Keywords|None
+Faction|Rebel
+Size|Medium
+Points|72
+Hull|6
+DefenseTokens|Rd Ev Br
+Command|3
+Squad|2
+Eng|4
+Speed1|1
+Speed2|11
+Speed3|011
+Speed4|-
+Anti Squadron|B
+FrontShields|4
+SideShields|3
+RearShields|2
+FrontArmament|RR
+SideArmament|RRRB
+RearArmament|RR
+AntiSquadron|BB
+Upgrade|Title Officer TurboLaser Offensive Defensive WeaponTeam Ordnance
+FrontArcOffset|2
+RearArcOffset|14.3
+FrontArcConjunction|47
+RearArcConjunction|53
+
+Name|MC80 Assault Cruiser
+Type|MC80 Assault Cruiser
+Keywords|None
+Faction|Rebel
+Size|Large
+Points|114
+Hull|8
+DefenseTokens|Rd Br Rd Cn
+Command|3
+Squad|3
+Eng|4
+Speed1|1
+Speed2|11
+Speed3|-
+Speed4|-
+FrontShields|4
+SideShields|4
+RearShields|3
+FrontArmament|RRB
+SideArmament|RRRBB
+RearArmament|BRR
+AntiSquadron|BB
+Upgrade|Title Officer Defensive Defensive SupportTeam IonCannon TurboLasers
+FrontArcOffset|0
+RearArcOffset|0
+FrontArcConjunction|64
+RearArcConjunction|63
+
+Name|MC80 Command Cruiser
+Type|MC80 Assault Cruiser
+Keywords|None
+Faction|Rebel
+Size|Large
+Points|106
+Hull|8
+DefenseTokens|Rd Br Rd Cn
+Command|3
+Squad|4
+Eng|4
+Speed1|1
+Speed2|11
+Speed3|-
+Speed4|-
+FrontShields|4
+SideShields|4
+RearShields|3
+FrontArmament|RBB
+SideArmament|BBBRRR
+RearArmament|BBR
+AntiSquadron|BB
+Upgrade|Title Officer Defensive Offensive SupportTeam IonCannon TurboLasers
+FrontArcOffset|0
+RearArcOffset|0
+FrontArcConjunction|64
+RearArcConjunction|63
+
+Name|MC75 Armored Cruiser
+Type|MC75 Armored Cruiser
+Keywords|None
+Faction|Rebel
+Size|Large
+Points|104
+Hull|9
+DefenseTokens|Rd Br Cn Cn
+Command|3
+Squad|3
+Eng|4
+Speed1|2
+Speed2|11
+Speed3|011
+Speed4|-
+FrontShields|4
+SideShields|3
+RearShields|3
+FrontArmament|BBBKK
+SideArmament|BBRRR
+RearArmament|BK
+AntiSquadron|BK
+Upgrade|Title Officer Defensive Offensive SupportTeam IonCannon TurboLaser WeaponTeam Ordnance
+FrontArcOffset|20
+RearArcOffset|0
+FrontArcConjunction|65
+RearArcConjunction|62
+
+Name|MC75 Ordnance Cruiser
+Type|MC75 Ordnance Cruiser
+Keywords|None
+Faction|Rebel
+Size|Large
+Points|100
+Hull|9
+DefenseTokens|Rd Br Cn Cn
+Command|3
+Squad|2
+Eng|4
+Speed1|2
+Speed2|11
+Speed3|011
+Speed4|-
+FrontShields|4
+SideShields|3
+RearShields|3
+FrontArmament|BBKKK
+SideArmament|KKRRR
+RearArmament|KK
+AntiSquadron|K
+Upgrade|Title Officer Defensive Offensive SupportTeam WeaponTeam Ordnance Ordnance
+FrontArcOffset|20
+RearArcOffset|0
+FrontArcConjunction|65
+RearArcConjunction|62
+
+Name|Consular Charger C70
+Type|Consular Charger
+Keywords|Clone
+Faction|Republic
+Size|Small
+Points|45
+Hull|4
+DefenseTokens|Con Rd Ev
+Command|1
+Squad|1
+Eng|2
+Speed1|2
+Speed2|21
+Speed3|111
+Speed4|1011
+FrontShields|2
+SideShields|2
+RearShields|1
+FrontArmament|RRB
+SideArmament|RR
+RearArmament|RB
+AntiSquadron|K
+Upgrade|Title Officer SupportTeam TurboLaser Offensive
+FrontArcOffset|15.1
+RearArcOffset|5.2
+FrontArcConjunction|41
+RearArcConjunction|29
+
+Name|Consular-class Armed Cruiser
+Type|Consular Charger
+Keywords|Senate Comms
+Faction|Republic
+Size|Small
+Points|37
+Hull|4
+DefenseTokens|Con Rd Ev
+Command|1
+Squad|1
+Eng|2
+Speed1|2
+Speed2|21
+Speed3|111
+Speed4|1011
+FrontShields|2
+SideShields|2
+RearShields|1
+FrontArmament|BBK
+SideArmament|BK
+RearArmament|B
+AntiSquadron|BB
+Upgrade|Title SupportTeam Defense Ordnance Officer
+FrontArcOffset|15.1
+RearArcOffset|5.2
+FrontArcConjunction|41
+RearArcConjunction|29
+
+Name|Acclamator II-class Assault Ship
+Type|Acclamator
+Keywords|Clone Bombard Transport
+Faction|Republic
+Size|Medium
+Points|71
+Hull|7
+DefenseTokens|Sal Rd Br
+Command|3
+Squad|3
+Eng|4
+Speed1|1
+Speed2|10
+Speed3|010
+Speed4|-
+FrontShields|4
+SideShields|2
+RearShields|2
+FrontArmament|RRRBKK
+SideArmament|RRK
+RearArmament|RBK
+AntiSquadron|BK
+Upgrade|Title Officer Defense TurboLaser WeaponTeam Ordnance
+FrontArcOffset|24.6
+RearArcOffset|18.7
+FrontArcConjunction|52
+RearArcConjunction|41
+
+Name|Acclamator I-class Assault Ship
+Type|Acclamator
+Keywords|Clone Transport
+Faction|Republic
+Size|Medium
+Points|66
+Hull|7
+DefenseTokens|Sal Rd Br
+Command|3
+Squad|3
+Eng|4
+Speed1|1
+Speed2|10
+Speed3|010
+Speed4|-
+FrontShields|4
+SideShields|2
+RearShields|2
+FrontArmament|RRRKKK
+SideArmament|RRK
+RearArmament|RBK
+AntiSquadron|KK
+Upgrade|Title Officer TurboLaser Offensive Offensive WeaponTeam Ordnance
+FrontArcOffset|24.6
+RearArcOffset|18.7
+FrontArcConjunction|52
+RearArcConjunction|41
+
+Name|Munificent-class Comms Frigate
+Type|Munificent
+Keywords|Droid Bombard Comms
+Faction|Separatist
+Size|Medium
+Points|70
+Hull|6
+DefenseTokens|Sal Rd Br
+Command|2
+Squad|3
+Eng|4
+Speed1|1
+Speed2|12
+Speed3|-
+Speed4|-
+FrontShields|4
+SideShields|3
+RearShields|2
+FrontArmament|RRBB
+SideArmament|RRR
+RearArmament|RR
+AntiSquadron|R
+Upgrade|Title Officer TurboLaser Offensive SupportTeam Ion Cannon
+FrontArcOffset| 7.9
+RearArcOffset|3.2
+FrontArcConjunction|53
+RearArcConjunction|49
+
+Name|Munificent-class Star Frigate
+Type|Munificent
+Keywords|Droid Bombard Transport
+Faction|Separatist
+Keyword|None
+Size|Medium
+Points|73
+Hull|6
+DefenseTokens|Sal Rd Br
+Command|2
+Squad|3
+Eng|4
+Speed1|1
+Speed2|12
+Speed3|-
+Speed4|-
+FrontShields|4
+SideShields|3
+RearShields|2
+FrontArmament|RRBB
+SideArmament|RRR
+RearArmament|RR
+AntiSquadron|RK
+Upgrade|Title Officer TurboLaser Defensive SupportTeam IonCannon
+FrontArcOffset| 7.9
+RearArcOffset|3.2
+FrontArcConjunction|53
+RearArcConjunction|49
+
+Name|Hardcell-class Transport
+Type|Hardcell
+Keywords|Droid Transport
+Faction|Separatist
+Size|Small
+Points|47
+Hull|5
+DefenseTokens|Br Rd Ev
+Command|1
+Squad|2
+Eng|3
+Speed1|2
+Speed2|11
+Speed3|110
+Speed4|-
+FrontShields|3
+SideShields|1
+RearShields|2
+FrontArmament|RRB
+SideArmament|B
+RearArmament|-
+AntiSquadron|B
+Upgrade|Title SupportTeam FleetSupport Officer Officer
+FrontArcOffset| 13.1
+RearArcOffset| 13.1
+FrontArcConjunction|32
+RearArcConjunction|31
+
+Name|Hardcell-class Battle Refit
+Type|Hardcell
+Keywords|Droid Transport
+Faction|Separatist
+Size|Small
+Points|52
+Hull|5
+DefenseTokens|Br Rd Ev
+Command|1
+Squad|2
+Eng|3
+NavChart|
+Speed 1|2
+Speed 2|11
+Speed 3|110
+Speed 4|-
+FrontShields|3
+SideShields|1
+RearShields|2
+FrontArmament|RRR
+SideArmament|R
+RearArmament|-
+AntiSquadron|BK
+Upgrade|Title TurboLaser Offensive Defensive Officer
+FrontArcOffset| 13.1
+RearArcOffset| 13.1
+FrontArcConjunction|32
+RearArcConjunction|31
