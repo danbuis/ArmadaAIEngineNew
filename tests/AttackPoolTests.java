@@ -1,6 +1,6 @@
 import BBDGameLibrary.GameEngine.Die;
-import gameComponents.AttackPool;
-import gameComponents.DiceFacings;
+import gameComponents.Attacks.AttackPool;
+import gameComponents.Attacks.DiceFacings;
 import org.junit.jupiter.api.Test;
 
 
