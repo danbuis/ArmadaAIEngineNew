@@ -67,9 +67,10 @@ public class ParsingUtils {
         }
     }
 
-    public static void checkNotPartialObject(int nonNullCount, int targetNumber) throws ParsingException {
+    public static void checkNotPartialObject(int nonNullCount, int targetNumber, String name) throws ParsingException {
         if (nonNullCount != targetNumber){
-            throw new ParsingException("Reached end of file with a partially built object.");
+            throw new ParsingException("Reached end of file with a partially built object, " + name +
+                    ", missing " + nonNullCount + " fields.");
         }
     }
 }

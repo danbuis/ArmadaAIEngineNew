@@ -25,6 +25,7 @@ public class SquadronFactory {
     private ArrayList<String> keywords;
     private int points;
     private ArrayList<DefenseToken> defenseTokens = null;
+    private String mostRecentlyCompleted = null;
 
     private final int NUMBER_OF_FIELDS = 11;
 
@@ -108,10 +109,11 @@ public class SquadronFactory {
                 } // end switch block
                 if (countNonNullFields() == NUMBER_OF_FIELDS){
                     buildSquadron();
+                    this.mostRecentlyCompleted = this.name;
                 }
             }//end if next line exists
         }//end of while
-        ParsingUtils.checkNotPartialObject(countNonNullFields(), 0);
+        ParsingUtils.checkNotPartialObject(countNonNullFields(), 0, this.mostRecentlyCompleted);
     }
 
     /**
