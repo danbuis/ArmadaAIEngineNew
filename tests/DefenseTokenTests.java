@@ -17,22 +17,22 @@ public class DefenseTokenTests {
     @Test
     public void testStrConstructor(){
         DefenseToken evade = new DefenseToken("Ev");
-        assertEquals(GameConstants.defenseTokenType.EVADE, evade.getType());
+        assertEquals(DefenseToken.Type.EVADE, evade.getType());
 
         DefenseToken scatter = new DefenseToken("Sc");
-        assertEquals(GameConstants.defenseTokenType.SCATTER, scatter.getType());
+        assertEquals(DefenseToken.Type.SCATTER, scatter.getType());
 
         DefenseToken brace = new DefenseToken("Br");
-        assertEquals(GameConstants.defenseTokenType.BRACE, brace.getType());
+        assertEquals(DefenseToken.Type.BRACE, brace.getType());
 
         DefenseToken contain = new DefenseToken("Cn");
-        assertEquals(GameConstants.defenseTokenType.CONTAIN, contain.getType());
+        assertEquals(DefenseToken.Type.CONTAIN, contain.getType());
 
         DefenseToken salvo = new DefenseToken("Sal");
-        assertEquals(GameConstants.defenseTokenType.SALVO, salvo.getType());
+        assertEquals(DefenseToken.Type.SALVO, salvo.getType());
 
         DefenseToken redirect = new DefenseToken("Rd");
-        assertEquals(GameConstants.defenseTokenType.REDIRECT, redirect.getType());
+        assertEquals(DefenseToken.Type.REDIRECT, redirect.getType());
 
         DefenseToken derp = new DefenseToken("R0sf.KLVDd");
         assertNull(derp.getType());

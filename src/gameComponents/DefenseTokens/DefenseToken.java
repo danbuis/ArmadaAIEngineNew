@@ -1,5 +1,7 @@
 package gameComponents.DefenseTokens;
 
+import engine.GameConstants;
+
 public class DefenseToken {
     /*
     A defense Token is a token that can be assigned to squadrons or ships. A defense token has a variety of states
@@ -33,22 +35,22 @@ public class DefenseToken {
     public DefenseToken(String tokenType){
         switch (tokenType){
             case "Br" :
-                this.type = GameConstants.defenseTokenType.BRACE;
+                this.type = Type.BRACE;
                 break;
             case "Sc" :
-                this.type = GameConstants.defenseTokenType.SCATTER;
+                this.type = Type.SCATTER;
                 break;
             case "Ev" :
-                this.type = GameConstants.defenseTokenType.EVADE;
+                this.type = Type.EVADE;
                 break;
             case "Rd" :
-                this.type = GameConstants.defenseTokenType.REDIRECT;
+                this.type = Type.REDIRECT;
                 break;
             case "Sal" :
-                this.type = GameConstants.defenseTokenType.SALVO;
+                this.type = Type.SALVO;
                 break;
             case "Cn" :
-                this.type = GameConstants.defenseTokenType.CONTAIN;
+                this.type = Type.CONTAIN;
                 break;
         }
     }

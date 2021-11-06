@@ -1,8 +1,8 @@
 package gameComponents.Ship;
 
 import BBDGameLibrary.Geometry2d.BBDPolygon;
+import BBDGameLibrary.Utils.GeometryGenerators;
 import engine.GameConstants;
-import engine.Utils;
 
 /**
  * An enum for holding the predifined ship sizes and associated logic.
@@ -27,14 +27,14 @@ public enum ShipSize {
      * Get a polygon representing the cardboard rectangle for a ship
      * @return cardboard
      */
-    public BBDPolygon getCardboard(){ return Utils.buildQuad(this.width, this.length); }
+    public BBDPolygon getCardboard(){ return GeometryGenerators.buildQuad(this.width, this.length); }
 
     /**
      * Get a polygon representing the plastic base of a ship
      * @return plastic
      */
     public BBDPolygon getPlastic() {
-        return Utils.buildQuad(this.width + 2* GameConstants.SHIP_BASE_RAILS, this.length);
+        return GeometryGenerators.buildQuad(this.width + 2* GameConstants.SHIP_BASE_RAILS, this.length);
     }
 
     /**
