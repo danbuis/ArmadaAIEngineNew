@@ -6,6 +6,8 @@ import BBDGameLibrary.GameEngine.MouseInput;
 import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.OpenGL.*;
+import BBDGameLibrary.Utils.GeometryGenerators;
+import BBDGameLibrary.Utils.ShaderPrograms;
 import engine.parsers.ParsingException;
 import engine.parsers.SquadronFactory;
 import gameComponents.DemoMap;
@@ -136,8 +138,8 @@ public class ArmadaGame implements GameComponent {
      * @return
      */
     private DemoMap initializeDemoMap(){
-        BBDPolygon poly = Utils.buildQuad(GameConstants.SHORT_BOARD_EDGE, GameConstants.SHORT_BOARD_EDGE);
-        ShaderProgram shader = Utils.buildBasicTexturedShaderProgram();
+        BBDPolygon poly = GeometryGenerators.buildQuad(GameConstants.SHORT_BOARD_EDGE, GameConstants.SHORT_BOARD_EDGE);
+        ShaderProgram shader = ShaderPrograms.buildBasicTexturedShaderProgram();
         Texture texture = new Texture("assets/images/maps/map1.jpg");
 
         return new DemoMap(Mesh.buildMeshFromPolygon(poly, texture), shader, poly, GameConstants.LAYER_MAP_BACKGROUND, true);
