@@ -3,6 +3,7 @@ package parsers;
 import engine.GameConstants;
 import engine.parsers.ParsingException;
 import engine.parsers.SquadronFactory;
+import gameComponents.DefenseTokens.DefenseToken;
 import gameComponents.Squadrons.Squadron;
 import org.junit.jupiter.api.Test;
 
@@ -57,8 +58,8 @@ public class SquadronParserTests {
         Squadron howl = testParser.getSquadron("\"Howlrunner\"");
         assertEquals(2, howl.getDefenseTokens().size());
 
-        assertEquals(GameConstants.defenseTokenType.BRACE, howl.getDefenseTokens().get(0).getType());
-        assertEquals(GameConstants.defenseTokenType.SCATTER, howl.getDefenseTokens().get(1).getType());
+        assertEquals(DefenseToken.Type.BRACE, howl.getDefenseTokens().get(0).getType());
+        assertEquals(DefenseToken.Type.SCATTER, howl.getDefenseTokens().get(1).getType());
 
     }
 

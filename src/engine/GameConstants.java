@@ -44,20 +44,18 @@ public class GameConstants {
     public static final float SQUADRON_PLASTIC_RADIUS = 12.7f;
     public static final float SQUADRON_CARDBOARD_RADIUS = 12.4f;
 
-
-    /**
-     * Layers, how far from the camera the associated items are drawn
-     */
-    public static final int SQUADRON_PLASTIC = 25;
-    public static final int SQUADRON_CARDBOARD = 24;
-    public static final int SQUADRON_GRAPHIC = 22;
-    public static final int MAP_BACKGROUND_LAYER = 20000;
-
-
     /**
      * Rendering criteria
      */
     public static final int ZOOM_MINIMUM = 100;
     public static final int ZOOM_MAXIMUM = 1200;
+
+    /**
+     * Layers, how far from the camera the associated items are drawn
+     */
+    public static final int LAYER_SQUADRON_PLASTIC = 25;
+    public static final int LAYER_SQUADRON_CARDBOARD = 23;
+    public static final int LAYER_SQUADRON_GRAPHIC = 22;
+    public static final int LAYER_MAP_BACKGROUND = 26;
 }
 
