@@ -65,7 +65,6 @@ public class SquadronParserTests {
 
     @Test
     public void testBadDefenseTokenParse() throws FileNotFoundException, ParsingException {
-        SquadronFactory testParser = new SquadronFactory(false);
         Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_def_token.txt", false));
         String expectedMessage = "Invalid defense token passed in : Derp.";
         String actualMessage = exception.getMessage();
@@ -176,7 +175,7 @@ public class SquadronParserTests {
     @Test
     public void testPartialSquadron() throws FileNotFoundException, ParsingException {
         Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_partial.txt", false));
-        String expectedMessage = "Reached end of file with a partially built object.";
+        String expectedMessage = "Reached end of file with a partially built object, null, missing: anti-squadron dice, defense tokens fields.";
         String actualMessage = exception.getMessage();
 
         assertEquals(expectedMessage, actualMessage);
