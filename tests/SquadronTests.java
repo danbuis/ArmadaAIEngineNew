@@ -11,7 +11,7 @@ public class SquadronTests {
 
     @Test
     public void testMoving() throws FileNotFoundException, ParsingException {
-        SquadronFactory testParser = new SquadronFactory(false);
+        SquadronFactory testParser = new SquadronFactory();
 
         Squadron arc = testParser.getSquadron("ARC-170 Starfighter");
 
@@ -41,7 +41,7 @@ public class SquadronTests {
 
     @Test
     public void testSquadFileNames() throws FileNotFoundException, ParsingException {
-        SquadronFactory testParser = new SquadronFactory(false);
+        SquadronFactory testParser = new SquadronFactory();
 
         Squadron arc = testParser.getSquadron("ARC-170 Starfighter");
         String expectedFileName = "arc-170-starfighter.png";

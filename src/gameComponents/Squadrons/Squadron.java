@@ -4,15 +4,7 @@ import BBDGameLibrary.GameEngine.GameComponent;
 import BBDGameLibrary.GameEngine.GameItem2d;
 import BBDGameLibrary.GameEngine.MouseInput;
 import BBDGameLibrary.Geometry2d.BBDPoint;
-import BBDGameLibrary.Geometry2d.BBDPolygon;
-import BBDGameLibrary.OpenGL.Mesh;
-import BBDGameLibrary.OpenGL.ShaderProgram;
-import BBDGameLibrary.OpenGL.Texture;
 import BBDGameLibrary.OpenGL.Window;
-import BBDGameLibrary.Utils.GeometryGenerators;
-import BBDGameLibrary.Utils.ShaderPrograms;
-import engine.GameConstants;
-import engine.GameItemSorter;
 import gameComponents.DefenseTokens.DefenseToken;
 
 import java.util.ArrayList;
@@ -76,7 +68,7 @@ public class Squadron implements GameComponent {
      * being used in the game
      * @param original original Squadron to use as a template
      */
-    public Squadron(Squadron original, boolean renderSquadrons){
+    public Squadron(Squadron original){
         this.type = original.type;
         this.name = original.name;
         this.unique = original.unique;
