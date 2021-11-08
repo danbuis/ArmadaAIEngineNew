@@ -8,11 +8,13 @@ import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.OpenGL.*;
 import BBDGameLibrary.Utils.GeometryGenerators;
 import BBDGameLibrary.Utils.ShaderPrograms;
+import GUI.Board.SquadronRenderer;
 import engine.parsers.ParsingException;
 import engine.parsers.SquadronFactory;
 import gameComponents.DemoMap;
 import gameComponents.Squadrons.Squadron;
 import org.joml.Vector3f;
+import org.lwjgl.system.CallbackI;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -29,7 +31,7 @@ public class ArmadaGame implements GameComponent {
     //An object representing the 3x3 mat a demo game is played on
     private DemoMap demoMap;
 
-    private ArrayList<Squadron> squadrons;
+    private ArrayList<SquadronRenderer> squadrons;
     private GameItemSorter itemsToRender = new GameItemSorter();
 
     /**
@@ -68,8 +70,9 @@ public class ArmadaGame implements GameComponent {
                 temp.relocate(new BBDPoint(currentCol * 40, currentRow * 40));
                 currentCol++;
                 System.out.println(temp.getLocation());
-                squadrons.add(temp);
-                this.itemsToRender.addItems(temp.getGameItems());
+                SquadronRenderer renderer = new SquadronRenderer(temp);
+                squadrons.add(renderer);
+                this.itemsToRender.addItems(renderer.getGameItems());
             }
 
         } catch (FileNotFoundException e) {
