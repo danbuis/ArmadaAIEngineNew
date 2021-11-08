@@ -60,7 +60,54 @@ public class SquadronRenderer {
         this.gameItems.addItems(plasticBaseItem);
     }
 
+    /**
+     * Root movement function.  All movement functions eventually lead to here.  Function is private because it is the one
+     * that modifies items of the class.
+     * @param newPoint new BBDPoint to use for the location of the squadron
+     */
+    private void moveNew(BBDPoint newPoint){
+        squadron.moveNew(newPoint);
+        //move the visuals
+        float newX = newPoint.getXLoc();
+        float newY = newPoint.getYLoc();
+        for(int i =0; i<gameItems.getItemCount(); i++){
+            gameItems.getItem(i).setPosition(newX, newY, gameItems.getItem(i).getPosition().z);
+        }
+    }
 
+    /**
+     * Movement function for when we know the relative offset
+     * @param deltaX change in X coordinate
+     * @param deltaY change in Y coordinate
+     */
+    public void moveOffsets(float deltaX, float deltaY){
+        BBDPoint newPoint = squadron.getLocation();
+        newPoint.translate(deltaX, deltaY);
+        moveNew(newPoint);
+    }
+
+    /**
+     * Movement function for when we know angle and distance
+     * @param distance movement length
+     * @param angle angle of movement
+     */
+    public void moveAngle(float distance, float angle){
+        float deltaX = (float) (Math.cos(angle) * distance);
+        float deltaY = (float) (Math.sin(angle) * distance);
+        moveOffsets(deltaX, deltaY);
+    }
+
+    /**
+     * A public facing function to feed into the root movement function.
+     * @param newLocation new location for the squadron
+     */
+    public void relocate(BBDPoint newLocation){
+        moveNew(newLocation);
+    }
+
+    public BBDPoint getLocation(){
+        return squadron.getLocation();
+    }
 
     public GameItemSorter getGameItems() {
         return gameItems;

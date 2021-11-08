@@ -57,11 +57,11 @@ public class ArmadaGame implements GameComponent {
         squadrons = new ArrayList<>();
         try {
             SquadronFactory squadronFactory = new SquadronFactory();
-            Squadron temp;
+            SquadronRenderer temp;
             int currentCol = 0;
             int currentRow = 0;
             for (String squadronName : squadronFactory.getSquadronTypes()){
-                temp = squadronFactory.getSquadron(squadronName);
+                temp = new SquadronRenderer(squadronFactory.getSquadron(squadronName));
                 if(currentCol == 10){
                     currentRow++;
                     currentCol=0;
@@ -70,9 +70,8 @@ public class ArmadaGame implements GameComponent {
                 temp.relocate(new BBDPoint(currentCol * 40, currentRow * 40));
                 currentCol++;
                 System.out.println(temp.getLocation());
-                SquadronRenderer renderer = new SquadronRenderer(temp);
-                squadrons.add(renderer);
-                this.itemsToRender.addItems(renderer.getGameItems());
+                squadrons.add(temp);
+                this.itemsToRender.addItems(temp.getGameItems());
             }
 
         } catch (FileNotFoundException e) {
