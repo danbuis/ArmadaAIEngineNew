@@ -3,6 +3,7 @@ package engine;
 import BBDGameLibrary.GameEngine.Camera;
 import BBDGameLibrary.GameEngine.GameComponent;
 import BBDGameLibrary.GameEngine.MouseInput;
+import BBDGameLibrary.GameEngine.MouseInputHandler;
 import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.OpenGL.*;
@@ -12,6 +13,8 @@ import engine.parsers.ParsingException;
 import engine.parsers.SquadronFactory;
 import gameComponents.DemoMap;
 import gameComponents.Squadrons.Squadron;
+import org.joml.Vector2d;
+import org.joml.Vector3d;
 import org.joml.Vector3f;
 
 import java.io.FileNotFoundException;
@@ -33,6 +36,9 @@ public class ArmadaGame implements GameComponent {
 
     private int currentZoom = 920;
     private GameItemSorter itemsToRender = new GameItemSorter();
+    private boolean activePan = false;
+    private Vector2d mousePanStart = null;
+    private Vector3f cameraPanStart = null;
 
     /**
      * A basic constructor.  Sets up the items only need one instance that is then shared between objects
@@ -92,7 +98,35 @@ public class ArmadaGame implements GameComponent {
      */
     @Override
     public void input(Window window, MouseInput mouseInput) {
-        demoMap.input(window, mouseInput);
+        //zoom logic
+        camera.setPosition(camera.getPosition().x, camera.getPosition().y, this.currentZoom);
+        MouseInputHandler inputHandler = new MouseInputHandler();
+        double scroll = mouseInput.getScrollAmount();
+        if (scroll < 0){
+            this.currentZoom = (int) Math.min(this.currentZoom * 1.07, GameConstants.ZOOM_MAXIMUM);
+
+        }
+        else if (scroll > 0){
+            this.currentZoom = (int) Math.max(this.currentZoom / 1.07, GameConstants.ZOOM_MINIMUM);
+        }
+        mouseInput.clearScrollInput();
+
+        //pan logic
+        if(mouseInput.isRightButtonPressed()){
+            if (!activePan){
+                activePan=true;
+                mousePanStart = inputHandler.mouseLocationOnPlane(camera, inputHandler.getMouseDir(window, mouseInput.getCurrentPos(), camera), 0);
+                cameraPanStart = camera.getPosition();
+            }else{
+                Vector2d currentPan = inputHandler.mouseLocationOnPlane(camera, inputHandler.getMouseDir(window, mouseInput.getCurrentPos(), camera), 0);
+                float deltaX = (float)(mousePanStart.x - currentPan.x);
+                float deltaY = (float)(mousePanStart.y - currentPan.y);
+
+                camera.setPosition(cameraPanStart.x + deltaX, cameraPanStart.y + deltaY, camera.getPosition().z);
+            }
+        }else{
+            activePan = false;
+        }
     }
 
     /**
@@ -104,18 +138,8 @@ public class ArmadaGame implements GameComponent {
      */
     @Override
     public void update(float v, MouseInput mouseInput, Window window) {
-        //zoom logic
-        camera.setPosition(camera.getPosition().x, camera.getPosition().y, this.currentZoom);
-        double scroll = mouseInput.getScrollAmount();
-        if (scroll < 0){
-            this.currentZoom = (int) Math.min(this.currentZoom * 1.07, GameConstants.ZOOM_MAXIMUM);
 
-        }
-        else if (scroll > 0){
-            this.currentZoom = (int) Math.max(this.currentZoom / 1.07, GameConstants.ZOOM_MINIMUM);
-        }
-        mouseInput.clearScrollInput();
-            }
+    }
 
     /**
      * All GameComponents and objects that implement GameComponent need this function.  It handles rendering objects.
