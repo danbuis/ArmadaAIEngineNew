@@ -39,6 +39,9 @@ public class ArmadaGame implements GameComponent {
     private boolean activePan = false;
     private Vector2d mousePanStart = null;
     private Vector3f cameraPanStart = null;
+    MouseInputHandler inputHandler = new MouseInputHandler();
+    Vector3f mouseProjection = null;
+    Vector2d mouseLocationOnMap = null;
 
     /**
      * A basic constructor.  Sets up the items only need one instance that is then shared between objects
@@ -100,7 +103,6 @@ public class ArmadaGame implements GameComponent {
     public void input(Window window, MouseInput mouseInput) {
         //zoom logic
         camera.setPosition(camera.getPosition().x, camera.getPosition().y, this.currentZoom);
-        MouseInputHandler inputHandler = new MouseInputHandler();
         double scroll = mouseInput.getScrollAmount();
         if (scroll < 0){
             this.currentZoom = (int) Math.min(this.currentZoom * 1.07, GameConstants.ZOOM_MAXIMUM);
@@ -113,14 +115,15 @@ public class ArmadaGame implements GameComponent {
 
         //pan logic
         if(mouseInput.isRightButtonPressed()){
+            mouseProjection = inputHandler.getMouseDir(window, mouseInput.getCurrentPos(), camera);
+            mouseLocationOnMap = inputHandler.mouseLocationOnPlane(camera, mouseProjection, 0);
             if (!activePan){
                 activePan=true;
-                mousePanStart = inputHandler.mouseLocationOnPlane(camera, inputHandler.getMouseDir(window, mouseInput.getCurrentPos(), camera), 0);
+                mousePanStart = mouseLocationOnMap;
                 cameraPanStart = camera.getPosition();
             }else{
-                Vector2d currentPan = inputHandler.mouseLocationOnPlane(camera, inputHandler.getMouseDir(window, mouseInput.getCurrentPos(), camera), 0);
-                float deltaX = (float)(mousePanStart.x - currentPan.x);
-                float deltaY = (float)(mousePanStart.y - currentPan.y);
+                float deltaX = (float)(mousePanStart.x - mouseLocationOnMap.x);
+                float deltaY = (float)(mousePanStart.y - mouseLocationOnMap.y);
 
                 camera.setPosition(cameraPanStart.x + deltaX, cameraPanStart.y + deltaY, camera.getPosition().z);
             }
