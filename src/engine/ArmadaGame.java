@@ -52,7 +52,7 @@ public class ArmadaGame implements GameComponent {
 
         demoMap = initializeDemoMap();
         this.itemsToRender.addItems(demoMap);
-
+        window.setZFar(GameConstants.ZOOM_MAXIMUM + 5);
         //Temporary - just list out all the squadrons and show them all
         squadrons = new ArrayList<>();
         try {
@@ -104,20 +104,18 @@ public class ArmadaGame implements GameComponent {
      */
     @Override
     public void update(float v, MouseInput mouseInput, Window window) {
-        Vector3f mapCenter = demoMap.getPosition();
-        camera.setPosition(mapCenter.x, mapCenter.y, this.currentZoom);
+        //zoom logic
+        camera.setPosition(camera.getPosition().x, camera.getPosition().y, this.currentZoom);
+        double scroll = mouseInput.getScrollAmount();
+        if (scroll < 0){
+            this.currentZoom = (int) Math.min(this.currentZoom * 1.07, GameConstants.ZOOM_MAXIMUM);
 
-        //if (mouseInput.isRightButtonPressed()){
-        //    System.out.println(currentZoom);
-        //    this.currentZoom = (int) Math.min(this.currentZoom * 1.01, GameConstants.ZOOM_MAXIMUM);
-        //}
-        //else if (mouseInput.isLeftButtonPressed()){
-        //    System.out.println(currentZoom);
-        //    this.currentZoom = (int) Math.max(this.currentZoom / 1.01, GameConstants.ZOOM_MINIMUM);
-        //}
-
-
-    }
+        }
+        else if (scroll > 0){
+            this.currentZoom = (int) Math.max(this.currentZoom / 1.07, GameConstants.ZOOM_MINIMUM);
+        }
+        mouseInput.clearScrollInput();
+            }
 
     /**
      * All GameComponents and objects that implement GameComponent need this function.  It handles rendering objects.
