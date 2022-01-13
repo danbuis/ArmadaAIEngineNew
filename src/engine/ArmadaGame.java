@@ -9,6 +9,7 @@ import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.OpenGL.*;
 import BBDGameLibrary.Utils.GeometryGenerators;
 import BBDGameLibrary.Utils.ShaderPrograms;
+import GUI.Board.SquadronRenderer;
 import engine.parsers.ParsingException;
 import engine.parsers.SquadronFactory;
 import gameComponents.DemoMap;
@@ -16,6 +17,7 @@ import gameComponents.Squadrons.Squadron;
 import org.joml.Vector2d;
 import org.joml.Vector3d;
 import org.joml.Vector3f;
+import org.lwjgl.system.CallbackI;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -32,7 +34,8 @@ public class ArmadaGame implements GameComponent {
     //An object representing the 3x3 mat a demo game is played on
     private DemoMap demoMap;
 
-    private ArrayList<Squadron> squadrons;
+    private ArrayList<SquadronRenderer> squadrons;
+
 
     private int currentZoom = 920;
     private GameItemSorter itemsToRender = new GameItemSorter();
@@ -66,11 +69,11 @@ public class ArmadaGame implements GameComponent {
         squadrons = new ArrayList<>();
         try {
             SquadronFactory squadronFactory = new SquadronFactory();
-            Squadron temp;
+            SquadronRenderer temp;
             int currentCol = 0;
             int currentRow = 0;
             for (String squadronName : squadronFactory.getSquadronTypes()){
-                temp = squadronFactory.getSquadron(squadronName);
+                temp = new SquadronRenderer(squadronFactory.getSquadron(squadronName));
                 if(currentCol == 10){
                     currentRow++;
                     currentCol=0;

@@ -4,15 +4,7 @@ import BBDGameLibrary.GameEngine.GameComponent;
 import BBDGameLibrary.GameEngine.GameItem2d;
 import BBDGameLibrary.GameEngine.MouseInput;
 import BBDGameLibrary.Geometry2d.BBDPoint;
-import BBDGameLibrary.Geometry2d.BBDPolygon;
-import BBDGameLibrary.OpenGL.Mesh;
-import BBDGameLibrary.OpenGL.ShaderProgram;
-import BBDGameLibrary.OpenGL.Texture;
 import BBDGameLibrary.OpenGL.Window;
-import BBDGameLibrary.Utils.GeometryGenerators;
-import BBDGameLibrary.Utils.ShaderPrograms;
-import engine.GameConstants;
-import engine.GameItemSorter;
 import gameComponents.DefenseTokens.DefenseToken;
 
 import java.util.ArrayList;
@@ -21,9 +13,6 @@ import java.util.ArrayList;
  * A class representing a Squadron object
  */
 public class Squadron implements GameComponent {
-
-    private static ShaderProgram WHITE_SOLID = ShaderPrograms.buildSolidColorShader("white");
-    private static ShaderProgram BLACK_SOLID = ShaderPrograms.buildSolidColorShader("black");
 
     private final String type;
     private final String name;
@@ -37,23 +26,9 @@ public class Squadron implements GameComponent {
     private final ArrayList<String> keywords;
     private final int pointsValue;
     private ArrayList<DefenseToken> defenseTokens;
-    private GameItemSorter gameItems = new GameItemSorter();
     private BBDPoint currentLocation = new BBDPoint(0,0);
-    private boolean renderSquadrons;
 
 
-    /**
-     * Static objects to build meshes.  Long term these will be moved somewhere else once rendering is separated from the Squadron object.
-     */
-    private static BBDPolygon plasticBase = GeometryGenerators.createNGon(new BBDPoint(0,0), GameConstants.SQUADRON_PLASTIC_RADIUS, 100);
-    private static float[] plasticPositions = Mesh.buildMeshPositions(plasticBase);
-    private static float[] plasticTex = Mesh.buildTextureCoordinates(plasticBase);
-    private static int[] plasticIndices = Mesh.buildIndices(plasticBase);
-
-    private static BBDPolygon cardboard = GeometryGenerators.createNGon(new BBDPoint(0,0), GameConstants.SQUADRON_CARDBOARD_RADIUS, 100);
-    private static float[] cardboardPositions = Mesh.buildMeshPositions(cardboard);
-    private static float[] cardboardTex = Mesh.buildTextureCoordinates(cardboard);
-    private static int[] cardboardIndices = Mesh.buildIndices(cardboard);
 
 
     /**
@@ -93,7 +68,7 @@ public class Squadron implements GameComponent {
      * being used in the game
      * @param original original Squadron to use as a template
      */
-    public Squadron(Squadron original, boolean renderSquadrons){
+    public Squadron(Squadron original){
         this.type = original.type;
         this.name = original.name;
         this.unique = original.unique;
@@ -106,11 +81,6 @@ public class Squadron implements GameComponent {
         this.keywords = original.keywords;
         this.pointsValue = original.pointsValue;
         this.defenseTokens = original.defenseTokens;
-        this.renderSquadrons = renderSquadrons;
-
-        if (renderSquadrons) {
-            this.buildGameItems();
-        }
     }
 
     @Override
@@ -138,81 +108,11 @@ public class Squadron implements GameComponent {
 
     }
 
-    /**
-     * Build the GameItem objects to be used to render this object.
-     */
-    private void buildGameItems(){
-        GameItem2d plasticBaseItem = new GameItem2d(new Mesh(plasticPositions, plasticTex, plasticIndices, null), WHITE_SOLID, plasticBase, GameConstants.LAYER_SQUADRON_PLASTIC, false);
-        GameItem2d cardboardItem = new GameItem2d(new Mesh(cardboardPositions, cardboardTex, cardboardIndices, null), BLACK_SOLID, cardboard, GameConstants.LAYER_SQUADRON_CARDBOARD, false);
-
-        BBDPolygon poly = GeometryGenerators.buildQuad(20, 20);
-        ShaderProgram shader = ShaderPrograms.TEXTURED_GENERIC;
-        Texture texture = new Texture("assets/images/squadrons/squad_"+buildSquadFileName());
-        GameItem2d squadronGraphic = new GameItem2d(Mesh.buildMeshFromPolygon(poly, texture), shader, poly, GameConstants.LAYER_SQUADRON_GRAPHIC, false);
-        this.gameItems.addItems(squadronGraphic);
-        this.gameItems.addItems(cardboardItem);
-        this.gameItems.addItems(plasticBaseItem);
-    }
-
-    /**
-     * Build a string based on the squadron object's properties to grab the appropriate descriptively named file.
-     * Concatenates a few fields and cleans up outstanding chars like spaces, quotes etc.
-     * @return image file to be used from the assets directory
-     */
-    public String buildSquadFileName() {
-        String baseFileName = this.type;
-        if(this.unique){
-            baseFileName = baseFileName+"_"+this.name;
-        }
-
-        String cleanedFileName = baseFileName.toLowerCase().replace(" ", "-").replace("\"", "");
-
-        return cleanedFileName+".png";
-    }
-
-    /**
-     * Root movement function.  All movement functions eventually lead to here.  Function is private because it is the one
-     * that modifies items of the class.
-     * @param newPoint new BBDPoint to use for the location of the squadron
-     */
-    private void moveNew(BBDPoint newPoint){
+    public void moveNew(BBDPoint newPoint){
         this.currentLocation = newPoint;
-        float newX = newPoint.getXLoc();
-        float newY = newPoint.getYLoc();
-        for(int i =0; i<gameItems.getItemCount(); i++){
-            gameItems.getItem(i).setPosition(newX, newY, gameItems.getItem(i).getPosition().z);
-        }
     }
 
-    /**
-     * Movement function for when we know the relative offset
-     * @param deltaX change in X coordinate
-     * @param deltaY change in Y coordinate
-     */
-    public void moveOffsets(float deltaX, float deltaY){
-        this.currentLocation.translate(deltaX, deltaY);
-        //gotta call the private one so that we update the underlying widgets
-        moveNew(this.currentLocation);
-    }
 
-    /**
-     * Movement function for when we know angle and distance
-     * @param distance movement length
-     * @param angle angle of movement
-     */
-    public void moveAngle(float distance, float angle){
-        float deltaX = (float) (Math.cos(angle) * distance);
-        float deltaY = (float) (Math.sin(angle) * distance);
-        moveOffsets(deltaX, deltaY);
-    }
-
-    /**
-     * A public facing function to feed into the root movement function.
-     * @param newLocation new location for the squadron
-     */
-    public void relocate(BBDPoint newLocation){
-        moveNew(newLocation);
-    }
 
     public String getType() {
         return type;
@@ -258,11 +158,23 @@ public class Squadron implements GameComponent {
         return defenseTokens;
     }
 
-    public GameItemSorter getGameItems() {
-        return gameItems;
-    }
-
     public BBDPoint getLocation(){
         return this.currentLocation;
+    }
+
+    /**
+     * Build a string based on the squadron object's properties to grab the appropriate descriptively named file.
+     * Concatenates a few fields and cleans up outstanding chars like spaces, quotes etc.
+     * @return image file to be used from the assets directory
+     */
+    public String buildSquadFileName() {
+        String baseFileName = this.type;
+        if(this.unique){
+            baseFileName = baseFileName+"_"+this.name;
+        }
+
+        String cleanedFileName = baseFileName.toLowerCase().replace(" ", "-").replace("\"", "");
+
+        return cleanedFileName+".png";
     }
 }

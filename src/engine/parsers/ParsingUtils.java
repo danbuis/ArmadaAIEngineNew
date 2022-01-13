@@ -2,6 +2,7 @@ package engine.parsers;
 
 import engine.GameConstants;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ParsingUtils {
@@ -67,9 +68,16 @@ public class ParsingUtils {
         }
     }
 
-    public static void checkNotPartialObject(int nonNullCount, int targetNumber) throws ParsingException {
-        if (nonNullCount != targetNumber){
-            throw new ParsingException("Reached end of file with a partially built object.");
+    public static void checkNotPartialObject(ArrayList<String> nullFields, int targetNumber, String name) throws ParsingException {
+        if (nullFields.size() != targetNumber){
+            String errorList = "";
+            for (String error : nullFields){
+                errorList = errorList + " " + error +",";
+            }
+            //strip trailing comma
+            errorList = errorList.substring(0, errorList.lastIndexOf(","));
+            throw new ParsingException("Reached end of file with a partially built object, " + name +
+                    ", missing:" + errorList + " fields.");
         }
     }
 }

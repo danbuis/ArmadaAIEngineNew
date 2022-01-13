@@ -25,19 +25,9 @@ public class SquadronFactory {
     private ArrayList<String> keywords;
     private int points;
     private ArrayList<DefenseToken> defenseTokens = null;
+    private String mostRecentlyCompleted = null;
 
     private final int NUMBER_OF_FIELDS = 11;
-
-    private boolean renderSquadrons;
-
-    /**
-     * Constructor To be used in a non testing space
-     * @throws FileNotFoundException Exception thrown if the file does not exist
-     * @throws ParsingException Exception thrown if there is an error while Parsing
-     */
-    public SquadronFactory() throws FileNotFoundException, ParsingException {
-        this("assets/data/squadrons.txt", true);
-    }
 
 
     /**
@@ -45,8 +35,8 @@ public class SquadronFactory {
      * @throws FileNotFoundException Exception thrown if the file does not exist
      * @throws ParsingException Exception thrown if there is an error while Parsing
      */
-    public SquadronFactory(boolean renderSquadrons) throws FileNotFoundException, ParsingException {
-        this("assets/data/squadrons.txt", renderSquadrons);
+    public SquadronFactory() throws FileNotFoundException, ParsingException {
+        this("assets/data/squadrons.txt");
     }
 
     /**
@@ -55,8 +45,7 @@ public class SquadronFactory {
      * @throws FileNotFoundException Exception thrown if the file does not exist
      * @throws ParsingException Exception thrown if there is an error while Parsing
      */
-    public SquadronFactory(String pathToFile, boolean renderSquadrons) throws FileNotFoundException, ParsingException {
-        this.renderSquadrons = renderSquadrons;
+    public SquadronFactory(String pathToFile) throws FileNotFoundException, ParsingException {
         Scanner fileScanner = new Scanner(new File(pathToFile));
         String nextLine;
         while(fileScanner.hasNext()){
@@ -98,20 +87,23 @@ public class SquadronFactory {
 
                         if(!value.equals("None")){
                             String[] defenseTokenArray = value.split(" ");
-                            for(String token: defenseTokenArray){
+                            for(String token: defenseTokenArray) {
                                 ParsingUtils.checkValidDefenseToken(token);
                                 tokens.add(new DefenseToken(token));
                             }
-                        this.defenseTokens = tokens;
                         }
+                        this.defenseTokens = tokens;
                         break;
                 } // end switch block
-                if (countNonNullFields() == NUMBER_OF_FIELDS){
+                ArrayList<String> nulls = listNullFields();
+                if (nulls.size() == 0){
                     buildSquadron();
+                    this.mostRecentlyCompleted = this.name;
+                    this.resetFields();
                 }
             }//end if next line exists
         }//end of while
-        ParsingUtils.checkNotPartialObject(countNonNullFields(), 0);
+        ParsingUtils.checkNotPartialObject(listNullFields(), NUMBER_OF_FIELDS, this.mostRecentlyCompleted);
     }
 
     /**
@@ -123,8 +115,6 @@ public class SquadronFactory {
         Squadron newSquadron = new Squadron(this.type, this.name, this.unique, this.faction, this.hull, this.speed, this.antiShipDice,
             this.antiSquadronDice, this.keywords, this.points, this.defenseTokens);
         this.squadronMap.put(newSquadron.getName(), newSquadron);
-
-        this.resetFields();
     }
 
     /**
@@ -149,44 +139,44 @@ public class SquadronFactory {
      * parsed at the end of the file.
      * @return
      */
-    private int countNonNullFields() {
-        int nonNullCount = 0;
+    private ArrayList<String> listNullFields() {
+        ArrayList<String> nullFields = new ArrayList<>();
 
-        if(this.name != null){
-            nonNullCount++;
+        if(this.name == null){
+            nullFields.add("name");
         }
-        if(this.unique != null){
-            nonNullCount++;
+        if(this.unique == null){
+            nullFields.add("unique");
         }
-        if(this.type != null){
-            nonNullCount++;
+        if(this.type == null){
+            nullFields.add("type");
         }
-        if(this.faction != null){
-            nonNullCount++;
+        if(this.faction == null){
+            nullFields.add("faction");
         }
-        if(this.antiShipDice != null){
-            nonNullCount++;
+        if(this.antiShipDice == null){
+            nullFields.add("anti-ship dice");
         }
-        if(this.antiSquadronDice != null){
-            nonNullCount++;
+        if(this.antiSquadronDice == null){
+            nullFields.add("anti-squadron dice");
         }
-        if(this.keywords != null){
-            nonNullCount++;
+        if(this.keywords == null){
+            nullFields.add("keywords");
         }
-        if(this.defenseTokens != null){
-            nonNullCount++;
+        if(this.defenseTokens == null){
+            nullFields.add("defense tokens");
         }
-        if(this.hull != 0){
-            nonNullCount++;
+        if(this.hull == 0){
+            nullFields.add("hull");
         }
-        if(this.speed != 0){
-            nonNullCount++;
+        if(this.speed == 0){
+            nullFields.add("speed");
         }
-        if(this.points != 0){
-            nonNullCount++;
+        if(this.points == 0){
+            nullFields.add("points");
         }
 
-        return nonNullCount;
+        return nullFields;
     }
 
     /**
@@ -196,7 +186,7 @@ public class SquadronFactory {
      */
     public Squadron getSquadron(String name){
         Squadron original = this.squadronMap.get(name);
-        return new Squadron(original, this.renderSquadrons);
+        return new Squadron(original);
     }
 
     /**
