@@ -3,6 +3,7 @@ package engine;
 import BBDGameLibrary.GameEngine.Camera;
 import BBDGameLibrary.GameEngine.GameComponent;
 import BBDGameLibrary.GameEngine.MouseInput;
+import BBDGameLibrary.GameEngine.MouseInputHandler;
 import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.OpenGL.*;
@@ -12,6 +13,8 @@ import engine.parsers.ParsingException;
 import engine.parsers.SquadronFactory;
 import gameComponents.DemoMap;
 import gameComponents.Squadrons.Squadron;
+import org.joml.Vector2d;
+import org.joml.Vector3d;
 import org.joml.Vector3f;
 
 import java.io.FileNotFoundException;
@@ -30,7 +33,15 @@ public class ArmadaGame implements GameComponent {
     private DemoMap demoMap;
 
     private ArrayList<Squadron> squadrons;
+
+    private int currentZoom = 920;
     private GameItemSorter itemsToRender = new GameItemSorter();
+    private boolean activePan = false;
+    private Vector2d mousePanStart = null;
+    private Vector3f cameraPanStart = null;
+    MouseInputHandler inputHandler = new MouseInputHandler();
+    Vector3f mouseProjection = null;
+    Vector2d mouseLocationOnMap = null;
 
     /**
      * A basic constructor.  Sets up the items only need one instance that is then shared between objects
@@ -50,7 +61,7 @@ public class ArmadaGame implements GameComponent {
 
         demoMap = initializeDemoMap();
         this.itemsToRender.addItems(demoMap);
-
+        window.setZFar(GameConstants.ZOOM_MAXIMUM + 5);
         //Temporary - just list out all the squadrons and show them all
         squadrons = new ArrayList<>();
         try {
@@ -90,7 +101,35 @@ public class ArmadaGame implements GameComponent {
      */
     @Override
     public void input(Window window, MouseInput mouseInput) {
-        demoMap.input(window, mouseInput);
+        //zoom logic
+        camera.setPosition(camera.getPosition().x, camera.getPosition().y, this.currentZoom);
+        double scroll = mouseInput.getScrollAmount();
+        if (scroll < 0){
+            this.currentZoom = (int) Math.min(this.currentZoom * 1.07, GameConstants.ZOOM_MAXIMUM);
+
+        }
+        else if (scroll > 0){
+            this.currentZoom = (int) Math.max(this.currentZoom / 1.07, GameConstants.ZOOM_MINIMUM);
+        }
+        mouseInput.clearScrollInput();
+
+        //pan logic
+        if(mouseInput.isRightButtonPressed()){
+            mouseProjection = inputHandler.getMouseDir(window, mouseInput.getCurrentPos(), camera);
+            mouseLocationOnMap = inputHandler.mouseLocationOnPlane(camera, mouseProjection, 0);
+            if (!activePan){
+                activePan=true;
+                mousePanStart = mouseLocationOnMap;
+                cameraPanStart = camera.getPosition();
+            }else{
+                float deltaX = (float)(mousePanStart.x - mouseLocationOnMap.x);
+                float deltaY = (float)(mousePanStart.y - mouseLocationOnMap.y);
+
+                camera.setPosition(cameraPanStart.x + deltaX, cameraPanStart.y + deltaY, camera.getPosition().z);
+            }
+        }else{
+            activePan = false;
+        }
     }
 
     /**
@@ -102,8 +141,7 @@ public class ArmadaGame implements GameComponent {
      */
     @Override
     public void update(float v, MouseInput mouseInput, Window window) {
-        Vector3f mapCenter = demoMap.getPosition();
-        camera.setPosition(mapCenter.x, mapCenter.y, 920);
+
     }
 
     /**
