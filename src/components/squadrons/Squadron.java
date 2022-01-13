@@ -1,11 +1,10 @@
-package gameComponents.Squadrons;
+package components.squadrons;
 
 import BBDGameLibrary.GameEngine.GameComponent;
-import BBDGameLibrary.GameEngine.GameItem2d;
 import BBDGameLibrary.GameEngine.MouseInput;
 import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.OpenGL.Window;
-import gameComponents.DefenseTokens.DefenseToken;
+import components.tokens.DefenseToken;
 
 import java.util.ArrayList;
 

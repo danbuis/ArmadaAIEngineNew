@@ -1,7 +1,7 @@
 package engine.parsers;
 
-import gameComponents.DefenseTokens.DefenseToken;
-import gameComponents.Squadrons.Squadron;
+import components.tokens.DefenseToken;
+import components.squadrons.Squadron;
 
 import java.io.File;
 import java.io.FileNotFoundException;

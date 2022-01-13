@@ -1,4 +1,4 @@
-package gameComponents.Ship;
+package components.ship;
 
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.Utils.GeometryGenerators;

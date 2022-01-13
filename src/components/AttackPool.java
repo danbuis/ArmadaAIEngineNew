@@ -1,4 +1,4 @@
-package gameComponents;
+package components;
 
 import BBDGameLibrary.GameEngine.Die;
 import java.util.ArrayList;

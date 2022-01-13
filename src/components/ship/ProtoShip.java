@@ -1,8 +1,7 @@
-package gameComponents.Ship;
+package components.ship;
 
 import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
-import engine.GameConstants;
 
 /**
  * A class to serve as a precursor to a proper ship class.  Primarily serves as a testing

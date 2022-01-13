@@ -1,4 +1,4 @@
-import gameComponents.DefenseTokens.DefenseToken;
+import components.tokens.DefenseToken;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

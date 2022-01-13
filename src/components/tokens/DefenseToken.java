@@ -1,6 +1,4 @@
-package gameComponents.DefenseTokens;
-
-import engine.GameConstants;
+package components.tokens;
 
 public class DefenseToken {
     /*

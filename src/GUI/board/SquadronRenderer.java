@@ -1,4 +1,4 @@
-package GUI.Board;
+package GUI.board;
 
 import BBDGameLibrary.GameEngine.GameItem2d;
 import BBDGameLibrary.Geometry2d.BBDPoint;
@@ -10,7 +10,7 @@ import BBDGameLibrary.Utils.GeometryGenerators;
 import BBDGameLibrary.Utils.ShaderPrograms;
 import engine.GameConstants;
 import engine.GameItemSorter;
-import gameComponents.Squadrons.Squadron;
+import components.squadrons.Squadron;
 
 /**
  * A class to render a squadron object to the board.  This helps keep rendering logic separate from

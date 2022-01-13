@@ -1,10 +1,9 @@
 package parsers;
 
-import engine.GameConstants;
 import engine.parsers.ParsingException;
 import engine.parsers.SquadronFactory;
-import gameComponents.DefenseTokens.DefenseToken;
-import gameComponents.Squadrons.Squadron;
+import components.tokens.DefenseToken;
+import components.squadrons.Squadron;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;

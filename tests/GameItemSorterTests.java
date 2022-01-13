@@ -1,4 +1,3 @@
-import BBDGameLibrary.GameEngine.GameItem;
 import BBDGameLibrary.GameEngine.GameItem2d;
 import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
@@ -6,12 +5,8 @@ import BBDGameLibrary.OpenGL.Mesh;
 import BBDGameLibrary.OpenGL.Window;
 import BBDGameLibrary.TestUtils;
 import engine.GameItemSorter;
-import engine.parsers.ParsingException;
-import engine.parsers.SquadronFactory;
-import gameComponents.Squadrons.Squadron;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 

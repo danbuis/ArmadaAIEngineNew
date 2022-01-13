@@ -1,4 +1,4 @@
-package gameComponents;
+package components;
 
 import BBDGameLibrary.GameEngine.GameItem2d;
 import BBDGameLibrary.Geometry2d.BBDPolygon;

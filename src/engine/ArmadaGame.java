@@ -9,15 +9,12 @@ import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.OpenGL.*;
 import BBDGameLibrary.Utils.GeometryGenerators;
 import BBDGameLibrary.Utils.ShaderPrograms;
-import GUI.Board.SquadronRenderer;
+import GUI.board.SquadronRenderer;
 import engine.parsers.ParsingException;
 import engine.parsers.SquadronFactory;
-import gameComponents.DemoMap;
-import gameComponents.Squadrons.Squadron;
+import components.DemoMap;
 import org.joml.Vector2d;
-import org.joml.Vector3d;
 import org.joml.Vector3f;
-import org.lwjgl.system.CallbackI;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

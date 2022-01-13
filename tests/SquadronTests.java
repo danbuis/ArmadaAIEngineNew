@@ -1,9 +1,8 @@
 import BBDGameLibrary.Geometry2d.BBDPoint;
-import GUI.Board.SquadronRenderer;
+import GUI.board.SquadronRenderer;
 import engine.parsers.*;
-import gameComponents.Squadrons.*;
+import components.squadrons.*;
 import org.junit.jupiter.api.Test;
-import org.lwjgl.system.CallbackI;
 
 import java.io.FileNotFoundException;
 
