@@ -40,7 +40,7 @@ public class ParsingUtils {
     public static float parseFloat(String fieldName, String input) throws ParsingException {
         try{
             float returnFloat = Float.parseFloat(input);
-            if(returnFloat <= 0){
+            if(returnFloat < 0){
                 throw new ParsingException("Illegal float value found for "+fieldName+" : "+input+".");
             }
             return returnFloat;

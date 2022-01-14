@@ -1,7 +1,6 @@
 package engine.parsers;
 
 import components.ship.ArmadaShip;
-import components.squadrons.Squadron;
 import components.tokens.DefenseToken;
 
 import java.io.File;
@@ -132,15 +131,36 @@ public class ShipFactory {
      * listing out of order, we can still tell when it is complete.
      */
     private void buildShip() {
-        //TODO
-        //this.shipMap.put(newSquadron.getName(), newSquadron);
+        ArmadaShip newShip = new ArmadaShip(name, type, keywords, faction, size, points, hull, defenseTokens, command,
+                squad, engineering, speed, shields, antiShipDice, antiSquadronDice, upgrades, frontOffset,
+                frontConjunction, rearOffset, rearConjunction);
+        this.shipMap.put(newShip.getName(), newShip);
     }
 
     /**
      * Reset all the fields to a neutral value that would be invalid for a new Squadron
      */
     private void resetFields() {
-
+        name = null;
+        type = null;
+        keywords = null;
+        faction = null;
+        size = null;
+        points = 0;
+        hull = 0;
+        defenseTokens = null;
+        command = 0;
+        squad = 0;
+        engineering = 0;
+        speed = null;
+        shields = null;
+        antiShipDice = null;
+        antiSquadronDice = null;
+        upgrades = null;
+        frontOffset = 0.0f;
+        rearOffset = 0.0f;
+        frontConjunction = 0.0f;
+        rearConjunction = 0.0f;
     }
 
     /**
@@ -149,7 +169,70 @@ public class ShipFactory {
      * @return
      */
     private ArrayList<String> listNullFields() {
-        //TODO
+        ArrayList<String> nullFields = new ArrayList<>();
+
+        if (name == null){
+            nullFields.add("name");
+        }
+        if (type == null){
+            nullFields.add("type");
+        }
+        if (keywords == null){
+            nullFields.add("keywords");
+        }
+        if (faction == null){
+            nullFields.add("faction");
+        }
+        if (size == null){
+            nullFields.add("size");
+        }
+        if (points == 0){
+            nullFields.add("points");
+        }
+        if (hull == 0){
+            nullFields.add("hull");
+        }
+        if (defenseTokens == null){
+            nullFields.add("defenseTokens");
+        }
+        if (command == 0){
+            nullFields.add("command");
+        }
+        if (squad == 0){
+            nullFields.add("squad");
+        }
+        if (engineering == 0){
+            nullFields.add("engineering");
+        }
+        if (speed == null){
+            nullFields.add("speed");
+        }
+        if (shields == null){
+            nullFields.add("shields");
+        }
+        if (antiShipDice == null){
+            nullFields.add("antiShipDice");
+        }
+        if (antiSquadronDice == null){
+            nullFields.add("antiSquadronDice");
+        }
+        if (upgrades == null){
+            nullFields.add("upgrades");
+        }
+        if (frontOffset == 0.0f){
+            nullFields.add("frontOffset");
+        }
+        if (rearOffset == 0.0f){
+            nullFields.add("rearOffset");
+        }
+        if (frontConjunction == 0.0f){
+            nullFields.add("frontConjunction");
+        }
+        if (rearConjunction == 0.0f){
+            nullFields.add("rearConjunction");
+        }
+
+        return nullFields;
     }
 
     /**
@@ -157,15 +240,12 @@ public class ShipFactory {
      * @param name what Ship do you want
      * @return a copy of that Ship
      */
-    public Squadron getShip(String name){
-        //TODO
+    public ArmadaShip getShip(String name){
+        ArmadaShip original = this.shipMap.get(name);
+        return new ArmadaShip(original);
     }
 
     public Set<String> getShipTypes(){
-        //TODO
-    }
-
-    public Set<String> getShipNames(){
-        //TODO
+        return this.shipMap.keySet();
     }
 }
