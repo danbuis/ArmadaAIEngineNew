@@ -123,6 +123,7 @@ public class ShipFactory {
                  }
              }//end if next line
          }//end of while
+        //ParsingUtils.checkNotPartialObject(listNullFields(), NUMBER_OF_FIELDS, this.mostRecentlyCompleted);
     }
 
     /**
