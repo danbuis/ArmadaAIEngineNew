@@ -4,9 +4,11 @@ import components.ship.ArmadaShip;
 import components.squadrons.Squadron;
 import components.tokens.DefenseToken;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 import java.util.Set;
 
 /**
@@ -37,6 +39,7 @@ public class ShipFactory {
     private float frontConjunction;
     private float rearConjunction;
 
+    private String mostRecentlyCompleted = null;
     private final int NUMBER_OF_FIELDS = 20;
 
     /**
@@ -55,7 +58,64 @@ public class ShipFactory {
      * @throws ParsingException Exception thrown if there is an error while Parsing
      */
     public ShipFactory(String pathToFile) throws FileNotFoundException, ParsingException {
-     //TODO
+         Scanner fileScaner = new Scanner(new File(pathToFile));
+         String nextLine;
+         while(fileScaner.hasNext()){
+             nextLine = fileScaner.nextLine();
+             if(!nextLine.equals("")){
+                 String[] parts = ParsingUtils.splitLine(nextLine);
+                 String key = parts[0];
+                 String value = parts[1];
+                 switch (key) {
+                     case "Name": this.name = value;
+                        break;
+                     case "Type": this.type = value;
+                        break;
+                     case "Keywords": this.keywords = value;
+                        break;
+                     case "Faction": this.faction = value;
+                        break;
+                     case "Size": this.size = value;
+                        break;
+                     case "Points": this.points = value;
+                        break;
+                     case "Hull": this.hull = value;
+                        break;
+                     case "DefenseTokens" : this.defenseTokens = value;
+                        break;
+                     case "Command" : this.command = value;
+                        break;
+                     case "Squad" : this.squad = value;
+                        break;
+                     case "Eng" : this.engineering = value;
+                        break;
+                     case "Speed" : this.speed = value;
+                        break;
+                     case "Shields" : this.shields = value;
+                        break;
+                     case "AntiShip" : this.antiShipDice = value;
+                        break;
+                     case "AntiSquadron" : this.antiSquadronDice = value;
+                        break;
+                     case "Upgrade" : this.upgrades = value;
+                        break;
+                     case "FrontArcOffset" : this.frontOffset = value;
+                        break;
+                     case "FrontArcConjunction" : this.frontConjunction = value;
+                        break;
+                     case "RearArcOffset" : this.rearOffset = value;
+                         break;
+                     case "RearArcConjunction" : this.rearConjunction = value;
+                         break;
+                 }//end switch block
+                 ArrayList<String> nulls = listNullFields();
+                 if (nulls.size() == 0){
+                     buildShip();
+                     this.mostRecentlyCompleted = this.name;
+                     this.resetFields();
+                 }
+             }//end if next line
+         }//end of while
     }
 
     /**
