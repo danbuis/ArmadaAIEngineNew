@@ -3,10 +3,9 @@ package components.ship;
 import components.tokens.DefenseToken;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 
-public class ArmadaShip {
+public class Ship {
     private String name;
     private String type;
     private ArrayList<String> keywords;
@@ -28,11 +27,11 @@ public class ArmadaShip {
     private float frontOffset;
     private float rearOffset;
 
-    public ArmadaShip(String name, String type, ArrayList<String> keywords, String faction,
-                      String size, int points, int hull, ArrayList<DefenseToken> defenseTokens,
-                      int command, int squad, int engineering, String speed, String shields,
-                      String antiShipDice, String antiSquadronDice, String upgrades, float frontOffset,
-                      float frontConjunction, float rearOffset, float rearConjunction){
+    public Ship(String name, String type, ArrayList<String> keywords, String faction,
+                String size, int points, int hull, ArrayList<DefenseToken> defenseTokens,
+                int command, int squad, int engineering, String speed, String shields,
+                String antiShipDice, String antiSquadronDice, String upgrades, float frontOffset,
+                float frontConjunction, float rearOffset, float rearConjunction){
         this.name = name;
         this.type = type;
         this.keywords = keywords;
@@ -55,7 +54,7 @@ public class ArmadaShip {
         this.rearOffset = rearOffset;
     }
 
-    public ArmadaShip(ArmadaShip original){
+    public Ship(Ship original){
         this.name = original.name;
         this.type = original.type;
         this.keywords = original.keywords;
