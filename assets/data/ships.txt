@@ -7,19 +7,12 @@ Size|Small
 Points|56
 Hull|5
 DefenseTokens|Br Rd Ev
-Command|2 
-Squad|2 
-Eng|3 
-Speed1|2
-Speed2|11
-Speed3|011
-Speed4|-
-FrontShields|3
-SideShields|2
-RearShields|1
-FrontArmament|RRKK
-SideArmament|KKKK
-RearArmament|RK
+Command|2
+Squad|2
+Eng|3
+Speed|2 11 011 -
+Shields|3 2 1
+AntiShip|RRKK KKKK RK
 AntiSquadron|B
 Upgrade|Title Officer WeaponTeam Support Ordnance
 FrontArcOffset|8.7
@@ -30,24 +23,17 @@ RearArcConjunction|37
 Name|Gladiator II-class Star Destroyer
 Type|Gladiator
 Keywords|None
-Faction|Imperial 
+Faction|Imperial
 Size|Small
 Points|62
 Hull|5
 DefenseTokens|Br Rd Ev
-Command|2 
-Squad|2 
-Eng|3 
-Speed1|2
-Speed2|11
-Speed3|011
-Speed4|-
-FrontShields|3
-SideShields|2
-RearShields|1
-FrontArmament|RRKK
-SideArmament|KKKR
-RearArmament|RK
+Command|2
+Squad|2
+Eng|3
+Speed|2 11 011 -
+Shields|3 2 1
+AntiShip|RRKK KKKR RK
 AntiSquadron|BB
 Upgrade|Title Officer WeaponTeam Support Ordnance
 FrontArcOffset|8.7
@@ -66,16 +52,9 @@ DefenseTokens|Rd Rd Br
 Command|3
 Squad|3
 Eng|4
-Speed1|1
-Speed2|01
-Speed3|-
-Speed4|-
-FrontShields|3
-SideShields|3
-RearShields|1
-FrontArmament|RRRKKK
-SideArmament|KRRR
-RearArmament|RR
+Speed|1 01 - -
+Shields|3 3 1
+AntiShip|RRRKKK KRRR RR
 AntiSquadron|B
 Upgrade|Title Officer TurboLaser Offensive WeaponTeam Ordnance
 FrontArcOffset|21
@@ -94,16 +73,9 @@ DefenseTokens|Rd Rd Br
 Command|3
 Squad|3
 Eng|4
-Speed1|1
-Speed2|01
-Speed3|-
-Speed4|-
-FrontShields|3
-SideShields|3
-RearShields|1
-FrontArmament|RRRBBB
-SideArmament|BRR
-RearArmament|RR
+Speed|1 01 - -
+Shields|3 3 1
+AntiShip|RRRBBB BRR RR
 AntiSquadron|B
 Upgrade|Title Officer TurboLaser Offensive WeaponTeam Ioncannon
 FrontArcOffset|21
@@ -122,16 +94,9 @@ DefenseTokens|Rd Br
 Command|2
 Squad|4
 Eng|2
-Speed1|2
-Speed2|10
-Speed3|011
-Speed4|-
-FrontShields|2
-SideShields|2
-RearShields|1
-FrontArmament|BBB
-SideArmament|BB
-RearArmament|B
+Speed|2 10 011 -
+Shields|2 2 1
+AntiShip|BBB BB B
 AntiSquadron|B
 Upgrade|Title Officer Offensive Offensive WeaponTeam
 FrontArcOffset|35.3
@@ -150,16 +115,9 @@ DefenseTokens|Rd Br
 Command|2
 Squad|4
 Eng|2
-Speed1|2
-Speed2|10
-Speed3|011
-Speed4|-
-FrontShields|2
-SideShields|2
-RearShields|1
-FrontArmament|RRB
-SideArmament|BR
-RearArmament|B
+Speed|2 10 011 -
+Shields|2 2 1
+AntiShip|RRB RB B
 AntiSquadron|R
 Upgrade|Title Officer Offensive WeaponTeam WeaponTeam
 FrontArcOffset|35.3
@@ -178,16 +136,9 @@ DefenseTokens|Rd Br Br Cn
 Command|3
 Squad|2
 Eng|4
-Speed1|1
-Speed2|11
-Speed3|011
-Speed4|-
-FrontShields|4
-SideShields|3
-RearShields|2
-FrontArmament|RRRBBKKK
-SideArmament|RBKK
-RearArmament|RBK
+Speed|1 11 011 -
+Shields|4 3 2
+AntiShip|RRRBBKKK RBKK RBK
 AntiSquadron|KB
 Upgrade|Title Officer Defensive Offensive SupportTeam WeaponTeam Ordnance IonCannon
 FrontArcOffset|41
@@ -206,16 +157,9 @@ DefenseTokens|Rd Br Br Cn
 Command|3
 Squad|3
 Eng|4
-Speed1|1
-Speed2|11
-Speed3|011
-Speed4|-
-FrontShields|4
-SideShields|3
-RearShields|2
-FrontArmament|RRRRRBB
-SideArmament|RBBB
-RearArmament|RBB
+Speed|1 11 011 -
+Shields|4 3 2
+AntiShip|RRRRRBB RBBB RBB
 AntiSquadron|KK
 Upgrade|Title Officer Offensive WeaponTeam TurboLaser TurboLaser FleetCommand
 FrontArcOffset|41
@@ -234,16 +178,9 @@ DefenseTokens|Rd Br Br Cn
 Command|3
 Squad|4
 Eng|4
-Speed1|1
-Speed2|11
-Speed3|011
-Speed4|-
-FrontShields|4
-SideShields|3
-RearShields|2
-FrontArmament|RRRBBKKK
-SideArmament|RRKK
-RearArmament|RBB
+Speed|1 11 011 -
+Shields|4 3 2
+AntiShip|RRRBBKKK RRKK RBB
 AntiSquadron|BK
 Upgrade|Title Officer OffensiveOffensive WeaponTeam TurboLaser IonCannon
 FrontArcOffset|41
@@ -262,16 +199,9 @@ DefenseTokens|Rd Br Br Cn
 Command|3
 Squad|4
 Eng|4
-Speed1|1
-Speed2|11
-Speed3|011
-Speed4|-
-FrontShields|4
-SideShields|3
-RearShields|2
-FrontArmament|RRRRBBBB
-SideArmament|RRBB
-RearArmament|RBB
+Speed|1 11 011 -
+Shields|4 3 2
+AntiShip|RRRRBBBB RRBB RBB
 AntiSquadron|BB
 Upgrade|Title Officer Offensive WeaponTeam TurboLaser Defensive IonCannon
 FrontArcOffset|41
@@ -288,23 +218,16 @@ Size|Small
 Points|44
 Hull|4
 DefenseTokens|Rd Rd Ev
-Command|1 
+Command|1
 Squad|1
 Eng|2
-Speed1|2
-Speed2|12
-Speed3|012
-Speed4|0112
-FrontShields|2
-SideShields|2
-RearShields|1
-FrontArmament|RRB
-SideArmament|RB
-RearArmament|R
+Speed1|2 12 012 0112
+Shields|2 2 1
+AntiShip|RRB RB R
 AntiSquadron|B
 Upgrade|Title TurboLaser Offensive SupportTeam Defensive Officer
-FrontArcOffset| 19.8
-RearArcOffset| 5.6
+FrontArcOffset|19.8
+RearArcOffset|5.6
 FrontArcConjunction|43
 RearArcConjunction|28
 
@@ -316,23 +239,16 @@ Size|Small
 Points|39
 Hull|4
 DefenseTokens|Rd Rd Ev
-Command|1 
+Command|1
 Squad|1
 Eng|2
-Speed1|2
-Speed2|12
-Speed3|012
-Speed4|0112
-FrontShields|2
-SideShields|2
-RearShields|1
-FrontArmament|BBB
-SideArmament|BB
-RearArmament|B
+Speed1|2 12 012 0112
+Shields|2 2 1
+AntiShip|BBB BB B
 AntiSquadron|B
 Upgrade|Title IonCannon Offensive SupportTeam Defensive Officer
-FrontArcOffset| 19.8
-RearArcOffset| 5.6
+FrontArcOffset|19.8
+RearArcOffset|5.6
 FrontArcConjunction|43
 RearArcConjunction|28
 
@@ -347,16 +263,9 @@ DefenseTokens|Rd Ev Br
 Command|3
 Squad|2
 Eng|4
-Speed1|1
-Speed2|11
-Speed3|011
-Speed4|-
-FrontShields|4
-SideShields|3
-RearShields|2
-FrontArmament|RRB
-SideArmament|RRRB
-RearArmament|RRB
+Speed|1 11 011 -
+Shields|4 3 2
+AntiShip|RRB RRRB RRB
 AntiSquadron|BB
 Upgrade|Title Officer TurboLaser Offensive Defensive WeaponTeam Ordnance
 FrontArcOffset|2
@@ -375,17 +284,9 @@ DefenseTokens|Rd Ev Br
 Command|3
 Squad|2
 Eng|4
-Speed1|1
-Speed2|11
-Speed3|011
-Speed4|-
-Anti Squadron|B
-FrontShields|4
-SideShields|3
-RearShields|2
-FrontArmament|RR
-SideArmament|RRRB
-RearArmament|RR
+Speed|1 11 011 -
+Shields|4 3 2
+AntiShip|RR RRRB RR
 AntiSquadron|BB
 Upgrade|Title Officer TurboLaser Offensive Defensive WeaponTeam Ordnance
 FrontArcOffset|2
@@ -404,20 +305,13 @@ DefenseTokens|Rd Br Rd Cn
 Command|3
 Squad|3
 Eng|4
-Speed1|1
-Speed2|11
-Speed3|-
-Speed4|-
-FrontShields|4
-SideShields|4
-RearShields|3
-FrontArmament|RRB
-SideArmament|RRRBB
-RearArmament|BRR
+Speed|1 11 - -
+Shields|4 4 3
+AntiShip|RRB RRRBB BRR
 AntiSquadron|BB
 Upgrade|Title Officer Defensive Defensive SupportTeam IonCannon TurboLasers
-FrontArcOffset|0
-RearArcOffset|0
+FrontArcOffset|0.0
+RearArcOffset|0.0
 FrontArcConjunction|64
 RearArcConjunction|63
 
@@ -432,20 +326,13 @@ DefenseTokens|Rd Br Rd Cn
 Command|3
 Squad|4
 Eng|4
-Speed1|1
-Speed2|11
-Speed3|-
-Speed4|-
-FrontShields|4
-SideShields|4
-RearShields|3
-FrontArmament|RBB
-SideArmament|BBBRRR
-RearArmament|BBR
+Speed|1 11 - -
+Shields|4 4 3
+AntiShip|RBB BBBRRR BBR
 AntiSquadron|BB
 Upgrade|Title Officer Defensive Offensive SupportTeam IonCannon TurboLasers
-FrontArcOffset|0
-RearArcOffset|0
+FrontArcOffset|0.0
+RearArcOffset|0.0
 FrontArcConjunction|64
 RearArcConjunction|63
 
@@ -460,20 +347,13 @@ DefenseTokens|Rd Br Cn Cn
 Command|3
 Squad|3
 Eng|4
-Speed1|2
-Speed2|11
-Speed3|011
-Speed4|-
-FrontShields|4
-SideShields|3
-RearShields|3
-FrontArmament|BBBKK
-SideArmament|BBRRR
-RearArmament|BK
+Speed|2 11 011 -
+Shields|4 3 3
+FrontArmament|BBBKK BBRRR BK
 AntiSquadron|BK
 Upgrade|Title Officer Defensive Offensive SupportTeam IonCannon TurboLaser WeaponTeam Ordnance
 FrontArcOffset|20
-RearArcOffset|0
+RearArcOffset|0.0
 FrontArcConjunction|65
 RearArcConjunction|62
 
@@ -488,20 +368,13 @@ DefenseTokens|Rd Br Cn Cn
 Command|3
 Squad|2
 Eng|4
-Speed1|2
-Speed2|11
-Speed3|011
-Speed4|-
-FrontShields|4
-SideShields|3
-RearShields|3
-FrontArmament|BBKKK
-SideArmament|KKRRR
-RearArmament|KK
+Speed|2 11 011 -
+Shields|4 3 3
+AntiShip|BBKKK KKRRR KK
 AntiSquadron|K
 Upgrade|Title Officer Defensive Offensive SupportTeam WeaponTeam Ordnance Ordnance
 FrontArcOffset|20
-RearArcOffset|0
+RearArcOffset|0.0
 FrontArcConjunction|65
 RearArcConjunction|62
 
@@ -512,20 +385,13 @@ Faction|Republic
 Size|Small
 Points|45
 Hull|4
-DefenseTokens|Con Rd Ev
+DefenseTokens|Cn Rd Ev
 Command|1
 Squad|1
 Eng|2
-Speed1|2
-Speed2|21
-Speed3|111
-Speed4|1011
-FrontShields|2
-SideShields|2
-RearShields|1
-FrontArmament|RRB
-SideArmament|RR
-RearArmament|RB
+Speed|2 21 111 1011
+Shields|2 2 1
+AntiShip|RRB RR RB
 AntiSquadron|K
 Upgrade|Title Officer SupportTeam TurboLaser Offensive
 FrontArcOffset|15.1
@@ -540,20 +406,13 @@ Faction|Republic
 Size|Small
 Points|37
 Hull|4
-DefenseTokens|Con Rd Ev
+DefenseTokens|Cn Rd Ev
 Command|1
 Squad|1
 Eng|2
-Speed1|2
-Speed2|21
-Speed3|111
-Speed4|1011
-FrontShields|2
-SideShields|2
-RearShields|1
-FrontArmament|BBK
-SideArmament|BK
-RearArmament|B
+Speed|2 21 111 1011
+Shields|2 2 1
+AntiShip|BBK BK B
 AntiSquadron|BB
 Upgrade|Title SupportTeam Defense Ordnance Officer
 FrontArcOffset|15.1
@@ -572,16 +431,9 @@ DefenseTokens|Sal Rd Br
 Command|3
 Squad|3
 Eng|4
-Speed1|1
-Speed2|10
-Speed3|010
-Speed4|-
-FrontShields|4
-SideShields|2
-RearShields|2
-FrontArmament|RRRBKK
-SideArmament|RRK
-RearArmament|RBK
+Speed|1 10 010 -
+Shields|4 2 2
+AntiShip|RRRBKK RRK RBK
 AntiSquadron|BK
 Upgrade|Title Officer Defense TurboLaser WeaponTeam Ordnance
 FrontArcOffset|24.6
@@ -600,16 +452,9 @@ DefenseTokens|Sal Rd Br
 Command|3
 Squad|3
 Eng|4
-Speed1|1
-Speed2|10
-Speed3|010
-Speed4|-
-FrontShields|4
-SideShields|2
-RearShields|2
-FrontArmament|RRRKKK
-SideArmament|RRK
-RearArmament|RBK
+Speed|1 10 010 -
+Shields|4 2 2
+AntiShip|RRRKKK RRK RBK
 AntiSquadron|KK
 Upgrade|Title Officer TurboLaser Offensive Offensive WeaponTeam Ordnance
 FrontArcOffset|24.6
@@ -628,16 +473,9 @@ DefenseTokens|Sal Rd Br
 Command|2
 Squad|3
 Eng|4
-Speed1|1
-Speed2|12
-Speed3|-
-Speed4|-
-FrontShields|4
-SideShields|3
-RearShields|2
-FrontArmament|RRBB
-SideArmament|RRR
-RearArmament|RR
+Speed|1 12 - -
+Shields|4 3 2
+AntiShip|RRBB RRR RR
 AntiSquadron|R
 Upgrade|Title Officer TurboLaser Offensive SupportTeam Ion Cannon
 FrontArcOffset| 7.9
@@ -657,16 +495,9 @@ DefenseTokens|Sal Rd Br
 Command|2
 Squad|3
 Eng|4
-Speed1|1
-Speed2|12
-Speed3|-
-Speed4|-
-FrontShields|4
-SideShields|3
-RearShields|2
-FrontArmament|RRBB
-SideArmament|RRR
-RearArmament|RR
+Speed|1 12 - -
+Shields|4 3 2
+AntiShip|RRBB RRR RR
 AntiSquadron|RK
 Upgrade|Title Officer TurboLaser Defensive SupportTeam IonCannon
 FrontArcOffset| 7.9
@@ -685,16 +516,9 @@ DefenseTokens|Br Rd Ev
 Command|1
 Squad|2
 Eng|3
-Speed1|2
-Speed2|11
-Speed3|110
-Speed4|-
-FrontShields|3
-SideShields|1
-RearShields|2
-FrontArmament|RRB
-SideArmament|B
-RearArmament|-
+Speed|2 11 11- -
+FrontShields|3 1 2
+AntiShip|RRB B -
 AntiSquadron|B
 Upgrade|Title SupportTeam FleetSupport Officer Officer
 FrontArcOffset| 13.1
@@ -713,17 +537,9 @@ DefenseTokens|Br Rd Ev
 Command|1
 Squad|2
 Eng|3
-NavChart|
-Speed 1|2
-Speed 2|11
-Speed 3|110
-Speed 4|-
-FrontShields|3
-SideShields|1
-RearShields|2
-FrontArmament|RRR
-SideArmament|R
-RearArmament|-
+Speed|2 11 11- -
+FrontShields|3 1 2
+AntiShip|RRR R -
 AntiSquadron|BK
 Upgrade|Title TurboLaser Offensive Defensive Officer
 FrontArcOffset| 13.1
