@@ -6,10 +6,7 @@ import components.tokens.DefenseToken;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 /**
  * A class to read text files and build the ArmadaShips defined by that file.  It holds a single instance of every type
@@ -71,23 +68,34 @@ public class ShipFactory {
                         break;
                      case "Type": this.type = value;
                         break;
-                     case "Keywords": this.keywords = value;
-                        break;
-                     case "Faction": this.faction = value;
+                     case "Keywords": String[] keywordArray = value.split(" ");
+                         this.keywords = new ArrayList<>(Arrays.asList(keywordArray));
+                         break;
+                     case "Faction": this.faction = ParsingUtils.validCoreFaction(value);
                         break;
                      case "Size": this.size = value;
                         break;
-                     case "Points": this.points = value;
+                     case "Points": this.points = ParsingUtils.parseInteger("Points", value);
                         break;
-                     case "Hull": this.hull = value;
+                     case "Hull": this.hull = ParsingUtils.parseInteger("Hull", value);
                         break;
-                     case "DefenseTokens" : this.defenseTokens = value;
+                     case "DefenseTokens" :
+                         ArrayList<DefenseToken> tokens = new ArrayList<>();
+
+                         if(!value.equals("None")){
+                             String[] defenseTokenArray = value.split(" ");
+                             for(String token: defenseTokenArray) {
+                                 ParsingUtils.checkValidDefenseToken(token);
+                                 tokens.add(new DefenseToken(token));
+                             }
+                         }
+                         this.defenseTokens = tokens;
+                         break;
+                     case "Command" : this.command = ParsingUtils.parseInteger("Command", value);
                         break;
-                     case "Command" : this.command = value;
+                     case "Squad" : this.squad = ParsingUtils.parseInteger("Squad", value);
                         break;
-                     case "Squad" : this.squad = value;
-                        break;
-                     case "Eng" : this.engineering = value;
+                     case "Eng" : this.engineering = ParsingUtils.parseInteger("Engineering", value);
                         break;
                      case "Speed" : this.speed = value;
                         break;
@@ -99,13 +107,13 @@ public class ShipFactory {
                         break;
                      case "Upgrade" : this.upgrades = value;
                         break;
-                     case "FrontArcOffset" : this.frontOffset = value;
+                     case "FrontArcOffset" : this.frontOffset = ParsingUtils.parseFloat("Front Offset", value);
                         break;
-                     case "FrontArcConjunction" : this.frontConjunction = value;
+                     case "FrontArcConjunction" : this.frontConjunction = ParsingUtils.parseFloat("Front Conjunction", value);
                         break;
-                     case "RearArcOffset" : this.rearOffset = value;
+                     case "RearArcOffset" : this.rearOffset = ParsingUtils.parseFloat("Rear Offsest", value);
                          break;
-                     case "RearArcConjunction" : this.rearConjunction = value;
+                     case "RearArcConjunction" : this.rearConjunction = ParsingUtils.parseFloat("Rear Conjunction", value);
                          break;
                  }//end switch block
                  ArrayList<String> nulls = listNullFields();
