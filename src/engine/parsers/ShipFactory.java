@@ -1,6 +1,7 @@
 package engine.parsers;
 
-import components.ship.ArmadaShip;
+import components.ship.ProtoShip;
+import components.ship.Ship;
 import components.tokens.DefenseToken;
 
 import java.io.File;
@@ -13,7 +14,7 @@ import java.util.*;
  * return a copy of that Ship.
  */
 public class ShipFactory {
-    private HashMap<String, ArmadaShip> shipMap = new HashMap<>();
+    private HashMap<String, ProtoShip> shipMap = new HashMap<>();
     private String name;
     private String type;
     private ArrayList<String> keywords;
@@ -132,7 +133,7 @@ public class ShipFactory {
      * listing out of order, we can still tell when it is complete.
      */
     private void buildShip() {
-        ArmadaShip newShip = new ArmadaShip(name, type, keywords, faction, size, points, hull, defenseTokens, command,
+        ProtoShip newShip = new ProtoShip(name, type, keywords, faction, size, points, hull, defenseTokens, command,
                 squad, engineering, speed, shields, antiShipDice, antiSquadronDice, upgrades, frontOffset,
                 frontConjunction, rearOffset, rearConjunction);
         this.shipMap.put(newShip.getName(), newShip);
@@ -241,9 +242,9 @@ public class ShipFactory {
      * @param name what Ship do you want
      * @return a copy of that Ship
      */
-    public ArmadaShip getShip(String name){
-        ArmadaShip original = this.shipMap.get(name);
-        return new ArmadaShip(original);
+    public Ship getShip(String name){
+        ProtoShip original = this.shipMap.get(name);
+        return new Ship(original);
     }
 
     public Set<String> getShipTypes(){

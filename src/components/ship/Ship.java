@@ -1,5 +1,6 @@
 package components.ship;
 
+import BBDGameLibrary.Geometry2d.BBDPolygon;
 import components.tokens.DefenseToken;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ public class Ship {
     private String type;
     private ArrayList<String> keywords;
     private String faction;
-    private String size;
+    private ShipSize size;
     private int points;
     private int hull;
     private ArrayList<DefenseToken> defenseTokens;
@@ -27,39 +28,14 @@ public class Ship {
     private float frontOffset;
     private float rearOffset;
 
-    public Ship(String name, String type, ArrayList<String> keywords, String faction,
-                String size, int points, int hull, ArrayList<DefenseToken> defenseTokens,
-                int command, int squad, int engineering, String speed, String shields,
-                String antiShipDice, String antiSquadronDice, String upgrades, float frontOffset,
-                float frontConjunction, float rearOffset, float rearConjunction){
-        this.name = name;
-        this.type = type;
-        this.keywords = keywords;
-        this.faction = faction;
-        this.size = size;
-        this.points = points;
-        this.hull = hull;
-        this.defenseTokens = defenseTokens;
-        this.command = command;
-        this.squad = squad;
-        this.engineering = engineering;
-        this.speed = speed;
-        this.shields = shields;
-        this.antiShipDice = antiShipDice;
-        this.antiSquadronDice = antiSquadronDice;
-        this.upgrades = upgrades;
-        this.frontConjunction = frontConjunction;
-        this.frontOffset = frontOffset;
-        this.rearConjunction = rearConjunction;
-        this.rearOffset = rearOffset;
-    }
+    private BBDPolygon cardboard;
+    private BBDPolygon plasticBase;
 
-    public Ship(Ship original){
+    public Ship(ProtoShip original){
         this.name = original.name;
         this.type = original.type;
         this.keywords = original.keywords;
         this.faction = original.faction;
-        this.size = original.size;
         this.points = original.points;
         this.hull = original.hull;
         this.defenseTokens = original.defenseTokens;
@@ -75,6 +51,25 @@ public class Ship {
         this.frontOffset = original.frontOffset;
         this.rearConjunction = original.rearConjunction;
         this.rearOffset = original.rearOffset;
+
+        if(original.size.toLowerCase().equals("small")){
+            buildBase(ShipSize.SMALL);
+            this.size = ShipSize.SMALL;
+        }else if(original.size.toLowerCase().equals("medium")){
+            buildBase(ShipSize.MEDIUM);
+            this.size = ShipSize.MEDIUM;
+        }else if(original.size.toLowerCase().equals("large")){
+            buildBase(ShipSize.LARGE);
+            this.size = ShipSize.LARGE;
+        }else if(original.size.toLowerCase().equals("flotilla")) {
+            buildBase(ShipSize.FLOTILLA);
+            this.size = ShipSize.FLOTILLA;
+        }
+    }
+
+    private void buildBase(ShipSize size) {
+        this.cardboard = size.getCardboard();
+        this.plasticBase = size.getPlastic();
     }
 
     public String getName(){

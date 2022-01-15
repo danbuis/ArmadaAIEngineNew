@@ -1,11 +1,8 @@
 package parsers;
 
-import components.ship.ArmadaShip;
+import components.ship.Ship;
 import engine.parsers.ParsingException;
 import engine.parsers.ShipFactory;
-import engine.parsers.SquadronFactory;
-import components.tokens.DefenseToken;
-import components.squadrons.Squadron;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -23,7 +20,7 @@ public class ShipParserTests {
     public void testParseBasicFunctionality() throws FileNotFoundException, ParsingException {
         ShipFactory testParser = new ShipFactory();
 
-        ArmadaShip consular = testParser.getShip("Consular Charger C70");
+        Ship consular = testParser.getShip("Consular Charger C70");
         assertNotNull(consular);
         assertEquals("Consular Charger C70", consular.getName());
         assertEquals("Consular Charger", consular.getType());
@@ -35,8 +32,8 @@ public class ShipParserTests {
     public void testShipsActuallyCopies() throws FileNotFoundException, ParsingException {
         ShipFactory testParser = new ShipFactory();
 
-        ArmadaShip consular1 = testParser.getShip("Consular Charger C70");
-        ArmadaShip consular2 = testParser.getShip("Consular Charger C70");
+        Ship consular1 = testParser.getShip("Consular Charger C70");
+        Ship consular2 = testParser.getShip("Consular Charger C70");
 
         assertNotNull(consular1);
         assertNotNull(consular2);

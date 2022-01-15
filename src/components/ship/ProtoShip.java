@@ -2,29 +2,64 @@ package components.ship;
 
 import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
+import components.tokens.DefenseToken;
+
+import java.util.ArrayList;
 
 /**
- * A class to serve as a precursor to a proper ship class.  Primarily serves as a testing
- * bed for building new objects and the like.
+ * A class to serve as a precursor to a proper ship.  Primarily serves as a data placeholder
+ * before the base attributes are processed into a real ship object
  */
 public class ProtoShip {
-    private BBDPoint currentLocation = new BBDPoint(0,0);
-    private float orientation = 0f;  //probably degrees
-    private final String faction;
-    private final ShipSize size;
-    private BBDPolygon cardboard;
-    private BBDPolygon plasticBase;
+    String name;
+    String type;
+    ArrayList<String> keywords;
+    String faction;
+    String size;
+    int points;
+    int hull;
+    ArrayList<DefenseToken> defenseTokens;
+    int command;
+    int squad;
+    int engineering;
+    String speed;
+    String shields;
+    String antiShipDice;
+    String antiSquadronDice;
+    String upgrades;
+    float frontConjunction;
+    float rearConjunction;
+    float frontOffset;
+    float rearOffset;
 
-    public ProtoShip(String faction, ShipSize size){
+    public ProtoShip(String name, String type, ArrayList<String> keywords, String faction,
+                String size, int points, int hull, ArrayList<DefenseToken> defenseTokens,
+                int command, int squad, int engineering, String speed, String shields,
+                String antiShipDice, String antiSquadronDice, String upgrades, float frontOffset,
+                float frontConjunction, float rearOffset, float rearConjunction){
+        this.name = name;
+        this.type = type;
+        this.keywords = keywords;
         this.faction = faction;
         this.size = size;
-        buildBase(size);
+        this.points = points;
+        this.hull = hull;
+        this.defenseTokens = defenseTokens;
+        this.command = command;
+        this.squad = squad;
+        this.engineering = engineering;
+        this.speed = speed;
+        this.shields = shields;
+        this.antiShipDice = antiShipDice;
+        this.antiSquadronDice = antiSquadronDice;
+        this.upgrades = upgrades;
+        this.frontConjunction = frontConjunction;
+        this.frontOffset = frontOffset;
+        this.rearConjunction = rearConjunction;
+        this.rearOffset = rearOffset;
     }
 
-    private void buildBase(ShipSize size) {
-       this.cardboard = size.getCardboard();
-       this.plasticBase = size.getPlastic();
+    public String getName(){
+        return name;
     }
-
-
 }
