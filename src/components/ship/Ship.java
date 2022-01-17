@@ -1,5 +1,6 @@
 package components.ship;
 
+import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import components.tokens.DefenseToken;
 
@@ -65,6 +66,39 @@ public class Ship {
             buildBase(ShipSize.FLOTILLA);
             this.size = ShipSize.FLOTILLA;
         }
+
+        buildHullZones(this.size, original.frontOffset, original.frontConjunction, original.rearOffset, original.rearConjunction, original.shields, original.antiShipDice);
+    }
+
+    private void buildHullZones(ShipSize size, float frontOffset, float frontConjunction, float rearOffset, float rearConjunction, String shields, String antiShipDice) {
+        BBDPolygon cardboard = size.getCardboard();
+        BBDPoint FL = cardboard.getPoints().get(0);
+        BBDPoint FR = cardboard.getPoints().get(1);
+        BBDPoint RR = cardboard.getPoints().get(2);
+        BBDPoint RL = cardboard.getPoints().get(3);
+        BBDPoint front = new BBDPoint(0, frontConjunction);
+        BBDPoint rear = new BBDPoint(0, rearConjunction);
+        BBDPoint FLintercept = new BBDPoint(size.getWidth()/-2f, size.getLength()/2f-frontOffset);
+        BBDPoint FRintercept = new BBDPoint(size.getWidth()/2f, size.getLength()/2f-frontOffset);
+        BBDPoint RLintercept = new BBDPoint(size.getWidth()/-2f, size.getLength()/-2f+rearOffset);
+        BBDPoint RRintercept = new BBDPoint(size.getWidth()/2f, size.getLength()/-2f+rearOffset);
+        BBDPoint[] frontPerimeter = {front, FLintercept, FL, FR, FRintercept};
+        BBDPoint[] rightPerimeter = {front, FRintercept, RRintercept, rear};
+        BBDPoint[] rearPerimeter = {rear, RRintercept, RR, RL, RLintercept};
+        BBDPoint[] leftPerimeter = {rear, RLintercept, FLintercept, front};
+
+        String[] shieldValues = shields.split(" ");
+        String[] armaments = antiShipDice.split(" ");
+
+        HullZone frontHullZone = new HullZone(frontPerimeter, armaments[0], Integer.parseInt(shieldValues[0]), this);
+        HullZone rightHullZone = new HullZone(rightPerimeter, armaments[1], Integer.parseInt(shieldValues[1]), this);
+        HullZone leftHullZone = new HullZone(leftPerimeter, armaments[1], Integer.parseInt(shieldValues[1]), this);
+        HullZone rearHullZone = new HullZone(rearPerimeter, armaments[2], Integer.parseInt(shieldValues[2]), this);
+
+        frontHullZone.addAdjacentHullZone(new HullZone[]{rightHullZone, leftHullZone});
+        rightHullZone.addAdjacentHullZone(new HullZone[]{frontHullZone, rearHullZone});
+        rearHullZone.addAdjacentHullZone(new HullZone[]{rightHullZone, leftHullZone});
+        leftHullZone.addAdjacentHullZone(new HullZone[]{frontHullZone, rearHullZone});
     }
 
     private void buildBase(ShipSize size) {
