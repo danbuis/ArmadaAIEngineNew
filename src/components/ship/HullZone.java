@@ -14,7 +14,7 @@ public class HullZone {
     private Ship parent;
     private BBDSegment[] outsideEdge;
     private BBDPolygon hullzoneGeometry;
-    private HullZone[] adjacentHullZones;
+    private ArrayList<HullZone> adjacentHullZones = new ArrayList<>();
 
     public HullZone(BBDPoint[] perimeter, String armament, int shields, Ship parent){
         this.armament = armament;
@@ -27,7 +27,24 @@ public class HullZone {
         this.outsideEdge = segments.toArray(new BBDSegment[0]);
     }
 
-    public void addAdjacentHullZone(HullZone[] adjacents){
-        this.adjacentHullZones = adjacents;
+    public void addAdjacentHullZone(HullZone zone1, HullZone zone2){
+        this.adjacentHullZones.add(zone1);
+        this.adjacentHullZones.add(zone2);
+    }
+
+    public String getArmament(){
+        return this.armament;
+    }
+
+    public int getRemainingShields(){
+        return this.shields;
+    }
+
+    public ArrayList<HullZone> getAdjacentHullZones(){
+        return this.adjacentHullZones;
+    }
+
+    public BBDPolygon getHullzoneGeometry(){
+        return hullzoneGeometry;
     }
 }
