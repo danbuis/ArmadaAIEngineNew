@@ -5,6 +5,7 @@ import BBDGameLibrary.Geometry2d.BBDPolygon;
 import components.tokens.DefenseToken;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class Ship {
@@ -24,11 +25,8 @@ public class Ship {
     private String antiShipDice;
     private String antiSquadronDice;
     private String upgrades;
-    private float frontConjunction;
-    private float rearConjunction;
-    private float frontOffset;
-    private float rearOffset;
 
+    private ArrayList<HullZone> hullzones = new ArrayList<>();
     private BBDPolygon cardboard;
     private BBDPolygon plasticBase;
 
@@ -48,10 +46,7 @@ public class Ship {
         this.antiShipDice = original.antiShipDice;
         this.antiSquadronDice = original.antiSquadronDice;
         this.upgrades = original.upgrades;
-        this.frontConjunction = original.frontConjunction;
-        this.frontOffset = original.frontOffset;
-        this.rearConjunction = original.rearConjunction;
-        this.rearOffset = original.rearOffset;
+
 
         if(original.size.toLowerCase().equals("small")){
             buildBase(ShipSize.SMALL);
@@ -67,17 +62,17 @@ public class Ship {
             this.size = ShipSize.FLOTILLA;
         }
 
-        buildHullZones(this.size, original.frontOffset, original.frontConjunction, original.rearOffset, original.rearConjunction, original.shields, original.antiShipDice);
+        this.hullzones = buildHullZones(this.size, original.frontOffset, original.frontConjunction, original.rearOffset, original.rearConjunction, original.shields, original.antiShipDice);
     }
 
-    private void buildHullZones(ShipSize size, float frontOffset, float frontConjunction, float rearOffset, float rearConjunction, String shields, String antiShipDice) {
+    private ArrayList<HullZone> buildHullZones(ShipSize size, float frontOffset, float frontConjunction, float rearOffset, float rearConjunction, String shields, String antiShipDice) {
         BBDPolygon cardboard = size.getCardboard();
-        BBDPoint FL = cardboard.getPoints().get(0);
-        BBDPoint FR = cardboard.getPoints().get(1);
-        BBDPoint RR = cardboard.getPoints().get(2);
-        BBDPoint RL = cardboard.getPoints().get(3);
-        BBDPoint front = new BBDPoint(0, frontConjunction);
-        BBDPoint rear = new BBDPoint(0, rearConjunction);
+        BBDPoint FR = cardboard.getPoints().get(0);
+        BBDPoint FL = cardboard.getPoints().get(1);
+        BBDPoint RL = cardboard.getPoints().get(2);
+        BBDPoint RR = cardboard.getPoints().get(3);
+        BBDPoint front = new BBDPoint(0, size.getLength()/2f - frontConjunction);
+        BBDPoint rear = new BBDPoint(0, size.getLength() / -2f + rearConjunction);
         BBDPoint FLintercept = new BBDPoint(size.getWidth()/-2f, size.getLength()/2f-frontOffset);
         BBDPoint FRintercept = new BBDPoint(size.getWidth()/2f, size.getLength()/2f-frontOffset);
         BBDPoint RLintercept = new BBDPoint(size.getWidth()/-2f, size.getLength()/-2f+rearOffset);
@@ -95,15 +90,22 @@ public class Ship {
         HullZone leftHullZone = new HullZone(leftPerimeter, armaments[1], Integer.parseInt(shieldValues[1]), this);
         HullZone rearHullZone = new HullZone(rearPerimeter, armaments[2], Integer.parseInt(shieldValues[2]), this);
 
-        frontHullZone.addAdjacentHullZone(new HullZone[]{rightHullZone, leftHullZone});
-        rightHullZone.addAdjacentHullZone(new HullZone[]{frontHullZone, rearHullZone});
-        rearHullZone.addAdjacentHullZone(new HullZone[]{rightHullZone, leftHullZone});
-        leftHullZone.addAdjacentHullZone(new HullZone[]{frontHullZone, rearHullZone});
+        frontHullZone.addAdjacentHullZone(rightHullZone, leftHullZone);
+        rightHullZone.addAdjacentHullZone(frontHullZone, rearHullZone);
+        rearHullZone.addAdjacentHullZone(rightHullZone, leftHullZone);
+        leftHullZone.addAdjacentHullZone(frontHullZone, rearHullZone);
+
+        ArrayList<HullZone> returnList = new ArrayList<HullZone>(Arrays.asList(new HullZone[]{frontHullZone, rightHullZone, rearHullZone, leftHullZone}));
+        return returnList;
     }
 
     private void buildBase(ShipSize size) {
         this.cardboard = size.getCardboard();
         this.plasticBase = size.getPlastic();
+    }
+
+    public ArrayList<HullZone> getHullZones(){
+        return this.hullzones;
     }
 
     public String getName(){
