@@ -61,6 +61,7 @@ public class HullZoneTests {
         assertEquals(new BBDPoint(-20.5f, 35.5f), points.get(2));
         assertEquals(new BBDPoint(20.5f, 35.5f), points.get(3));
         assertEquals(new BBDPoint(20.5f, 15.7f), points.get(4));
+        assertEquals(5, points.size());
     }
 
     @Test
@@ -74,5 +75,32 @@ public class HullZoneTests {
         assertEquals(new BBDPoint(20.5f, -35.5f), points.get(2));
         assertEquals(new BBDPoint(-20.5f, -35.5f), points.get(3));
         assertEquals(new BBDPoint(-20.5f, -29.9f), points.get(4));
+        assertEquals(5, points.size());
+    }
+
+    @Test
+    public void testRightGeometry() throws FileNotFoundException, ParsingException {
+        ShipFactory test = new ShipFactory();
+        Ship ship = test.getShip("CR90 Corvette A");
+        HullZone zoneToTest = ship.getHullZones().get(1);
+        ArrayList<BBDPoint> points = zoneToTest.getHullzoneGeometry().getPoints();
+        assertEquals(new BBDPoint(0, -7.5f), points.get(0));
+        assertEquals(new BBDPoint(20.5f, 15.7f), points.get(1));
+        assertEquals(new BBDPoint(20.5f, -29.9f), points.get(2));
+        assertEquals(new BBDPoint(0, -7.5f), points.get(3));
+        assertEquals(4, points.size());
+    }
+
+    @Test
+    public void testLeftGeometry() throws FileNotFoundException, ParsingException {
+        ShipFactory test = new ShipFactory();
+        Ship ship = test.getShip("CR90 Corvette A");
+        HullZone zoneToTest = ship.getHullZones().get(3);
+        ArrayList<BBDPoint> points = zoneToTest.getHullzoneGeometry().getPoints();
+        assertEquals(new BBDPoint(0, -7.5f), points.get(0));
+        assertEquals(new BBDPoint(-20.5f, -29.9f), points.get(1));
+        assertEquals(new BBDPoint(-20.5f, 15.7f), points.get(2));
+        assertEquals(new BBDPoint(0, -7.5f), points.get(3));
+        assertEquals(4, points.size());
     }
 }
