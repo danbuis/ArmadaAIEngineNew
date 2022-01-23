@@ -1,4 +1,5 @@
 import BBDGameLibrary.Geometry2d.BBDPoint;
+import BBDGameLibrary.Geometry2d.BBDSegment;
 import components.ship.HullZone;
 import components.ship.Ship;
 import engine.parsers.ParsingException;
@@ -65,6 +66,18 @@ public class HullZoneTests {
     }
 
     @Test
+    public void testFrontGeometryOutside() throws FileNotFoundException, ParsingException {
+        ShipFactory test = new ShipFactory();
+        Ship ship = test.getShip("CR90 Corvette A");
+        HullZone zoneToTest = ship.getHullZones().get(0);
+        ArrayList<BBDSegment> edge = zoneToTest.getOutsideEdge();
+        assertEquals(3, edge.size());
+        assertTrue(edge.contains(new BBDSegment(new BBDPoint(-20.5f, 15.7f), new BBDPoint(-20.5f, 35.5f))));
+        assertTrue(edge.contains(new BBDSegment(new BBDPoint(20.5f, 35.5f), new BBDPoint(-20.5f, 35.5f))));
+        assertTrue(edge.contains(new BBDSegment(new BBDPoint(20.5f, 15.7f), new BBDPoint(20.5f, 35.5f))));
+    }
+
+    @Test
     public void testRearGeometry() throws FileNotFoundException, ParsingException {
         ShipFactory test = new ShipFactory();
         Ship ship = test.getShip("CR90 Corvette A");
@@ -76,6 +89,18 @@ public class HullZoneTests {
         assertEquals(new BBDPoint(-20.5f, -35.5f), points.get(3));
         assertEquals(new BBDPoint(-20.5f, -29.9f), points.get(4));
         assertEquals(5, points.size());
+    }
+
+    @Test
+    public void testRearGeometryOutside() throws FileNotFoundException, ParsingException {
+        ShipFactory test = new ShipFactory();
+        Ship ship = test.getShip("CR90 Corvette A");
+        HullZone zoneToTest = ship.getHullZones().get(2);
+        ArrayList<BBDSegment> edge = zoneToTest.getOutsideEdge();
+        assertEquals(3, edge.size());
+        assertTrue(edge.contains(new BBDSegment(new BBDPoint(20.5f, -29.9f), new BBDPoint(20.5f, -35.5f))));
+        assertTrue(edge.contains(new BBDSegment(new BBDPoint(20.5f, -35.5f), new BBDPoint(-20.5f, -35.5f))));
+        assertTrue(edge.contains(new BBDSegment(new BBDPoint(-20.5f, -29.9f), new BBDPoint(-20.5f, -35.5f))));
     }
 
     @Test
@@ -92,6 +117,16 @@ public class HullZoneTests {
     }
 
     @Test
+    public void testRightGeometryOutside() throws FileNotFoundException, ParsingException {
+        ShipFactory test = new ShipFactory();
+        Ship ship = test.getShip("CR90 Corvette A");
+        HullZone zoneToTest = ship.getHullZones().get(1);
+        ArrayList<BBDSegment> edge = zoneToTest.getOutsideEdge();
+        assertEquals(1, edge.size());
+        assertTrue(edge.contains(new BBDSegment(new BBDPoint(20.5f, 15.7f), new BBDPoint(20.5f, -29.9f))));
+    }
+
+    @Test
     public void testLeftGeometry() throws FileNotFoundException, ParsingException {
         ShipFactory test = new ShipFactory();
         Ship ship = test.getShip("CR90 Corvette A");
@@ -102,5 +137,15 @@ public class HullZoneTests {
         assertEquals(new BBDPoint(-20.5f, 15.7f), points.get(2));
         assertEquals(new BBDPoint(0, -7.5f), points.get(3));
         assertEquals(4, points.size());
+    }
+
+    @Test
+    public void testLeftGeometryOutside() throws FileNotFoundException, ParsingException {
+        ShipFactory test = new ShipFactory();
+        Ship ship = test.getShip("CR90 Corvette A");
+        HullZone zoneToTest = ship.getHullZones().get(3);
+        ArrayList<BBDSegment> edge = zoneToTest.getOutsideEdge();
+        assertEquals(1, edge.size());
+        assertTrue(edge.contains(new BBDSegment(new BBDPoint(-20.5f, 15.7f), new BBDPoint(-20.5f, -29.9f))));
     }
 }
