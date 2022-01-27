@@ -9,8 +9,10 @@ import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.OpenGL.*;
 import BBDGameLibrary.Utils.GeometryGenerators;
 import BBDGameLibrary.Utils.ShaderPrograms;
+import GUI.board.ShipRenderer;
 import GUI.board.SquadronRenderer;
 import engine.parsers.ParsingException;
+import engine.parsers.ShipFactory;
 import engine.parsers.SquadronFactory;
 import components.DemoMap;
 import org.joml.Vector2d;
@@ -63,7 +65,7 @@ public class ArmadaGame implements GameComponent {
         this.itemsToRender.addItems(demoMap);
         window.setZFar(GameConstants.ZOOM_MAXIMUM + 5);
         //Temporary - just list out all the squadrons and show them all
-        squadrons = new ArrayList<>();
+
         try {
             SquadronFactory squadronFactory = new SquadronFactory();
             SquadronRenderer temp;
@@ -78,9 +80,23 @@ public class ArmadaGame implements GameComponent {
 
                 temp.relocate(new BBDPoint(currentCol * 40, currentRow * 40));
                 currentCol++;
-                System.out.println(temp.getLocation());
-                squadrons.add(temp);
                 this.itemsToRender.addItems(temp.getGameItems());
+            }
+
+            ShipFactory shipFactory = new ShipFactory();
+            ShipRenderer tempShip;
+            currentCol = 0;
+            currentRow = 0;
+            for (String shipName : shipFactory.getShipTypes()){
+                tempShip = new ShipRenderer(shipFactory.getShip(shipName));
+                if(currentCol == 5){
+                    currentRow++;
+                    currentCol=0;
+                }
+
+                tempShip.relocate(new BBDPoint(currentCol * -80 - 80, currentRow * 150));
+                currentCol++;
+                this.itemsToRender.addItems(tempShip.getGameItems());
             }
 
         } catch (FileNotFoundException e) {

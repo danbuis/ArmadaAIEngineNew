@@ -1,5 +1,5 @@
 Name|Gladiator I-class Star Destroyer
-Type|Gladiator
+Type|Gladiator Star Destroyer
 Keywords|None
 Faction|Imperial
 Size|Small
@@ -20,7 +20,7 @@ FrontArcConjunction|33
 RearArcConjunction|37
 
 Name|Gladiator II-class Star Destroyer
-Type|Gladiator
+Type|Gladiator Star Destroyer
 Keywords|None
 Faction|Imperial
 Size|Small
@@ -41,7 +41,7 @@ FrontArcConjunction|33
 RearArcConjunction|37
 
 Name|Victory I-class Star Destroyer
-Type|Victory
+Type|Victory Star Destroyer
 Keywords|None
 Faction|Imperial
 Size|Medium
@@ -62,7 +62,7 @@ FrontArcConjunction|47
 RearArcConjunction|54
 
 Name|Victory II-class Star Destroyer
-Type|Victory
+Type|Victory Star Destroyer
 Keywords|None
 Faction|Imperial
 Size|Medium

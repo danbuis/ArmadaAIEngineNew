@@ -1,5 +1,6 @@
 package components.ship;
 
+import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import components.tokens.DefenseToken;
 
@@ -27,6 +28,7 @@ public class Ship {
     private float rearConjunction;
     private float frontOffset;
     private float rearOffset;
+    private BBDPoint location;
 
     private BBDPolygon cardboard;
     private BBDPolygon plasticBase;
@@ -65,6 +67,12 @@ public class Ship {
             buildBase(ShipSize.FLOTILLA);
             this.size = ShipSize.FLOTILLA;
         }
+
+        this.location = new BBDPoint(0,0);
+    }
+
+    public void moveNew(BBDPoint newPoint){
+        this.location = newPoint;
     }
 
     private void buildBase(ShipSize size) {
@@ -82,5 +90,26 @@ public class Ship {
 
     public ArrayList<String> getKeywords() {
         return keywords;
+    }
+
+    public BBDPoint getLocation(){
+        return this.location;
+    }
+
+    public ShipSize getSize(){
+        return this.size;
+    }
+
+    /**
+     * Build a string based on the ship object's properties to grab the appropriate descriptively named file.
+     * Concatenates a few fields and cleans up outstanding chars like spaces, quotes etc.
+     * @return image file to be used from the assets directory
+     */
+    public String buildShipFileName() {
+        String baseFileName = this.faction + "_" + this.type;
+
+        String cleanedFileName = baseFileName.toLowerCase().replace(" ", "_");
+
+        return "ship_" + cleanedFileName;
     }
 }
