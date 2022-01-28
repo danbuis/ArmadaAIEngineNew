@@ -30,6 +30,27 @@ public class ParsingUtils {
     }//end parseInteger
 
     /**
+     * A util method to validate floats.  Assumes that all strings that need to be made to floats are positive
+     * and non-zero
+     * @param fieldName the field name you are checkng, used to populate error messages
+     * @param input the string you are validating/converting
+     * @return String as a float
+     * @throws ParsingException
+     */
+    public static float parseFloat(String fieldName, String input) throws ParsingException {
+        try{
+            float returnFloat = Float.parseFloat(input);
+            if(returnFloat < 0){
+                throw new ParsingException("Illegal float value found for "+fieldName+" : "+input+".");
+            }
+            return returnFloat;
+        }
+        catch(NumberFormatException e){
+            throw new ParsingException("Non float value found for "+fieldName+" : "+input+".");
+        }//end try-catch
+    }//end parseFloat
+
+    /**
      * A util method to validate a line and split it into a key/value pair.
      * @param line the line of text from the input file
      * @return an array of parts of the line
