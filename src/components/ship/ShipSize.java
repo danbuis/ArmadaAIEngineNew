@@ -23,6 +23,14 @@ public enum ShipSize {
         this.size = size;
     }
 
+    public float getWidth(){
+        return this.width;
+    }
+
+    public float getLength(){
+        return this.length;
+    }
+
     /**
      * Get a polygon representing the cardboard rectangle for a ship
      * @return cardboard
