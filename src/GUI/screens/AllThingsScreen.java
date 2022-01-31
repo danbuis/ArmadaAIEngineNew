@@ -1,0 +1,203 @@
+package GUI.screens;
+
+import BBDGameLibrary.GameEngine.Camera;
+import BBDGameLibrary.GameEngine.GameComponent;
+import BBDGameLibrary.GameEngine.MouseInput;
+import BBDGameLibrary.GameEngine.MouseInputHandler;
+import BBDGameLibrary.Geometry2d.BBDPoint;
+import BBDGameLibrary.Geometry2d.BBDPolygon;
+import BBDGameLibrary.OpenGL.*;
+import BBDGameLibrary.Utils.GeometryGenerators;
+import BBDGameLibrary.Utils.ShaderPrograms;
+import GUI.board.ShipRenderer;
+import GUI.board.SquadronRenderer;
+import components.DemoMap;
+import engine.GameConstants;
+import engine.GameItemSorter;
+import engine.parsers.ParsingException;
+import engine.parsers.ShipFactory;
+import engine.parsers.SquadronFactory;
+import org.joml.Vector2d;
+import org.joml.Vector3f;
+
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+
+/**ArmadaGame holds the root logic for the game.  Any object present in the game is eventually attached to here.  It
+ * implements the GameComponent interface, which means that contractually it MUST implement the required 5 functions.
+ */
+public class AllThingsScreen implements GameComponent {
+    //An object to handle rendering to the screen
+    private final Renderer renderer;
+    //An object representing our POV in space looking at GameItems.  Essentially a container for some coordinates with a
+    //a few niceties built in
+    private final Camera camera;
+    //An object representing the 3x3 mat a demo game is played on
+    private DemoMap demoMap;
+
+    private ArrayList<SquadronRenderer> squadrons;
+
+
+    private int currentZoom = 920;
+    private GameItemSorter itemsToRender = new GameItemSorter();
+    private boolean activePan = false;
+    private Vector2d mousePanStart = null;
+    private Vector3f cameraPanStart = null;
+    MouseInputHandler inputHandler = new MouseInputHandler();
+    Vector3f mouseProjection = null;
+    Vector2d mouseLocationOnMap = null;
+
+    /**
+     * A basic constructor.  Sets up the items only need one instance that is then shared between objects
+     */
+    public AllThingsScreen() {
+        renderer = new Renderer();
+        camera = new Camera();
+    }
+
+    /**
+     * All GameComponents and objects that implement GameComponent need this function.  It acts similar to a constructor
+     * in that this holds logic needed on initialization.  Most of the time logic could go here or the constructor.
+     * @param window
+     */
+    @Override
+    public void init(Window window) {
+
+        demoMap = initializeDemoMap();
+        this.itemsToRender.addItems(demoMap);
+        window.setZFar(GameConstants.ZOOM_MAXIMUM + 5);
+        //Temporary - just list out all the squadrons and show them all
+
+        try {
+            SquadronFactory squadronFactory = new SquadronFactory();
+            SquadronRenderer temp;
+            int currentCol = 0;
+            int currentRow = 0;
+            for (String squadronName : squadronFactory.getSquadronTypes()){
+                temp = new SquadronRenderer(squadronFactory.getSquadron(squadronName));
+                if(currentCol == 10){
+                    currentRow++;
+                    currentCol=0;
+                }
+
+                temp.relocate(new BBDPoint(currentCol * 40, currentRow * 40));
+                currentCol++;
+                this.itemsToRender.addItems(temp.getGameItems());
+            }
+
+            ShipFactory shipFactory = new ShipFactory();
+            ShipRenderer tempShip;
+            currentCol = 0;
+            currentRow = 0;
+            for (String shipName : shipFactory.getShipTypes()){
+                tempShip = new ShipRenderer(shipFactory.getShip(shipName));
+                if(currentCol == 5){
+                    currentRow++;
+                    currentCol=0;
+                }
+
+                tempShip.relocate(new BBDPoint(currentCol * -80 - 80, currentRow * 150));
+                currentCol++;
+                this.itemsToRender.addItems(tempShip.getGameItems());
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (ParsingException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * All GameComponents and objects that implement GameComponent need this function.  It handles input from the user
+     * and directs it to objects.  For instance the below code passes input to the demoMap, even though the demoMap
+     * doesn't do anything with the input
+
+     * @param window window object everything is being rendered to
+     * @param mouseInput object to handle input from the mouse
+     */
+    @Override
+    public void input(Window window, MouseInput mouseInput) {
+        //zoom logic
+        camera.setPosition(camera.getPosition().x, camera.getPosition().y, this.currentZoom);
+        double scroll = mouseInput.getScrollAmount();
+        if (scroll < 0){
+            this.currentZoom = (int) Math.min(this.currentZoom * 1.07, GameConstants.ZOOM_MAXIMUM);
+
+        }
+        else if (scroll > 0){
+            this.currentZoom = (int) Math.max(this.currentZoom / 1.07, GameConstants.ZOOM_MINIMUM);
+        }
+        mouseInput.clearScrollInput();
+
+        //pan logic
+        if(mouseInput.isRightButtonPressed()){
+            mouseProjection = inputHandler.getMouseDir(window, mouseInput.getCurrentPos(), camera);
+            mouseLocationOnMap = inputHandler.mouseLocationOnPlane(camera, mouseProjection, 0);
+            if (!activePan){
+                activePan=true;
+                mousePanStart = mouseLocationOnMap;
+                cameraPanStart = camera.getPosition();
+            }else{
+                float deltaX = (float)(mousePanStart.x - mouseLocationOnMap.x);
+                float deltaY = (float)(mousePanStart.y - mouseLocationOnMap.y);
+
+                camera.setPosition(cameraPanStart.x + deltaX, cameraPanStart.y + deltaY, camera.getPosition().z);
+            }
+        }else{
+            activePan = false;
+        }
+    }
+
+    /**
+     * All GameComponents and objects that implement GameComponent need this function.  It handles the updates to gameItems
+     * between ticks.  As an example the current code makes sure that the camera is always centered on the map.
+     * @param v time since last update
+     * @param mouseInput object handling mouse input
+     * @parma window Window object where everything is rendered
+     */
+    @Override
+    public void update(float v, MouseInput mouseInput, Window window) {
+
+    }
+
+    /**
+     * All GameComponents and objects that implement GameComponent need this function.  It handles rendering objects.
+     * Child objects can take care of rendering themselves via their own render function.  Right now it renders our map
+     * using one of the built in renderer functions.  The general requirements for rendering are the item/data structure
+     * you want to render, the game window so that there is a target to render to, and the camera, so that the item is
+     * rotated/scaled etc appropriately.
+     * @param window
+     */
+    @Override
+    public void render(Window window) {
+        renderer.resetRenderer(window);
+        for(int i = 0; i < this.itemsToRender.getItemCount(); i++){
+            renderer.renderItem(window, this.itemsToRender.getItem(i), camera);
+            //System.out.println(this.itemsToRender.getItem(i).getPosition());
+        }
+    }
+
+    /**
+     * All GameComponents and objects that implement GameComponent need this function.  It handles anything that must
+     * happen before a GameItem is removed from the game.  Maybe you want to make sure that an item doesn't leave any
+     * orphaned child objects before it is removed, in that case you would call cleanup() on the children in this function
+     */
+    @Override
+    public void cleanup() {
+
+    }
+
+    /**
+     * Build a basic GameItem2d.  Takes a polygon, a shader program, and a texture.
+     * @return
+     */
+    private DemoMap initializeDemoMap(){
+        BBDPolygon poly = GeometryGenerators.buildQuad(GameConstants.SHORT_BOARD_EDGE, GameConstants.SHORT_BOARD_EDGE);
+        ShaderProgram shader = ShaderPrograms.buildBasicTexturedShaderProgram();
+        Texture texture = new Texture("assets/images/maps/map1.jpg");
+
+        return new DemoMap(Mesh.buildMeshFromPolygon(poly, texture), shader, poly, GameConstants.LAYER_MAP_BACKGROUND, true);
+    }
+}
