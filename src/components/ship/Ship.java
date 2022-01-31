@@ -29,6 +29,7 @@ public class Ship {
     private ArrayList<HullZone> hullzones = new ArrayList<>();
     private BBDPolygon cardboard;
     private BBDPolygon plasticBase;
+    private BBDPoint location = new BBDPoint(0,0);
 
     public Ship(ProtoShip original){
         this.name = original.name;
@@ -61,7 +62,7 @@ public class Ship {
             buildBase(ShipSize.FLOTILLA);
             this.size = ShipSize.FLOTILLA;
         }
-
+        
         this.hullzones = buildHullZones(this.size, original.frontOffset, original.frontConjunction, original.rearOffset, original.rearConjunction, original.shields, original.antiShipDice);
     }
 
@@ -139,5 +140,9 @@ public class Ship {
         String cleanedFileName = baseFileName.toLowerCase().replace(" ", "_");
 
         return "ship_" + cleanedFileName;
+    }
+
+    public void moveNew(BBDPoint newLocation){
+        this.location = newLocation;
     }
 }
