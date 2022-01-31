@@ -1,25 +1,22 @@
 package engine;
 
+import BBDGameLibrary.GUI.BBDTextLine;
 import BBDGameLibrary.GameEngine.Camera;
 import BBDGameLibrary.GameEngine.GameComponent;
 import BBDGameLibrary.GameEngine.MouseInput;
 import BBDGameLibrary.GameEngine.MouseInputHandler;
-import BBDGameLibrary.Geometry2d.BBDPoint;
-import BBDGameLibrary.Geometry2d.BBDPolygon;
-import BBDGameLibrary.OpenGL.*;
-import BBDGameLibrary.Utils.GeometryGenerators;
-import BBDGameLibrary.Utils.ShaderPrograms;
-import GUI.board.ShipRenderer;
-import GUI.board.SquadronRenderer;
+import BBDGameLibrary.OpenGL.Renderer;
+import BBDGameLibrary.OpenGL.Window;
+import GUI.screens.HomeScreen;
+import GUI.screens.Screen;
 import engine.parsers.ParsingException;
 import engine.parsers.ShipFactory;
 import engine.parsers.SquadronFactory;
-import components.DemoMap;
 import org.joml.Vector2d;
 import org.joml.Vector3f;
 
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
+
 
 /**ArmadaGame holds the root logic for the game.  Any object present in the game is eventually attached to here.  It
  * implements the GameComponent interface, which means that contractually it MUST implement the required 5 functions.
@@ -30,20 +27,21 @@ public class ArmadaGame implements GameComponent {
     //An object representing our POV in space looking at GameItems.  Essentially a container for some coordinates with a
     //a few niceties built in
     private final Camera camera;
-    //An object representing the 3x3 mat a demo game is played on
-    private DemoMap demoMap;
-
-    private ArrayList<SquadronRenderer> squadrons;
-
-
-    private int currentZoom = 920;
-    private GameItemSorter itemsToRender = new GameItemSorter();
     private boolean activePan = false;
+    private int currentZoom = 920;
+    private Vector3f cameraLocationStart = new Vector3f(0,0, 920);
     private Vector2d mousePanStart = null;
     private Vector3f cameraPanStart = null;
     MouseInputHandler inputHandler = new MouseInputHandler();
     Vector3f mouseProjection = null;
     Vector2d mouseLocationOnMap = null;
+
+    private Screen currentScreen;
+    private enum State {
+        HOME, TEST, GAME_SMALL
+    }
+    private State currentState = State.HOME;
+    private Screen homeScreen;
 
     /**
      * A basic constructor.  Sets up the items only need one instance that is then shared between objects
@@ -60,51 +58,20 @@ public class ArmadaGame implements GameComponent {
      */
     @Override
     public void init(Window window) {
-
-        demoMap = initializeDemoMap();
-        this.itemsToRender.addItems(demoMap);
         window.setZFar(GameConstants.ZOOM_MAXIMUM + 5);
         //Temporary - just list out all the squadrons and show them all
 
         try {
             SquadronFactory squadronFactory = new SquadronFactory();
-            SquadronRenderer temp;
-            int currentCol = 0;
-            int currentRow = 0;
-            for (String squadronName : squadronFactory.getSquadronTypes()){
-                temp = new SquadronRenderer(squadronFactory.getSquadron(squadronName));
-                if(currentCol == 10){
-                    currentRow++;
-                    currentCol=0;
-                }
-
-                temp.relocate(new BBDPoint(currentCol * 40, currentRow * 40));
-                currentCol++;
-                this.itemsToRender.addItems(temp.getGameItems());
-            }
-
             ShipFactory shipFactory = new ShipFactory();
-            ShipRenderer tempShip;
-            currentCol = 0;
-            currentRow = 0;
-            for (String shipName : shipFactory.getShipTypes()){
-                tempShip = new ShipRenderer(shipFactory.getShip(shipName));
-                if(currentCol == 5){
-                    currentRow++;
-                    currentCol=0;
-                }
-
-                tempShip.relocate(new BBDPoint(currentCol * -80 - 80, currentRow * 150));
-                currentCol++;
-                this.itemsToRender.addItems(tempShip.getGameItems());
-            }
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (ParsingException e) {
             e.printStackTrace();
         }
 
+        homeScreen = new HomeScreen(window);
+        this.changeScreens(State.HOME);
     }
 
     /**
@@ -117,35 +84,40 @@ public class ArmadaGame implements GameComponent {
      */
     @Override
     public void input(Window window, MouseInput mouseInput) {
-        //zoom logic
-        camera.setPosition(camera.getPosition().x, camera.getPosition().y, this.currentZoom);
-        double scroll = mouseInput.getScrollAmount();
-        if (scroll < 0){
-            this.currentZoom = (int) Math.min(this.currentZoom * 1.07, GameConstants.ZOOM_MAXIMUM);
+        if (currentState == State.HOME) {
 
-        }
-        else if (scroll > 0){
-            this.currentZoom = (int) Math.max(this.currentZoom / 1.07, GameConstants.ZOOM_MINIMUM);
-        }
-        mouseInput.clearScrollInput();
+        } else {
+            //zoom logic
+            camera.setPosition(camera.getPosition().x, camera.getPosition().y, this.currentZoom);
+            double scroll = mouseInput.getScrollAmount();
+            if (scroll < 0) {
+                this.currentZoom = (int) Math.min(this.currentZoom * 1.07, GameConstants.ZOOM_MAXIMUM);
 
-        //pan logic
-        if(mouseInput.isRightButtonPressed()){
-            mouseProjection = inputHandler.getMouseDir(window, mouseInput.getCurrentPos(), camera);
-            mouseLocationOnMap = inputHandler.mouseLocationOnPlane(camera, mouseProjection, 0);
-            if (!activePan){
-                activePan=true;
-                mousePanStart = mouseLocationOnMap;
-                cameraPanStart = camera.getPosition();
-            }else{
-                float deltaX = (float)(mousePanStart.x - mouseLocationOnMap.x);
-                float deltaY = (float)(mousePanStart.y - mouseLocationOnMap.y);
-
-                camera.setPosition(cameraPanStart.x + deltaX, cameraPanStart.y + deltaY, camera.getPosition().z);
+            } else if (scroll > 0) {
+                this.currentZoom = (int) Math.max(this.currentZoom / 1.07, GameConstants.ZOOM_MINIMUM);
             }
-        }else{
-            activePan = false;
+            mouseInput.clearScrollInput();
+
+            //pan logic
+            if (mouseInput.isRightButtonPressed()) {
+                mouseProjection = inputHandler.getMouseDir(window, mouseInput.getCurrentPos(), camera);
+                mouseLocationOnMap = inputHandler.mouseLocationOnPlane(camera, mouseProjection, 0);
+                if (!activePan) {
+                    activePan = true;
+                    mousePanStart = mouseLocationOnMap;
+                    cameraPanStart = camera.getPosition();
+                } else {
+                    float deltaX = (float) (mousePanStart.x - mouseLocationOnMap.x);
+                    float deltaY = (float) (mousePanStart.y - mouseLocationOnMap.y);
+
+                    camera.setPosition(cameraPanStart.x + deltaX, cameraPanStart.y + deltaY, camera.getPosition().z);
+                }
+            } else {
+                activePan = false;
+            }
         }
+
+
     }
 
     /**
@@ -171,9 +143,11 @@ public class ArmadaGame implements GameComponent {
     @Override
     public void render(Window window) {
         renderer.resetRenderer(window);
-        for(int i = 0; i < this.itemsToRender.getItemCount(); i++){
-            renderer.renderItem(window, this.itemsToRender.getItem(i), camera);
-            //System.out.println(this.itemsToRender.getItem(i).getPosition());
+        for(int i = 0; i < currentScreen.getItems().getItemCount(); i++){
+            renderer.renderItem(window, currentScreen.getItems().getItem(i), camera);
+        }
+        for(BBDTextLine text: currentScreen.getText()){
+            text.renderTextLine(window, renderer, camera);
         }
     }
 
@@ -187,15 +161,11 @@ public class ArmadaGame implements GameComponent {
 
     }
 
-    /**
-     * Build a basic GameItem2d.  Takes a polygon, a shader program, and a texture.
-     * @return
-     */
-    private DemoMap initializeDemoMap(){
-        BBDPolygon poly = GeometryGenerators.buildQuad(GameConstants.SHORT_BOARD_EDGE, GameConstants.SHORT_BOARD_EDGE);
-        ShaderProgram shader = ShaderPrograms.buildBasicTexturedShaderProgram();
-        Texture texture = new Texture("assets/images/maps/map1.jpg");
-
-        return new DemoMap(Mesh.buildMeshFromPolygon(poly, texture), shader, poly, GameConstants.LAYER_MAP_BACKGROUND, true);
+    private void changeScreens(State newState){
+        if (newState == State.HOME){
+            camera.setPosition(cameraLocationStart.x, cameraLocationStart.y, cameraLocationStart.z);
+            this.currentState = State.HOME;
+            this.currentScreen = this.homeScreen;
+        }
     }
 }
