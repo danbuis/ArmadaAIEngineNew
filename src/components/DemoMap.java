@@ -21,7 +21,7 @@ public class DemoMap {
     public final float bottomEdge = -GameConstants.SHORT_BOARD_EDGE/2f;
     public final float rightEdge = GameConstants.SHORT_BOARD_EDGE/2f;
     public final float leftEdge = -GameConstants.SHORT_BOARD_EDGE/2f;
-    
+
     public final GameItem2d background;
     private BBDPolygon poly = GeometryGenerators.buildQuad(GameConstants.SHORT_BOARD_EDGE, GameConstants.SHORT_BOARD_EDGE);
     private ShaderProgram shader = ShaderPrograms.buildBasicTexturedShaderProgram();

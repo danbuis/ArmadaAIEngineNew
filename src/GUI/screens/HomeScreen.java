@@ -4,11 +4,17 @@ import BBDGameLibrary.GUI.BBDFont;
 import BBDGameLibrary.GUI.BBDTextLine;
 import BBDGameLibrary.GameEngine.GameItem;
 import BBDGameLibrary.GameEngine.MouseInput;
+import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.OpenGL.Window;
+import GUI.board.ShipRenderer;
+import GUI.board.SquadronRenderer;
 import engine.ArmadaGame;
+import engine.GameConstants;
+import engine.forces.Fleet;
 import org.joml.Vector2d;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 public class HomeScreen extends Screen implements ScreenWidget{
     private BBDFont font;
@@ -46,21 +52,45 @@ public class HomeScreen extends Screen implements ScreenWidget{
         System.out.println(mousePos);
         GameItem clickedItem = selector.selectItemByMouse(clickables, window, mousePos, parent.getCamera(), 0.001f);
         if (textTestGame.getTextItemList().contains(clickedItem)){
-            System.out.println("Clicked a test char");
-            parent.changeScreens(ScreenState.TEST);
+            parent.changeScreens(ScreenState.TEST, null);
         }else if (textCivilWarDemo.getTextItemList().contains(clickedItem)){
-            System.out.println("Clicked a civil war char");
-            parent.changeScreens(ScreenState.GAME_SMALL);
+            parent.changeScreens(ScreenState.GAME_SMALL, null);
         }else if (textCloneWarDemo.getTextItemList().contains(clickedItem)){
-            System.out.println("Clicked a clone char");
-            parent.changeScreens(ScreenState.GAME_SMALL);
-        }else{
-            System.out.println("Clicked a NONE char");
+            System.out.println("Firing up clone war demo");
+            parent.changeScreens(ScreenState.GAME_SMALL, buildCloneWarDemo());
         }
     }
 
     @Override
     public void update(float v, MouseInput mouseInput) {
 
+    }
+
+    public Fleet[] buildCloneWarDemo(){
+        ArrayList<ShipRenderer> republicShips = new ArrayList<>();
+        ArrayList<SquadronRenderer> republicSquadrons = new ArrayList<>();
+        republicShips.add(new ShipRenderer(parent.shipFactory.getShip("Acclamator I-class Assault Ship")));
+        republicShips.get(republicShips.size()-1).relocate(new BBDPoint(0, GameConstants.SHORT_BOARD_EDGE/2f - GameConstants.DISTANCE_2));
+        republicShips.add(new ShipRenderer(parent.shipFactory.getShip("Consular Charger C70")));
+        republicShips.get(republicShips.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / 4f, GameConstants.SHORT_BOARD_EDGE/2f - GameConstants.DISTANCE_2));
+        republicShips.add(new ShipRenderer(parent.shipFactory.getShip("Consular Charger C70")));
+        republicShips.get(republicShips.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / -4f, GameConstants.SHORT_BOARD_EDGE/2f - GameConstants.DISTANCE_2));
+
+        Fleet republic = new Fleet(republicShips, republicSquadrons);
+
+        ArrayList<ShipRenderer> separatistShips = new ArrayList<>();
+        ArrayList<SquadronRenderer> separatistSquadrons = new ArrayList<>();
+        separatistShips.add(new ShipRenderer(parent.shipFactory.getShip("Munificent-class Comms Frigate")));
+        separatistShips.get(separatistShips.size()-1).relocate(new BBDPoint(0, -GameConstants.SHORT_BOARD_EDGE/2f + GameConstants.DISTANCE_2));
+        separatistShips.add(new ShipRenderer(parent.shipFactory.getShip("Hardcell-class Battle Refit")));
+        separatistShips.get(separatistShips.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / 4f, -GameConstants.SHORT_BOARD_EDGE/2f + GameConstants.DISTANCE_2));
+        separatistShips.add(new ShipRenderer(parent.shipFactory.getShip("Hardcell-class Battle Refit")));
+        separatistShips.get(separatistShips.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / -4f, -GameConstants.SHORT_BOARD_EDGE/2f + GameConstants.DISTANCE_2));
+
+
+        Fleet separatist = new Fleet(separatistShips, separatistSquadrons);
+
+        Fleet[] returnFleets = {republic, separatist};
+        return returnFleets;
     }
 }

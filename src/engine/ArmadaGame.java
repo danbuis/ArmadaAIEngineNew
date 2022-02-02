@@ -7,10 +7,9 @@ import BBDGameLibrary.GameEngine.MouseInput;
 import BBDGameLibrary.GameEngine.MouseInputHandler;
 import BBDGameLibrary.OpenGL.Renderer;
 import BBDGameLibrary.OpenGL.Window;
-import GUI.screens.AllThingsScreen;
-import GUI.screens.HomeScreen;
-import GUI.screens.Screen;
-import GUI.screens.ScreenState;
+import GUI.screens.*;
+import components.DemoMap;
+import engine.forces.Fleet;
 import engine.parsers.ParsingException;
 import engine.parsers.ShipFactory;
 import engine.parsers.SquadronFactory;
@@ -39,10 +38,12 @@ public class ArmadaGame implements GameComponent {
     Vector2d mouseLocationOnMap = null;
     private Window window;
     private Screen currentScreen;
-
+    public ShipFactory shipFactory;
+    public SquadronFactory squadronFactory;
     private ScreenState currentState = ScreenState.HOME;
     private Screen homeScreen;
     private Screen allThingsScreen;
+    private Screen gameScreen;
 
     /**
      * A basic constructor.  Sets up the items only need one instance that is then shared between objects
@@ -62,8 +63,8 @@ public class ArmadaGame implements GameComponent {
         this.window = window;
         window.setZFar(GameConstants.ZOOM_MAXIMUM + 5);
         try {
-            SquadronFactory squadronFactory = new SquadronFactory();
-            ShipFactory shipFactory = new ShipFactory();
+            squadronFactory = new SquadronFactory();
+            shipFactory = new ShipFactory();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (ParsingException e) {
@@ -72,7 +73,7 @@ public class ArmadaGame implements GameComponent {
 
         homeScreen = new HomeScreen(window, this);
         allThingsScreen = new AllThingsScreen(window, this);
-        this.changeScreens(ScreenState.HOME);
+        this.changeScreens(ScreenState.HOME, null);
     }
 
     /**
@@ -163,7 +164,7 @@ public class ArmadaGame implements GameComponent {
 
     }
 
-    public void changeScreens(ScreenState newState){
+    public void changeScreens(ScreenState newState, Fleet[] fleets){
         if (newState == ScreenState.HOME){
             this.currentState = newState;
             camera.setPosition(cameraLocationStart.x, cameraLocationStart.y, cameraLocationStart.z);
@@ -173,6 +174,12 @@ public class ArmadaGame implements GameComponent {
             this.currentState = newState;
             camera.setPosition(cameraLocationStart.x, cameraLocationStart.y, cameraLocationStart.z);
             this.currentScreen = this.allThingsScreen;
+        }
+        if (newState == ScreenState.GAME_SMALL){
+            this.currentState = newState;
+            camera.setPosition(cameraLocationStart.x, cameraLocationStart.y, cameraLocationStart.z);
+            gameScreen = new GameScreen(window, this, new DemoMap(), fleets);
+            this.currentScreen = this.gameScreen;
         }
     }
 
