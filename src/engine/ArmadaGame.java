@@ -7,8 +7,10 @@ import BBDGameLibrary.GameEngine.MouseInput;
 import BBDGameLibrary.GameEngine.MouseInputHandler;
 import BBDGameLibrary.OpenGL.Renderer;
 import BBDGameLibrary.OpenGL.Window;
+import GUI.screens.AllThingsScreen;
 import GUI.screens.HomeScreen;
 import GUI.screens.Screen;
+import GUI.screens.ScreenState;
 import engine.parsers.ParsingException;
 import engine.parsers.ShipFactory;
 import engine.parsers.SquadronFactory;
@@ -35,13 +37,12 @@ public class ArmadaGame implements GameComponent {
     MouseInputHandler inputHandler = new MouseInputHandler();
     Vector3f mouseProjection = null;
     Vector2d mouseLocationOnMap = null;
-
+    private Window window;
     private Screen currentScreen;
-    private enum State {
-        HOME, TEST, GAME_SMALL
-    }
-    private State currentState = State.HOME;
+
+    private ScreenState currentState = ScreenState.HOME;
     private Screen homeScreen;
+    private Screen allThingsScreen;
 
     /**
      * A basic constructor.  Sets up the items only need one instance that is then shared between objects
@@ -58,9 +59,8 @@ public class ArmadaGame implements GameComponent {
      */
     @Override
     public void init(Window window) {
+        this.window = window;
         window.setZFar(GameConstants.ZOOM_MAXIMUM + 5);
-        //Temporary - just list out all the squadrons and show them all
-
         try {
             SquadronFactory squadronFactory = new SquadronFactory();
             ShipFactory shipFactory = new ShipFactory();
@@ -70,8 +70,9 @@ public class ArmadaGame implements GameComponent {
             e.printStackTrace();
         }
 
-        homeScreen = new HomeScreen(window);
-        this.changeScreens(State.HOME);
+        homeScreen = new HomeScreen(window, this);
+        allThingsScreen = new AllThingsScreen(window, this);
+        this.changeScreens(ScreenState.HOME);
     }
 
     /**
@@ -84,9 +85,7 @@ public class ArmadaGame implements GameComponent {
      */
     @Override
     public void input(Window window, MouseInput mouseInput) {
-        if (currentState == State.HOME) {
-
-        } else {
+        if (currentState != ScreenState.HOME) {
             //zoom logic
             camera.setPosition(camera.getPosition().x, camera.getPosition().y, this.currentZoom);
             double scroll = mouseInput.getScrollAmount();
@@ -117,7 +116,10 @@ public class ArmadaGame implements GameComponent {
             }
         }
 
-
+        if (mouseInput.isLeftButtonPressed()) {
+            System.out.println("left button pressed");
+            currentScreen.handleClick(mouseInput.getCurrentPos(), this.window);
+        }
     }
 
     /**
@@ -161,11 +163,20 @@ public class ArmadaGame implements GameComponent {
 
     }
 
-    private void changeScreens(State newState){
-        if (newState == State.HOME){
+    public void changeScreens(ScreenState newState){
+        if (newState == ScreenState.HOME){
+            this.currentState = newState;
             camera.setPosition(cameraLocationStart.x, cameraLocationStart.y, cameraLocationStart.z);
-            this.currentState = State.HOME;
             this.currentScreen = this.homeScreen;
         }
+        if (newState == ScreenState.TEST){
+            this.currentState = newState;
+            camera.setPosition(cameraLocationStart.x, cameraLocationStart.y, cameraLocationStart.z);
+            this.currentScreen = this.allThingsScreen;
+        }
+    }
+
+    public Camera getCamera(){
+        return camera;
     }
 }
