@@ -4,7 +4,10 @@ import BBDGameLibrary.GameEngine.GameItem2d;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.OpenGL.Mesh;
 import BBDGameLibrary.OpenGL.ShaderProgram;
-import org.joml.Matrix4f;
+import BBDGameLibrary.OpenGL.Texture;
+import BBDGameLibrary.Utils.GeometryGenerators;
+import BBDGameLibrary.Utils.ShaderPrograms;
+import engine.GameConstants;
 
 /**
  * A simple class that holds the code for a demo sized map.  It extends GameItem2d, which itself implements GameComponent,
@@ -12,22 +15,19 @@ import org.joml.Matrix4f;
  * library.  It has already implemented the required methods, so we only need to put the ones that we NEED here.  No need
  * for empty methods
  */
-public class DemoMap extends GameItem2d {
+public class DemoMap {
 
-    public DemoMap(Mesh mesh, ShaderProgram shaderProgram, BBDPolygon shape, int layer, boolean shapeInteracts) {
-        super(mesh, shaderProgram, shape, layer, shapeInteracts);
+    public final float topEdge = GameConstants.SHORT_BOARD_EDGE/2f;
+    public final float bottomEdge = -GameConstants.SHORT_BOARD_EDGE/2f;
+    public final float rightEdge = GameConstants.SHORT_BOARD_EDGE/2f;
+    public final float leftEdge = -GameConstants.SHORT_BOARD_EDGE/2f;
+    
+    public final GameItem2d background;
+    private BBDPolygon poly = GeometryGenerators.buildQuad(GameConstants.SHORT_BOARD_EDGE, GameConstants.SHORT_BOARD_EDGE);
+    private ShaderProgram shader = ShaderPrograms.buildBasicTexturedShaderProgram();
+    private Texture texture = new Texture("assets/images/maps/map1.jpg");
+    public DemoMap() {
+        background = new GameItem2d(Mesh.buildMeshFromPolygon(poly, texture), shader, poly, GameConstants.LAYER_MAP_BACKGROUND, true);
     }
 
-    /**
-     * Populate the shader uniforms for this object.  Only the first 2 are in by default, but since we are adding a third,
-     * we need to put them in.
-     * @param projectionMatrix
-     * @param worldMatrix
-     */
-    @Override
-    public void setUniforms(Matrix4f projectionMatrix, Matrix4f worldMatrix) {
-        this.shader.setUniform("projectionMatrix", projectionMatrix);
-        this.shader.setUniform("worldMatrix", worldMatrix);
-        this.shader.setUniform("texture_sampler", 0);
-    }
 }

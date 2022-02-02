@@ -3,13 +3,7 @@ package GUI.screens;
 import BBDGameLibrary.GUI.BBDFont;
 import BBDGameLibrary.GameEngine.MouseInput;
 import BBDGameLibrary.Geometry2d.BBDPoint;
-import BBDGameLibrary.Geometry2d.BBDPolygon;
-import BBDGameLibrary.OpenGL.Mesh;
-import BBDGameLibrary.OpenGL.ShaderProgram;
-import BBDGameLibrary.OpenGL.Texture;
 import BBDGameLibrary.OpenGL.Window;
-import BBDGameLibrary.Utils.GeometryGenerators;
-import BBDGameLibrary.Utils.ShaderPrograms;
 import GUI.board.ShipRenderer;
 import GUI.board.SquadronRenderer;
 import components.DemoMap;
@@ -39,9 +33,8 @@ public class AllThingsScreen extends Screen implements ScreenWidget{
         } catch(FileNotFoundException e){
             System.out.println("font file not found : " + e);
         }
-
-        demoMap = initializeDemoMap();
-        this.addItem(demoMap);
+        demoMap = new DemoMap();
+        this.addItem(demoMap.background);
         window.setZFar(GameConstants.ZOOM_MAXIMUM + 5);
         //Temporary - just list out all the squadrons and show them all
 
@@ -83,18 +76,6 @@ public class AllThingsScreen extends Screen implements ScreenWidget{
         } catch (ParsingException e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * Build a basic GameItem2d.  Takes a polygon, a shader program, and a texture.
-     * @return
-     */
-    private DemoMap initializeDemoMap(){
-        BBDPolygon poly = GeometryGenerators.buildQuad(GameConstants.SHORT_BOARD_EDGE, GameConstants.SHORT_BOARD_EDGE);
-        ShaderProgram shader = ShaderPrograms.buildBasicTexturedShaderProgram();
-        Texture texture = new Texture("assets/images/maps/map1.jpg");
-
-        return new DemoMap(Mesh.buildMeshFromPolygon(poly, texture), shader, poly, GameConstants.LAYER_MAP_BACKGROUND, true);
     }
 
     @Override
