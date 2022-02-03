@@ -1,6 +1,8 @@
 package GUI.screens;
 
 import BBDGameLibrary.GUI.BBDFont;
+import BBDGameLibrary.GUI.BBDTextLine;
+import BBDGameLibrary.GameEngine.GameItem;
 import BBDGameLibrary.GameEngine.MouseInput;
 import BBDGameLibrary.OpenGL.Window;
 import components.DemoMap;
@@ -14,6 +16,7 @@ import java.io.FileNotFoundException;
 public class GameScreen extends Screen implements ScreenWidget{
     private BBDFont font;
     DemoMap board;
+    BBDTextLine textMenu;
 
     public GameScreen(Window window, ArmadaGame parent, DemoMap board, Fleet[] fleets) {
         super(window, parent);
@@ -22,6 +25,12 @@ public class GameScreen extends Screen implements ScreenWidget{
         } catch(FileNotFoundException e){
             System.out.println("font file not found : " + e);
         }
+
+        textMenu = new BBDTextLine(font, 60,"MENU", 100);
+        textMenu.setPosition(-460,-500);
+        this.addText(textMenu);
+        this.addClickableText(textMenu);
+
         this.board = board;
         this.addItem(board.background);
         window.setZFar(GameConstants.ZOOM_MAXIMUM + 5);
@@ -38,7 +47,10 @@ public class GameScreen extends Screen implements ScreenWidget{
 
     @Override
     public void handleClick(Vector2d mousePos, Window window) {
-
+        GameItem clickedItem = selector.selectItemByMouse(clickables, window, mousePos, parent.getCamera(), 0.001f);
+        if (textMenu.getTextItemList().contains(clickedItem)){
+            parent.changeScreens(ScreenState.HOME, null);
+        }
     }
 
     @Override
