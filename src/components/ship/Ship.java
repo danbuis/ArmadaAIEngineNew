@@ -25,6 +25,12 @@ public class Ship {
     private String antiShipDice;
     private String antiSquadronDice;
     private String upgrades;
+    private float frontConjunction;
+    private float rearConjunction;
+    private float frontOffset;
+    private float rearOffset;
+    private BBDPoint location;
+
 
     private ArrayList<HullZone> hullzones = new ArrayList<>();
     private BBDPolygon cardboard;
@@ -62,8 +68,13 @@ public class Ship {
             buildBase(ShipSize.FLOTILLA);
             this.size = ShipSize.FLOTILLA;
         }
-        
         this.hullzones = buildHullZones(this.size, original.frontOffset, original.frontConjunction, original.rearOffset, original.rearConjunction, original.shields, original.antiShipDice);
+        this.location = new BBDPoint(0,0);
+    }
+
+    public void moveNew(BBDPoint newPoint){
+        this.location = newPoint;
+       
     }
 
     private ArrayList<HullZone> buildHullZones(ShipSize size, float frontOffset, float frontConjunction, float rearOffset, float rearConjunction, String shields, String antiShipDice) {
