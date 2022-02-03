@@ -25,7 +25,7 @@ public class DemoMap {
     public final GameItem2d background;
     private BBDPolygon poly = GeometryGenerators.buildQuad(GameConstants.SHORT_BOARD_EDGE, GameConstants.SHORT_BOARD_EDGE);
     private ShaderProgram shader = ShaderPrograms.buildBasicTexturedShaderProgram();
-    private Texture texture = new Texture("assets/images/maps/map1.jpg");
+    private Texture texture = new Texture("assets/images/maps/map_3x3_azure_v3.jpg");
     public DemoMap() {
         background = new GameItem2d(Mesh.buildMeshFromPolygon(poly, texture), shader, poly, GameConstants.LAYER_MAP_BACKGROUND, true);
     }
