@@ -159,10 +159,10 @@ public class ShipFactory {
         antiShipDice = null;
         antiSquadronDice = null;
         upgrades = null;
-        frontOffset = 0.0f;
-        rearOffset = 0.0f;
-        frontConjunction = 0.0f;
-        rearConjunction = 0.0f;
+        frontOffset = Float.POSITIVE_INFINITY;
+        rearOffset = Float.POSITIVE_INFINITY;
+        frontConjunction = Float.POSITIVE_INFINITY;
+        rearConjunction = Float.POSITIVE_INFINITY;
     }
 
     /**
@@ -221,16 +221,16 @@ public class ShipFactory {
         if (upgrades == null){
             nullFields.add("upgrades");
         }
-        if (frontOffset == 0.0f){
+        if (frontOffset == Float.POSITIVE_INFINITY){
             nullFields.add("frontOffset");
         }
-        if (rearOffset == 0.0f){
+        if (rearOffset == Float.POSITIVE_INFINITY){
             nullFields.add("rearOffset");
         }
-        if (frontConjunction == 0.0f){
+        if (frontConjunction == Float.POSITIVE_INFINITY){
             nullFields.add("frontConjunction");
         }
-        if (rearConjunction == 0.0f){
+        if (rearConjunction == Float.POSITIVE_INFINITY){
             nullFields.add("rearConjunction");
         }
 
