@@ -208,7 +208,6 @@ RearArcOffset|15
 FrontArcConjunction|79
 RearArcConjunction|49
 
-
 Name|CR90 Corvette A
 Type|CR90 Corvette
 Keywords|None

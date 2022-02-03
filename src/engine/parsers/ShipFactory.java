@@ -31,10 +31,10 @@ public class ShipFactory {
     private String antiShipDice;
     private String antiSquadronDice;
     private String upgrades;
-    private float frontOffset;
-    private float rearOffset;
-    private float frontConjunction;
-    private float rearConjunction;
+    private float frontOffset = Float.POSITIVE_INFINITY;;
+    private float rearOffset = Float.POSITIVE_INFINITY;;
+    private float frontConjunction = Float.POSITIVE_INFINITY;;
+    private float rearConjunction = Float.POSITIVE_INFINITY;;
 
     private String mostRecentlyCompleted = null;
     private final int NUMBER_OF_FIELDS = 20;

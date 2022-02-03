@@ -29,9 +29,6 @@ public class Ship {
     private float rearConjunction;
     private float frontOffset;
     private float rearOffset;
-    private BBDPoint location;
-
-
     private ArrayList<HullZone> hullzones = new ArrayList<>();
     private BBDPolygon cardboard;
     private BBDPolygon plasticBase;
@@ -151,9 +148,5 @@ public class Ship {
         String cleanedFileName = baseFileName.toLowerCase().replace(" ", "_");
 
         return "ship_" + cleanedFileName;
-    }
-
-    public void moveNew(BBDPoint newLocation){
-        this.location = newLocation;
     }
 }
