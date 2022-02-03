@@ -251,6 +251,49 @@ RearArcOffset|5.6
 FrontArcConjunction|43
 RearArcConjunction|28
 
+Name|Nebulon B Escort Frigate
+Type|Nebulon B
+Keywords|None
+Faction|Rebel
+Size|Small
+Points|57
+Hull|5
+DefenseTokens|Br Br Ev
+Command|2
+Squad|2
+Eng|3
+Speed|1 11 012 -
+Shields|3 1 2
+AntiShip|RRR RB RR
+AntiSquadron|BB
+Upgrade|Title TurboLaser SupportTeam Officer
+FrontArcOffset|0
+RearArcOffset|0
+FrontArcConjunction|0
+RearArcConjunction|0
+
+
+Name|Nebulon B Support Frigate
+Type|Nebulon B
+Keywords|None
+Faction|Rebel
+Size|Small
+Points|54
+Hull|5
+DefenseTokens|Br Br Ev
+Command|2
+Squad|2
+Eng|3
+Speed|1 11 012 -
+Shields|3 1 2
+AntiShip|RRR RB RR
+AntiSquadron|B
+Upgrade|Title TurboLaser SupportTeam Officer
+FrontArcOffset|0
+RearArcOffset|0
+FrontArcConjunction|0
+RearArcConjunction|0
+
 Name|Assault Frigate Mark II A
 Type|Assault Frigate Mark II
 Keywords|None
@@ -294,7 +337,7 @@ FrontArcConjunction|47
 RearArcConjunction|53
 
 Name|MC80 Assault Cruiser
-Type|MC80 Assault Cruiser
+Type|MC80
 Keywords|None
 Faction|Rebel
 Size|Large
@@ -315,7 +358,7 @@ FrontArcConjunction|64
 RearArcConjunction|63
 
 Name|MC80 Command Cruiser
-Type|MC80 Assault Cruiser
+Type|MC80
 Keywords|None
 Faction|Rebel
 Size|Large
@@ -336,7 +379,7 @@ FrontArcConjunction|64
 RearArcConjunction|63
 
 Name|MC75 Armored Cruiser
-Type|MC75 Armored Cruiser
+Type|MC75
 Keywords|None
 Faction|Rebel
 Size|Large
@@ -357,7 +400,7 @@ FrontArcConjunction|65
 RearArcConjunction|62
 
 Name|MC75 Ordnance Cruiser
-Type|MC75 Ordnance Cruiser
+Type|MC75
 Keywords|None
 Faction|Rebel
 Size|Large
