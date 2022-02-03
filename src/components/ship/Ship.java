@@ -25,6 +25,12 @@ public class Ship {
     private String antiShipDice;
     private String antiSquadronDice;
     private String upgrades;
+    private float frontConjunction;
+    private float rearConjunction;
+    private float frontOffset;
+    private float rearOffset;
+    private BBDPoint location;
+
 
     private ArrayList<HullZone> hullzones = new ArrayList<>();
     private BBDPolygon cardboard;
@@ -61,8 +67,13 @@ public class Ship {
             buildBase(ShipSize.FLOTILLA);
             this.size = ShipSize.FLOTILLA;
         }
-
         this.hullzones = buildHullZones(this.size, original.frontOffset, original.frontConjunction, original.rearOffset, original.rearConjunction, original.shields, original.antiShipDice);
+        this.location = new BBDPoint(0,0);
+    }
+
+    public void moveNew(BBDPoint newPoint){
+        this.location = newPoint;
+       
     }
 
     private ArrayList<HullZone> buildHullZones(ShipSize size, float frontOffset, float frontConjunction, float rearOffset, float rearConjunction, String shields, String antiShipDice) {
@@ -118,5 +129,26 @@ public class Ship {
 
     public ArrayList<String> getKeywords() {
         return keywords;
+    }
+
+    public BBDPoint getLocation(){
+        return this.location;
+    }
+
+    public ShipSize getSize(){
+        return this.size;
+    }
+
+    /**
+     * Build a string based on the ship object's properties to grab the appropriate descriptively named file.
+     * Concatenates a few fields and cleans up outstanding chars like spaces, quotes etc.
+     * @return image file to be used from the assets directory
+     */
+    public String buildShipFileName() {
+        String baseFileName = this.faction + "_" + this.type;
+
+        String cleanedFileName = baseFileName.toLowerCase().replace(" ", "_");
+
+        return "ship_" + cleanedFileName;
     }
 }

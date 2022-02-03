@@ -42,7 +42,7 @@ public enum ShipSize {
      * @return plastic
      */
     public BBDPolygon getPlastic() {
-        return GeometryGenerators.buildQuad(this.width + 2* GameConstants.SHIP_BASE_RAILS, this.length);
+        return GeometryGenerators.buildQuad(this.width + 2 * GameConstants.SHIP_BASE_RAILS, this.length);
     }
 
     /**
