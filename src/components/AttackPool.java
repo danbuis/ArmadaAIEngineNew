@@ -15,7 +15,7 @@ public class AttackPool {
     public enum DiceColor {RED, BLUE, BLACK;}
 
     private int currentRolledDamage;
-    private ArrayList<Die> currentPool;
+    private ArrayList<ArmadaDie> currentPool;
     private boolean critEffect;
 
 
@@ -23,7 +23,7 @@ public class AttackPool {
      * General constructor for an attack pool.
      * @param dicePool An ArrayList of Die objects.
      */
-    public AttackPool(ArrayList<Die> dicePool){
+    public AttackPool(ArrayList<ArmadaDie> dicePool){
         this.currentPool = dicePool;
         this.rollPool();
     }
@@ -35,12 +35,12 @@ public class AttackPool {
      * @param black How many black dice are in the pool
      * @return List of new Die objects
      */
-    public static ArrayList<Die> getDice(int red, int blue, int black){
-        ArrayList<Die> redDice = getDice(DiceColor.RED, red);
-        ArrayList<Die> blueDice = getDice(DiceColor.BLUE, blue);
-        ArrayList<Die> blackDice = getDice(DiceColor.BLACK, black);
+    public static ArrayList<ArmadaDie> getDice(int red, int blue, int black){
+        ArrayList<ArmadaDie> redDice = getDice(DiceColor.RED, red);
+        ArrayList<ArmadaDie> blueDice = getDice(DiceColor.BLUE, blue);
+        ArrayList<ArmadaDie> blackDice = getDice(DiceColor.BLACK, black);
 
-        ArrayList<Die> combined = new ArrayList<>();
+        ArrayList<ArmadaDie> combined = new ArrayList<>();
         combined.addAll(blackDice);
         combined.addAll(blueDice);
         combined.addAll(redDice);
@@ -54,20 +54,20 @@ public class AttackPool {
      * @param quantity How many dice are in the pool.
      * @return List of new Die objects
      */
-    private static ArrayList<Die> getDice(DiceColor color, int quantity){
+    private static ArrayList<ArmadaDie> getDice(DiceColor color, int quantity){
         DiceFacings[] redFacings = {DiceFacings.HIT, DiceFacings.HIT, DiceFacings.DOUBLE_HIT, DiceFacings.CRIT, DiceFacings.CRIT, DiceFacings.ACCURACY, DiceFacings.BLANK, DiceFacings.BLANK};
         DiceFacings[] blueFacings = {DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.CRIT, DiceFacings.CRIT, DiceFacings.ACCURACY, DiceFacings.ACCURACY};
         DiceFacings[] blackFacings = {DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT, DiceFacings.HIT_CRIT, DiceFacings.HIT_CRIT, DiceFacings.BLANK, DiceFacings.BLANK};
 
-        ArrayList<Die> returnDice = new ArrayList<>();
+        ArrayList<ArmadaDie> returnDice = new ArrayList<>();
 
         for(int i = 0; i < quantity; i++){
             if(color == DiceColor.RED){
-                returnDice.add(new Die<DiceFacings>(redFacings));
+                returnDice.add(new ArmadaDie<DiceFacings>(redFacings, color));
             }else if (color == DiceColor.BLUE){
-                returnDice.add(new Die<DiceFacings>(blueFacings));
+                returnDice.add(new ArmadaDie<DiceFacings>(blueFacings, color));
             }else if (color == DiceColor.BLACK){
-                returnDice.add(new Die<DiceFacings>(blackFacings));
+                returnDice.add(new ArmadaDie<DiceFacings>(blackFacings, color));
             }
         }
         return returnDice;
@@ -97,7 +97,7 @@ public class AttackPool {
      * @param color Color of the new die
      */
     public void addDie(DiceColor color){
-        Die newDie = getDice(color, 1).get(0);
+        ArmadaDie newDie = getDice(color, 1).get(0);
         newDie.roll();
         this.currentPool.add(newDie);
         updatePool();
@@ -168,6 +168,16 @@ public class AttackPool {
             }
         }
 
+        return count;
+    }
+
+    public int countDiceOfColor(DiceColor color){
+        int count = 0;
+        for (ArmadaDie die: this.currentPool){
+            if (die.getColor() == color){
+                count++;
+            }
+        }
         return count;
     }
 
