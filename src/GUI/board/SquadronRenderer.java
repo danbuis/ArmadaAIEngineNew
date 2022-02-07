@@ -33,8 +33,8 @@ public class SquadronRenderer {
     private static final float[] cardboardTex = Mesh.buildTextureCoordinates(cardboard);
     private static final int[] cardboardIndices = Mesh.buildIndices(cardboard);
 
-    private static final ShaderProgram WHITE_SOLID = ShaderPrograms.buildSolidColorShader("white");
-    private static final ShaderProgram BLACK_SOLID = ShaderPrograms.buildSolidColorShader("black");
+    private static final ShaderProgram WHITE_SOLID = ShaderPrograms.buildSolidColorShader();
+    private static final ShaderProgram BLACK_SOLID = ShaderPrograms.buildSolidColorShader();
 
     private GameItemSorter gameItems = new GameItemSorter();
 
