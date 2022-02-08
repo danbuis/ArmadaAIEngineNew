@@ -1,8 +1,7 @@
-import BBDGameLibrary.GameEngine.Die;
+import components.ArmadaDie;
 import components.AttackPool;
 import components.DiceFacings;
 import org.junit.jupiter.api.Test;
-
 
 import java.util.ArrayList;
 
@@ -12,19 +11,19 @@ public class AttackPoolTests {
 
     @Test
     public void testDiceGathering(){
-        ArrayList<Die> blackDie = AttackPool.getDice(0,0,1);
+        ArrayList<ArmadaDie> blackDie = AttackPool.getDice(0,0,1);
         assertEquals(1, blackDie.size());
 
         //die should not yet be rolled, just collected
         assertTrue(blackDie.get(0).isUnrolled());
 
-        ArrayList<Die> redDie = AttackPool.getDice(17,0,0);
+        ArrayList<ArmadaDie> redDie = AttackPool.getDice(17,0,0);
         assertEquals(17, redDie.size());
     }
 
     @Test
     public void testBuildAttackPool(){
-        ArrayList<Die> combined = AttackPool.getDice(3,2,3);
+        ArrayList<ArmadaDie> combined = AttackPool.getDice(3,2,3);
 
         AttackPool isd1Front = new AttackPool(combined);
         assertEquals(8, isd1Front.getPoolSize());
@@ -35,7 +34,7 @@ public class AttackPoolTests {
 
     @Test
     public void testSetFace(){
-        ArrayList<Die> combined = AttackPool.getDice(3,2,3);
+        ArrayList<ArmadaDie> combined = AttackPool.getDice(3,2,3);
         AttackPool isd1Front = new AttackPool(combined);
         isd1Front.setFace(0, DiceFacings.BLANK);
         assertEquals(DiceFacings.BLANK, isd1Front.getCurrentDiceFacings()[0]);
@@ -51,7 +50,7 @@ public class AttackPoolTests {
 
     @Test
     public void testDamageTotaling(){
-        ArrayList<Die> combined = AttackPool.getDice(2,0,0);
+        ArrayList<ArmadaDie> combined = AttackPool.getDice(2,0,0);
         AttackPool test = new AttackPool(combined);
         test.setFace(0, DiceFacings.DOUBLE_HIT);
         test.setFace(1, DiceFacings.DOUBLE_HIT);
@@ -73,7 +72,7 @@ public class AttackPoolTests {
 
     @Test
     public void testRerolling(){
-        ArrayList<Die> combined = AttackPool.getDice(2,0,0);
+        ArrayList<ArmadaDie> combined = AttackPool.getDice(2,0,0);
         AttackPool test = new AttackPool(combined);
         test.setFace(0, DiceFacings.DOUBLE_HIT);
         test.setFace(1, DiceFacings.DOUBLE_HIT);
@@ -95,7 +94,7 @@ public class AttackPoolTests {
 
     @Test
     public void testCanceling(){
-        ArrayList<Die> combined = AttackPool.getDice(2,0,0);
+        ArrayList<ArmadaDie> combined = AttackPool.getDice(2,0,0);
         AttackPool test = new AttackPool(combined);
         test.setFace(0, DiceFacings.DOUBLE_HIT);
         test.setFace(1, DiceFacings.DOUBLE_HIT);
@@ -108,7 +107,7 @@ public class AttackPoolTests {
 
     @Test
     public void testCancellingToEmpty(){
-        ArrayList<Die> combined = AttackPool.getDice(2,0,0);
+        ArrayList<ArmadaDie> combined = AttackPool.getDice(2,0,0);
         AttackPool test = new AttackPool(combined);
         test.setFace(0, DiceFacings.DOUBLE_HIT);
         test.setFace(1, DiceFacings.DOUBLE_HIT);
@@ -123,7 +122,7 @@ public class AttackPoolTests {
 
     @Test
     public void testAddDice(){
-        ArrayList<Die> combined = AttackPool.getDice(2,0,0);
+        ArrayList<ArmadaDie> combined = AttackPool.getDice(2,0,0);
         AttackPool test = new AttackPool(combined);
 
         assertEquals(2, test.getPoolSize());
@@ -134,7 +133,7 @@ public class AttackPoolTests {
 
     @Test
     public void testCritEffect(){
-        ArrayList<Die> combined = AttackPool.getDice(2,0,0);
+        ArrayList<ArmadaDie> combined = AttackPool.getDice(2,0,0);
         AttackPool test = new AttackPool(combined);
         test.setFace(0, DiceFacings.DOUBLE_HIT);
         test.setFace(1, DiceFacings.DOUBLE_HIT);
@@ -155,12 +154,10 @@ public class AttackPoolTests {
 
     @Test
     public void countSymbols(){
-        ArrayList<Die> combined = AttackPool.getDice(2,0,0);
+        ArrayList<ArmadaDie> combined = AttackPool.getDice(2,0,0);
         AttackPool test = new AttackPool(combined);
         test.setFace(0, DiceFacings.DOUBLE_HIT);
         test.setFace(1, DiceFacings.DOUBLE_HIT);
-
-        int testVal = test.getSymbolCount(AttackPool.DiceSymbol.HIT);
 
         assertEquals(4, test.getSymbolCount(AttackPool.DiceSymbol.HIT));
         assertEquals(0, test.getSymbolCount(AttackPool.DiceSymbol.CRIT));
@@ -173,6 +170,24 @@ public class AttackPoolTests {
         assertEquals(2, test.getSymbolCount(AttackPool.DiceSymbol.HIT));
         assertEquals(1, test.getSymbolCount(AttackPool.DiceSymbol.CRIT));
         assertEquals(0, test.getSymbolCount(AttackPool.DiceSymbol.ACCURACY));
+    }
+
+    @Test
+    public void checkColors(){
+        ArrayList<ArmadaDie> combined = AttackPool.getDice(1,1,1);
+        assertEquals(AttackPool.DiceColor.RED, combined.get(2).getColor());
+        assertEquals(AttackPool.DiceColor.BLUE, combined.get(1).getColor());
+        assertEquals(AttackPool.DiceColor.BLACK, combined.get(0).getColor());
+    }
+
+    @Test
+    public void checkCountColors(){
+        ArrayList<ArmadaDie> combined = AttackPool.getDice(3,2,1);
+        AttackPool pool  = new AttackPool(combined);
+        assertEquals(3, pool.countDiceOfColor(AttackPool.DiceColor.RED));
+        assertEquals(2, pool.countDiceOfColor(AttackPool.DiceColor.BLUE));
+        assertEquals(1, pool.countDiceOfColor(AttackPool.DiceColor.BLACK));
+
     }
 }
 
