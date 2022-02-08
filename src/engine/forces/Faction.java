@@ -14,7 +14,7 @@ public enum Faction {
 
     Faction(String label, int red, int green, int blue){
         this.label = label;
-        this.colorData = new float[]{red, green, blue, 1f};
+        this.colorData = new float[]{red/256f, green/256f, blue/256f, 1f};
         SolidColorShaders.createSolidColor(label, colorData);
     }
 
@@ -25,5 +25,9 @@ public enum Faction {
             }
         }
         return null;
+    }
+
+    public String getLabel(){
+        return this.label;
     }
 }
