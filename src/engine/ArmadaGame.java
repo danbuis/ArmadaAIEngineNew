@@ -10,13 +10,6 @@ import BBDGameLibrary.OpenGL.Window;
 import GUI.screens.*;
 import components.DemoMap;
 import engine.forces.Fleet;
-import BBDGameLibrary.Geometry2d.BBDPoint;
-import BBDGameLibrary.Geometry2d.BBDPolygon;
-import BBDGameLibrary.OpenGL.*;
-import BBDGameLibrary.Utils.GeometryGenerators;
-import BBDGameLibrary.Utils.ShaderPrograms;
-import GUI.board.ShipRenderer;
-import GUI.board.SquadronRenderer;
 import engine.parsers.ParsingException;
 import engine.parsers.ShipFactory;
 import engine.parsers.SquadronFactory;
@@ -77,7 +70,6 @@ public class ArmadaGame implements GameComponent {
         } catch (ParsingException e) {
             e.printStackTrace();
         }
-
         homeScreen = new HomeScreen(window, this);
         allThingsScreen = new AllThingsScreen(window, this);
         this.changeScreens(ScreenState.HOME, null);

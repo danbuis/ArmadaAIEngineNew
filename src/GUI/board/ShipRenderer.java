@@ -1,7 +1,6 @@
 package GUI.board;
 
 import BBDGameLibrary.GameEngine.GameItem2d;
-import BBDGameLibrary.Geometry2d.BBDGeometryHelpers;
 import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.OpenGL.Mesh;
@@ -13,6 +12,7 @@ import components.ship.Ship;
 import components.ship.ShipSize;
 import engine.GameConstants;
 import engine.GameItemSorter;
+import resources.SolidColorShaders;
 
 /**
  * A class to render a ship object to the board.  This helps keep rendering logic separate from
@@ -21,8 +21,8 @@ import engine.GameItemSorter;
 public class ShipRenderer {
     private Ship ship;
 
-    private static final ShaderProgram WHITE_SOLID = ShaderPrograms.buildSolidColorShader("white");
-    private static final ShaderProgram BLACK_SOLID = ShaderPrograms.buildSolidColorShader("black");
+    private static final ShaderProgram SOLID = ShaderPrograms.buildSolidColorShader();
+
 
     private GameItemSorter gameItems = new GameItemSorter();
 
@@ -38,10 +38,11 @@ public class ShipRenderer {
         ShipSize size = ship.getSize();
         
         BBDPolygon cardboardPoly = size.getCardboard();
-        GameItem2d cardboardItem = new GameItem2d(Mesh.buildMeshFromPolygon(cardboardPoly, null), BLACK_SOLID, cardboardPoly, GameConstants.LAYER_SQUADRON_CARDBOARD, false);
-
+        GameItem2d cardboardItem = new GameItem2d(Mesh.buildMeshFromPolygon(cardboardPoly, null), SOLID, cardboardPoly, GameConstants.LAYER_SQUADRON_CARDBOARD, false);
+        cardboardItem.addSolidColorUniform(SolidColorShaders.getSolidColor("black"));
         BBDPolygon plasticPoly = size.getPlastic();
-        GameItem2d plasticBaseItem = new GameItem2d(Mesh.buildMeshFromPolygon(plasticPoly, null), WHITE_SOLID, plasticPoly, GameConstants.LAYER_SQUADRON_PLASTIC, false);
+        GameItem2d plasticBaseItem = new GameItem2d(Mesh.buildMeshFromPolygon(plasticPoly, null), SOLID, plasticPoly, GameConstants.LAYER_SQUADRON_PLASTIC, false);
+        plasticBaseItem.addSolidColorUniform(SolidColorShaders.getSolidColor("white"));
 
         ShaderProgram shader = ShaderPrograms.TEXTURED_GENERIC;
         Texture texture = new Texture("assets/images/ships/"+ship.buildShipFileName()+".png");

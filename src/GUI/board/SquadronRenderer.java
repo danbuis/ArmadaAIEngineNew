@@ -11,6 +11,7 @@ import BBDGameLibrary.Utils.ShaderPrograms;
 import engine.GameConstants;
 import engine.GameItemSorter;
 import components.squadrons.Squadron;
+import resources.SolidColorShaders;
 
 /**
  * A class to render a squadron object to the board.  This helps keep rendering logic separate from
@@ -33,8 +34,7 @@ public class SquadronRenderer {
     private static final float[] cardboardTex = Mesh.buildTextureCoordinates(cardboard);
     private static final int[] cardboardIndices = Mesh.buildIndices(cardboard);
 
-    private static final ShaderProgram WHITE_SOLID = ShaderPrograms.buildSolidColorShader("white");
-    private static final ShaderProgram BLACK_SOLID = ShaderPrograms.buildSolidColorShader("black");
+    private static final ShaderProgram SOLID = ShaderPrograms.buildSolidColorShader();
 
     private GameItemSorter gameItems = new GameItemSorter();
 
@@ -48,8 +48,10 @@ public class SquadronRenderer {
      * Build the GameItem objects to be used to render this object.
      */
     private void buildGameItems(){
-        GameItem2d plasticBaseItem = new GameItem2d(new Mesh(plasticPositions, plasticTex, plasticIndices, null), WHITE_SOLID, plasticBase, GameConstants.LAYER_SQUADRON_PLASTIC, false);
-        GameItem2d cardboardItem = new GameItem2d(new Mesh(cardboardPositions, cardboardTex, cardboardIndices, null), BLACK_SOLID, cardboard, GameConstants.LAYER_SQUADRON_CARDBOARD, false);
+        GameItem2d plasticBaseItem = new GameItem2d(new Mesh(plasticPositions, plasticTex, plasticIndices, null), SOLID, plasticBase, GameConstants.LAYER_SQUADRON_PLASTIC, false);
+        plasticBaseItem.addSolidColorUniform(SolidColorShaders.getSolidColor("white"));
+        GameItem2d cardboardItem = new GameItem2d(new Mesh(cardboardPositions, cardboardTex, cardboardIndices, null), SOLID, cardboard, GameConstants.LAYER_SQUADRON_CARDBOARD, false);
+        cardboardItem.addSolidColorUniform(SolidColorShaders.getSolidColor("black"));
 
         BBDPolygon poly = GeometryGenerators.buildQuad(20, 20);
         ShaderProgram shader = ShaderPrograms.TEXTURED_GENERIC;
