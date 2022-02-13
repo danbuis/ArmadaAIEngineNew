@@ -3,6 +3,7 @@ package components.ship;
 import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import components.tokens.DefenseToken;
+import engine.forces.Faction;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +13,7 @@ public class Ship {
     private String name;
     private String type;
     private ArrayList<String> keywords;
-    private String faction;
+    private Faction faction;
     private ShipSize size;
     private int points;
     private int hull;
@@ -38,7 +39,7 @@ public class Ship {
         this.name = original.name;
         this.type = original.type;
         this.keywords = original.keywords;
-        this.faction = original.faction;
+        this.faction = Faction.getFaction(original.faction);
         this.points = original.points;
         this.hull = original.hull;
         this.defenseTokens = original.defenseTokens;

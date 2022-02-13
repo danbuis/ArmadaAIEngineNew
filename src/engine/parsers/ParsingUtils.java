@@ -1,6 +1,6 @@
 package engine.parsers;
 
-import engine.GameConstants;
+import engine.forces.Faction;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -71,7 +71,7 @@ public class ParsingUtils {
      * @throws ParsingException Exception thrown if the input is bad
      */
     public static String validCoreFaction(String faction) throws ParsingException {
-        if(GameConstants.CURRENT_FACTIONS.contains(faction)){
+        if(Faction.getFaction(faction) != null){
            return faction;
         }else{
             throw new ParsingException("Illegal faction : "+faction+".");

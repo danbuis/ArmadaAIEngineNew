@@ -5,6 +5,7 @@ import BBDGameLibrary.GameEngine.MouseInput;
 import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.OpenGL.Window;
 import components.tokens.DefenseToken;
+import engine.forces.Faction;
 
 import java.util.ArrayList;
 
@@ -16,7 +17,7 @@ public class Squadron implements GameComponent {
     private final String type;
     private final String name;
     private final boolean unique;
-    private final String faction;
+    private final Faction faction;
     private int currentHealth;
     private final int fullHealth;
     private final int maxSpeed;
@@ -51,7 +52,7 @@ public class Squadron implements GameComponent {
         this.type = type;
         this.name = name;
         this.unique = unique;
-        this.faction = faction;
+        this.faction = Faction.getFaction(faction);
         this.fullHealth = fullHealth;
         this.currentHealth = fullHealth;
         this.maxSpeed = maxSpeed;

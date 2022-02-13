@@ -27,8 +27,6 @@ public class GameConstants {
     public static final float SHORT_BOARD_EDGE = 914.4f;
     public static final float LONG_BOARD_EDGE = 1828.8f;
 
-    public static final ArrayList<String> CURRENT_FACTIONS = new ArrayList<String>(Arrays.asList(new String[]{"Rebel", "Imperial", "Separatist", "Republic"}));
-
     /**
      * Ship sizes were sourced from
      * http://starwars-armada.wikia.com/wiki/Size_Class
