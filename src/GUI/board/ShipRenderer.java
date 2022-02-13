@@ -3,6 +3,7 @@ package GUI.board;
 import BBDGameLibrary.GameEngine.GameItem2d;
 import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
+import BBDGameLibrary.Geometry2d.BBDSegment;
 import BBDGameLibrary.OpenGL.Mesh;
 import BBDGameLibrary.OpenGL.ShaderProgram;
 import BBDGameLibrary.OpenGL.Texture;
@@ -13,6 +14,8 @@ import components.ship.ShipSize;
 import engine.GameConstants;
 import engine.GameItemSorter;
 import resources.SolidColorShaders;
+
+import java.util.ArrayList;
 
 /**
  * A class to render a ship object to the board.  This helps keep rendering logic separate from
@@ -49,9 +52,31 @@ public class ShipRenderer {
         BBDPolygon shipPoly = GeometryGenerators.buildQuad(40, 80);
         GameItem2d shipGraphic = new GameItem2d(Mesh.buildMeshFromPolygon(shipPoly, texture), shader, shipPoly, GameConstants.LAYER_SQUADRON_GRAPHIC, false);
 
+        ArrayList<GameItem2d> hullZoneDividers = buildHullZoneDividers();
+
         this.gameItems.addItems(shipGraphic);
         this.gameItems.addItems(cardboardItem);
         this.gameItems.addItems(plasticBaseItem);
+        this.gameItems.addItems(hullZoneDividers);
+    }
+
+    private ArrayList<GameItem2d> buildHullZoneDividers(){
+        BBDSegment[] segs = ship.getHullZoneLines();
+        ArrayList<GameItem2d> returnList = new ArrayList<>();
+
+        for (BBDSegment seg:segs){
+            float currentAngle = seg.getStartPoint().angleToOtherPoint(seg.getEndPoint());
+            BBDSegment offset1 = new BBDSegment(seg, GameConstants.HULLZONE_DIVIDER_WIDTH/2f, (currentAngle-(float)Math.PI/2));
+            BBDSegment offset2 = new BBDSegment(seg, GameConstants.HULLZONE_DIVIDER_WIDTH/-2f, (currentAngle-(float)Math.PI/2));
+
+            offset2.rotate((float)Math.PI);
+            BBDPolygon line = new BBDPolygon(new BBDPoint[]{offset1.getStartPoint(), offset1.getEndPoint(), offset2.getStartPoint(), offset2.getEndPoint()});
+            GameItem2d divider = new GameItem2d(Mesh.buildMeshFromPolygon(line, null), SOLID, line, GameConstants.LAYER_HULLZONE_DETAILS, false);
+            divider.addSolidColorUniform(SolidColorShaders.getSolidColor(ship.getFaction().getLabel()));
+            returnList.add(divider);
+        }
+
+        return returnList;
     }
 
     /**

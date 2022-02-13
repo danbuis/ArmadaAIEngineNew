@@ -4,7 +4,6 @@ import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.Geometry2d.BBDSegment;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -32,7 +31,10 @@ public class HullZone {
         this.shields = shields;
         this.parent = parent;
         this.hullzoneGeometry = new BBDPolygon(perimeter);
-        ArrayList<BBDSegment> segments = hullzoneGeometry.getSegments();
+        ArrayList<BBDSegment> segments = new ArrayList<>();
+        for (BBDSegment seg:hullzoneGeometry.getSegments()){
+            segments.add(new BBDSegment(seg));
+        }
         if (segments.size() == 5) {
             segments.remove(0);
             segments.remove(segments.size() - 1);

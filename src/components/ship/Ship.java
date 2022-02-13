@@ -2,6 +2,7 @@ package components.ship;
 
 import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.Geometry2d.BBDPolygon;
+import BBDGameLibrary.Geometry2d.BBDSegment;
 import components.tokens.DefenseToken;
 import engine.forces.Faction;
 
@@ -73,6 +74,17 @@ public class Ship {
     public void moveNew(BBDPoint newPoint){
         this.location = newPoint;
        
+    }
+
+    public BBDSegment[] getHullZoneLines(){
+        BBDPolygon front = this.hullzones.get(0).getHullzoneGeometry();
+        BBDPolygon back = this.hullzones.get(2).getHullzoneGeometry();
+        return new BBDSegment[]{
+                front.getSegments().get(0),
+                front.getSegments().get(front.getSegments().size()-1),
+                back.getSegments().get(0),
+                back.getSegments().get(back.getSegments().size()-1)
+        };
     }
 
     private ArrayList<HullZone> buildHullZones(ShipSize size, float frontOffset, float frontConjunction, float rearOffset, float rearConjunction, String shields, String antiShipDice) {
@@ -149,5 +161,9 @@ public class Ship {
         String cleanedFileName = baseFileName.toLowerCase().replace(" ", "_");
 
         return "ship_" + cleanedFileName;
+    }
+
+    public Faction getFaction(){
+        return this.faction;
     }
 }

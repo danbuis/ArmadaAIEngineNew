@@ -1,8 +1,5 @@
 package engine;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class GameConstants {
     /*
       This is going to be a static class object to contain common values that need to be accessible across many
@@ -41,6 +38,7 @@ public class GameConstants {
     public static final float SHIP_BASE_RAILS = 2;
     public static final float SQUADRON_PLASTIC_RADIUS = 12.7f;
     public static final float SQUADRON_CARDBOARD_RADIUS = 12.4f;
+    public static final float HULLZONE_DIVIDER_WIDTH = 0.4f;
 
     /**
      * Rendering criteria
@@ -52,7 +50,8 @@ public class GameConstants {
      * Layers, how far from the camera the associated items are drawn
      */
     public static final int LAYER_SQUADRON_PLASTIC = 25;
-    public static final int LAYER_SQUADRON_CARDBOARD = 23;
+    public static final int LAYER_SQUADRON_CARDBOARD = 24;
+    public static final int LAYER_HULLZONE_DETAILS = 23;
     public static final int LAYER_SQUADRON_GRAPHIC = 22;
     public static final int LAYER_MAP_BACKGROUND = 26;
 }
