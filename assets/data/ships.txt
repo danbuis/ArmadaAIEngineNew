@@ -309,7 +309,7 @@ Shields|4 3 2
 AntiShip|RRB RRRB RRB
 AntiSquadron|BB
 Upgrade|Title Officer TurboLaser Offensive Defensive WeaponTeam Ordnance
-FrontArcOffset|2
+FrontArcOffset|0
 RearArcOffset|14.3
 FrontArcConjunction|47
 RearArcConjunction|53
@@ -330,7 +330,7 @@ Shields|4 3 2
 AntiShip|RR RRRB RR
 AntiSquadron|BB
 Upgrade|Title Officer TurboLaser Offensive Defensive WeaponTeam Ordnance
-FrontArcOffset|2
+FrontArcOffset|0
 RearArcOffset|14.3
 FrontArcConjunction|47
 RearArcConjunction|53
@@ -390,7 +390,7 @@ Squad|3
 Eng|4
 Speed|2 11 011 -
 Shields|4 3 3
-FrontArmament|BBBKK BBRRR BK
+AntiShip|BBBKK BBRRR BK
 AntiSquadron|BK
 Upgrade|Title Officer Defensive Offensive SupportTeam IonCannon TurboLaser WeaponTeam Ordnance
 FrontArcOffset|20
@@ -519,8 +519,8 @@ Shields|4 3 2
 AntiShip|RRBB RRR RR
 AntiSquadron|R
 Upgrade|Title Officer TurboLaser Offensive SupportTeam Ion Cannon
-FrontArcOffset| 7.9
-RearArcOffset|3.2
+FrontArcOffset|3.2
+RearArcOffset|7.9
 FrontArcConjunction|53
 RearArcConjunction|49
 
@@ -541,8 +541,8 @@ Shields|4 3 2
 AntiShip|RRBB RRR RR
 AntiSquadron|RK
 Upgrade|Title Officer TurboLaser Defensive SupportTeam IonCannon
-FrontArcOffset| 7.9
-RearArcOffset|3.2
+FrontArcOffset|3.2
+RearArcOffset|7.9
 FrontArcConjunction|53
 RearArcConjunction|49
 

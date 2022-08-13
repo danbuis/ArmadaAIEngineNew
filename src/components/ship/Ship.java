@@ -95,14 +95,25 @@ public class Ship {
         BBDPoint RR = cardboard.getPoints().get(3);
         BBDPoint front = new BBDPoint(0, size.getLength()/2f - frontConjunction);
         BBDPoint rear = new BBDPoint(0, size.getLength() / -2f + rearConjunction);
-        BBDPoint FLintercept = new BBDPoint(size.getWidth()/-2f, size.getLength()/2f-frontOffset);
-        BBDPoint FRintercept = new BBDPoint(size.getWidth()/2f, size.getLength()/2f-frontOffset);
         BBDPoint RLintercept = new BBDPoint(size.getWidth()/-2f, size.getLength()/-2f+rearOffset);
         BBDPoint RRintercept = new BBDPoint(size.getWidth()/2f, size.getLength()/-2f+rearOffset);
-        BBDPoint[] frontPerimeter = {front, FLintercept, FL, FR, FRintercept};
-        BBDPoint[] rightPerimeter = {front, FRintercept, RRintercept, rear};
         BBDPoint[] rearPerimeter = {rear, RRintercept, RR, RL, RLintercept};
-        BBDPoint[] leftPerimeter = {rear, RLintercept, FLintercept, front};
+        BBDPoint[] frontPerimeter = null;
+        BBDPoint[] rightPerimeter = null;
+        BBDPoint[] leftPerimeter = null;
+        if (frontOffset >= 0){
+            BBDPoint FLintercept = new BBDPoint(size.getWidth()/-2f, size.getLength()/2f-frontOffset);
+            BBDPoint FRintercept = new BBDPoint(size.getWidth()/2f, size.getLength()/2f-frontOffset);
+            frontPerimeter = new BBDPoint[]{front, FLintercept, FL, FR, FRintercept};
+            rightPerimeter = new BBDPoint[]{front, FRintercept, RRintercept, rear};
+            leftPerimeter = new BBDPoint[]{rear, RLintercept, FLintercept, front};
+        } else {
+            BBDPoint FLintercept = new BBDPoint(size.getWidth()/-2f - frontOffset, size.getLength()/2f);
+            BBDPoint FRintercept = new BBDPoint(size.getWidth()/2f + frontOffset, size.getLength()/2f);
+            frontPerimeter = new BBDPoint[]{front, FLintercept, FRintercept};
+            rightPerimeter = new BBDPoint[]{front, FRintercept, FR, RRintercept, rear};
+            leftPerimeter = new BBDPoint[]{rear, RLintercept, FL, FLintercept, front};
+        }
 
         String[] shieldValues = shields.split(" ");
         String[] armaments = antiShipDice.split(" ");
