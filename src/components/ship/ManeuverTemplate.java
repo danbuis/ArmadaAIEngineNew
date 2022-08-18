@@ -4,6 +4,10 @@ public class ManeuverTemplate {
     private final int[][] navChart;
     private String originalData;
 
+    /**
+     * Iteratively build the maneuver chart in a machine readable format
+     * @param maneuverChart string from input file
+     */
     public ManeuverTemplate(String maneuverChart) {
         this.originalData = maneuverChart;
         String[] speedStrings = maneuverChart.split(" ");
@@ -26,6 +30,12 @@ public class ManeuverTemplate {
         this.navChart = navChartArray;
     }
 
+    /**
+     * Check if the proposed maneuver is a valid maneuver
+     * @param clicks list of clicks in the proposed maneuver
+     * @param extraClicks how many extra clicks are available over and above the base chart
+     * @return is this a valid maneuver
+     */
     public boolean validateManeuver(int[] clicks, int extraClicks){
         int extrasUsed = 0;
         int speed = clicks.length;
@@ -44,10 +54,20 @@ public class ManeuverTemplate {
         return extrasUsed <= extraClicks;
     }
 
+    /**
+     * Is this speed even available?
+     * @param desiredSpeed speed to check
+     * @return is this speed available
+     */
     public boolean validSpeed(int desiredSpeed){
         return navChart[desiredSpeed].length != 0;
     }
 
+    /**
+     * Get the clicks on the base chart
+     * @param speed speed to check
+     * @return list of clicks at each joing
+     */
     public int[] getClicks(int speed){
         return navChart[speed];
     }
@@ -64,5 +84,9 @@ public class ManeuverTemplate {
         return base;
     }
 
+    /**
+     * Something to grab the original data just in case you want it for something
+     * @return
+     */
     public String getOriginalData() { return this.originalData;}
 }
