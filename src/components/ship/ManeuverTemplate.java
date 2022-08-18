@@ -2,8 +2,10 @@ package components.ship;
 
 public class ManeuverTemplate {
     private final int[][] navChart;
+    private String originalData;
 
     public ManeuverTemplate(String maneuverChart) {
+        this.originalData = maneuverChart;
         String[] speedStrings = maneuverChart.split(" ");
         int[][] navChartArray = new int[5][0]; // [speed][joint clicks]
         for (int i = 0; i <= speedStrings.length - 1; i++) {
@@ -53,7 +55,11 @@ public class ManeuverTemplate {
     public String toString(){
         String base = "";
         for(int[] clicks: navChart){
-            base += clicks;
+            base += "[";
+            for(int item:clicks){
+                base += (item+",");
+            }
+            base += "]";
         }
         return base;
     }
