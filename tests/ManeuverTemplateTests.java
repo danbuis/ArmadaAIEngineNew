@@ -1,6 +1,8 @@
 import components.ship.ManeuverTemplate;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ManeuverTemplateTests {
@@ -8,15 +10,14 @@ public class ManeuverTemplateTests {
     @Test
     public void testBuildSmallManeuverChart(){
         ManeuverTemplate template = new ManeuverTemplate("1 01 - -");
-        System.out.println(template);
         int[] expectedSpeed1 = new int[]{1};
         int[] expectedSpeed2 = new int[]{0,1};
         int[] expectedSpeedEmpty = new int[]{};
 
-        assertEquals(expectedSpeed1, template.getClicks(1));
-        assertEquals(expectedSpeed2, template.getClicks(2));
-        assertEquals(expectedSpeedEmpty, template.getClicks(3));
-        assertEquals(expectedSpeedEmpty, template.getClicks(4));
+        assertTrue(Arrays.equals(expectedSpeed1, template.getClicks(1)));
+        assertTrue(Arrays.equals(expectedSpeed2, template.getClicks(2)));
+        assertTrue(Arrays.equals(expectedSpeedEmpty, template.getClicks(3)));
+        assertTrue(Arrays.equals(expectedSpeedEmpty, template.getClicks(4)));
     }
 
     @Test
@@ -27,10 +28,10 @@ public class ManeuverTemplateTests {
         int[] expectedSpeed3 = new int[]{0,1,2};
         int[] expectedSpeed4 = new int[]{0,1,1,2};
 
-        assertEquals(expectedSpeed1, template.getClicks(1));
-        assertEquals(expectedSpeed2, template.getClicks(2));
-        assertEquals(expectedSpeed3, template.getClicks(3));
-        assertEquals(expectedSpeed4, template.getClicks(4));
+        assertTrue(Arrays.equals(expectedSpeed1, template.getClicks(1)));
+        assertTrue(Arrays.equals(expectedSpeed2, template.getClicks(2)));
+        assertTrue(Arrays.equals(expectedSpeed3, template.getClicks(3)));
+        assertTrue(Arrays.equals(expectedSpeed4, template.getClicks(4)));
     }
 
     @Test
