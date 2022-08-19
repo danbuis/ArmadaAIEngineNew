@@ -11,7 +11,6 @@ import GUI.screens.*;
 import components.DemoMap;
 import engine.forces.Fleet;
 import engine.parsers.ParsingException;
-import engine.parsers.ShipFactory;
 import engine.parsers.SquadronFactory;
 import org.joml.Vector2d;
 import org.joml.Vector3f;
@@ -38,7 +37,6 @@ public class ArmadaGame implements GameComponent {
     Vector2d mouseLocationOnMap = null;
     private Window window;
     private Screen currentScreen;
-    public ShipFactory shipFactory;
     public SquadronFactory squadronFactory;
     private ScreenState currentState = ScreenState.HOME;
     private Screen homeScreen;
@@ -64,7 +62,6 @@ public class ArmadaGame implements GameComponent {
         window.setZFar(GameConstants.ZOOM_MAXIMUM + 5);
         try {
             squadronFactory = new SquadronFactory();
-            shipFactory = new ShipFactory();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (ParsingException e) {

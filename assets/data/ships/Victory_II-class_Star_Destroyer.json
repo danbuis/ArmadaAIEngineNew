@@ -1,0 +1,22 @@
+{
+  "Name": "Victory II-class Star Destroyer",
+  "Type": "Victory Star Destroyer",
+  "Keywords": [],
+  "Faction": "Imperial",
+  "Size": "Medium",
+  "Points": "85",
+  "Hull": "8",
+  "DefenseTokens": ["Redirect", "Redirect", "Brace"],
+  "Command": "3",
+  "Squad": "3",
+  "Engineering": "4",
+  "Speed": "1 01 - -",
+  "Shields" : "3 3 1",
+  "AntiShipDice" : "RRRBBB BRR RR",
+  "AntiSquadronDice" : "B",
+  "UpgradeSlots" : ["Title", "Officer", "Turbolaser", "OffensiveRetrofit", "WeaponTeam", "IonCannon"],
+  "FrontArcOffset" : "21",
+  "RearArcOffset" : "21",
+  "FrontArcConjunction" : "47",
+  "RearArcConjunction" : "54"
+}
