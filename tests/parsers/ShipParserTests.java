@@ -1,11 +1,11 @@
 package parsers;
 
 import components.ship.Ship;
-import engine.parsers.ParsingException;
-import engine.parsers.ShipFactory;
+import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,10 +17,8 @@ public class ShipParserTests {
      * @throws FileNotFoundException
      */
     @Test
-    public void testParseBasicFunctionality() throws FileNotFoundException, ParsingException {
-        ShipFactory testParser = new ShipFactory();
-
-        Ship consular = testParser.getShip("Consular Charger C70");
+    public void testParseBasicFunctionality() throws IOException, ParseException {
+        Ship consular = new Ship("Consular_Charger_C70");
         assertNotNull(consular);
         assertEquals("Consular Charger C70", consular.getName());
         assertEquals("Consular Charger", consular.getType());
@@ -29,11 +27,9 @@ public class ShipParserTests {
     }
 
     @Test
-    public void testShipsActuallyCopies() throws FileNotFoundException, ParsingException {
-        ShipFactory testParser = new ShipFactory();
-
-        Ship consular1 = testParser.getShip("Consular Charger C70");
-        Ship consular2 = testParser.getShip("Consular Charger C70");
+    public void testShipsActuallyCopies() throws IOException, ParseException {
+        Ship consular1 = new Ship("Consular_Charger_C70");
+        Ship consular2 = new Ship("Consular_Charger_C70");
 
         assertNotNull(consular1);
         assertNotNull(consular2);
@@ -41,14 +37,4 @@ public class ShipParserTests {
         //checks the memory locations
         assertNotEquals(consular1, consular2);
     }
-/**
-    @Test
-    public void testPartialSquadron() throws FileNotFoundException, ParsingException {
-        Exception exception = assertThrows(ParsingException.class, () -> new SquadronFactory("assets/data/test/squadrons_bad_partial.txt"));
-        String expectedMessage = "Reached end of file with a partially built object, null, missing: anti-squadron dice fields.";
-        String actualMessage = exception.getMessage();
-
-        assertEquals(expectedMessage, actualMessage);
-    }
-*/
 }

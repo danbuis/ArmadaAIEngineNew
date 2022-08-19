@@ -1,0 +1,22 @@
+{
+  "Name": "Consular Charger C70",
+  "Type": "Consular Charger",
+  "Keywords": ["Clone"],
+  "Faction": "Republic",
+  "Size": "Small",
+  "Points": "45",
+  "Hull": "4",
+  "DefenseTokens": ["Contain", "Redirect", "Evade"],
+  "Command": "1",
+  "Squad": "1",
+  "Engineering": "2",
+  "Speed": "2 21 111 1011",
+  "Shields" : "2 2 1",
+  "AntiShipDice" : "RRB RR RB",
+  "AntiSquadronDice" : "K",
+  "UpgradeSlots" : ["Title", "TurboLaser", "SupportTeam", "Officer", "OffensiveRetrofit"],
+  "FrontArcOffset" : "15.1",
+  "RearArcOffset" : "5.2",
+  "FrontArcConjunction" : "41",
+  "RearArcConjunction" : "29"
+}
