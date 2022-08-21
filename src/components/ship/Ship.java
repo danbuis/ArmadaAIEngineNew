@@ -5,7 +5,7 @@ import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.Geometry2d.BBDSegment;
 import components.tokens.DefenseToken;
 import engine.forces.Faction;
-import org.json.simple.JSONArray;
+import engine.parsers.ParsingUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -14,7 +14,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 
 
 public class Ship {
@@ -49,11 +48,11 @@ public class Ship {
 
         this.name = (String)json.get("Name");
         this.type = (String)json.get("Type");
-        this.keywords = this.buildArrayListFromJson("Keywords", json);
+        this.keywords = ParsingUtils.buildArrayListFromJson("Keywords", json);
         this.faction = Faction.getFaction((String)json.get("Faction"));
         this.points = Integer.parseInt((String) json.get("Points"));
         this.hull = Integer.parseInt((String) json.get("Hull"));
-        this.defenseTokens = this.buildDefenseTokensFromStrings(this.buildArrayListFromJson("DefenseTokens", json));
+        this.defenseTokens = ParsingUtils.buildDefenseTokensFromStrings(ParsingUtils.buildArrayListFromJson("DefenseTokens", json));
         this.command = Integer.parseInt((String) json.get("Command"));
         this.squad = Integer.parseInt((String) json.get("Squad"));
         this.engineering = Integer.parseInt((String) json.get("Engineering"));
@@ -87,19 +86,6 @@ public class Ship {
                                        (String)json.get("Shields"),
                                        (String)json.get("AntiShipDice"));
         this.location = new BBDPoint(0,0);
-    }
-
-    public ArrayList<String> buildArrayListFromJson(String field, JSONObject json){
-        ArrayList<String> returnList = new ArrayList<>();
-
-        JSONArray ja = (JSONArray) json.get(field);
-        Iterator itr = ja.iterator();
-
-        while (itr.hasNext()){
-            String item = (String)itr.next();
-            returnList.add(item);
-        }
-        return returnList;
     }
 
     public void moveNew(BBDPoint newPoint){
@@ -203,15 +189,6 @@ public class Ship {
 
         return "ship_" + cleanedFileName;
     }
-
-    public ArrayList<DefenseToken> buildDefenseTokensFromStrings(ArrayList<String> input){
-        ArrayList<DefenseToken> returnList = new ArrayList<>();
-        for(String token: input) {
-            returnList.add(new DefenseToken(token));
-        }
-        return returnList;
-    }
-
 
     public Faction getFaction(){
         return this.faction;

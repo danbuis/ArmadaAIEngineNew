@@ -6,7 +6,13 @@ import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.OpenGL.Window;
 import components.tokens.DefenseToken;
 import engine.forces.Faction;
+import engine.parsers.ParsingUtils;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -29,58 +35,25 @@ public class Squadron implements GameComponent {
     private BBDPoint currentLocation = new BBDPoint(0,0);
 
 
-
-
     /**
-     * Constructor used by the SquadronFactory to build a new object.  Could also be used to build something programmatically
-     * if you feel so inclined.
-     *
-     * @param type What type/hull is the Squadron, ie X-wing
-     * @param name The name of the Squadron, ie Biggs Darklighter, or X-wing
-     * @param unique Is this squadron unique
-     * @param fullHealth How much health does it start with
-     * @param maxSpeed How much distance can it move at full speed
-     * @param antiShipDice anti ship armament
-     * @param antiSquadronDice anti squadron armament
-     * @param keywords keywords the Squadron has access to. Must have a value, even if it is an empty list
-     * @param pointsValue How many points is it worth
-     * @param defenseTokens What defense tokens, if any, does it have?  Must have a value, even if it is an empty list
+     * Constructor to read in the appropriate json file for a squadron
+     * @param shipName what squadron to create
      */
-    public Squadron(String type, String name, boolean unique, String faction, int fullHealth,
-                    int maxSpeed, String antiShipDice, String antiSquadronDice,
-                    ArrayList<String> keywords, int pointsValue, ArrayList<DefenseToken> defenseTokens){
-        this.type = type;
-        this.name = name;
-        this.unique = unique;
-        this.faction = Faction.getFaction(faction);
-        this.fullHealth = fullHealth;
-        this.currentHealth = fullHealth;
-        this.maxSpeed = maxSpeed;
-        this.antiShipDice = antiShipDice;
-        this.antiSquadronDice = antiSquadronDice;
-        this.keywords = keywords;
-        this.pointsValue = pointsValue;
-        this.defenseTokens = defenseTokens;
-    }
-
-    /**
-     * Constructor used to clone another Squadron.  Used to get a Squadron from the SquadronFactory and prepare it for
-     * being used in the game
-     * @param original original Squadron to use as a template
-     */
-    public Squadron(Squadron original){
-        this.type = original.type;
-        this.name = original.name;
-        this.unique = original.unique;
-        this.faction = original.faction;
-        this.fullHealth = original.fullHealth;
-        this.currentHealth = original.fullHealth;
-        this.maxSpeed = original.maxSpeed;
-        this.antiShipDice = original.antiShipDice;
-        this.antiSquadronDice = original.antiSquadronDice;
-        this.keywords = original.keywords;
-        this.pointsValue = original.pointsValue;
-        this.defenseTokens = original.defenseTokens;
+    public Squadron(String shipName) throws IOException, ParseException {
+        Object obj = new JSONParser().parse(new FileReader("assets/data/squadrons/"+shipName+".json"));
+        JSONObject json = (JSONObject) obj;
+        this.type = (String)json.get("Type");
+        this.name = (String)json.get("Name");
+        this.unique = (json.get("Unique")).equals("Y");
+        this.faction = Faction.getFaction((String)json.get("Faction"));
+        this.fullHealth = Integer.parseInt((String) json.get("Hull"));
+        this.currentHealth = Integer.parseInt((String) json.get("Hull"));
+        this.maxSpeed = Integer.parseInt((String) json.get("Speed"));;
+        this.antiShipDice = (String)json.get("AntiShipDice");
+        this.antiSquadronDice = (String)json.get("AntiSquadronDice");
+        this.keywords = ParsingUtils.buildArrayListFromJson("Keywords", json);
+        this.pointsValue = Integer.parseInt((String) json.get("Points"));
+        this.defenseTokens = ParsingUtils.buildDefenseTokensFromStrings(ParsingUtils.buildArrayListFromJson("DefenseTokens", json));
     }
 
     @Override
