@@ -8,10 +8,9 @@ import GUI.board.ShipRenderer;
 import GUI.board.SquadronRenderer;
 import components.DemoMap;
 import components.ship.Ship;
+import components.squadrons.Squadron;
 import engine.ArmadaGame;
 import engine.GameConstants;
-import engine.parsers.ParsingException;
-import engine.parsers.SquadronFactory;
 import org.joml.Vector2d;
 import org.json.simple.parser.ParseException;
 
@@ -42,27 +41,32 @@ public class AllThingsScreen extends Screen implements ScreenWidget{
         //Temporary - just list out all the squadrons and show them all
 
         try {
-            SquadronFactory squadronFactory = new SquadronFactory();
             SquadronRenderer temp;
             int currentCol = 0;
             int currentRow = 0;
-            for (String squadronName : squadronFactory.getSquadronTypes()){
-                temp = new SquadronRenderer(squadronFactory.getSquadron(squadronName));
-                if(currentCol == 10){
-                    currentRow++;
-                    currentCol=0;
-                }
 
-                temp.relocate(new BBDPoint(currentCol * 40, currentRow * 40));
-                currentCol++;
-                this.addItems(temp.getGameItems());
+            File folder = new File("assets/data/squadrons");
+            File[] listOfFiles = folder.listFiles();
+
+            for (File squadFile : listOfFiles){
+                if (!squadFile.getName().equals("ship_template.json")) {
+                    temp = new SquadronRenderer(new Squadron(squadFile.getName().replaceFirst("[.][^.]+$", "")));
+                    if (currentCol == 10) {
+                        currentRow++;
+                        currentCol = 0;
+                    }
+
+                    temp.relocate(new BBDPoint(currentCol * 40, currentRow * 40));
+                    currentCol++;
+                    this.addItems(temp.getGameItems());
+                }
             }
 
             ShipRenderer tempShip;
             currentCol = 0;
             currentRow = 0;
-            File folder = new File("assets/data/ships");
-            File[] listOfFiles = folder.listFiles();
+            folder = new File("assets/data/ships");
+            listOfFiles = folder.listFiles();
 
             for (File shipFile : listOfFiles){
                 if (!shipFile.getName().equals("ship_template.json")){
@@ -80,8 +84,6 @@ public class AllThingsScreen extends Screen implements ScreenWidget{
             }
 
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (ParsingException e) {
             e.printStackTrace();
         } catch (ParseException e) {
             e.printStackTrace();
