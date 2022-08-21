@@ -1,20 +1,18 @@
 import BBDGameLibrary.Geometry2d.BBDPoint;
 import GUI.board.SquadronRenderer;
-import engine.parsers.*;
-import components.squadrons.*;
+import components.squadrons.Squadron;
+import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SquadronTests {
 
     @Test
-    public void testMoving() throws FileNotFoundException, ParsingException {
-        SquadronFactory testParser = new SquadronFactory();
-
-        Squadron arc = testParser.getSquadron("ARC-170 Starfighter");
+    public void testMoving() throws IOException, ParseException {
+        Squadron arc = new Squadron("TIE_Fighter");
         SquadronRenderer renderer = new SquadronRenderer(arc);
 
         //test original location
@@ -42,14 +40,12 @@ public class SquadronTests {
     }
 
     @Test
-    public void testSquadFileNames() throws FileNotFoundException, ParsingException {
-        SquadronFactory testParser = new SquadronFactory();
-
-        Squadron arc = testParser.getSquadron("ARC-170 Starfighter");
-        String expectedFileName = "arc-170-starfighter.png";
+    public void testSquadFileNames() throws IOException, ParseException {
+        Squadron arc = new Squadron("TIE_Fighter");
+        String expectedFileName = "tie-fighter.png";
         assertEquals(expectedFileName, arc.buildSquadFileName());
 
-        Squadron haor = testParser.getSquadron("Haor Chall Prototypes");
+        Squadron haor = new Squadron("Haor_Chall_Prototypes");
         expectedFileName = "vulture-class-droid-fighter_haor-chall-prototypes.png";
         assertEquals(expectedFileName, haor.buildSquadFileName());
     }
