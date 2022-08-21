@@ -1,0 +1,13 @@
+{
+  "Name": "Vulture-class Droid Fighter",
+  "Type": "Vulture-class Droid Fighter",
+  "Unique":"N",
+  "Faction": "Separatist",
+  "Points": "8",
+  "Hull": "3",
+  "Speed": "4",
+  "DefenseTokens": [],
+  "AntiShipDice": "R",
+  "AntiSquadronDice": "BK",
+  "Keywords": ["Swarm", "Anti-Squadron1"]
+}

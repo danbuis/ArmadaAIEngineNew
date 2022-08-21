@@ -1,0 +1,13 @@
+{
+  "Name": "Howlrunner",
+  "Type": "TIE Fighter",
+  "Unique":"Y",
+  "Faction": "Imperial",
+  "Points": "16",
+  "Hull": "3",
+  "Speed": "4",
+  "DefenseTokens": ["Brace", "Scatter"],
+  "AntiShipDice" : "B",
+  "AntiSquadronDice" : "BBB",
+  "Keywords" : ["Swarm"]
+}

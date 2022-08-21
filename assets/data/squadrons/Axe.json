@@ -1,0 +1,13 @@
+{
+  "Name": "Axe",
+  "Type": "V-19 Torrent",
+  "Unique":"Y",
+  "Faction": "Republic",
+  "Points": "17",
+  "Hull": "5",
+  "Speed": "3",
+  "DefenseTokens": ["Brace", "Evade"],
+  "AntiShipDice": "K",
+  "AntiSquadronDice": "RBB",
+  "Keywords": ["Swarm", "Escort"]
+}
