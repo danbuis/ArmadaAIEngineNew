@@ -1,12 +1,37 @@
 package engine.parsers;
 
+import components.tokens.DefenseToken;
 import engine.forces.Faction;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 
 public class ParsingUtils {
-        private static String[] VALID_DEFENSE_TOKEN_ABBR ={"Br", "Rd", "Ev", "Sc", "Cn", "Sal"};
+    private static String[] VALID_DEFENSE_TOKEN_ABBR ={"Br", "Rd", "Ev", "Sc", "Cn", "Sal"};
+
+    public static ArrayList<String> buildArrayListFromJson(String field, JSONObject json){
+        ArrayList<String> returnList = new ArrayList<>();
+
+        JSONArray ja = (JSONArray) json.get(field);
+        Iterator itr = ja.iterator();
+
+        while (itr.hasNext()){
+            String item = (String)itr.next();
+            returnList.add(item);
+        }
+        return returnList;
+    }
+
+    public static ArrayList<DefenseToken> buildDefenseTokensFromStrings(ArrayList<String> input){
+        ArrayList<DefenseToken> returnList = new ArrayList<>();
+        for(String token: input) {
+            returnList.add(new DefenseToken(token));
+        }
+        return returnList;
+    }
 
     /**
      * A util method to validate ints.  Assumes that all Strings that need to be made into ints need to be
