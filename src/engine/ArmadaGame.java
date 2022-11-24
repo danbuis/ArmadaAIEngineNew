@@ -10,13 +10,8 @@ import BBDGameLibrary.OpenGL.Window;
 import GUI.screens.*;
 import components.DemoMap;
 import engine.forces.Fleet;
-import engine.parsers.ParsingException;
-import engine.parsers.ShipFactory;
-import engine.parsers.SquadronFactory;
 import org.joml.Vector2d;
 import org.joml.Vector3f;
-
-import java.io.FileNotFoundException;
 
 
 /**ArmadaGame holds the root logic for the game.  Any object present in the game is eventually attached to here.  It
@@ -38,8 +33,6 @@ public class ArmadaGame implements GameComponent {
     Vector2d mouseLocationOnMap = null;
     private Window window;
     private Screen currentScreen;
-    public ShipFactory shipFactory;
-    public SquadronFactory squadronFactory;
     private ScreenState currentState = ScreenState.HOME;
     private Screen homeScreen;
     private Screen allThingsScreen;
@@ -62,14 +55,6 @@ public class ArmadaGame implements GameComponent {
     public void init(Window window) {
         this.window = window;
         window.setZFar(GameConstants.ZOOM_MAXIMUM + 5);
-        try {
-            squadronFactory = new SquadronFactory();
-            shipFactory = new ShipFactory();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (ParsingException e) {
-            e.printStackTrace();
-        }
         homeScreen = new HomeScreen(window, this);
         allThingsScreen = new AllThingsScreen(window, this);
         this.changeScreens(ScreenState.HOME, null);

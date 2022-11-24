@@ -1,0 +1,22 @@
+{
+  "Name": "Munificent-class Star Frigate",
+  "Type": "Munificent",
+  "Keywords": ["Droid", "Transport", "Bombard"],
+  "Faction": "Separatist",
+  "Size": "Medium",
+  "Points": "73",
+  "Hull": "6",
+  "DefenseTokens": ["Brace", "Redirect", "Salvo"],
+  "Command": "2",
+  "Squad": "3",
+  "Engineering": "4",
+  "Speed": "2 12 - -",
+  "Shields" : "4 3 2",
+  "AntiShipDice" : "RRBB RRR RR",
+  "AntiSquadronDice" : "RK",
+  "UpgradeSlots" : ["Title", "Turbolaser" ,"DefensiveRetrofit", "SupportTeam", "Officer", "IonCannon"],
+  "FrontArcOffset" : "-3.2",
+  "RearArcOffset" : "7.9",
+  "FrontArcConjunction" : "53",
+  "RearArcConjunction" : "49"
+}

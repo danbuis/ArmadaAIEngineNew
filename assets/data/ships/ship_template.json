@@ -1,0 +1,22 @@
+{
+  "Name": "",
+  "Type": "",
+  "Keywords": [],
+  "Faction": "",
+  "Size": "",
+  "Points": "",
+  "Hull": "",
+  "DefenseTokens": ["", "", ""],
+  "Command": "",
+  "Squad": "",
+  "Engineering": "",
+  "Speed": "",
+  "Shields" : "",
+  "AntiShipDice" : "",
+  "AntiSquadronDice" : "",
+  "UpgradeSlots" : ["", "", "", "", "", ""],
+  "FrontArcOffset" : "",
+  "RearArcOffset" : "",
+  "FrontArcConjunction" : "",
+  "RearArcConjunction" : ""
+}

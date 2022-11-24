@@ -1,0 +1,13 @@
+{
+  "Name": "Haor Chall Prototypes",
+  "Type": "Vulture-class Droid Fighter",
+  "Unique":"Y",
+  "Faction": "Separatist",
+  "Points": "16",
+  "Hull": "3",
+  "Speed": "4",
+  "DefenseTokens": ["Brace", "Scatter"],
+  "AntiShipDice": "R",
+  "AntiSquadronDice": "BK",
+  "Keywords": ["Swarm", "Anti-Squadron1"]
+}

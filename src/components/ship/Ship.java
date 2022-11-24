@@ -5,7 +5,13 @@ import BBDGameLibrary.Geometry2d.BBDPolygon;
 import BBDGameLibrary.Geometry2d.BBDSegment;
 import components.tokens.DefenseToken;
 import engine.forces.Faction;
+import engine.parsers.ParsingUtils;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -36,44 +42,54 @@ public class Ship {
     private BBDPolygon plasticBase;
     private BBDPoint location = new BBDPoint(0,0);
 
-    public Ship(ProtoShip original){
-        this.name = original.name;
-        this.type = original.type;
-        this.keywords = original.keywords;
-        this.faction = Faction.getFaction(original.faction);
-        this.points = original.points;
-        this.hull = original.hull;
-        this.defenseTokens = original.defenseTokens;
-        this.command = original.command;
-        this.squad = original.squad;
-        this.engineering = original.engineering;
-        this.speed = original.speed;
-        this.shields = original.shields;
-        this.antiShipDice = original.antiShipDice;
-        this.antiSquadronDice = original.antiSquadronDice;
-        this.upgrades = original.upgrades;
+    public Ship(String shipName) throws IOException, ParseException {
+        Object obj = new JSONParser().parse(new FileReader("assets/data/ships/"+shipName+".json"));
+        JSONObject json = (JSONObject) obj;
 
+        this.name = (String)json.get("Name");
+        this.type = (String)json.get("Type");
+        this.keywords = ParsingUtils.buildArrayListFromJson("Keywords", json);
+        this.faction = Faction.getFaction((String)json.get("Faction"));
+        this.points = Integer.parseInt((String) json.get("Points"));
+        this.hull = Integer.parseInt((String) json.get("Hull"));
+        this.defenseTokens = ParsingUtils.buildDefenseTokensFromStrings(ParsingUtils.buildArrayListFromJson("DefenseTokens", json));
+        this.command = Integer.parseInt((String) json.get("Command"));
+        this.squad = Integer.parseInt((String) json.get("Squad"));
+        this.engineering = Integer.parseInt((String) json.get("Engineering"));
+        this.speed = (String)json.get("Speed");
+        this.antiSquadronDice = (String)json.get("AntiSquadronDice");
+        this.upgrades = (String)json.get("Upgrades");
 
-        if(original.size.toLowerCase().equals("small")){
-            buildBase(ShipSize.SMALL);
-            this.size = ShipSize.SMALL;
-        }else if(original.size.toLowerCase().equals("medium")){
-            buildBase(ShipSize.MEDIUM);
-            this.size = ShipSize.MEDIUM;
-        }else if(original.size.toLowerCase().equals("large")){
-            buildBase(ShipSize.LARGE);
-            this.size = ShipSize.LARGE;
-        }else if(original.size.toLowerCase().equals("flotilla")) {
-            buildBase(ShipSize.FLOTILLA);
-            this.size = ShipSize.FLOTILLA;
+        switch(((String)json.get("Size")).toLowerCase()){
+            case "small" :
+               buildBase(ShipSize.SMALL);
+                this.size = ShipSize.SMALL;
+                break;
+            case"medium" :
+                buildBase(ShipSize.MEDIUM);
+                this.size = ShipSize.MEDIUM;
+                break;
+            case"large" :
+                buildBase(ShipSize.LARGE);
+                this.size = ShipSize.LARGE;
+                break;
+            case"flotilla" :
+                buildBase(ShipSize.FLOTILLA);
+                this.size = ShipSize.FLOTILLA;
+                break;
         }
-        this.hullzones = buildHullZones(this.size, original.frontOffset, original.frontConjunction, original.rearOffset, original.rearConjunction, original.shields, original.antiShipDice);
+        this.hullzones = buildHullZones(this.size,
+                                       Float.parseFloat((String)json.get("FrontArcOffset")),
+                                       Float.parseFloat((String)json.get("FrontArcConjunction")),
+                                       Float.parseFloat((String)json.get("RearArcOffset")),
+                                       Float.parseFloat((String) json.get("RearArcConjunction")),
+                                       (String)json.get("Shields"),
+                                       (String)json.get("AntiShipDice"));
         this.location = new BBDPoint(0,0);
     }
 
     public void moveNew(BBDPoint newPoint){
         this.location = newPoint;
-       
     }
 
     public BBDSegment[] getHullZoneLines(){

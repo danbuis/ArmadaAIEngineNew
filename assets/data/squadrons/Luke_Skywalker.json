@@ -1,0 +1,13 @@
+{
+  "Name": "Luke Skywalker",
+  "Type": "X-wing",
+  "Unique":"Y",
+  "Faction": "Rebel",
+  "Points": "20",
+  "Hull": "5",
+  "Speed": "3",
+  "DefenseTokens": ["Brace", "Brace"],
+  "AntiShipDice" : "K",
+  "AntiSquadronDice" : "BBBB",
+  "Keywords" : ["Escort", "Bomber"]
+}

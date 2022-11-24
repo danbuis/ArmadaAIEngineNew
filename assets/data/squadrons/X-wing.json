@@ -1,0 +1,13 @@
+{
+  "Name": "X-wing",
+  "Type": "X-wing",
+  "Unique":"N",
+  "Faction": "Rebel",
+  "Points": "13",
+  "Hull": "5",
+  "Speed": "3",
+  "DefenseTokens": [],
+  "AntiShipDice" : "R",
+  "AntiSquadronDice" : "BBBB",
+  "Keywords" : ["Escort", "Bomber"]
+}

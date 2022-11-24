@@ -1,0 +1,13 @@
+{
+  "Name": "V-19 Torrent",
+  "Type": "V-19 Torrent",
+  "Unique": "N",
+  "Faction": "Republic",
+  "Points": "12",
+  "Hull": "5",
+  "Speed": "3",
+  "DefenseTokens": [],
+  "AntiShipDice": "K",
+  "AntiSquadronDice": "RBB",
+  "Keywords": ["Swarm", "Escort"]
+}

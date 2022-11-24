@@ -1,0 +1,22 @@
+{
+  "Name": "Nebulon B Escort Frigate",
+  "Type": "Nebulon B",
+  "Keywords": [],
+  "Faction": "Rebel",
+  "Size": "Small",
+  "Points": "579",
+  "Hull": "5",
+  "DefenseTokens": ["Brace", "Brace", "Evade"],
+  "Command": "2",
+  "Squad": "2",
+  "Engineering": "3",
+  "Speed": "1 11 012 -",
+  "Shields" : "3 1 2",
+  "AntiShipDice" : "RRR RB RR",
+  "AntiSquadronDice" : "BB",
+  "UpgradeSlots" : ["Title", "TurboLaser", "SupportTeam", "Officer"],
+  "FrontArcOffset" : "0",
+  "RearArcOffset" : "0",
+  "FrontArcConjunction" : "35.5",
+  "RearArcConjunction" : "35.5"
+}

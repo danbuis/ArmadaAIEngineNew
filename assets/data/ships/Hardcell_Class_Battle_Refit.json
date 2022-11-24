@@ -1,0 +1,22 @@
+{
+  "Name": "Hardcell-class Battle Refit",
+  "Type": "Hardcell",
+  "Keywords": ["Droid", "Transport"],
+  "Faction": "Separatist",
+  "Size": "Small",
+  "Points": "52",
+  "Hull": "5",
+  "DefenseTokens": ["Brace", "Redirect", "Evade"],
+  "Command": "1",
+  "Squad": "2",
+  "Engineering": "3",
+  "Speed": "2 11 11- -",
+  "Shields" : "3 1 2",
+  "AntiShipDice" : "RRR R -",
+  "AntiSquadronDice" : "BK",
+  "UpgradeSlots" : ["Title", "Turbolaser" ,"OffensiveRetrofit", "DefensiveRetrofit", "Officer"],
+  "FrontArcOffset" : "13.1",
+  "RearArcOffset" : "13.1",
+  "FrontArcConjunction" : "32",
+  "RearArcConjunction" : "31"
+}

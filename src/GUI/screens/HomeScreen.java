@@ -8,6 +8,8 @@ import BBDGameLibrary.Geometry2d.BBDPoint;
 import BBDGameLibrary.OpenGL.Window;
 import GUI.board.ShipRenderer;
 import GUI.board.SquadronRenderer;
+import components.ship.Ship;
+import components.squadrons.Squadron;
 import engine.ArmadaGame;
 import engine.GameConstants;
 import engine.forces.Fleet;
@@ -65,89 +67,101 @@ public class HomeScreen extends Screen implements ScreenWidget{
     }
 
     public Fleet[] buildCloneWarDemo(){
-        ArrayList<ShipRenderer> republicShips = new ArrayList<>();
-        ArrayList<SquadronRenderer> republicSquadrons = new ArrayList<>();
-        republicShips.add(new ShipRenderer(parent.shipFactory.getShip("Acclamator I-class Assault Ship")));
-        republicShips.get(republicShips.size()-1).relocate(new BBDPoint(0, GameConstants.SHORT_BOARD_EDGE/2f - GameConstants.DISTANCE_2));
-        republicShips.add(new ShipRenderer(parent.shipFactory.getShip("Consular Charger C70")));
-        republicShips.get(republicShips.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / 4f, GameConstants.SHORT_BOARD_EDGE/2f - GameConstants.DISTANCE_2));
-        republicShips.add(new ShipRenderer(parent.shipFactory.getShip("Consular Charger C70")));
-        republicShips.get(republicShips.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / -4f, GameConstants.SHORT_BOARD_EDGE/2f - GameConstants.DISTANCE_2));
+        Fleet republic = null;
+        Fleet separatist = null;
+        try {
+            ArrayList<ShipRenderer> republicShips = new ArrayList<>();
+            ArrayList<SquadronRenderer> republicSquadrons = new ArrayList<>();
+            republicShips.add(new ShipRenderer(new Ship("Acclamator_I_Star_Destroyer")));
+            republicShips.get(republicShips.size()-1).relocate(new BBDPoint(0, GameConstants.SHORT_BOARD_EDGE/2f - GameConstants.DISTANCE_2));
+            republicShips.add(new ShipRenderer(new Ship("Consular_Charger_C70")));
+            republicShips.get(republicShips.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / 4f, GameConstants.SHORT_BOARD_EDGE/2f - GameConstants.DISTANCE_2));
+            republicShips.add(new ShipRenderer(new Ship("Consular_Charger_C70")));
+            republicShips.get(republicShips.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / -4f, GameConstants.SHORT_BOARD_EDGE/2f - GameConstants.DISTANCE_2));
 
-        republicSquadrons.add(new SquadronRenderer(parent.squadronFactory.getSquadron("V-19 Torrent")));
-        republicSquadrons.get(republicSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/6f, GameConstants.SHORT_BOARD_EDGE/2 - GameConstants.DISTANCE_3));
-        republicSquadrons.add(new SquadronRenderer(parent.squadronFactory.getSquadron("V-19 Torrent")));
-        republicSquadrons.get(republicSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/3f, GameConstants.SHORT_BOARD_EDGE/2 - GameConstants.DISTANCE_3));
-        republicSquadrons.add(new SquadronRenderer(parent.squadronFactory.getSquadron("V-19 Torrent")));
-        republicSquadrons.get(republicSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/-6f, GameConstants.SHORT_BOARD_EDGE/2 - GameConstants.DISTANCE_3));
-        republicSquadrons.add(new SquadronRenderer(parent.squadronFactory.getSquadron("V-19 Torrent")));
-        republicSquadrons.get(republicSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/-3f, GameConstants.SHORT_BOARD_EDGE/2 - GameConstants.DISTANCE_3));
+            republicSquadrons.add(new SquadronRenderer(new Squadron("V-19_Torrent")));
+            republicSquadrons.get(republicSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/6f, GameConstants.SHORT_BOARD_EDGE/2 - GameConstants.DISTANCE_3));
+            republicSquadrons.add(new SquadronRenderer(new Squadron("V-19_Torrent")));
+            republicSquadrons.get(republicSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/3f, GameConstants.SHORT_BOARD_EDGE/2 - GameConstants.DISTANCE_3));
+            republicSquadrons.add(new SquadronRenderer(new Squadron("V-19_Torrent")));
+            republicSquadrons.get(republicSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/-6f, GameConstants.SHORT_BOARD_EDGE/2 - GameConstants.DISTANCE_3));
+            republicSquadrons.add(new SquadronRenderer(new Squadron("V-19_Torrent")));
+            republicSquadrons.get(republicSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/-3f, GameConstants.SHORT_BOARD_EDGE/2 - GameConstants.DISTANCE_3));
 
-        Fleet republic = new Fleet(republicShips, republicSquadrons);
+            republic = new Fleet(republicShips, republicSquadrons);
 
-        ArrayList<ShipRenderer> separatistShips = new ArrayList<>();
-        ArrayList<SquadronRenderer> separatistSquadrons = new ArrayList<>();
-        separatistShips.add(new ShipRenderer(parent.shipFactory.getShip("Munificent-class Comms Frigate")));
-        separatistShips.get(separatistShips.size()-1).relocate(new BBDPoint(0, -GameConstants.SHORT_BOARD_EDGE/2f + GameConstants.DISTANCE_2));
-        separatistShips.add(new ShipRenderer(parent.shipFactory.getShip("Hardcell-class Battle Refit")));
-        separatistShips.get(separatistShips.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / 4f, -GameConstants.SHORT_BOARD_EDGE/2f + GameConstants.DISTANCE_2));
-        separatistShips.add(new ShipRenderer(parent.shipFactory.getShip("Hardcell-class Battle Refit")));
-        separatistShips.get(separatistShips.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / -4f, -GameConstants.SHORT_BOARD_EDGE/2f + GameConstants.DISTANCE_2));
+            ArrayList<ShipRenderer> separatistShips = new ArrayList<>();
+            ArrayList<SquadronRenderer> separatistSquadrons = new ArrayList<>();
+            separatistShips.add(new ShipRenderer(new Ship("Munificent_Class_Comms_Frigate")));
+            separatistShips.get(separatistShips.size()-1).relocate(new BBDPoint(0, -GameConstants.SHORT_BOARD_EDGE/2f + GameConstants.DISTANCE_2));
+            separatistShips.add(new ShipRenderer(new Ship("Hardcell_Class_Battle_Refit")));
+            separatistShips.get(separatistShips.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / 4f, -GameConstants.SHORT_BOARD_EDGE/2f + GameConstants.DISTANCE_2));
+            separatistShips.add(new ShipRenderer(new Ship("Hardcell_Class_Battle_Refit")));
+            separatistShips.get(separatistShips.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / -4f, -GameConstants.SHORT_BOARD_EDGE/2f + GameConstants.DISTANCE_2));
 
-        separatistSquadrons.add(new SquadronRenderer(parent.squadronFactory.getSquadron("Vulture-class Droid Fighter")));
-        separatistSquadrons.get(separatistSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/6f, -GameConstants.SHORT_BOARD_EDGE/2 + GameConstants.DISTANCE_3));
-        separatistSquadrons.add(new SquadronRenderer(parent.squadronFactory.getSquadron("Vulture-class Droid Fighter")));
-        separatistSquadrons.get(separatistSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/3f, -GameConstants.SHORT_BOARD_EDGE/2 + GameConstants.DISTANCE_3));
-        separatistSquadrons.add(new SquadronRenderer(parent.squadronFactory.getSquadron("Vulture-class Droid Fighter")));
-        separatistSquadrons.get(separatistSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/-6f, -GameConstants.SHORT_BOARD_EDGE/2 + GameConstants.DISTANCE_3));
-        separatistSquadrons.add(new SquadronRenderer(parent.squadronFactory.getSquadron("Vulture-class Droid Fighter")));
-        separatistSquadrons.get(separatistSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/-3f, -GameConstants.SHORT_BOARD_EDGE/2 + GameConstants.DISTANCE_3));
+            separatistSquadrons.add(new SquadronRenderer(new Squadron("Vulture_Class_Droid_Fighter")));
+            separatistSquadrons.get(separatistSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/6f, -GameConstants.SHORT_BOARD_EDGE/2 + GameConstants.DISTANCE_3));
+            separatistSquadrons.add(new SquadronRenderer(new Squadron("Vulture_Class_Droid_Fighter")));
+            separatistSquadrons.get(separatistSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/3f, -GameConstants.SHORT_BOARD_EDGE/2 + GameConstants.DISTANCE_3));
+            separatistSquadrons.add(new SquadronRenderer(new Squadron("Vulture_Class_Droid_Fighter")));
+            separatistSquadrons.get(separatistSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/-6f, -GameConstants.SHORT_BOARD_EDGE/2 + GameConstants.DISTANCE_3));
+            separatistSquadrons.add(new SquadronRenderer(new Squadron("Vulture_Class_Droid_Fighter")));
+            separatistSquadrons.get(separatistSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/-3f, -GameConstants.SHORT_BOARD_EDGE/2 + GameConstants.DISTANCE_3));
 
-        Fleet separatist = new Fleet(separatistShips, separatistSquadrons);
-
+            separatist = new Fleet(separatistShips, separatistSquadrons);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
         Fleet[] returnFleets = {republic, separatist};
         return returnFleets;
     }
 
     public Fleet[] buildCivilWarDemo(){
-        ArrayList<ShipRenderer> rebelShips = new ArrayList<>();
-        ArrayList<SquadronRenderer> rebelSquadrons = new ArrayList<>();
-        rebelShips.add(new ShipRenderer(parent.shipFactory.getShip("CR90 Corvette A")));
-        rebelShips.get(rebelShips.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / -4f, GameConstants.SHORT_BOARD_EDGE/2f - GameConstants.DISTANCE_2));
-        rebelShips.add(new ShipRenderer(parent.shipFactory.getShip("Nebulon B Escort Frigate")));
-        rebelShips.get(rebelShips.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / 4f, GameConstants.SHORT_BOARD_EDGE/2f - GameConstants.DISTANCE_2));
+        Fleet rebel = null;
+        Fleet empire = null;
+        try {
+            ArrayList<ShipRenderer> rebelShips = new ArrayList<>();
+            ArrayList<SquadronRenderer> rebelSquadrons = new ArrayList<>();
+            rebelShips.add(new ShipRenderer(new Ship("CR90_Corvette_A")));
+            rebelShips.get(rebelShips.size() - 1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / -4f, GameConstants.SHORT_BOARD_EDGE / 2f - GameConstants.DISTANCE_2));
+            rebelShips.add(new ShipRenderer(new Ship("Nebulon_B_Escort_Frigate")));
+            rebelShips.get(rebelShips.size() - 1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / 4f, GameConstants.SHORT_BOARD_EDGE / 2f - GameConstants.DISTANCE_2));
 
-        rebelSquadrons.add(new SquadronRenderer(parent.squadronFactory.getSquadron("X-wing")));
-        rebelSquadrons.get(rebelSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/6f, GameConstants.SHORT_BOARD_EDGE/2 - GameConstants.DISTANCE_3));
-        rebelSquadrons.add(new SquadronRenderer(parent.squadronFactory.getSquadron("X-wing")));
-        rebelSquadrons.get(rebelSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/3f, GameConstants.SHORT_BOARD_EDGE/2 - GameConstants.DISTANCE_3));
-        rebelSquadrons.add(new SquadronRenderer(parent.squadronFactory.getSquadron("X-wing")));
-        rebelSquadrons.get(rebelSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/-6f, GameConstants.SHORT_BOARD_EDGE/2 - GameConstants.DISTANCE_3));
-        rebelSquadrons.add(new SquadronRenderer(parent.squadronFactory.getSquadron("X-wing")));
-        rebelSquadrons.get(rebelSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/-3f, GameConstants.SHORT_BOARD_EDGE/2 - GameConstants.DISTANCE_3));
+            rebelSquadrons.add(new SquadronRenderer(new Squadron("X-wing")));
+            rebelSquadrons.get(rebelSquadrons.size() - 1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / 6f, GameConstants.SHORT_BOARD_EDGE / 2 - GameConstants.DISTANCE_3));
+            rebelSquadrons.add(new SquadronRenderer(new Squadron("X-wing")));
+            rebelSquadrons.get(rebelSquadrons.size() - 1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / 3f, GameConstants.SHORT_BOARD_EDGE / 2 - GameConstants.DISTANCE_3));
+            rebelSquadrons.add(new SquadronRenderer(new Squadron("X-wing")));
+            rebelSquadrons.get(rebelSquadrons.size() - 1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / -6f, GameConstants.SHORT_BOARD_EDGE / 2 - GameConstants.DISTANCE_3));
+            rebelSquadrons.add(new SquadronRenderer(new Squadron("X-wing")));
+            rebelSquadrons.get(rebelSquadrons.size() - 1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / -3f, GameConstants.SHORT_BOARD_EDGE / 2 - GameConstants.DISTANCE_3));
 
-        Fleet rebel= new Fleet(rebelShips, rebelSquadrons);
+            rebel = new Fleet(rebelShips, rebelSquadrons);
 
-        ArrayList<ShipRenderer> empireShips = new ArrayList<>();
-        ArrayList<SquadronRenderer> empireSquadrons = new ArrayList<>();
-        empireShips.add(new ShipRenderer(parent.shipFactory.getShip("Victory II-class Star Destroyer")));
-        empireShips.get(empireShips.size()-1).relocate(new BBDPoint(0, -GameConstants.SHORT_BOARD_EDGE/2f + GameConstants.DISTANCE_2));
+            ArrayList<ShipRenderer> empireShips = new ArrayList<>();
+            ArrayList<SquadronRenderer> empireSquadrons = new ArrayList<>();
+            empireShips.add(new ShipRenderer(new Ship("Victory_II-class_Star_Destroyer")));
+            empireShips.get(empireShips.size()-1).relocate(new BBDPoint(0, -GameConstants.SHORT_BOARD_EDGE/2f + GameConstants.DISTANCE_2));
 
-        empireSquadrons.add(new SquadronRenderer(parent.squadronFactory.getSquadron("TIE Fighter")));
-        empireSquadrons.get(empireSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/6, -GameConstants.SHORT_BOARD_EDGE/2 + GameConstants.DISTANCE_2));
-        empireSquadrons.add(new SquadronRenderer(parent.squadronFactory.getSquadron("TIE Fighter")));
-        empireSquadrons.get(empireSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/7f, -GameConstants.SHORT_BOARD_EDGE/2 + GameConstants.DISTANCE_3));
-        empireSquadrons.add(new SquadronRenderer(parent.squadronFactory.getSquadron("TIE Fighter")));
-        empireSquadrons.get(empireSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/-7f, -GameConstants.SHORT_BOARD_EDGE/2 + GameConstants.DISTANCE_3));
-        empireSquadrons.add(new SquadronRenderer(parent.squadronFactory.getSquadron("TIE Fighter")));
-        empireSquadrons.get(empireSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/-6f, -GameConstants.SHORT_BOARD_EDGE/2 + GameConstants.DISTANCE_2));
-        empireSquadrons.add(new SquadronRenderer(parent.squadronFactory.getSquadron("TIE Fighter")));
-        empireSquadrons.get(empireSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/5f, -GameConstants.SHORT_BOARD_EDGE/2 + GameConstants.DISTANCE_3));
-        empireSquadrons.add(new SquadronRenderer(parent.squadronFactory.getSquadron("TIE Fighter")));
-        empireSquadrons.get(empireSquadrons.size()-1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE/-5f, -GameConstants.SHORT_BOARD_EDGE/2 + GameConstants.DISTANCE_3));
+            empireSquadrons.add(new SquadronRenderer(new Squadron("TIE_Fighter")));
+            empireSquadrons.get(empireSquadrons.size() - 1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / 6, -GameConstants.SHORT_BOARD_EDGE / 2 + GameConstants.DISTANCE_2));
+            empireSquadrons.add(new SquadronRenderer(new Squadron("TIE_Fighter")));
+            empireSquadrons.get(empireSquadrons.size() - 1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / 7f, -GameConstants.SHORT_BOARD_EDGE / 2 + GameConstants.DISTANCE_3));
+            empireSquadrons.add(new SquadronRenderer(new Squadron("TIE_Fighter")));
+            empireSquadrons.get(empireSquadrons.size() - 1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / -7f, -GameConstants.SHORT_BOARD_EDGE / 2 + GameConstants.DISTANCE_3));
+            empireSquadrons.add(new SquadronRenderer(new Squadron("TIE_Fighter")));
+            empireSquadrons.get(empireSquadrons.size() - 1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / -6f, -GameConstants.SHORT_BOARD_EDGE / 2 + GameConstants.DISTANCE_2));
+            empireSquadrons.add(new SquadronRenderer(new Squadron("TIE_Fighter")));
+            empireSquadrons.get(empireSquadrons.size() - 1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / 5f, -GameConstants.SHORT_BOARD_EDGE / 2 + GameConstants.DISTANCE_3));
+            empireSquadrons.add(new SquadronRenderer(new Squadron("TIE_Fighter")));
+            empireSquadrons.get(empireSquadrons.size() - 1).relocate(new BBDPoint(GameConstants.SHORT_BOARD_EDGE / -5f, -GameConstants.SHORT_BOARD_EDGE / 2 + GameConstants.DISTANCE_3));
 
-        Fleet empire = new Fleet(empireShips, empireSquadrons);
-
+            empire = new Fleet(empireShips, empireSquadrons);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
         Fleet[] returnFleets = {rebel, empire};
         return returnFleets;
     }

@@ -1,0 +1,22 @@
+{
+  "Name": "CR90 Corvette B",
+  "Type": "CR90 Corvette",
+  "Keywords": [],
+  "Faction": "Rebel",
+  "Size": "Small",
+  "Points": "39",
+  "Hull": "4",
+  "DefenseTokens": ["Redirect", "Redirect", "Evade"],
+  "Command": "1",
+  "Squad": "1",
+  "Engineering": "2",
+  "Speed": "2 12 012 0112",
+  "Shields" : "2 2 1",
+  "AntiShipDice" : "BBB BB B",
+  "AntiSquadronDice" : "B",
+  "UpgradeSlots" : ["Title", "IonCannon", "SupportTeam", "DefensiveRetrofit", "Officer"],
+  "FrontArcOffset" : "19.8",
+  "RearArcOffset" : "5.6",
+  "FrontArcConjunction" : "43",
+  "RearArcConjunction" : "28"
+}

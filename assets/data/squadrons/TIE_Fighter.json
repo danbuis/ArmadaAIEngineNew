@@ -1,0 +1,13 @@
+{
+  "Name": "TIE Fighter",
+  "Type": "TIE Fighter",
+  "Unique":"N",
+  "Faction": "Imperial",
+  "Points": "8",
+  "Hull": "3",
+  "Speed": "4",
+  "DefenseTokens": [],
+  "AntiShipDice" : "B",
+  "AntiSquadronDice" : "BBB",
+  "Keywords" : ["Swarm"]
+}

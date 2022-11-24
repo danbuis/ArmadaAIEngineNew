@@ -1,0 +1,22 @@
+{
+  "Name": "Munificent-class Comms Frigate",
+  "Type": "Munificent",
+  "Keywords": ["Droid", "Comms", "Bombard"],
+  "Faction": "Separatist",
+  "Size": "Medium",
+  "Points": "70",
+  "Hull": "6",
+  "DefenseTokens": ["Brace", "Redirect", "Salvo"],
+  "Command": "2",
+  "Squad": "3",
+  "Engineering": "4",
+  "Speed": "2 12 - -",
+  "Shields" : "4 3 2",
+  "AntiShipDice" : "RRBB RRR RR",
+  "AntiSquadronDice" : "R",
+  "UpgradeSlots" : ["Title", "FleetSupport" ,"SupportTeam", "SupportTeam", "Officer", "IonCannon"],
+  "FrontArcOffset" : "-3.2",
+  "RearArcOffset" : "7.9",
+  "FrontArcConjunction" : "53",
+  "RearArcConjunction" : "49"
+}

@@ -32,22 +32,22 @@ public class DefenseToken {
 
     public DefenseToken(String tokenType){
         switch (tokenType){
-            case "Br" :
+            case "Brace" :
                 this.type = Type.BRACE;
                 break;
-            case "Sc" :
+            case "Scatter" :
                 this.type = Type.SCATTER;
                 break;
-            case "Ev" :
+            case "Evade" :
                 this.type = Type.EVADE;
                 break;
-            case "Rd" :
+            case "Redirect" :
                 this.type = Type.REDIRECT;
                 break;
-            case "Sal" :
+            case "Salvo" :
                 this.type = Type.SALVO;
                 break;
-            case "Cn" :
+            case "Contain" :
                 this.type = Type.CONTAIN;
                 break;
         }

@@ -1,0 +1,22 @@
+{
+  "Name": "Acclamator I-class Star Destroyer",
+  "Type": "Acclamator",
+  "Keywords": ["Clone", "Bombard", "Transport"],
+  "Faction": "Republic",
+  "Size": "Medium",
+  "Points": "71",
+  "Hull": "7",
+  "DefenseTokens": ["Salvo", "Redirect", "Brace"],
+  "Command": "3",
+  "Squad": "3",
+  "Engineering": "4",
+  "Speed": "1 10 010 -",
+  "Shields" : "4 2 2",
+  "AntiShipDice" : "RRRBKK RRK RBK",
+  "AntiSquadronDice" : "BK",
+  "UpgradeSlots" : ["Title", "TurboLaser", "OffensiveRetrofit", "Officer", "DefensiveRetrofit", "WeaponsTeam", "Ordnance"],
+  "FrontArcOffset" : "24.6",
+  "RearArcOffset" : "18.7",
+  "FrontArcConjunction" : "52",
+  "RearArcConjunction" : "41"
+}
